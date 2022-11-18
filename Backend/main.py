@@ -1,52 +1,40 @@
-from typing  import Optional
+from typing import List
+import fastapi
+import fastapi.security
 
-from fastapi import FastAPI
-from pydantic import BaseModel
+import sqlalchemy.orm
 
-import requests
+from Login import services
+from Login import schemas
 
-app = FastAPI()
-
-db =[]
-
-class City(BaseModel):
-    name : str
-    timezone : str
+app = fastapi.FastAPI()
 
 
-@app.get("/")
-def read_root():
-    return {"Hello": "World"}
+# 실행 구문 : uvicorn main:app --reload
+# 화면에서 local주소 뒤에 /docs 입력 후 작업
 
-@app.get('/cities')
-def get_cities():
-    results = []
-    for city in db:
-        # strs = f"http://worldtimeapi.org/timezone/{city['timezone']}"
-        strs = f"http://worldtimeapi.org/api/timezone/{city['timezone']}"
-        r = requests.get(strs)
-        cur_time = r.json()['datetime']
-        results.append({'name':city['name'],'timezone':city['timezone'], 'current_time':cur_time})
+# Token를 부여할 ID와 Password 지정
+@app.post("/api/users")
+async def create_user(user: schemas.UserCreate, db: sqlalchemy.orm.Session = fastapi.Depends(services.get_db)):
+    db_user = await services.get_user_by_ID(user.LoginID, db)
+    if db_user:
+        raise fastapi.HTTPException(status_code=400, detail="ID already in use")
     
-    return results
+    user = await services.create_user(user, db)
+    
+    return await services.create_token(user)
 
-@app.get('/cities{city_id}')    
-def get_city(city_id : int):
-    city = db[city_id-1]
-    strs = f"http://worldtimeapi.org/api/timezone/{city['timezone']}"
-    r = requests.get(strs)
+# ID password 확인 후 Token 부여하기 , user(ID, Password)가 없으면 부여하지 못한다.
+@app.post("/api/token")
+async def generate_token(form_data : fastapi.security.OAuth2PasswordRequestForm = fastapi.Depends(), db: sqlalchemy.orm.Session = fastapi.Depends(services.get_db)):
+    user = await services.authenticate_user(form_data.username, form_data.password, db)
     
-    cur_time = r.json()['datetime']
-    return {'name':city['name'], 'timezone':city['timezone'], 'current_time': cur_time}
+    if not user:
+        raise fastapi.HTTPException(status_code=401, detail="Invalid credentials")
     
-    
-@app.post('/cities')
-def create_city(city : City):
-    db.append(city.dict())
-    
-    return db[-1]
-    
-@app.delete('/cities/{city_id}')
-def delete_city(city_id : int):
-    db.pop(city_id-1)
-    return {}
+    return await services.create_token(user)
+
+# 부여받은 ID 보여주기
+@app.get("/api/users/me", response_model=schemas.User)
+async def get_user(user: schemas.User = fastapi.Depends(services.get_current_user)):
+    return user
