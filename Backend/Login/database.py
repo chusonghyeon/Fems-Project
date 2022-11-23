@@ -2,13 +2,19 @@ import sqlalchemy
 import sqlalchemy.ext.declarative
 import sqlalchemy.orm
 
-# MariaDB 연동작업
-# 데이터 베이스 이름://계정이름:비밀번호@localhost:3306/저장하려는 데이터베이스(테이블이 아니다.)
-DATABASEURL = "mariadb+pymysql://root:147852@localhost:3306/FEMS"
+DATABASE_URL = "mariadb+pymysql://root:147852@localhost:3306/FEMS"
 
-engine = sqlalchemy.create_engine(DATABASEURL, encoding = "utf-8")
+engine = sqlalchemy.create_engine(DATABASE_URL, encoding="utf8")
 
-SeeionLocal = sqlalchemy.orm.sessionmaker(autocommit=False, autoflush=False, bind=engine)
+SessionLocal = sqlalchemy.orm.sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
 Base = sqlalchemy.ext.declarative.declarative_base()
+
+# 데이버 베이스 저장
+def get_db():
+    db = SessionLocal()
+    try:
+        yield db
+    finally:
+        db.close()
 

@@ -1,17 +1,24 @@
+# 서비스 파일에서는 데이터베이스를 생성하느 함수를 만들것이다.
+
 import jwt
 import sqlalchemy.orm
 import passlib.hash
 
 from Login import database
+from Login.database import get_db
 from Login import models
 from Login import schemas
 import fastapi
 import fastapi.security
 
-# JWT 설정하기
-oauth2schema = fastapi.security.OAuth2PasswordBearer(tokenUrl="/api/token")
-JWT_SECRET = "myjwtsecret"
 
+# 데이터 베이스 연동하고 테이블 생성하는 곳
+def create_database():
+    return database.Base.metadata.create_all(bind=database.engine)
+
+# JWT 설정하기
+oauth2schema = fastapi.security.OAuth2PasswordBearer(tokenUrl="/Token")
+JWT_SECRET = "myjwtsecret"
 
 # *필수*
 # 1. 터미널에서 여기 경로를 입력한다 (cd /경로/경로/login)
@@ -21,22 +28,7 @@ JWT_SECRET = "myjwtsecret"
 # 5. 다시 Backend 파일로 돌아간다.
 
 
-
-# 데이터 베이스 연동하고 테이블 생성하는 곳
-def create_database():
-    return database.Base.metadata.create_all(bind=database.engine)
-
-
-# 데이버 베이스 저장
-def get_db():
-    db = database.SeeionLocal()
-    try:
-        yield db
-    finally:
-        db.close()
-
-
-# LoginID 데이터 베이스에 저장
+# LoginID 데이터 베이스에 저장 ,, 요청 들어오면 id랑 password(해쉬된) 넣어 ,
 async def create_user(user: schemas.UserCreate, db: sqlalchemy.orm.Session):
     user_obj = models.User(LoginID = user.LoginID, hashed_password = passlib.hash.bcrypt.hash(user.hashed_password))
     db.add(user_obj)
@@ -57,6 +49,7 @@ async def authenticate_user(LoginID: str, password: str, db: sqlalchemy.orm.Sess
     if not user:
         return False
     
+    #매칭해서 맞으면 user , 틀리면 false
     if not user.verify_password(password):
         return False
     
@@ -71,7 +64,7 @@ async def create_token(user: models.User):
     return dict(access_token = token, token_type = "bearer")
 
 
-# 발급한 Token내용 불러오기
+# 발급한 Token내용 불러오기 ,decode 해서 맞는건지 확인해서 맞으면 return 틀리면 401 에러
 async def get_current_user(db: sqlalchemy.orm.session = fastapi.Depends(get_db), token: str = fastapi.Depends(oauth2schema)):
     try:
         payload = jwt.decode(token, JWT_SECRET, algorithms=["HS256"])
