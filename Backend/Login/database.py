@@ -2,7 +2,7 @@ import sqlalchemy
 import sqlalchemy.ext.declarative
 import sqlalchemy.orm
 
-DATABASE_URL = "mariadb+pymysql://root:147852@localhost:3306/FEMS"
+DATABASE_URL = "mariadb+pymysql://root:1234@localhost:3306/FEMS"
 
 engine = sqlalchemy.create_engine(DATABASE_URL, encoding="utf8")
 
