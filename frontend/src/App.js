@@ -6,48 +6,24 @@ import Login from "./components/Login";
 
 import { useContext } from "react";
 import { UserContext } from "./context/UserContext";
-import MainPage from "./components/MainPage";
+import ProtectedRoutes from "./Routes/ProtectedRoutes";
+import Routeing from "./Routes/Routeing";
 
 const App = () => {
   const [message, setMessage] = useState("");
   const [token] = useContext(UserContext);
+  const [currentRoute, setCurrentRoute] = useState(null);
 
-  const getWelcomeMessage = async () => {
-    const requestOptions = {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    };
-    const response = await fetch("/api", requestOptions);
-    const data = await response.json();
-
-    // console.log(data); -> 내가 awesome cool 해둔거옴
-    if (!response.ok) {
-      console.log("something messed up");
-    } else {
-      setMessage(data.message);
-    }
-  };
-
-  // 아무것도 안하는 함수? 처음에 한번만 실행
   useEffect(() => {
-    getWelcomeMessage();
-  }, []);
+    const currentRoutes = token === null ? <ProtectedRoutes /> : <Routeing />;
+    setCurrentRoute(currentRoutes);
+  }, [token]);
 
   return (
     <div>
-      <Header title={message} />
       <div>
-        <div className="column is-two_thirds m-5">
-          {!token ? (
-            <div className="columns">
-              <Login />
-            </div>
-          ) : (
-            <MainPage />
-          )}
-        </div>
+        {/* <Header title={message} /> */}
+        <div className="column is-two_thirds m-5">{currentRoute}</div>
       </div>
     </div>
   );
