@@ -7,6 +7,7 @@ import { createContext } from "react";
 
 export const UserContext = createContext();
 
+// 토큰인증
 export const UserProvider = (props) => {
   const [token, setToken] = useState(localStorage.getItem("awesomeToken"));
 
