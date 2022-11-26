@@ -1,28 +1,22 @@
 import React, { useEffect, useState } from "react";
-
-import Header from "./components/Header";
-import Login from "./components/Login";
-// import Table from "./components/Table";
-
-import { useContext } from "react";
-import { UserContext } from "./context/UserContext";
+import "./App.css";
+import { useStateContext } from "./context/UserContext";
+import UnProtectedRoutes from "./Routes/UnProtectedRoutes";
 import ProtectedRoutes from "./Routes/ProtectedRoutes";
-import Routeing from "./Routes/Routeing";
 
 const App = () => {
-  const [message, setMessage] = useState("");
-  const [token] = useContext(UserContext);
+  const { token, currentMode } = useStateContext();
   const [currentRoute, setCurrentRoute] = useState(null);
 
   useEffect(() => {
-    const currentRoutes = token === null ? <ProtectedRoutes /> : <Routeing />;
+    const currentRoutes =
+      token === null ? <UnProtectedRoutes /> : <ProtectedRoutes />;
     setCurrentRoute(currentRoutes);
   }, [token]);
 
   return (
-    <div>
-      <div>
-        {/* <Header title={message} /> */}
+    <div className={currentMode === "Dark" ? "dark" : ""}>
+      <div className="flex relative dark:bg-main-dark-bg">
         <div className="column is-two_thirds m-5">{currentRoute}</div>
       </div>
     </div>

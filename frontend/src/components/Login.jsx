@@ -1,16 +1,12 @@
-import React, { useState, useContext } from "react";
-// https://developer-talk.tistory.com/88
+import React, { useState } from "react";
 import ErrorMessage from "./ErrorMessage";
-import { UserContext } from "../context/UserContext";
+import { useStateContext } from "../context/UserContext";
 
 const Login = () => {
   const [id, setId] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
-  const [, setToken] = useContext(UserContext);
-
-  //https://jw910911.tistory.com/117
-  ///차이점은 application/json은 {key: value}의 형태로 전송되지만 application/x-www-form-urlencoded는 key=value&key=value의 형태로 전달된다는 점입니다.
+  const { setToken } = useStateContext();
 
   const submitLogin = async () => {
     const requestOptions = {

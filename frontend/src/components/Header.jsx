@@ -1,24 +1,12 @@
 import React from "react";
-import { useContext } from "react";
 
-import { UserContext } from "../context/UserContext";
-
-const Header = ({ title }) => {
-  const [token, setToken] = useContext(UserContext);
-
-  const handleLogout = () => {
-    setToken(null);
-  };
-
+const Header = ({ category, title }) => {
   return (
-    <div className="has-text-center m-6">
-      <h1>FEMS</h1>
-      <h1 className="title">{title}</h1>
-      {token && (
-        <button className="button" onClick={handleLogout}>
-          Logout
-        </button>
-      )}
+    <div className="mb-10">
+      <p className="text-gray-400">{category}</p>
+      <p className="text-3xl font-extrabold tracking-tight text-slate-900">
+        {title}
+      </p>
     </div>
   );
 };
