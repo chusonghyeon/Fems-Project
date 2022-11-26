@@ -14,9 +14,9 @@ def create(request: schemas.UserBase, db: Session):
     db.refresh(User)
     return User
 
-
-def get_all(db : Session):
-    users = db.query(models.User).all()
+# 하나의 ID호출해서 보여주기
+def get(db : Session):
+    users = db.query(models.User).first()
     return users
     
 

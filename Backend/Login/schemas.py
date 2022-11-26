@@ -1,22 +1,17 @@
 from pydantic import BaseModel
-from typing import Optional
-
+from typing import List, Optional
 
 # API에서 보여주기 위한 정의 
 class UserBase(BaseModel):
     LoginID : str
     hashed_password : str
-    
-    class Config:
+    class Config():
         orm_mode = True
 
-class User(BaseModel):
-    LoginID : Optional[str]
-    hashed_password : Optional[str]
-        
-    class Config:
-        orm_mode = True
-
+# 인증된 ID보여주기 위한 정의
+class showUser(UserBase):
+    LoginID : Optional[str] = str
+    hashed_password :Optional[str] = str
     
 # Token Schemas
 class Token(BaseModel):
