@@ -12,6 +12,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
 
+# models에 저장되어 있는 Table 생성
 models.Base.metadata.create_all(bind=engine)
 
 # adding cors urls
