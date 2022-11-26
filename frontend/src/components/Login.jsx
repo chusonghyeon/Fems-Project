@@ -16,7 +16,7 @@ const Login = () => {
         `grant_type=&username=${id}&password=${password}&scope=&client_id=&client_secret=`
       ),
     };
-    const response = await fetch("/Token", requestOptions);
+    const response = await fetch("/login", requestOptions);
     const data = await response.json();
 
     if (!response.ok) {

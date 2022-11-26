@@ -1,9 +1,11 @@
 FROM python:3.10
 
-WORKDIR /Fems-Project/Backend
+WORKDIR /Fems-Project/Backend/
+
+COPY ./main.py /Fems-Project/Backend/
 
 COPY ./requirements.txt /Fems-Project/Backend/requirements.txt
 
 RUN pip install --no-cache-dir --upgrade -r /Fems-Project/Backend/requirements.txt
 
-CMD [ "uvicorn", "main.py:app", "--host", "0.0.0.0", "--port" , "8080"]
+CMD [ "uvicorn", "main:app", "--host", "0.0.0.0", "--port" , "80"]

@@ -1,20 +1,34 @@
-import sqlalchemy
-import sqlalchemy.ext.declarative
-import sqlalchemy.orm
+from sqlalchemy import create_engine
+from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import sessionmaker
 
-DATABASE_URL = "mariadb+pymysql://root:1234@localhost:3306/FEMS"
+import os
+import json
 
-engine = sqlalchemy.create_engine(DATABASE_URL, encoding="utf8")
+# DB설정 및 secrets.json으로 DB값 숨기기
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+SECRET_FILE = os.path.join(BASE_DIR, 'secrets.json')
+secrets = json.loads(open(SECRET_FILE).read())
 
-SessionLocal = sqlalchemy.orm.sessionmaker(autocommit=False, autoflush=False, bind=engine)
+DB = secrets['DB']
+USER = DB['user']
+PASSWORD = DB['password']
+HOST = DB['host']
+PORT = DB['port']
+DATABASE = DB['database']
 
-Base = sqlalchemy.ext.declarative.declarative_base()
+DB_URL =f"mariadb+pymysql://{USER}:{PASSWORD}@{HOST}:{PORT}/{DATABASE}"
 
-# 데이버 베이스 저장
+engine = create_engine(DB_URL,  encoding='utf-8', echo=True)
+
+SessionLocal = sessionmaker(bind=engine, autocommit=False, autoflush=False)
+
+Base = declarative_base()
+
+# 저장된 DB가져오기
 def get_db():
     db = SessionLocal()
     try:
         yield db
     finally:
         db.close()
-
