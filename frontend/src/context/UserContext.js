@@ -23,12 +23,18 @@ export const UserProvider = ({ children }) => {
 
   // 차트페이지에서 추가
   const [activeMenu, setActiveMenu] = useState(true);
+  // navbar 기능 profile 등 기본 false에 누르면 true
   const [isClicked, setIsClicked] = useState(initialState); // 초깃값 default
+  // 음.. 아마 동적?
   const [screenSize, setScreenSize] = useState(undefined);
+  // 테마 컬러 설정
   const [currentColor, setCurrentColor] = useState("#03C9D7");
+  /// 라이트 , 다크 모드
   const [currentMode, setCurrentMode] = useState("Light");
+  // theme 창 켜기
   const [themeSettings, setThemeSettings] = useState(false);
 
+  // 라, 다 모드
   const setMode = (e) => {
     setCurrentMode(e.target.value);
 
@@ -37,6 +43,7 @@ export const UserProvider = ({ children }) => {
     setThemeSettings(false);
   };
 
+  // 테마 컬러 설정
   const setColor = (color) => {
     setCurrentColor(color);
 
@@ -61,10 +68,9 @@ export const UserProvider = ({ children }) => {
         },
       };
 
-      const response = await fetch("/User", requestOptions); // 아까 생성한 토큰 키 있는 아이디 가져오기
+      const response = await fetch("/User", requestOptions); //  토큰 키 인증?
 
-      // 처음에는 null값이 들어가있는듯 xx
-
+      // 응답 없으면 null값, 있으면 token 저장
       if (!response.ok) {
         setToken(null);
       }
