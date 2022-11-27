@@ -17,9 +17,10 @@ async def GetLpDataDaily(startDate: str, endDate: str):
         # connection = pymysql.connect(host='146.56.183.172', port=3306, user='edu_usr', password='edu_pwd',
         #                              db='fems_service', charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)
         
+        # 내꺼 로컬 DB
         connection = pymysql.connect(host='localhost', port=3306, user='root', password='147852',
                                      db='FEMS', charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)
-
+        
         with connection.cursor() as cursor:
             query = "select left(a.LpDate,8) as runDate, cast(sum(a.LpData) as char) as sumData " + \
                     "from " + \
@@ -51,9 +52,11 @@ async def GetLpDataHourly(runDate: str):
         # connection = pymysql.connect(host='146.56.183.172', port=3306, user='edu_usr', password='edu_pwd',
         #                              db='fems_service', charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)
         
+        # 내꺼 로컬 DB
         connection = pymysql.connect(host='localhost', port=3306, user='root', password='147852',
                                      db='FEMS', charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)
-
+        
+        
         with connection.cursor() as cursor:
             # query = "SELECT LpID, LpDate, cast(LpData as char) as LpData FROM wm_fems.Raw_KepcoDayLpData where LpDate > %s limit 2;"
             query = "select left(a.LpDate,10) as runDate, cast(sum(a.LpData) as char) as sumData " + \
@@ -84,9 +87,11 @@ async def GetAHUConfiguration():
         # connection = pymysql.connect(host='146.56.183.172', port=3306, user='edu_usr', password='edu_pwd',
         #                              db='fems_service', charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)
         
+        # 내꺼 로컬 DB
         connection = pymysql.connect(host='localhost', port=3306, user='root', password='147852',
                                      db='FEMS', charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)
-
+        
+        
         with connection.cursor() as cursor:
             # query = "SELECT LpID, LpDate, cast(LpData as char) as LpData FROM wm_fems.Raw_KepcoDayLpData where LpDate > %s limit 2;"
             query = "select * from Config_WMMachines order by data_id ;"
@@ -109,9 +114,11 @@ async def GetAHUInfos():
         # connection = pymysql.connect(host='146.56.183.172', port=3306, user='edu_usr', password='edu_pwd',
         #                              db='fems_service', charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)
         
+        # 내꺼 로컬 DB
         connection = pymysql.connect(host='localhost', port=3306, user='root', password='147852',
                                      db='FEMS', charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)
-
+        
+        
         with connection.cursor() as cursor:
             # query = "SELECT LpID, LpDate, cast(LpData as char) as LpData FROM wm_fems.Raw_KepcoDayLpData where LpDate > %s limit 2;"
             query = "select FAC_ID, FAC_NAME, FAC_TYPE, FAC_LOC, FAC_USE, " + \
@@ -137,9 +144,11 @@ async def GetAHUInfo(FAC_NAME: str):
         # connection = pymysql.connect(host='146.56.183.172', port=3306, user='edu_usr', password='edu_pwd',
         #                              db='fems_service', charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)
         
+        # 내꺼 로컬 DB
         connection = pymysql.connect(host='localhost', port=3306, user='root', password='147852',
                                      db='FEMS', charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)
-
+        
+        
         with connection.cursor() as cursor:
             # query = "SELECT LpID, LpDate, cast(LpData as char) as LpData FROM wm_fems.Raw_KepcoDayLpData where LpDate > %s limit 2;"
             query = "select FAC_ID, FAC_NAME, FAC_TYPE, FAC_LOC, FAC_USE, " + \
@@ -165,9 +174,11 @@ async def GetAHUData(ahu_id: str, startDate: str, endDate: str):
         # connection = pymysql.connect(host='146.56.183.172', port=3306, user='edu_usr', password='edu_pwd',
         #                              db='fems_service', charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)
         
+        # 내꺼 로컬 DB
         connection = pymysql.connect(host='localhost', port=3306, user='root', password='147852',
                                      db='FEMS', charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)
-
+        
+        
         with connection.cursor() as cursor:
             # query = "SELECT LpID, LpDate, cast(LpData as char) as LpData FROM wm_fems.Raw_KepcoDayLpData where LpDate > %s limit 2;"
             query = "select " +\
@@ -212,9 +223,11 @@ async def GetAHUSetSupData(runDate: str):
         # connection = pymysql.connect(host='146.56.183.172', port=3306, user='edu_usr', password='edu_pwd',
         #                              db='fems_service', charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)
         
+        # 내꺼 로컬 DB
         connection = pymysql.connect(host='localhost', port=3306, user='root', password='147852',
                                      db='FEMS', charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)
-
+        
+        
         with connection.cursor() as cursor:
             # query = "SELECT LpID, LpDate, cast(LpData as char) as LpData FROM wm_fems.Raw_KepcoDayLpData where LpDate > %s limit 2;"
             query = "select ahu_id, run_datetime, " +\
