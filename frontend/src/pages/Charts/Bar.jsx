@@ -9,12 +9,13 @@ import {
   SeriesDirective,
   AxesDirective,
   AxisDirective,
+  Tooltip,
 } from "@syncfusion/ej2-react-charts";
 import { chartData } from "../../data/dummy";
 //https://www.youtube.com/watch?v=EirmVDtpvcE&t=97s
 const Bar = () => {
   return (
-    <div style={{ textAlign: "center", margin: "5% 25%" }}>
+    <div className="w-full text-center m-5">
       {/* use isInversed:true to render axis in inversed manner*/}
       <ChartComponent
         title="Weather Forecast Data"
@@ -26,8 +27,11 @@ const Bar = () => {
         primaryYAxis={{
           title: "Temperature",
         }}
+        tooltip={{ enable: true }}
       >
-        <Inject services={[ColumnSeries, Category, LineSeries]}></Inject>
+        <Inject
+          services={[ColumnSeries, Category, LineSeries, Tooltip]}
+        ></Inject>
         <AxesDirective>
           <AxisDirective
             name="yAxis1"

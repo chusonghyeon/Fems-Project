@@ -63,41 +63,39 @@ const ProtectedRoutes = () => {
             <Sidebar />
           </div>
         )}
-        <div>
-          <div
-            className={`dark:bg-main-dark-bg  bg-sky-100 min-h-screen w-full ${
-              activeMenu ? "md:ml-72" : "flex-2"
-            }`}
-          >
-            <div className="md:static bg-gray-100/70 dark:bg-main-dark-bg navbar w-full">
-              <Navbar />
-            </div>
-            <div className="column is-two_thirds m-5">
-              {themeSettings && <ThemeSettings />}
+        <div
+          className={`dark:bg-main-dark-bg  bg-sky-100 min-h-screen w-full ${
+            activeMenu ? "md:ml-72" : "flex-2"
+          }`}
+        >
+          <div className="md:static bg-gray-100/70 dark:bg-main-dark-bg navbar w-full">
+            <Navbar />
+          </div>
+          <div className="column is-two_thirds m-5">
+            {themeSettings && <ThemeSettings />}
 
-              <Routes>
-                {/* 지울거 */}
-                <Route path="/mainpage" element={<MainPage />} />
-                {/* 전력량 예측 , 메인페이지 */}
-                <Route path="/ecommerce" element={<Ecommerce />} />
-                {/* 대시보드 활용방안 찾아보고 없으면 삭제 */}
-                <Route path="/dashboard" element={<Dashboard />} />
-                {/* 공조기 정보 및 사용자정보(후순위) , 1~2개남겨둘 예정*/}
-                <Route path="/customers" element={<Customers />} />
-                <Route path="/employees" element={<Employees />} />
-                <Route path="/orders" element={<Orders />} />
-                {/* 공조기별 데이터 */}
-                <Route path="/electricamount" element={<Electricamount />} />
-                <Route path="/temperature" element={<Temperature />} />
-                <Route path="/humidity" element={<Humidity />} />
-                <Route path="/bar" element={<Bar />} />
-                <Route path="/area" element={<Area />} />
-                <Route path="/financial" element={<Financial />} />
-                <Route path="/line" element={<Line />} />
-                <Route path="/stacked" element={<Stacked />} />
-                <Route path="*" element={<Navigate replace to="/mainpage" />} />
-              </Routes>
-            </div>
+            <Routes>
+              {/* 지울거 */}
+              <Route path="/mainpage" element={<MainPage />} />
+              {/* 전력량 예측 , 메인페이지 */}
+              <Route path="/ecommerce" element={<Ecommerce />} />
+              {/* 대시보드 활용방안 찾아보고 없으면 삭제 */}
+              <Route path="/dashboard" element={<Dashboard />} />
+              {/* 공조기 정보 및 사용자정보(후순위) , 1~2개남겨둘 예정*/}
+              <Route path="/customers" element={<Customers />} />
+              <Route path="/employees" element={<Employees />} />
+              <Route path="/orders" element={<Orders />} />
+              {/* 공조기별 데이터 */}
+              <Route path="/electricamount" element={<Electricamount />} />
+              <Route path="/temperature" element={<Temperature />} />
+              <Route path="/humidity" element={<Humidity />} />
+              <Route path="/bar" element={<Bar />} />
+              <Route path="/area" element={<Area />} />
+              <Route path="/financial" element={<Financial />} />
+              <Route path="/line" element={<Line />} />
+              <Route path="/stacked" element={<Stacked />} />
+              <Route path="*" element={<Navigate replace to="/mainpage" />} />
+            </Routes>
           </div>
         </div>
       </div>
