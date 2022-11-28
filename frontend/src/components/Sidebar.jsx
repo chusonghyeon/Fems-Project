@@ -50,7 +50,10 @@ overflow 의 값을 auto 로 설정할 경우 부모요소의 범위를 넘어�
           <div className="mt-10">
             {links.map((item) => (
               <div key={item.title}>
-                <p className="text-gray-400 m-3 mt-4 uppercase">{item.title}</p>
+                <p className="text-gray-500 m-3 mt-4 uppercase flex items-center text-lg">
+                  {item.titleIcon}
+                  <span className="p-1">{item.title}</span>
+                </p>
                 {item.links.map((link) => (
                   <NavLink
                     to={`/${link.name}`}

@@ -16,10 +16,8 @@ const App = () => {
   }, [token]);
 
   return (
-    <div className="">
-      <div className="column is-two_thirds m-0 p-0 w-full h-full">
-        {currentRoute}
-      </div>
+    <div className="column is-two_thirds m-0 p-0 w-full h-full">
+      {currentRoute}
     </div>
   );
 };

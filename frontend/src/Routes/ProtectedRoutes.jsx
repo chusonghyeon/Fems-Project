@@ -1,6 +1,5 @@
 import React from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
-import MainPage from "../components/MainPage";
 import Ecommerce from "../pages/Ecommerce";
 
 import { Navbar, ThemeSettings } from "../components";
@@ -68,21 +67,19 @@ const ProtectedRoutes = () => {
             activeMenu ? "md:ml-72" : "flex-2"
           }`}
         >
-          <div className="md:static bg-gray-100/70 dark:bg-main-dark-bg navbar w-full">
+          <div className="md:static bg-gray-100/70 dark:bg-main-dark-bg navbar w-full bg-fixed">
             <Navbar />
           </div>
           <div className="column is-two_thirds m-5">
             {themeSettings && <ThemeSettings />}
 
             <Routes>
-              {/* 지울거 */}
-              <Route path="/mainpage" element={<MainPage />} />
               {/* 전력량 예측 , 메인페이지 */}
-              <Route path="/ecommerce" element={<Ecommerce />} />
+              <Route path="/전력 예측" element={<Ecommerce />} />
               {/* 대시보드 활용방안 찾아보고 없으면 삭제 */}
-              <Route path="/dashboard" element={<Dashboard />} />
+              <Route path="/공조기 정보" element={<Customers />} />
               {/* 공조기 정보 및 사용자정보(후순위) , 1~2개남겨둘 예정*/}
-              <Route path="/customers" element={<Customers />} />
+              <Route path="/시간별 전력량" element={<Electricamount />} />
               <Route path="/employees" element={<Employees />} />
               <Route path="/orders" element={<Orders />} />
               {/* 공조기별 데이터 */}
@@ -94,7 +91,7 @@ const ProtectedRoutes = () => {
               <Route path="/financial" element={<Financial />} />
               <Route path="/line" element={<Line />} />
               <Route path="/stacked" element={<Stacked />} />
-              <Route path="*" element={<Navigate replace to="/mainpage" />} />
+              <Route path="*" element={<Navigate replace to="/전력 예측" />} />
             </Routes>
           </div>
         </div>
