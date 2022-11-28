@@ -1,5 +1,4 @@
 import React from "react";
-
 import {
   ColumnDirective,
   ColumnsDirective,
@@ -29,4 +28,5 @@ const DataGrid = () => {
     </GridComponent>
   );
 };
+
 export default DataGrid;
