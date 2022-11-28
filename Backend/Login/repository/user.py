@@ -1,9 +1,6 @@
-from fastapi import HTTPException, status, Depends
-from fastapi.security import OAuth2PasswordBearer
 from sqlalchemy.orm import Session
 
-from Login import models, schemas, hashing, JWTtoken, database, oauth2
-import jwt
+from Login import models, schemas, hashing
 
 # ID와 Hashed_PASSWORd 생성하기
 # DB에 저장하기

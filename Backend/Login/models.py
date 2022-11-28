@@ -2,7 +2,7 @@ import sqlalchemy
 import sqlalchemy.orm
 import passlib.hash
 
-from Login.database import Base
+from database import Base
 
 # 테이블 정의
 class User(Base):

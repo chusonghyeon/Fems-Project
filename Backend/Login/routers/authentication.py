@@ -1,10 +1,13 @@
 from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.orm import Session
 
-from Login import models, database, JWTtoken
+from Login import models, JWTtoken
 from Login.hashing import Hash
 
+from database import get_db
 from fastapi.security import OAuth2PasswordRequestForm
+
+
 
 # 태그로 지정하여 구분
 router = APIRouter(
@@ -14,7 +17,7 @@ router = APIRouter(
 # login API 주소
 # ID와 PASSWORD가 있으면 정보가 나온다.
 @router.post('/login')
-def login(request: OAuth2PasswordRequestForm = Depends(), db:Session = Depends(database.get_db)):
+def login(request: OAuth2PasswordRequestForm = Depends(), db:Session = Depends(get_db)):
     user = db.query(models.User).filter(models.User.LoginID == request.username).first()
     # LoginID 확인 작업
     if not user:

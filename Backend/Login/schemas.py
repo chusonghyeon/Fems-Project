@@ -1,5 +1,5 @@
 from pydantic import BaseModel
-from typing import List, Optional
+from typing import Optional
 
 # API에서 보여주기 위한 정의 
 class UserBase(BaseModel):
