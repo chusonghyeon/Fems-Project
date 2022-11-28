@@ -7,3 +7,7 @@ export { default as Bar } from "./Charts/Bar";
 export { default as Financial } from "./Charts/Financial";
 export { default as Line } from "./Charts/Line";
 export { default as Stacked } from "./Charts/Stacked";
+export { default as Dashboard } from "./Dashboard";
+export { default as Electricamount } from "./Electricamount";
+export { default as Humidity } from "./Humidity";
+export { default as Temperature } from "./Temperature";

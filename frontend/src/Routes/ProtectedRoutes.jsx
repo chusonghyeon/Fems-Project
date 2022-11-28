@@ -14,11 +14,15 @@ import {
   Area,
   Bar,
   Customers,
+  Dashboard,
+  Electricamount,
   Employees,
   Financial,
+  Humidity,
   Line,
   Orders,
   Stacked,
+  Temperature,
 } from "../pages";
 
 const ProtectedRoutes = () => {
@@ -72,13 +76,22 @@ const ProtectedRoutes = () => {
               {themeSettings && <ThemeSettings />}
 
               <Routes>
+                {/* 지울거 */}
                 <Route path="/mainpage" element={<MainPage />} />
+                {/* 전력량 예측 , 메인페이지 */}
                 <Route path="/ecommerce" element={<Ecommerce />} />
+                {/* 대시보드 활용방안 찾아보고 없으면 삭제 */}
+                <Route path="/dashboard" element={<Dashboard />} />
+                {/* 공조기 정보 및 사용자정보(후순위) , 1~2개남겨둘 예정*/}
                 <Route path="/customers" element={<Customers />} />
                 <Route path="/employees" element={<Employees />} />
                 <Route path="/orders" element={<Orders />} />
-                <Route path="/area" element={<Area />} />
+                {/* 공조기별 데이터 */}
+                <Route path="/electricamount" element={<Electricamount />} />
+                <Route path="/temperature" element={<Temperature />} />
+                <Route path="/humidity" element={<Humidity />} />
                 <Route path="/bar" element={<Bar />} />
+                <Route path="/area" element={<Area />} />
                 <Route path="/financial" element={<Financial />} />
                 <Route path="/line" element={<Line />} />
                 <Route path="/stacked" element={<Stacked />} />
