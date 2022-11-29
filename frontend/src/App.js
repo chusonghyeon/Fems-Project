@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
 import { useStateContext } from "./context/UserContext";
-import UnProtectedRoutes from "./Routes/UnProtectedRoutes";
-import ProtectedRoutes from "./Routes/ProtectedRoutes";
+import { UnProtectedRoutes, ProtectedRoutes } from "./components";
 
 const App = () => {
   const { token } = useStateContext();
@@ -15,11 +14,7 @@ const App = () => {
     setCurrentRoute(currentRoutes);
   }, [token]);
 
-  return (
-    <div className="column is-two_thirds m-0 p-0 w-full h-full">
-      {currentRoute}
-    </div>
-  );
+  return <div className="column m-0 p-0 w-full h-full">{currentRoute}</div>;
 };
 
 export default App;

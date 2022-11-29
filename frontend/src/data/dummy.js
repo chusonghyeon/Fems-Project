@@ -276,9 +276,12 @@ export const LinePrimaryXAxis = {
   edgeLabelPlacement: "Shift",
   majorGridLines: { width: 0 },
   background: "white",
+  crosshairTooltip: {
+    enable: true,
+  },
 };
 // Grid Data
-export let data = [
+export let gridData = [
   {
     OrderID: 10248,
     CustomerID: "VINET",
@@ -602,6 +605,9 @@ export const LinePrimaryYAxis = {
   lineStyle: { width: 0 },
   majorTickLines: { width: 0 },
   minorTickLines: { width: 0 },
+  crosshairTooltip: {
+    enable: true,
+  },
 };
 
 export const customersGrid = [
@@ -969,29 +975,29 @@ export const themeColors = [
   },
 ];
 
-export const userProfileData = [
-  {
-    icon: <BsCurrencyDollar />,
-    title: "My Profile",
-    desc: "Account Settings",
-    iconColor: "#03C9D7",
-    iconBg: "#E5FAFB",
-  },
-  {
-    icon: <BsShield />,
-    title: "My Inbox",
-    desc: "Messages & Emails",
-    iconColor: "rgb(0, 194, 146)",
-    iconBg: "rgb(235, 250, 242)",
-  },
-  {
-    icon: <FiCreditCard />,
-    title: "My Tasks",
-    desc: "To-do and Daily Tasks",
-    iconColor: "rgb(255, 244, 229)",
-    iconBg: "rgb(254, 201, 15)",
-  },
-];
+// export const userProfileData = [
+//   {
+//     icon: <BsCurrencyDollar />,
+//     title: "My Profile",
+//     desc: "Account Settings",
+//     iconColor: "#03C9D7",
+//     iconBg: "#E5FAFB",
+//   },
+//   {
+//     icon: <BsShield />,
+//     title: "My Inbox",
+//     desc: "Messages & Emails",
+//     iconColor: "rgb(0, 194, 146)",
+//     iconBg: "rgb(235, 250, 242)",
+//   },
+//   {
+//     icon: <FiCreditCard />,
+//     title: "My Tasks",
+//     desc: "To-do and Daily Tasks",
+//     iconColor: "rgb(255, 244, 229)",
+//     iconBg: "rgb(254, 201, 15)",
+//   },
+// ];
 
 export const ordersGrid = [
   {
@@ -1567,9 +1573,33 @@ export const financialChartData = [
     volume: 1221746066,
   },
 ];
+// 전력량 예측 데이터
+export let electricprdata1 = [
+  { x: "Jan", y: 100 },
+  { x: "Feb", y: 110 },
+  { x: "Mar", y: 125 },
+  { x: "Apr", y: 150 },
+  { x: "May", y: 140 },
+  { x: "Jun", y: 160 },
+  { x: "Jul", y: 190 },
+  { x: "Aug", y: 210 },
+  { x: "Sep", y: 300 },
+  { x: "Oct", y: 240 },
+  { x: "Nov", y: 230 },
+  { x: "Dec", y: 270 },
+];
+export let electricprdata2 = [
+  { x: "Jun", y: 160 },
+  { x: "Jul", y: 170 },
+  { x: "Aug", y: 180 },
+  { x: "Sep", y: 190 },
+  { x: "Oct", y: 200 },
+  { x: "Nov", y: 230 },
+  { x: "Dec", y: 270 },
+];
 
 // 전력량 데이터용
-export let data = [
+export let PowerData = [
   {
     OrderID: 10248,
     CustomerID: "VINET",

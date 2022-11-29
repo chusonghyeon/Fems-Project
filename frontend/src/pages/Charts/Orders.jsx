@@ -14,9 +14,9 @@ import {
   Inject,
 } from "@syncfusion/ej2-react-grids";
 
-import { ordersData, ContextMenuItems, ordersGrid } from "../data/dummy";
+import { ordersData, ContextMenuItems, ordersGrid } from "../../data/dummy";
 
-import { Header } from "../components";
+import { Header } from "../../components";
 
 const Order = () => {
   return (
@@ -28,6 +28,7 @@ const Order = () => {
         dataSource={ordersData}
         allowPaging
         allowSorting
+        width="auto"
       >
         <ColumnsDirective>
           {ordersGrid.map((item, index) => (

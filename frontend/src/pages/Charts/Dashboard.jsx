@@ -1,5 +1,5 @@
 import React from "react";
-import Header from "../components/Header";
+import Header from "../../components/common/Header";
 import ReactDOM from "react-dom/client";
 import {
   CircularGaugeComponent,
@@ -10,7 +10,7 @@ import {
   RangesDirective,
   RangeDirective,
 } from "@syncfusion/ej2-react-circulargauge";
-import { GongjoPr } from "../components";
+import { GongjoPr } from "../../components";
 //https://ej2.syncfusion.com/react/documentation/circular-gauge/gauge-appearance/
 const Dashboard = () => {
   return (

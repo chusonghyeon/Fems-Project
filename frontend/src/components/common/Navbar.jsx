@@ -3,8 +3,8 @@ import { AiOutlineMenu } from "react-icons/ai";
 import { RiNotification3Line } from "react-icons/ri";
 import { MdKeyboardArrowDown } from "react-icons/md";
 import { TooltipComponent } from "@syncfusion/ej2-react-popups";
-import { Notification, UserProfile } from ".";
-import { useStateContext } from "../context/UserContext";
+import { Notification } from "../";
+import { useStateContext } from "../../context/UserContext";
 
 const NavButton = ({ title, customFunc, icon, color, dotColor }) => (
   <TooltipComponent content={title} position="BottomCenter">
@@ -12,7 +12,7 @@ const NavButton = ({ title, customFunc, icon, color, dotColor }) => (
       type="button"
       onClick={customFunc}
       style={{ color }}
-      className="relative text-xl rounded-full p-3 hover:bg-light-gray"
+      className="relative text-xl rounded-full m-3 p-3 hover:bg-light-gray"
     >
       <span
         style={{ background: dotColor }}
@@ -67,18 +67,8 @@ const Navbar = () => {
         icon={<AiOutlineMenu />}
       />
       <div className="flex">
-        <NavButton
-          title="Notification"
-          dotColor="#03C9D7"
-          customFunc={() => handleClick("notification")}
-          color={currentColor}
-          icon={<RiNotification3Line />}
-        />
         <TooltipComponent content="profile" position="BottomCenter">
-          <div
-            className="flex items-center gap-2 cursor-pointer p-1 hover:bg-light-gray rounded-lg"
-            onClick={() => handleClick("userProfile")}
-          >
+          <div className="flex items-center gap-2 cursor-pointer mt-6 hover:bg-light-gray rounded-lg">
             <p>
               <span className="text-gray-400 text-14">Hi, </span>{" "}
               <span className="text-gray-400 font-bold ml-1 text-14">JUN</span>
@@ -86,25 +76,20 @@ const Navbar = () => {
             <MdKeyboardArrowDown className="text-gray-400 text-14" />
           </div>
         </TooltipComponent>
-        {isClicked.notification && <Notification />}
-        {isClicked.userProfile && <UserProfile />}
-        <div className="has-text-center m-6">
-          <h1>FEMS</h1>
-          {token && (
-            <button className="button" onClick={handleLogout}>
-              Logout
-            </button>
-          )}
+
+        <div className="has-text-center m-3">
+          <h1>
+            FEMS
+            {token && (
+              <button
+                className="rounded-md border-2 border-solid border-gray-300 ml-3 p-2"
+                onClick={handleLogout}
+              >
+                Logout
+              </button>
+            )}
+          </h1>
         </div>
-        {/* {token && ( */}
-        {
-          // <button
-          //   className="button border-gray-900 border-soli bg-gray-400 rounded-full"
-          //   onClick={handleLogout}
-          // >
-          //   Logout
-          // </button>
-        }
       </div>
     </div>
   );

@@ -11,7 +11,7 @@ import {
 } from "@syncfusion/ej2-react-grids";
 import { PowerData } from "../../data/dummy";
 
-const DataGrid = () => {
+const HumidityGrid = () => {
   const pageSettings = { pageSize: 10 };
   return (
     <GridComponent
@@ -33,4 +33,4 @@ const DataGrid = () => {
   );
 };
 
-export default DataGrid;
+export default HumidityGrid;
