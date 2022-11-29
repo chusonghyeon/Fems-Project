@@ -14,7 +14,7 @@ const GongjoPr = () => {
     <div className="w-full text-center m-5">
       {/* Add minimum:15, maximum:21, in primary x-axis property to set a custum range */}
       <ChartComponent
-        width="100%"
+        width="95%"
         legendSettings={{ visible: true }}
         title="공조기 월별 전력소모량"
         useGroupingSeparator={true}

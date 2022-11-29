@@ -15,11 +15,7 @@ const App = () => {
     setCurrentRoute(currentRoutes);
   }, [token]);
 
-  return (
-    <div className="column is-two_thirds m-0 p-0 w-full h-full">
-      {currentRoute}
-    </div>
-  );
+  return <div className="column m-0 p-0 w-full h-full">{currentRoute}</div>;
 };
 
 export default App;
