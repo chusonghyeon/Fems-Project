@@ -69,7 +69,7 @@ const ProtectedRoutes = () => {
           <div className="md:static bg-gray-100/70 dark:bg-main-dark-bg navbar w-full bg-fixed">
             <Navbar />
           </div>
-          <div className="column is-two_thirds m-5">
+          <div className="column m-5">
             {themeSettings && <ThemeSettings />}
 
             <Routes>

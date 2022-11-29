@@ -96,7 +96,7 @@ const electricPr = () => {
             },
             lineType: "Vertical",
           }}
-          width={Browser.isDevice ? "100%" : "75%"}
+          // width={Browser.isDevice ? "100%" : "75%"}
           title="Fruits Production Statistics"
         >
           <Inject
