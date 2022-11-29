@@ -85,7 +85,7 @@ const ProtectedRoutes = () => {
               {/* 공조기별 데이터 */}
               <Route path="/electricamount" element={<Electricamount />} />
               <Route path="/temperature" element={<Temperature />} />
-              <Route path="/humidity" element={<Humidity />} />
+              <Route path="/일별 습도" element={<Humidity />} />
               <Route path="/bar" element={<Bar />} />
               <Route path="/area" element={<Area />} />
               <Route path="/financial" element={<Financial />} />
