@@ -3,9 +3,9 @@ import { MdOutlineCancel } from "react-icons/md";
 import { BsCheck } from "react-icons/bs";
 import { TooltipComponent } from "@syncfusion/ej2-react-popups";
 
-import { themeColors } from "../data/dummy";
+import { themeColors } from "../../data/dummy";
 // 글로벌 스테이트로 사용할꺼임
-import { useStateContext } from "../context/UserContext";
+import { useStateContext } from "../../context/UserContext";
 
 const ThemeSettings = () => {
   const { setColor, setMode, currentMode, currentColor, setThemeSettings } =

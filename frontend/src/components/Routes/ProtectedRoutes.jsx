@@ -1,14 +1,11 @@
 import React from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
-import Ecommerce from "../pages/Ecommerce";
 
-import { Navbar, ThemeSettings } from "../components";
+import { Navbar, ThemeSettings, Sidebar } from "../";
 
 import { TooltipComponent } from "@syncfusion/ej2-react-popups";
 import { FiSettings } from "react-icons/fi";
-
-import Sidebar from "../components/Sidebar";
-import { useStateContext } from "../context/UserContext";
+import { useStateContext } from "../../context/UserContext";
 import {
   Area,
   Bar,
@@ -18,11 +15,12 @@ import {
   Employees,
   Financial,
   Humidity,
-  Line,
+  TempLine,
   Orders,
   Stacked,
-  Temperature,
-} from "../pages";
+  DayTemperature,
+  Ecommerce,
+} from "../../pages";
 
 const ProtectedRoutes = () => {
   const {
@@ -76,21 +74,22 @@ const ProtectedRoutes = () => {
             <Routes>
               {/* 전력량 예측 , 메인페이지 */}
               <Route path="/전력 예측" element={<Ecommerce />} />
-              {/* 대시보드 활용방안 찾아보고 없으면 삭제 */}
-              <Route path="/공조기 정보" element={<Customers />} />
               {/* 공조기 정보 및 사용자정보(후순위) , 1~2개남겨둘 예정*/}
-              <Route path="/시간별 전력량" element={<Electricamount />} />
-              <Route path="/employees" element={<Employees />} />
-              <Route path="/orders" element={<Orders />} />
+              <Route path="/공조기 정보" element={<Customers />} />
               {/* 공조기별 데이터 */}
-              <Route path="/electricamount" element={<Electricamount />} />
-              <Route path="/temperature" element={<Temperature />} />
-              <Route path="/일별 습도" element={<Humidity />} />
-              <Route path="/bar" element={<Bar />} />
-              <Route path="/area" element={<Area />} />
-              <Route path="/financial" element={<Financial />} />
-              <Route path="/line" element={<Line />} />
-              <Route path="/stacked" element={<Stacked />} />
+              {/* 전력량 */}
+              <Route path="/시간별 전력량" element={<Electricamount />} />
+              <Route path="/일별 전력량" element={<Employees />} />
+              <Route path="/월별 전력량" element={<Orders />} />
+              {/* 온도 */}
+              <Route path="/시간별 온도" element={<TempLine />} />
+              <Route path="/일별 온도" element={<DayTemperature />} />
+              <Route path="/월별 온도" element={<Humidity />} />
+              {/* 습도 */}
+              <Route path="/시간별 습도" element={<Bar />} />
+              <Route path="/일별 습도" element={<Area />} />
+              <Route path="/월별 습도" element={<Humidity />} />
+
               <Route path="*" element={<Navigate replace to="/전력 예측" />} />
             </Routes>
           </div>

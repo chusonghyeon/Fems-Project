@@ -1,6 +1,7 @@
 import React from "react";
-import { ElectricPr, GongjoPr } from "../components";
-import { useStateContext } from "../context/UserContext";
+import { ElectricPr, GongjoPr } from "../../components";
+import { useStateContext } from "../../context/UserContext";
+
 const Ecommerce = () => {
   const { currentColor } = useStateContext();
   return (

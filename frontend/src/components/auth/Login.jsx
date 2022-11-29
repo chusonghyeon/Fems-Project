@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import ErrorMessage from "./ErrorMessage";
-import { useStateContext } from "../context/UserContext";
+import ErrorMessage from "../common/ErrorMessage";
+import { useStateContext } from "../../context/UserContext";
 
 // 로그인 정보
 const Login = () => {
