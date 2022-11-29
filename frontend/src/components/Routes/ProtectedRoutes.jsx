@@ -89,6 +89,7 @@ const ProtectedRoutes = () => {
               <Route path="/시간별 습도" element={<Bar />} />
               <Route path="/일별 습도" element={<Area />} />
               <Route path="/월별 습도" element={<Humidity />} />
+
               <Route path="*" element={<Navigate replace to="/전력 예측" />} />
             </Routes>
           </div>
