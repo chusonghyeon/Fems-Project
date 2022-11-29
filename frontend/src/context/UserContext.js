@@ -11,8 +11,6 @@ export const UserContext = createContext();
 // 차트페이지에서 추가
 const initialState = {
   chat: false,
-  userProfile: false,
-  notification: false,
 };
 
 // 토큰인증

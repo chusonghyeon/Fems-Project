@@ -12,6 +12,7 @@ export { default as GongjoPr } from "./Charts/GongjoPr";
 export { default as DataGrid } from "./Charts/DataGrid";
 //전력량 예측
 export { default as ElectricPr } from "./Charts/ElectricPr";
+
 // 온도 표
 export { default as TempGrid } from "./Charts/TempGrid";
 // 습도 표

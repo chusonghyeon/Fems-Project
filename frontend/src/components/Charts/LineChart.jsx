@@ -33,6 +33,7 @@ const LineChart = () => {
       tooltip={{ enable: true }}
       crosshair={{ enable: true }}
       background={currentMode === "Dark" ? "#33373E" : "#fff"}
+      width="auto"
     >
       <Inject services={[LineSeries, DateTime, Legend, Tooltip, Crosshair]} />
       <SeriesCollectionDirective>

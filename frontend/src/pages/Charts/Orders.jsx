@@ -28,6 +28,7 @@ const Order = () => {
         dataSource={ordersData}
         allowPaging
         allowSorting
+        width="auto"
       >
         <ColumnsDirective>
           {ordersGrid.map((item, index) => (

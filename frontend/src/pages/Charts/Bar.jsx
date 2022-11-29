@@ -28,6 +28,7 @@ const Bar = () => {
           title: "Temperature",
         }}
         tooltip={{ enable: true }}
+        width="auto"
       >
         <Inject
           services={[ColumnSeries, Category, LineSeries, Tooltip]}
