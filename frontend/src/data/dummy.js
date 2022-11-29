@@ -276,9 +276,12 @@ export const LinePrimaryXAxis = {
   edgeLabelPlacement: "Shift",
   majorGridLines: { width: 0 },
   background: "white",
+  crosshairTooltip: {
+    enable: true,
+  },
 };
 // Grid Data
-export let data = [
+export let gridData = [
   {
     OrderID: 10248,
     CustomerID: "VINET",
@@ -602,6 +605,9 @@ export const LinePrimaryYAxis = {
   lineStyle: { width: 0 },
   majorTickLines: { width: 0 },
   minorTickLines: { width: 0 },
+  crosshairTooltip: {
+    enable: true,
+  },
 };
 
 export const customersGrid = [
@@ -1569,7 +1575,7 @@ export const financialChartData = [
 ];
 
 // 전력량 데이터용
-export let data = [
+export let powerData = [
   {
     OrderID: 10248,
     CustomerID: "VINET",

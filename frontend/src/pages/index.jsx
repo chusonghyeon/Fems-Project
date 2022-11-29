@@ -1,13 +1,20 @@
-export { default as Ecommerce } from "./Ecommerce";
-export { default as Orders } from "./Orders";
-export { default as Employees } from "./Employees";
-export { default as Customers } from "./Customers";
+// 임시
+export { default as Orders } from "./Charts/Orders";
 export { default as Area } from "./Charts/Area";
 export { default as Bar } from "./Charts/Bar";
-export { default as Financial } from "./Charts/Financial";
-export { default as Line } from "./Charts/Line";
-export { default as Stacked } from "./Charts/Stacked";
-export { default as Dashboard } from "./Dashboard";
-export { default as Electricamount } from "./Electricamount";
-export { default as Humidity } from "./Humidity";
-export { default as Temperature } from "./Temperature";
+export { default as Dashboard } from "./Charts/Dashboard";
+export { default as Employees } from "./Charts/Employees";
+
+// 메인페이지
+export { default as Ecommerce } from "./Mainpage/Ecommerce";
+export { default as Customers } from "./Mainpage/Customers";
+
+// 전력량 Electric
+export { default as Electricamount } from "./Electric/Electricamount";
+
+// 온도 Temperature
+export { default as DayTemperature } from "./Temperature/DayTemperature";
+export { default as TempLine } from "./Temperature/TempLine";
+
+// 습도 Humidity
+export { default as Humidity } from "./Humidity/Humidity";

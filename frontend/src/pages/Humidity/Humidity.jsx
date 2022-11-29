@@ -1,5 +1,5 @@
 import React from "react";
-import DashHeader from "../components/DashHeader";
+import DashHeader from "../../components/common/DashHeader";
 
 const Humidity = () => {
   return (

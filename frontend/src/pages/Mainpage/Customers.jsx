@@ -3,39 +3,41 @@ import {
   GridComponent,
   ColumnsDirective,
   ColumnDirective,
-  Sort,
-  Page,
   Inject,
-  Search,
+  Page,
+  Selection,
+  Edit,
   Toolbar,
+  Sort,
+  Filter,
 } from "@syncfusion/ej2-react-grids";
 
-import { employeesData, ContextMenuItems, employeesGrid } from "../data/dummy";
+import { customersData, customersGrid } from "../../data/dummy";
+import { Header } from "../../components";
 
-import { Header } from "../components";
-
-const Employee = () => {
+const Customers = () => {
   return (
     <div className="m-2 md:m-10 p-2 md:p-10 bg-white rounded-3xl">
-      <Header category="Page" title="Employees" />
+      <Header category="Page" title="Customer" />
       {/* allowPaging = 페이지 매김 */}
       <GridComponent
         id="gridcomp"
-        dataSource={employeesData}
+        dataSource={customersData}
         allowPaging
         allowSorting
-        toolbar={["Search"]}
+        toolbar={["Search", "Delete"]}
+        editSettings={{ allowDeleting: true, allowEditing: true }}
         width="auto"
       >
         <ColumnsDirective>
-          {employeesGrid.map((item, index) => (
+          {customersGrid.map((item, index) => (
             <ColumnDirective key={index} {...item} />
           ))}
         </ColumnsDirective>
-        <Inject services={[Page, Sort, Toolbar, Search]} />
+        <Inject services={[Page, Sort, Toolbar, Edit, Selection, Filter]} />
       </GridComponent>
     </div>
   );
 };
 
-export default Employee;
+export default Customers;

@@ -9,12 +9,16 @@ import {
   Page,
   Sort,
 } from "@syncfusion/ej2-react-grids";
-import { data } from "../../data/dummy";
+import { powerData } from "../../data/dummy";
 
 const DataGrid = () => {
   const pageSettings = { pageSize: 10 };
   return (
-    <GridComponent dataSource={data} pageSettings={pageSettings} allowPaging>
+    <GridComponent
+      dataSource={powerData}
+      pageSettings={pageSettings}
+      allowPaging
+    >
       <ColumnsDirective>
         <ColumnDirective field="OrderDate" width="100" textAlign="Right" />
         <ColumnDirective
