@@ -1,5 +1,5 @@
 import React from "react";
-import { DateTimePickerComponent } from "@syncfusion/ej2-react-calendars";
+import { DatePickerComponent } from "@syncfusion/ej2-react-calendars";
 
 const DashHeader = ({ category, title }) => {
   return (
@@ -11,12 +11,12 @@ const DashHeader = ({ category, title }) => {
           <div className="w-20 pt-2.5 pr-1 text-14 flex items-center justify-center">
             조회일자:{" "}
           </div>
-          <DateTimePickerComponent
-            id="datetimepicker"
+          <DatePickerComponent
+            id="datepicker"
             floatLabelType="Auto"
             placeholder="Select a date and time"
             className="border-solid border-2 border-slate-400 rounded-md"
-          />
+          ></DatePickerComponent>
         </div>
       </div>
     </div>
