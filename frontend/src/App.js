@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
 import { useStateContext } from "./context/UserContext";
-import UnProtectedRoutes from "./components/Routes/UnProtectedRoutes";
-import ProtectedRoutes from "./components/Routes/ProtectedRoutes";
+import { UnProtectedRoutes, ProtectedRoutes } from "./components";
 
 const App = () => {
   const { token } = useStateContext();

@@ -1,7 +1,6 @@
 import React from "react";
 
-import DashHeader from "../components/DashHeader";
-import ElectricPr from "../components/Charts/ElectricPr";
+import { DashHeader, ElectricPr } from "../../components";
 
 const Humidity = () => {
   return (

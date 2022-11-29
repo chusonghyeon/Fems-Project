@@ -6,7 +6,7 @@ export { default as Dashboard } from "./Charts/Dashboard";
 export { default as Employees } from "./Charts/Employees";
 
 // 메인페이지
-export { default as Ecommerce } from "./Mainpage/Ecommerce";
+export { default as MainPage } from "./Mainpage/MainPage";
 export { default as Customers } from "./Mainpage/Customers";
 
 // 전력량 Electric

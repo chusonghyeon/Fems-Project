@@ -1599,7 +1599,7 @@ export let electricprdata2 = [
 ];
 
 // 전력량 데이터용
-export let Powerdata = [
+export let PowerData = [
   {
     OrderID: 10248,
     CustomerID: "VINET",

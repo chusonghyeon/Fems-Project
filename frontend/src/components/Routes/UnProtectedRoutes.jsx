@@ -1,6 +1,6 @@
 import React from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
-import Login from "../auth/Login";
+import { Login } from "../";
 
 const UnProtectedRoutes = () => {
   return (
