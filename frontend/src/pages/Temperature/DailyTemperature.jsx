@@ -1,5 +1,5 @@
 import React from "react";
-import { LineChart, Toggleheader } from "../../components";
+import { LineChart, TempGrid, Toggleheader } from "../../components";
 import Header from "../../components/common/Header";
 
 const DailyTemperature = () => {
@@ -9,7 +9,7 @@ const DailyTemperature = () => {
         <Header category="온도" title="일별 온도현황" />
         <Toggleheader />
       </div>
-      <div className="w-full dark:bg-secondary-dark-bg">
+      <div className="m-4 md:m-10 mt-24 p-10 bg-white rounded-3xl dark:bg-secondary-dark-bg">
         <LineChart />
         <TempGrid />
       </div>

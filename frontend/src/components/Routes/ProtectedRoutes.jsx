@@ -26,6 +26,7 @@ import {
   MonthlyHumidity,
   DailyHumidity,
   HourlyHumidity,
+  Test,
 } from "../../pages";
 
 const ProtectedRoutes = () => {
@@ -86,7 +87,7 @@ const ProtectedRoutes = () => {
               {/* 전력량 */}
               <Route path="/시간별 전력량" element={<HourlyElectricAmount />} />
               <Route path="/일별 전력량" element={<Employees />} />
-              <Route path="/월별 전력량" element={<Orders />} />
+              <Route path="/월별 전력량" element={<Test />} />
               {/* 온도 */}
               <Route path="/시간별 온도" element={<HourlyTemperature />} />
               <Route path="/일별 온도" element={<DailyTemperature />} />

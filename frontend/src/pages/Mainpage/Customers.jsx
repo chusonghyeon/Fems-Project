@@ -17,7 +17,10 @@ import { Header } from "../../components";
 
 const Customers = () => {
   return (
-    <div className="m-2 md:m-10 p-2 md:p-10 bg-white rounded-3xl">
+    <div
+      className="w-11/12
+     m-2 md:m-10 p-2 md:p-10 bg-white rounded-3xl"
+    >
       <Header category="Page" title="Customer" />
       {/* allowPaging = 페이지 매김 */}
       <GridComponent

@@ -21,3 +21,6 @@ export { default as MonthlyTemperature } from "./Temperature/MonthlyTemperature"
 export { default as HourlyHumidity } from "./Humidity/HourlyHumidity";
 export { default as DailyHumidity } from "./Humidity/DailyHumidity";
 export { default as MonthlyHumidity } from "./Humidity/MonthlyHumidity";
+
+// 테스트용
+export { default as Test } from "./Test";

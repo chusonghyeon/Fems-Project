@@ -81,3 +81,4 @@
 2022-11-29 20:24:47,187 | FemsService | INFO | succeed to do 'Get_LpData_Daily('20210501',20210531)'
 2022-11-29 20:26:18,531 | FemsService | INFO | succeed to do 'Get_LpData_Daily('202101',202102)'
 2022-11-29 20:26:38,654 | FemsService | INFO | succeed to do 'Get_LpData_Daily('2021',2022)'
+2022-11-30 15:10:33,708 | FemsService | INFO | error to do 'Get_AHU_KWh_Hourly_Data('I00','20210210','20210210')'
