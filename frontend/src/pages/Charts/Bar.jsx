@@ -11,6 +11,7 @@ import {
   AxisDirective,
   Tooltip,
 } from "@syncfusion/ej2-react-charts";
+import { Resize } from "@syncfusion/ej2-react-grids";
 import { chartData } from "../../data/dummy";
 //https://www.youtube.com/watch?v=EirmVDtpvcE&t=97s
 const Bar = () => {
@@ -31,7 +32,7 @@ const Bar = () => {
         width="auto"
       >
         <Inject
-          services={[ColumnSeries, Category, LineSeries, Tooltip]}
+          services={[ColumnSeries, Category, LineSeries, Tooltip, Resize]}
         ></Inject>
         <AxesDirective>
           <AxisDirective

@@ -30,7 +30,7 @@ export { default as Navbar } from "./common/Navbar";
 export { default as Header } from "./common/Header";
 // 표 위치 + 검색 기능
 export { default as DashHeader } from "./common/DashHeader";
-
+export { default as Toggleheader } from "./common/Toggleheader";
 //Routes
 export { default as ProtectedRoutes } from "./Routes/ProtectedRoutes";
 export { default as UnProtectedRoutes } from "./Routes/UnProtectedRoutes";
