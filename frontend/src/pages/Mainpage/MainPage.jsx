@@ -1,17 +1,18 @@
 import React from "react";
 import { ElectricPr, GongjoPr } from "../../components";
-import { useStateContext } from "../../context/UserContext";
 import { Header } from "../../components";
-
 const MainPage = () => {
   return (
-    <div className="m-4 md:m-10 p-2 mt-24 p-10 bg-white dark:bg-secondary-dark-bg rounded-3xl">
-      <Header category="MainPage" title="대시보드" />
-      <div className=" h-full w-full m-auto">
-        <div>
+    <div>
+      <div className="m-4 md:m-10 mt-24 p-10 w-auto bg-white dark:bg-secondary-dark-bg rounded-3xl">
+        <Header category="MainPage" title="예상 전력 소비량" />
+        <div className="w-full dark:bg-secondary-dark-bg">
           <ElectricPr />
         </div>
-        <div>
+      </div>
+      <div className="m-4 md:m-10 mt-24 p-10 bg-white dark:bg-secondary-dark-bg rounded-3xl">
+        <Header category="MainPage" title="전년도 대비 전력량" />
+        <div className="w-full dark:bg-secondary-dark-bg">
           <GongjoPr />
         </div>
       </div>
@@ -19,3 +20,13 @@ const MainPage = () => {
   );
 };
 export default MainPage;
+
+{
+  /* <div className="m-4 md:m-10 mt-24 p-10 bg-white dark:bg-secondary-dark-bg rounded-3xl">
+  <DashHeader category="온도" title="시간별 온도현황" />
+  <div className="w-full dark:bg-secondary-dark-bg">
+    <LineChart />
+    <TempGrid />
+  </div>
+</div>; */
+}

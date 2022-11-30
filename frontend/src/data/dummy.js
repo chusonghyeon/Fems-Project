@@ -605,9 +605,6 @@ export const LinePrimaryYAxis = {
   lineStyle: { width: 0 },
   majorTickLines: { width: 0 },
   minorTickLines: { width: 0 },
-  crosshairTooltip: {
-    enable: true,
-  },
 };
 
 export const customersGrid = [

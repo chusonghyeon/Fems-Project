@@ -26,8 +26,6 @@ export { default as ThemeSettings } from "./common/ThemeSettings";
 export { default as Sidebar } from "./common/Sidebar";
 //네비게이션 바
 export { default as Navbar } from "./common/Navbar";
-// 알림창 (임시, 삭제 가능성 많음)
-export { default as Notification } from "./common/Notification";
 // 표 위치
 export { default as Header } from "./common/Header";
 // 표 위치 + 검색 기능
