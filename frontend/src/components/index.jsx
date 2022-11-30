@@ -13,6 +13,9 @@ export { default as DataGrid } from "./Charts/DataGrid";
 //전력량 예측
 export { default as ElectricPr } from "./Charts/ElectricPr";
 
+// 공조기 데이터 정보
+export { default as GongjoInfoData } from "./Charts/GongjoInfoData";
+
 // 온도 표
 export { default as TempGrid } from "./Charts/TempGrid";
 // 습도 표
@@ -26,6 +29,9 @@ export { default as ThemeSettings } from "./common/ThemeSettings";
 export { default as Sidebar } from "./common/Sidebar";
 //네비게이션 바
 export { default as Navbar } from "./common/Navbar";
+// 일별 날짜 데이터
+export { default as Daydate } from "./common/Daydate";
+
 // 표 위치
 export { default as Header } from "./common/Header";
 // 표 위치 + 검색 기능

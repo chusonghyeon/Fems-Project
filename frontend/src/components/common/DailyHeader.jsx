@@ -1,8 +1,9 @@
-import { React, useState } from "react";
-import styled from "styled-components"; //install => npm i styled-components
-import Daydate from "./Daydate";
-// basic template https://github.com/toy-crane/make-select-box/blob/master/src/App.js
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
+import React, { useState } from "react";
+import styled from "styled-components"; //install => npm i styled-components
+// basic template https://github.com/toy-crane/make-select-box/blob/master/src/App.js
 const OPTIONS = [
   {
     value: "AH01",
@@ -108,38 +109,37 @@ const SelectBox = (props) => {
     </SelectBoxWrapper>
   );
 };
-const handleSubmit = (e) => {
-  e.preventDefault();
-  let Datesub = e.target.value;
-};
 
 const Toggleheader = () => {
-  const [StartDate, setStartDate] = useState(new Date());
+  const [startDate, setStartDate] = useState(new Date());
+
+  function onChangeDateHandler(date) {
+    console.log(date);
+    setStartDate(date);
+  }
 
   return (
     <>
       <div className="mb-2 md:m-10 mt-24 p-1 bg-white dark:bg-secondary-dark-bg rounded-3xl">
-        <div className="flex justify-between items-center rounded-1g shadow-lg shadow-gray-300/50 ml-7 font-bold">
+        <div className="flex justify-between items-center rounded-1g shadow-lg shadow-gray-300/50 ml-7">
           <SelectBox options={OPTIONS} defaultValue="공조기01"></SelectBox>
           <span className="">클린룸: 1F A존</span>
           <span className="">설치장소: B2F 기계실</span>
-          <form onSubmit={handleSubmit} className="flex">
+          <div>
             <label className="mr-5">조회일자</label>
-            {/* <input
-              className="border-2 border-slate-400 w-44 h-8 text-lg"
-              type="date"
-              min="2021-01-01"
-              max="2022-10-20"
-              onChange={(date) => setStartDate(date)}
-            ></input> */}
-            <Daydate />
+            <DatePicker
+              selected={startDate}
+              onChange={onChangeDateHandler}
+              dateFormat="MM/yyyy"
+              showMonthYearPicker
+            />
             <button
-              type="submit"
+              type="button"
               className="pointer ml-4 w-24 h-8 bg-blue-500 rounded-md"
             >
               검색
             </button>
-          </form>
+          </div>
         </div>
       </div>
     </>

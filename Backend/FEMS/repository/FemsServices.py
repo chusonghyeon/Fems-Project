@@ -31,7 +31,7 @@ _logger = Logger("FemsService")
 async def Get_AHU_Info(FAC_NAME: str):
     try:       
         # 내꺼 로컬 DB
-        connection = pymysql.connect(host='localhost', port=3306, user='root', password='147852',
+        connection = pymysql.connect(host='localhost', port=3306, user='root', password='1234',
                                      db='FEMS', charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)
         
         
@@ -53,7 +53,7 @@ async def Get_AHU_Info(FAC_NAME: str):
 async def Get_LpData_glance_Daily(startDate: str, endDate: str):
     try:
         # 내꺼 로컬 DB 
-        connection = pymysql.connect(host='localhost', port=3306, user='root', password='147852',
+        connection = pymysql.connect(host='localhost', port=3306, user='root', password='1234',
                                      db='FEMS', charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)
         
         with connection.cursor() as cursor:
@@ -83,7 +83,7 @@ async def Get_LpData_monthly_Daily(startDate: str, endDate: str):
     try:
               
         # 내꺼 로컬 DB 연결
-        connection = pymysql.connect(host='localhost', port=3306, user='root', password='147852',
+        connection = pymysql.connect(host='localhost', port=3306, user='root', password='1234',
                                      db='FEMS', charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)
         
         with connection.cursor() as cursor:
@@ -113,7 +113,7 @@ async def Get_LpData_by_year(startDate: str, endDate: str):
     try:
               
         # 내꺼 로컬 DB 연결
-        connection = pymysql.connect(host='localhost', port=3306, user='root', password='147852',
+        connection = pymysql.connect(host='localhost', port=3306, user='root', password='1234',
                                      db='FEMS', charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)
         
         with connection.cursor() as cursor:
@@ -152,7 +152,7 @@ async def Get_LpData_by_year(startDate: str, endDate: str):
 async def Get_AHU_KWh_Hourly_Data(inv_id: str, runDate: str):
     try:   
            
-        # 내꺼 로컬 DB 
+        # 내꺼 로컬 DB
         connection = pymysql.connect(host='localhost', port=3306, user='root', password='147852',
                                      db='FEMS', charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)
         
@@ -180,7 +180,7 @@ async def Get_AHU_KWh_glance_Data(inv_id: str, runDate: str):
     try:   
            
         # 내꺼 로컬 DB
-        connection = pymysql.connect(host='localhost', port=3306, user='root', password='147852',
+        connection = pymysql.connect(host='localhost', port=3306, user='root', password='1234',
                                      db='FEMS', charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)
         
         with connection.cursor() as cursor:
@@ -207,7 +207,7 @@ async def Get_AHU_KWh_monthly_Data(inv_id: str, runDate: str):
     try:   
            
         # 내꺼 로컬 DB
-        connection = pymysql.connect(host='localhost', port=3306, user='root', password='147852',
+        connection = pymysql.connect(host='localhost', port=3306, user='root', password='1234',
                                      db='FEMS', charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)
         
         with connection.cursor() as cursor:
@@ -240,7 +240,7 @@ async def Get_AHU_temp_Hourly_Data(ahu_id: str, runDate: str):
     try:   
            
         # 내꺼 로컬 DB
-        connection = pymysql.connect(host='localhost', port=3306, user='root', password='147852',
+        connection = pymysql.connect(host='localhost', port=3306, user='root', password='1234',
                                      db='FEMS', charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)
         
         with connection.cursor() as cursor:
@@ -271,7 +271,7 @@ async def Get_AHU_temp_glance_Data(ahu_id: str, runDate: str):
     try:   
            
         # 내꺼 로컬 DB
-        connection = pymysql.connect(host='localhost', port=3306, user='root', password='147852',
+        connection = pymysql.connect(host='localhost', port=3306, user='root', password='1234',
                                      db='FEMS', charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)
         
         with connection.cursor() as cursor:
@@ -301,7 +301,7 @@ async def Get_AHU_temp_monthly_Data(ahu_id: str, runDate: str):
     try:   
            
         # 내꺼 로컬 DB
-        connection = pymysql.connect(host='localhost', port=3306, user='root', password='147852',
+        connection = pymysql.connect(host='localhost', port=3306, user='root', password='1234',
                                      db='FEMS', charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)
         
         with connection.cursor() as cursor:
@@ -337,7 +337,7 @@ async def Get_AHU_hum_Hourly_Data(ahu_id: str, runDate: str):
     try:   
            
         # 내꺼 로컬 DB
-        connection = pymysql.connect(host='localhost', port=3306, user='root', password='147852',
+        connection = pymysql.connect(host='localhost', port=3306, user='root', password='1234',
                                      db='FEMS', charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)
         
         with connection.cursor() as cursor:
@@ -367,7 +367,7 @@ async def Get_AHU_hum_glance_Data(ahu_id: str, runDate: str):
     try:   
            
         # 내꺼 로컬 DB
-        connection = pymysql.connect(host='localhost', port=3306, user='root', password='147852',
+        connection = pymysql.connect(host='localhost', port=3306, user='root', password='1234',
                                      db='FEMS', charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)
         
         with connection.cursor() as cursor:
@@ -397,7 +397,7 @@ async def Get_AHU_hum_monthly_Data(ahu_id: str, runDate: str):
     try:   
            
         # 내꺼 로컬 DB
-        connection = pymysql.connect(host='localhost', port=3306, user='root', password='147852',
+        connection = pymysql.connect(host='localhost', port=3306, user='root', password='1234',
                                      db='FEMS', charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)
         
         with connection.cursor() as cursor:

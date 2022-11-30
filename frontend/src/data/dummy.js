@@ -608,37 +608,36 @@ export const LinePrimaryYAxis = {
 };
 
 export const customersGrid = [
-  { type: "checkbox", width: "50" },
   {
-    headerText: "Name",
+    field: "CustomerName",
+    headerText: "공조기 번호",
     width: "150",
-    template: customerGridImage,
     textAlign: "Center",
   },
   {
     field: "ProjectName",
-    headerText: "Project Name",
+    headerText: "공조기 설치 장소",
     width: "150",
     textAlign: "Center",
   },
   {
     field: "Status",
-    headerText: "Status",
-    width: "130",
+    headerText: "클린룸",
+    width: "150",
     format: "yMd",
     textAlign: "Center",
     template: customerGridStatus,
   },
   {
-    field: "Weeks",
-    headerText: "Weeks",
+    field: "FAC_VOLTAGE",
+    headerText: "공조기 볼트",
     width: "100",
     format: "C2",
     textAlign: "Center",
   },
   {
     field: "Budget",
-    headerText: "Budget",
+    headerText: "공조기 KW",
     width: "100",
     format: "yMd",
     textAlign: "Center",
@@ -646,17 +645,9 @@ export const customersGrid = [
 
   {
     field: "Location",
-    headerText: "Location",
-    width: "150",
+    headerText: "인버터 갯수",
+    width: "100",
     textAlign: "Center",
-  },
-
-  {
-    field: "CustomerID",
-    headerText: "Customer ID",
-    width: "120",
-    textAlign: "Center",
-    isPrimaryKey: true,
   },
 ];
 
@@ -1049,37 +1040,30 @@ export const ordersGrid = [
 export const customersData = [
   {
     CustomerID: 1001,
-    CustomerName: "Nirav Joshi",
-    CustomerEmail: "nirav@gmail.com",
+    CustomerName: "AHU-01",
     ProjectName: "Hosting Press HTML",
     Status: "Active",
-    StatusBg: "#8BE78B",
-    Weeks: "40",
+    FAC_VOLTAGE: "40",
     Budget: "$2.4k",
     Location: "India",
   },
   {
     CustomerID: 1002,
 
-    CustomerName: "Sunil Joshi",
-    CustomerEmail: "sunil@gmail.com",
+    CustomerName: "AHU-02",
     ProjectName: "Elite Admin",
     Status: "Active",
-
-    StatusBg: "#8BE78B",
-    Weeks: "11",
+    FAC_VOLTAGE: "11",
     Budget: "$3.9k",
     Location: "India",
   },
   {
     CustomerID: 1003,
 
-    CustomerName: "Andrew McDownland",
-    CustomerEmail: "andrew@gmail.com",
+    CustomerName: "AHU-03",
     ProjectName: "Real Homes WP Theme",
     Status: "Pending",
-    StatusBg: "#FEC90F",
-    Weeks: "19",
+    FAC_VOLTAGE: "19",
     Budget: "$24.5k",
     Location: "USA",
   },
