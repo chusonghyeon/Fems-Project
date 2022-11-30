@@ -1,5 +1,5 @@
 import React from "react";
-import { LineChart, Toggleheader } from "../../components";
+import { LineChart, Toggleheader, TempGrid } from "../../components";
 import Header from "../../components/common/Header";
 
 const DailyTemperature = () => {
