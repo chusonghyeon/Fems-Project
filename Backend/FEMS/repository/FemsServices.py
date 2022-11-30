@@ -57,7 +57,7 @@ async def Get_LpData_glance_Daily(startDate: str, endDate: str):
                                      db='FEMS', charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)
         
         with connection.cursor() as cursor:
-            query = "select left(a.LpDate,8) as runDate, cast(sum(a.LpData) as char) as sumData  " + \
+            query = "select left(a.LpDate,8) as runDate, cast(round(sum(a.LpData),2) as char) as sumData  " + \
                     "from " + \
                     "( " + \
                     "   select LpDate, LpData " + \
@@ -71,11 +71,11 @@ async def Get_LpData_glance_Daily(startDate: str, endDate: str):
             rv = cursor.fetchall()
             json_data = json.dumps(rv, indent=4)
             _logger.Info(
-                f"succeed to do 'Get_LpData_Daily('{startDate}',{endDate})'")
+                f"succeed to do 'Get_LpData_glance_Daily('{startDate}',{endDate})'")
             return json_data
 
     except Exception as ex:
-        _logger.Info(f"error to do 'Get_LpData_Daily('{startDate}',{endDate})'")
+        _logger.Info(f"error to do 'Get_LpData_glance_Daily('{startDate}',{endDate})'")
         
 
 # 월별로 공조기 전력량 데이터 추출
@@ -87,7 +87,7 @@ async def Get_LpData_monthly_Daily(startDate: str, endDate: str):
                                      db='FEMS', charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)
         
         with connection.cursor() as cursor:
-            query = "select left(a.LpDate,6) as runDate, cast(sum(a.LpData) as char) as sumData " + \
+            query = "select left(a.LpDate,6) as runDate, cast(round(sum(a.LpData),2) as char) as sumData " + \
                     "from " + \
                     "( " + \
                     "   select LpDate, LpData " + \
@@ -101,11 +101,11 @@ async def Get_LpData_monthly_Daily(startDate: str, endDate: str):
             rv = cursor.fetchall()
             json_data = json.dumps(rv, indent=4)
             _logger.Info(
-                f"succeed to do 'Get_LpData_Daily('{startDate}',{endDate})'")
+                f"succeed to do 'Get_LpData_monthly_Daily('{startDate}',{endDate})'")
             return json_data
 
     except Exception as ex:
-        _logger.Info(f"error to do 'Get_LpData_Daily('{startDate}',{endDate})'")
+        _logger.Info(f"error to do 'Get_LpData_monthly_Daily('{startDate}',{endDate})'")
 
 
 # 연별로 공조기 전력량 데이터 추출
@@ -117,7 +117,7 @@ async def Get_LpData_by_year(startDate: str, endDate: str):
                                      db='FEMS', charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)
         
         with connection.cursor() as cursor:
-            query = "select left(a.LpDate,4) as runDate, cast(sum(a.LpData) as char) as sumData " + \
+            query = "select left(a.LpDate,4) as runDate, cast(round(sum(a.LpData),2) as char) as sumData " + \
                     "from " + \
                     "( " + \
                     "   select LpDate, LpData " + \
@@ -130,11 +130,11 @@ async def Get_LpData_by_year(startDate: str, endDate: str):
             rv = cursor.fetchall()
             json_data = json.dumps(rv, indent=4)
             _logger.Info(
-                f"succeed to do 'Get_LpData_Daily('{startDate}',{endDate})'")
+                f"succeed to do 'Get_LpData_by_year('{startDate}',{endDate})'")
             return json_data
 
     except Exception as ex:
-        _logger.Info(f"error to do 'Get_LpData_Daily('{startDate}',{endDate})'")
+        _logger.Info(f"error to do 'Get_LpData_by_year('{startDate}',{endDate})'")
 
 #############################################################################################################################################
 
@@ -239,15 +239,15 @@ async def Get_AHU_temp_Hourly_Data(ahu_id: str, startDate: str, endDate: str):
         
         with connection.cursor() as cursor:
             query = " select " +\
-                " ahu_id, left(run_datetime,10) as rundate," +\
+                " ahu_id, left(run_datetime,12) as rundate," +\
                 " cast(round(avg(ahu_set_temp),2) as char) as ahu_set_temp, " +\
                 " cast(round(avg(ahu_ret_temp),2) as char) as ahu_ret_temp, " +\
                 " cast(round(avg(ahu_sup_temp),2) as char) as ahu_sup_temp, " +\
                 " cast(round(avg(ahu_out_temp),2) as char) as ahu_out_temp  " +\
                 "from raw_wmahudata_temp \n" +\
                 f"where ahu_id = '{ahu_id}' and left(run_datetime, 8) between '{startDate}' and '{endDate}'" +\
-                "group by left(run_datetime, 10) " + \
-                "order by left(run_datetime, 10);"
+                "group by left(run_datetime, 12) " + \
+                "order by left(run_datetime, 12);"
             cursor.execute(query)
             rv = cursor.fetchall()
             json_data = json.dumps(rv, indent=4)
@@ -257,7 +257,7 @@ async def Get_AHU_temp_Hourly_Data(ahu_id: str, startDate: str, endDate: str):
 
     except Exception as ex:
         _logger.Info(
-            f"error to do 'Get_AHU_temp_Hoourly_Data('{ahu_id}','{startDate}','{endDate}')'")
+            f"error to do 'Get_AHU_temp_Hourly_Data('{ahu_id}','{startDate}','{endDate}')'")
         
 # 공조기 일별 온도
 async def Get_AHU_temp_glance_Data(ahu_id: str, startDate: str, endDate: str):
@@ -282,12 +282,12 @@ async def Get_AHU_temp_glance_Data(ahu_id: str, startDate: str, endDate: str):
             rv = cursor.fetchall()
             json_data = json.dumps(rv, indent=4)
             _logger.Info(
-                f"succeed to do 'Get_AHU_temp_Hourly_Data('{ahu_id}','{startDate}','{endDate}')'")
+                f"succeed to do 'Get_AHU_temp_glance_Data('{ahu_id}','{startDate}','{endDate}')'")
             return json_data
 
     except Exception as ex:
         _logger.Info(
-            f"error to do 'Get_AHU_temp_Hoourly_Data('{ahu_id}','{startDate}','{endDate}')'")
+            f"error to do 'Get_AHU_temp_glance_Data('{ahu_id}','{startDate}','{endDate}')'")
 
 # 공조기 월별 온도
 async def Get_AHU_temp_monthly_Data(ahu_id: str, startDate: str, endDate: str):
@@ -312,12 +312,12 @@ async def Get_AHU_temp_monthly_Data(ahu_id: str, startDate: str, endDate: str):
             rv = cursor.fetchall()
             json_data = json.dumps(rv, indent=4)
             _logger.Info(
-                f"succeed to do 'Get_AHU_temp_Hourly_Data('{ahu_id}','{startDate}','{endDate}')'")
+                f"succeed to do 'Get_AHU_temp_monthly_Data('{ahu_id}','{startDate}','{endDate}')'")
             return json_data
 
     except Exception as ex:
         _logger.Info(
-            f"error to do 'Get_AHU_temp_Hoourly_Data('{ahu_id}','{startDate}','{endDate}')'")
+            f"error to do 'Get_AHU_temp_monthly_Data('{ahu_id}','{startDate}','{endDate}')'")
 
 #############################################################################################################################################
 
@@ -335,15 +335,15 @@ async def Get_AHU_hum_Hourly_Data(ahu_id: str, startDate: str, endDate: str):
         
         with connection.cursor() as cursor:
             query = " select " +\
-                " ahu_id, left(run_datetime,10) as rundate," +\
+                " ahu_id, left(run_datetime,12) as rundate," +\
                 " cast(round(avg(ahu_set_hum),2) as char) as ahu_set_hum, " +\
                 " cast(round(avg(ahu_ret_hum),2) as char) as ahu_ret_hum, " +\
                 " cast(round(avg(ahu_sup_hum),2) as char) as ahu_sup_hum, " +\
                 " cast(round(avg(ahu_out_hum),2) as char) as ahu_out_hum  " +\
                 "from raw_wmahudata_hum \n" +\
                 f"where ahu_id = '{ahu_id}' and left(run_datetime, 8) between '{startDate}' and '{endDate}'" +\
-                "group by left(run_datetime, 10) " + \
-                "order by left(run_datetime, 10);"
+                "group by left(run_datetime, 12) " + \
+                "order by left(run_datetime, 12);"
             cursor.execute(query)
             rv = cursor.fetchall()
             json_data = json.dumps(rv, indent=4)
@@ -353,7 +353,7 @@ async def Get_AHU_hum_Hourly_Data(ahu_id: str, startDate: str, endDate: str):
 
     except Exception as ex:
         _logger.Info(
-            f"error to do 'Get_AHU_hum_Hoourly_Data('{ahu_id}','{startDate}','{endDate}')'")
+            f"error to do 'Get_AHU_hum_Hourly_Data('{ahu_id}','{startDate}','{endDate}')'")
 
 # 공조기 일별 습도
 async def Get_AHU_hum_glance_Data(ahu_id: str, startDate: str, endDate: str):
@@ -378,12 +378,12 @@ async def Get_AHU_hum_glance_Data(ahu_id: str, startDate: str, endDate: str):
             rv = cursor.fetchall()
             json_data = json.dumps(rv, indent=4)
             _logger.Info(
-                f"succeed to do 'Get_AHU_hum_Hourly_Data('{ahu_id}','{startDate}','{endDate}')'")
+                f"succeed to do 'Get_AHU_hum_glance_Data('{ahu_id}','{startDate}','{endDate}')'")
             return json_data
 
     except Exception as ex:
         _logger.Info(
-            f"error to do 'Get_AHU_hum_Hoourly_Data('{ahu_id}','{startDate}','{endDate}')'")
+            f"error to do 'Get_AHU_hum_glance_Data('{ahu_id}','{startDate}','{endDate}')'")
 
 # 공조기 월별 습도
 async def Get_AHU_hum_monthly_Data(ahu_id: str, startDate: str, endDate: str):
@@ -408,9 +408,9 @@ async def Get_AHU_hum_monthly_Data(ahu_id: str, startDate: str, endDate: str):
             rv = cursor.fetchall()
             json_data = json.dumps(rv, indent=4)
             _logger.Info(
-                f"succeed to do 'Get_AHU_hum_Hourly_Data('{ahu_id}','{startDate}','{endDate}')'")
+                f"succeed to do 'Get_AHU_hum_monthly_Data('{ahu_id}','{startDate}','{endDate}')'")
             return json_data
 
     except Exception as ex:
         _logger.Info(
-            f"error to do 'Get_AHU_hum_Hoourly_Data('{ahu_id}','{startDate}','{endDate}')'")
+            f"error to do 'Get_AHU_hum_monthly_Data('{ahu_id}','{startDate}','{endDate}')'")

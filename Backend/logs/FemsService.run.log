@@ -81,3 +81,8 @@
 2022-11-29 20:24:47,187 | FemsService | INFO | succeed to do 'Get_LpData_Daily('20210501',20210531)'
 2022-11-29 20:26:18,531 | FemsService | INFO | succeed to do 'Get_LpData_Daily('202101',202102)'
 2022-11-29 20:26:38,654 | FemsService | INFO | succeed to do 'Get_LpData_Daily('2021',2022)'
+2022-11-29 20:46:16,125 | FemsService | INFO | succeed to do 'Get_AHU_temp_Hourly_Data('A01','20210501','20210510')'
+2022-11-29 20:47:39,706 | FemsService | INFO | succeed to do 'Get_AHU_temp_Hourly_Data('A01','20210501','20210510')'
+2022-11-30 09:17:13,226 | FemsService | INFO | succeed to do 'Get_LpData_monthly_Daily('202105',202105)'
+2022-11-30 09:19:43,555 | FemsService | INFO | succeed to do 'Get_LpData_monthly_Daily('202105',202105)'
+2022-11-30 09:19:52,924 | FemsService | INFO | succeed to do 'Get_LpData_monthly_Daily('202101',202101)'
