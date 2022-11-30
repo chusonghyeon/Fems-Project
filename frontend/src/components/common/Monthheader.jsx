@@ -1,6 +1,6 @@
 import { React, useState } from "react";
 import styled from "styled-components"; //install => npm i styled-components
-import Hourdate from "./Hourdate";
+import Monthdate from "./Monthdate";
 // basic template https://github.com/toy-crane/make-select-box/blob/master/src/App.js
 
 const OPTIONS = [
@@ -132,7 +132,7 @@ const Toggleheader = () => {
               max="2022-10-20"
               onChange={(date) => setStartDate(date)}
             ></input> */}
-            <Hourdate />
+            <Monthdate />
             <button
               type="submit"
               className="pointer ml-4 w-24 h-8 bg-blue-500 rounded-md"
