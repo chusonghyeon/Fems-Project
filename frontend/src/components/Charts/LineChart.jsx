@@ -11,7 +11,7 @@ import {
   Tooltip,
   Crosshair,
 } from "@syncfusion/ej2-react-charts";
-
+import { Resize } from "@syncfusion/ej2-react-grids";
 import {
   lineCustomSeries,
   LinePrimaryXAxis,
@@ -35,7 +35,9 @@ const LineChart = () => {
       background={currentMode === "Dark" ? "#33373E" : "#fff"}
       width="auto"
     >
-      <Inject services={[LineSeries, DateTime, Legend, Tooltip, Crosshair]} />
+      <Inject
+        services={[LineSeries, DateTime, Legend, Tooltip, Crosshair, Resize]}
+      />
       <SeriesCollectionDirective>
         {lineCustomSeries.map((item, index) => (
           <SeriesDirective key={index} {...item} />

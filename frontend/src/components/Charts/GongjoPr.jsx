@@ -8,6 +8,7 @@ import {
   Inject,
   Tooltip,
 } from "@syncfusion/ej2-react-charts";
+import { Resize } from "@syncfusion/ej2-react-grids";
 import { MultiChartData, MultiChartData2 } from "../../data/dummy";
 const GongjoPr = () => {
   return (
@@ -29,7 +30,7 @@ const GongjoPr = () => {
         primaryYAxis={{ labelFormat: "{value} kWh" }}
         tooltip={{ enable: true }}
       >
-        <Inject services={[ColumnSeries, Legend, Tooltip]}></Inject>
+        <Inject services={[ColumnSeries, Legend, Tooltip, Resize]}></Inject>
         <SeriesCollectionDirective>
           <SeriesDirective
             type="Column"

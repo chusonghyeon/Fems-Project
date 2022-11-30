@@ -18,7 +18,7 @@ export { default as Sidebar } from "./common/Sidebar";
 export { default as Navbar } from "./common/Navbar";
 export { default as Header } from "./common/Header";
 export { default as DashHeader } from "./common/DashHeader";
-
+export { default as Toggleheader } from "./common/Toggleheader";
 //Routes
 export { default as ProtectedRoutes } from "./Routes/ProtectedRoutes";
 export { default as UnProtectedRoutes } from "./Routes/UnProtectedRoutes";

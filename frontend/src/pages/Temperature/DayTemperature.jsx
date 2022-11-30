@@ -1,14 +1,17 @@
 import React from "react";
-import { LineChart } from "../../components";
-import DashHeader from "../../components/common/DashHeader";
+import { LineChart, Toggleheader } from "../../components";
+import Header from "../../components/common/Header";
 const Temperature = () => {
   return (
-    <div className="m-4 md:m-10 mt-24 p-10 bg-white dark:bg-secondary-dark-bg rounded-3xl">
-      <DashHeader category="온도" title="일별 온도현황" />
+    <>
+      <div className="m-4 md:m-10 mt-24 p-10 bg-white dark:bg-secondary-dark-bg rounded-3xl h-60">
+        <Header category="온도" title="일별 온도현황" />
+        <Toggleheader />
+      </div>
       <div className="w-full dark:bg-secondary-dark-bg">
         <LineChart />
       </div>
-    </div>
+    </>
   );
 };
 

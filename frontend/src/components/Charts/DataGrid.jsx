@@ -8,6 +8,7 @@ import {
   Inject,
   Page,
   Sort,
+  Resize,
 } from "@syncfusion/ej2-react-grids";
 import { PowerData } from "../../data/dummy";
 
@@ -28,7 +29,7 @@ const DataGrid = () => {
           format="C2"
         />
       </ColumnsDirective>
-      <Inject services={[Page, Sort, Filter, Group]} />
+      <Inject services={[Page, Sort, Filter, Group, Resize]} />
     </GridComponent>
   );
 };

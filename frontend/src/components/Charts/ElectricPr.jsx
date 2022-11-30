@@ -13,6 +13,7 @@ import {
   Tooltip,
   Highlight,
 } from "@syncfusion/ej2-react-charts";
+import { Resize } from "@syncfusion/ej2-react-grids";
 import { electricprdata1, electricprdata2 } from "../../data/dummy";
 import { Browser } from "@syncfusion/ej2-base";
 let ActContent = "<div>Actual</div>";
@@ -107,6 +108,7 @@ const electricPr = () => {
               Crosshair,
               ChartAnnotation,
               Highlight,
+              Resize,
             ]}
           />
           <AnnotationsDirective>

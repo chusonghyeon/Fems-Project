@@ -11,6 +11,7 @@ import {
   StepAreaSeries,
   Highlight,
 } from "@syncfusion/ej2-react-charts";
+import { Resize } from "@syncfusion/ej2-react-grids";
 import { electricdata, electricdata1 } from "../../data/dummy";
 const Linearea = () => {
   return (
@@ -39,8 +40,11 @@ const Linearea = () => {
         tooltip={{ enable: true }}
         // loaded={this.onChartLoad.bind(this)}
         title="Electricity- Production"
+        width="auto"
       >
-        <Inject services={[StepAreaSeries, Tooltip, Legend, Highlight]} />
+        <Inject
+          services={[StepAreaSeries, Tooltip, Legend, Highlight, Resize]}
+        />
         <SeriesCollectionDirective>
           <SeriesDirective
             dataSource={electricdata}
