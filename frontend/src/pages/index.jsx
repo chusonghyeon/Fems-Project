@@ -7,7 +7,7 @@ export { default as Employees } from "./Charts/Employees";
 
 // 메인페이지
 export { default as MainPage } from "./Mainpage/MainPage";
-export { default as Customers } from "./Mainpage/Customers";
+export { default as GongjoInfo } from "./Mainpage/GongjoInfo";
 
 // 전력량 Electric
 export { default as HourlyElectricAmount } from "./Electric/HourlyElectricAmount";

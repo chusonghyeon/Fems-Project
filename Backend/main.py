@@ -29,13 +29,9 @@ app.add_middleware(
 )
 
 '''
-<<<<<<< HEAD
-User
-=======
 
 User
 
->>>>>>> 47d625f565f47721fff4f5f9272d8c5570a659bd
 '''
 # Router에 저장되어 있는 API주소 불러오기
 # 실제 API주소는 Router 안에 있다.
@@ -44,13 +40,9 @@ app.include_router(user.router)
 
 
 '''
-<<<<<<< HEAD
-FEMS
-=======
 
 FEMS
 
->>>>>>> 47d625f565f47721fff4f5f9272d8c5570a659bd
 '''
 #  Router에 저장되어 있는 API주소 불러오기
 # 실제 API주소는 Router 안에 있다.

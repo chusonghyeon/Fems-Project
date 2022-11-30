@@ -81,9 +81,6 @@
 2022-11-29 20:24:47,187 | FemsService | INFO | succeed to do 'Get_LpData_Daily('20210501',20210531)'
 2022-11-29 20:26:18,531 | FemsService | INFO | succeed to do 'Get_LpData_Daily('202101',202102)'
 2022-11-29 20:26:38,654 | FemsService | INFO | succeed to do 'Get_LpData_Daily('2021',2022)'
-<<<<<<< HEAD
-2022-11-30 15:10:33,708 | FemsService | INFO | error to do 'Get_AHU_KWh_Hourly_Data('I00','20210210','20210210')'
-=======
 2022-11-29 20:46:16,125 | FemsService | INFO | succeed to do 'Get_AHU_temp_Hourly_Data('A01','20210501','20210510')'
 2022-11-29 20:47:39,706 | FemsService | INFO | succeed to do 'Get_AHU_temp_Hourly_Data('A01','20210501','20210510')'
 2022-11-30 09:17:13,226 | FemsService | INFO | succeed to do 'Get_LpData_monthly_Daily('202105',202105)'
@@ -97,4 +94,26 @@
 2022-11-30 14:42:48,479 | FemsService | INFO | succeed to do 'Get_AHU_KWh_Hourly_Data('I00','20210205')'
 2022-11-30 14:43:37,187 | FemsService | INFO | succeed to do 'Get_AHU_KWh_Hourly_Data('I00','20210205')'
 2022-11-30 14:49:58,235 | FemsService | INFO | succeed to do 'Get_AHU_KWh_Hourly_Data('I00','20210205')'
->>>>>>> 47d625f565f47721fff4f5f9272d8c5570a659bd
+2022-11-30 16:17:51,336 | FemsService | INFO | succeed to do 'Get_AHU_KWh_Hourly_Data('I00','20210205')'
+2022-11-30 17:05:01,405 | FemsService | INFO | error to do 'Get_AHU_Info('AHU-01')
+2022-11-30 17:06:57,376 | FemsService | INFO | error to do 'Get_AHU_Info('AHU-01')
+2022-11-30 17:07:28,124 | FemsService | INFO | error to do 'Get_AHU_Info('AHU-01')
+2022-11-30 17:08:09,145 | FemsService | INFO | error to do 'Get_AHU_Info('AHU-01')
+2022-11-30 17:09:44,661 | FemsService | INFO | succeed to do 'Get_AHU_Info('AHU-01')'
+2022-11-30 18:54:17,812 | FemsService | INFO | succeed to do 'Get_AHU_KWh_Hourly_Data('I00','20210510')'
+2022-11-30 18:56:30,121 | FemsService | INFO | succeed to do 'Get_AHU_KWh_Hourly_Data('I00','20210510')'
+2022-11-30 18:57:35,303 | FemsService | INFO | succeed to do 'Get_AHU_KWh_Hourly_Data('I00','20210510')'
+2022-11-30 18:57:50,360 | FemsService | INFO | succeed to do 'Get_AHU_KWh_Hourly_Data('I00','20210510')'
+2022-11-30 18:58:34,052 | FemsService | INFO | succeed to do 'Get_AHU_KWh_Hourly_Data('I00','20210510')'
+2022-11-30 18:58:38,264 | FemsService | INFO | succeed to do 'Get_AHU_KWh_Hourly_Data('I00','20210510')'
+2022-11-30 18:59:01,365 | FemsService | INFO | succeed to do 'Get_AHU_KWh_Hourly_Data('I00','20210510')'
+2022-11-30 18:59:07,745 | FemsService | INFO | succeed to do 'Get_AHU_KWh_Hourly_Data('I00','20210510')'
+2022-11-30 18:59:15,044 | FemsService | INFO | succeed to do 'Get_AHU_KWh_Hourly_Data('I00','20210510')'
+2022-11-30 19:00:04,874 | FemsService | INFO | succeed to do 'Get_AHU_KWh_Hourly_Data('I00','20210510')'
+2022-11-30 19:00:08,718 | FemsService | INFO | succeed to do 'Get_AHU_KWh_Hourly_Data('I00','20210510')'
+2022-11-30 19:00:42,376 | FemsService | INFO | succeed to do 'Get_AHU_KWh_Hourly_Data('I00','20210510')'
+2022-11-30 19:00:48,038 | FemsService | INFO | succeed to do 'Get_AHU_KWh_Hourly_Data('I00','20210510')'
+2022-11-30 19:01:04,089 | FemsService | INFO | succeed to do 'Get_AHU_KWh_Hourly_Data('I00','20210510')'
+2022-11-30 19:01:11,452 | FemsService | INFO | succeed to do 'Get_AHU_KWh_Hourly_Data('I00','20210510')'
+2022-11-30 19:01:16,642 | FemsService | INFO | succeed to do 'Get_AHU_KWh_Hourly_Data('I00','20210510')'
+2022-11-30 19:05:12,980 | FemsService | INFO | succeed to do 'Get_AHU_KWh_Hourly_Data('I00','20210510')'
