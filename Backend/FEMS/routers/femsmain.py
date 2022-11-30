@@ -59,20 +59,20 @@ async def Get_LpData_by_year(startDate: str, endDate: str):
 
 # 전력량 시간별
 @router.get("/Get_AHU_KWh_Hourly_Data")
-async def Get_AHU_KWh_Hourly_Data(inv_id: str, startDate: str, endDate: str):
-    result = await FemsServices.Get_AHU_KWh_Hourly_Data(inv_id, startDate, endDate)
+async def Get_AHU_KWh_Hourly_Data(inv_id: str, runDate: str):
+    result = await FemsServices.Get_AHU_KWh_Hourly_Data(inv_id, runDate)
     return Response(content=result, media_type="application/json")
 
 # 전력량 일별
 @router.get("/Get_AHU_KWh_glance_Data")
-async def Get_AHU_KWh_glance_Data(inv_id: str, startDate: str, endDate: str):
-    result = await FemsServices.Get_AHU_KWh_glance_Data(inv_id, startDate, endDate)
+async def Get_AHU_KWh_glance_Data(inv_id: str, runDate: str):
+    result = await FemsServices.Get_AHU_KWh_glance_Data(inv_id, runDate)
     return Response(content=result, media_type="application/json")
 
 # 전력량 월별
 @router.get("/Get_AHU_KWh_monthly_Data")
-async def Get_AHU_KWh_monthly_Data(inv_id: str, startDate: str, endDate: str):
-    result = await FemsServices.Get_AHU_KWh_monthly_Data(inv_id, startDate, endDate)
+async def Get_AHU_KWh_monthly_Data(inv_id: str, runDate: str):
+    result = await FemsServices.Get_AHU_KWh_monthly_Data(inv_id, runDate)
     return Response(content=result, media_type="application/json")
 
 ####################################################################################
@@ -83,21 +83,21 @@ async def Get_AHU_KWh_monthly_Data(inv_id: str, startDate: str, endDate: str):
 
 # 온도 시간별
 @router.get("/Get_AHU_temp_Hourly_Data")
-async def Get_AHU_temp_Hourly_Data(ahu_id: str, startDate: str, endDate: str):
-    result = await FemsServices.Get_AHU_temp_Hourly_Data(ahu_id, startDate, endDate)
+async def Get_AHU_temp_Hourly_Data(ahu_id: str, runDate: str):
+    result = await FemsServices.Get_AHU_temp_Hourly_Data(ahu_id, runDate)
     return Response(content=result, media_type="application/json")
 
 
 # 온도 일별
 @router.get("/Get_AHU_temp_glance_Data")
-async def Get_AHU_temp_glance_Data(ahu_id : str, startDate: str, endDate: str):
-    result = await FemsServices.Get_AHU_temp_glance_Data(ahu_id, startDate, endDate)
+async def Get_AHU_temp_glance_Data(ahu_id : str, runDate: str):
+    result = await FemsServices.Get_AHU_temp_glance_Data(ahu_id, runDate)
     return Response(content=result, media_type="application/json")
 
 # 온도 월별
 @router.get("/Get_AHU_temp_monthly_Data")
-async def Get_AHU_temp_monthly_Data(ahu_id:str, startDate: str, endDate:str):
-    result = await FemsServices.Get_AHU_temp_monthly_Data(ahu_id, startDate, endDate)
+async def Get_AHU_temp_monthly_Data(ahu_id:str, runDate: str):
+    result = await FemsServices.Get_AHU_temp_monthly_Data(ahu_id, runDate)
     return Response(content=result, media_type="application/json")
 
 ####################################################################################
@@ -109,19 +109,19 @@ async def Get_AHU_temp_monthly_Data(ahu_id:str, startDate: str, endDate:str):
 
 # 습도 시간별
 @router.get("/Get_AHU_hum_Hourly_Data")
-async def Get_AHU_hum_Hourly_Data(ahu_id : str, starDate: str, endDate: str):
-    result = await FemsServices.Get_AHU_hum_Hourly_Data(ahu_id, starDate, endDate)
+async def Get_AHU_hum_Hourly_Data(ahu_id : str, runDate: str):
+    result = await FemsServices.Get_AHU_hum_Hourly_Data(ahu_id, runDate)
     return Response(content=result, media_type="application/json")
 
 # 습도 일별
 @router.get("/Get_AHU_hum_glance_Data")
-async def Get_AHU_hum_glance_Data(ahu_id : str, starDate: str, endDate: str):
-    result = await FemsServices.Get_AHU_hum_glance_Data(ahu_id, starDate, endDate)
+async def Get_AHU_hum_glance_Data(ahu_id : str, runDate: str):
+    result = await FemsServices.Get_AHU_hum_glance_Data(ahu_id, runDate)
     return Response(content=result, media_type="application/json")
 
 
 # 습도 월별
 @router.get("/Get_AHU_hum_monthly_Data")
-async def Get_AHU_hum_monthly_Data(ahu_id : str, starDate: str, endDate: str):
-    result = await FemsServices.Get_AHU_hum_monthly_Data(ahu_id, starDate, endDate)
+async def Get_AHU_hum_monthly_Data(ahu_id : str, runDate: str):
+    result = await FemsServices.Get_AHU_hum_monthly_Data(ahu_id, runDate)
     return Response(content=result, media_type="application/json")
