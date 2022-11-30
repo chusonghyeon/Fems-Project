@@ -30,8 +30,12 @@ const LineChart = () => {
       primaryXAxis={LinePrimaryXAxis}
       primaryYAxis={LinePrimaryYAxis}
       chartArea={{ border: { width: 0 } }}
-      tooltip={{ enable: true }}
-      crosshair={{ enable: true }}
+      tooltip={{
+        enable: true,
+        shared: true,
+        format: "${point.x} : <b>${point.y}",
+      }}
+      crosshair={{ enable: true, lineType: "Vertical" }}
       background={currentMode === "Dark" ? "#33373E" : "#fff"}
       width="auto"
     >
