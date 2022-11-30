@@ -152,14 +152,14 @@ async def Get_LpData_by_year(startDate: str, endDate: str):
 async def Get_AHU_KWh_Hourly_Data(inv_id: str, runDate: str):
     try:   
            
-        # 내꺼 로컬 DB
+        # 내꺼 로컬 DB 
         connection = pymysql.connect(host='localhost', port=3306, user='root', password='147852',
                                      db='FEMS', charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)
         
         with connection.cursor() as cursor:
             query = " select " +\
                 " inv_id, left(run_datetime,12) as rundate," +\
-                " cast(round(inv_kWh,2) as char) as inv_kWh " +\
+                " cast(round(inv_kWh, 2) as char) as inv_kWh " +\
                 "from raw_wminvdata_addkWh \n" +\
                 f"where inv_id = '{inv_id}' and left(run_datetime, 8) = " + "'" + runDate + "'" +\
                 "group by left(run_datetime, 12) " + \
@@ -186,7 +186,7 @@ async def Get_AHU_KWh_glance_Data(inv_id: str, runDate: str):
         with connection.cursor() as cursor:
             query = " select " +\
                 " inv_id, left(run_datetime,8) as rundate," +\
-                " cast(round(inv_kWh,2) as char) as inv_kWh " +\
+                " cast(round(sum(inv_kWh),2) as char) as inv_kWh " +\
                 "from raw_wminvdata_addkWh \n" +\
                 f"where inv_id = '{inv_id}' and left(run_datetime, 6) = " + "'" + runDate + "'" +\
                 "group by left(run_datetime, 8) " + \
@@ -213,7 +213,7 @@ async def Get_AHU_KWh_monthly_Data(inv_id: str, runDate: str):
         with connection.cursor() as cursor:
             query = " select " +\
                 " inv_id, left(run_datetime,6) as rundate," +\
-                " cast(round(inv_kWh,2) as char) as inv_kWh " +\
+                " cast(round(sum(inv_kWh),2) as char) as inv_kWh " +\
                 "from raw_wminvdata_addkWh \n" +\
                 f"where inv_id = '{inv_id}' and left(run_datetime, 4) = " + "'" + runDate + "'" +\
                 "group by left(run_datetime, 6) " + \
@@ -264,7 +264,8 @@ async def Get_AHU_temp_Hourly_Data(ahu_id: str, runDate: str):
     except Exception as ex:
         _logger.Info(
             f"error to do 'Get_AHU_temp_Hourly_Data('{ahu_id}','{runDate}')'")
-        
+
+
 # 공조기 일별 온도
 async def Get_AHU_temp_glance_Data(ahu_id: str, runDate: str):
     try:   
