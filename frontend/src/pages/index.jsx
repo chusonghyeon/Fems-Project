@@ -10,11 +10,14 @@ export { default as MainPage } from "./Mainpage/MainPage";
 export { default as Customers } from "./Mainpage/Customers";
 
 // 전력량 Electric
-export { default as Electricamount } from "./Electric/Electricamount";
+export { default as HourlyElectricAmount } from "./Electric/HourlyElectricAmount";
 
 // 온도 Temperature
-export { default as DayTemperature } from "./Temperature/DayTemperature";
-export { default as TempLine } from "./Temperature/TempLine";
+export { default as DailyTemperature } from "./Temperature/DailyTemperature";
+export { default as HourlyTemperature } from "./Temperature/HourlyTemperature";
+export { default as MonthlyTemperature } from "./Temperature/MonthlyTemperature";
 
 // 습도 Humidity
-export { default as Humidity } from "./Humidity/Humidity";
+export { default as HourlyHumidity } from "./Humidity/HourlyHumidity";
+export { default as DailyHumidity } from "./Humidity/DailyHumidity";
+export { default as MonthlyHumidity } from "./Humidity/MonthlyHumidity";

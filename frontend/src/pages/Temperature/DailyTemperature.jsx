@@ -1,7 +1,8 @@
 import React from "react";
 import { LineChart, Toggleheader } from "../../components";
 import Header from "../../components/common/Header";
-const Temperature = () => {
+
+const DailyTemperature = () => {
   return (
     <>
       <div className="m-4 md:m-10 mt-24 p-10 bg-white dark:bg-secondary-dark-bg rounded-3xl h-60">
@@ -10,9 +11,10 @@ const Temperature = () => {
       </div>
       <div className="w-full dark:bg-secondary-dark-bg">
         <LineChart />
+        <TempGrid />
       </div>
     </>
   );
 };
 
-export default Temperature;
+export default DailyTemperature;

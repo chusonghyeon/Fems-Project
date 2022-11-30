@@ -1,11 +1,14 @@
 import React from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
+import Ecommerce from "../pages/Ecommerce";
 
-import { Navbar, ThemeSettings, Sidebar } from "../";
+import { Navbar, ThemeSettings } from "../components";
 
 import { TooltipComponent } from "@syncfusion/ej2-react-popups";
 import { FiSettings } from "react-icons/fi";
-import { useStateContext } from "../../context/UserContext";
+
+import Sidebar from "../components/Sidebar";
+import { useStateContext } from "../context/UserContext";
 import {
   Area,
   Bar,
@@ -18,15 +21,8 @@ import {
   TempLine,
   Orders,
   Stacked,
-  DailyTemperature,
-  Ecommerce,
-  MainPage,
-  MonthlyTemperature,
-  HourlyTemperature,
-  MonthlyHumidity,
-  DailyHumidity,
-  HourlyHumidity,
-} from "../../pages";
+  Temperature,
+} from "../pages";
 
 const ProtectedRoutes = () => {
   const {
@@ -74,12 +70,12 @@ const ProtectedRoutes = () => {
           <div className="md:static bg-gray-100/70 dark:bg-main-dark-bg navbar w-full bg-fixed">
             <Navbar />
           </div>
-          <div className="column m-5">
+          <div className="column is-two_thirds m-5">
             {themeSettings && <ThemeSettings />}
 
             <Routes>
               {/* 전력량 예측 , 메인페이지 */}
-              <Route path="/전력 예측" element={<MainPage />} />
+              <Route path="/전력 예측" element={<Ecommerce />} />
               {/* 공조기 정보 및 사용자정보(후순위) , 1~2개남겨둘 예정*/}
               <Route path="/공조기 정보" element={<Customers />} />
               {/* 공조기별 데이터 */}
@@ -88,14 +84,13 @@ const ProtectedRoutes = () => {
               <Route path="/일별 전력량" element={<Employees />} />
               <Route path="/월별 전력량" element={<Orders />} />
               {/* 온도 */}
-              <Route path="/시간별 온도" element={<HourlyTemperature />} />
-              <Route path="/일별 온도" element={<DailyTemperature />} />
-              <Route path="/월별 온도" element={<MonthlyTemperature />} />
+              <Route path="/시간별 온도" element={<TempLine />} />
+              <Route path="/일별 온도" element={<Temperature />} />
+              <Route path="/월별 온도" element={<Humidity />} />
               {/* 습도 */}
-              <Route path="/시간별 습도" element={<HourlyHumidity />} />
-              <Route path="/일별 습도" element={<DailyHumidity />} />
-              <Route path="/월별 습도" element={<MonthlyHumidity />} />
-
+              <Route path="/시간별 습도" element={<Bar />} />
+              <Route path="/일별 습도" element={<Area />} />
+              <Route path="/월별 습도" element={<Humidity />} />
               <Route path="*" element={<Navigate replace to="/전력 예측" />} />
             </Routes>
           </div>
