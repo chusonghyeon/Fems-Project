@@ -1,6 +1,7 @@
 import React from "react";
 import { LineChart, TempGrid, Toggleheader } from "../../components";
 import Header from "../../components/common/Header";
+import { useStateContext } from "../../context/UserContext";
 
 const HourlyTemperature = () => {
   return (

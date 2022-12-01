@@ -153,7 +153,7 @@ async def Get_AHU_KWh_Hourly_Data(inv_id: str, runDate: str):
     try:   
            
         # 내꺼 로컬 DB
-        connection = pymysql.connect(host='localhost', port=3306, user='root', password='147852',
+        connection = pymysql.connect(host='localhost', port=3306, user='root', password='1234',
                                      db='FEMS', charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)
         
         with connection.cursor() as cursor:

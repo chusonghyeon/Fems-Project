@@ -11,6 +11,8 @@ export { default as GongjoInfo } from "./Mainpage/GongjoInfo";
 
 // 전력량 Electric
 export { default as HourlyElectricAmount } from "./Electric/HourlyElectricAmount";
+export { default as DailyElectricAmount } from "./Electric/DailyElectricAmount";
+export { default as MonthlyElectricAmount } from "./Electric/MonthlyElectricAmount";
 
 // 온도 Temperature
 export { default as DailyTemperature } from "./Temperature/DailyTemperature";

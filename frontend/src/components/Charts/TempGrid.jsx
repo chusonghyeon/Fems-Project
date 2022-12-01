@@ -9,24 +9,19 @@ import {
   Page,
   Sort,
 } from "@syncfusion/ej2-react-grids";
-import { PowerData } from "../../data/dummy";
+import { TempData } from "../../data/dummy";
 
 const TempGrid = () => {
   const pageSettings = { pageSize: 10 };
   return (
     <GridComponent
-      dataSource={PowerData}
+      dataSource={TempData}
       pageSettings={pageSettings}
       allowPaging
     >
       <ColumnsDirective>
         <ColumnDirective field="OrderDate" width="100" textAlign="Right" />
-        <ColumnDirective
-          field="OrderID"
-          width="100"
-          textAlign="Center"
-          format="C2"
-        />
+        <ColumnDirective field="" width="100" textAlign="Center" format="C2" />
       </ColumnsDirective>
       <Inject services={[Page, Sort, Filter, Group]} />
     </GridComponent>

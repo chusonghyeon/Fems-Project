@@ -5,40 +5,48 @@ import Daydate from "./Daydate";
 
 const OPTIONS = [
   {
-    value: "AH01",
+    value: "A00",
+    name: "공조기00",
+  },
+  {
+    value: "A01",
     name: "공조기01",
   },
   {
-    value: "AH02",
+    value: "A02",
     name: "공조기02",
   },
   {
-    value: "AH03",
+    value: "A03",
     name: "공조기03",
   },
   {
-    value: "AH04",
+    value: "A04",
     name: "공조기04",
   },
   {
-    value: "AH05",
+    value: "A05",
     name: "공조기05",
   },
   {
-    value: "AH06",
+    value: "A06",
     name: "공조기06",
   },
   {
-    value: "AH07",
+    value: "A07",
     name: "공조기07",
   },
   {
-    value: "AH08",
+    value: "A08",
     name: "공조기08",
   },
   {
-    value: "AH09",
+    value: "A09",
     name: "공조기09",
+  },
+  {
+    value: "A10",
+    name: "공조기10",
   },
 ];
 const SelectBoxWrapper = styled.div`
@@ -99,8 +107,8 @@ const SelectBox = (props) => {
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M10 14L16 6H4L10 14Z"
           fill="#1A1A1A"
         />
