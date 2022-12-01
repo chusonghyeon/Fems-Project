@@ -7,27 +7,19 @@ import { TooltipComponent } from "@syncfusion/ej2-react-popups";
 import { FiSettings } from "react-icons/fi";
 import { useStateContext } from "../../context/UserContext";
 import {
-  Area,
-  Bar,
-  Customers,
-  Dashboard,
   HourlyElectricAmount,
   Employees,
-  Financial,
-  Humidity,
-  TempLine,
-  Orders,
-  Stacked,
   DailyTemperature,
-  Ecommerce,
   MainPage,
   MonthlyTemperature,
   HourlyTemperature,
   MonthlyHumidity,
   DailyHumidity,
   HourlyHumidity,
-  Test,
   GongjoInfo,
+  MonthlyElectricAmount,
+  DailyElectricAmount,
+  Test,
 } from "../../pages";
 
 const ProtectedRoutes = () => {
@@ -87,14 +79,14 @@ const ProtectedRoutes = () => {
               {/* 공조기별 데이터 */}
               {/* 전력량 */}
               <Route path="/시간별 전력량" element={<HourlyElectricAmount />} />
-              <Route path="/일별 전력량" element={<Employees />} />
-              <Route path="/월별 전력량" element={<Test />} />
+              <Route path="/일별 전력량" element={<DailyElectricAmount />} />
+              <Route path="/월별 전력량" element={<MonthlyElectricAmount />} />
               {/* 온도 */}
               <Route path="/시간별 온도" element={<HourlyTemperature />} />
               <Route path="/일별 온도" element={<DailyTemperature />} />
               <Route path="/월별 온도" element={<MonthlyTemperature />} />
               {/* 습도 */}
-              <Route path="/시간별 습도" element={<HourlyHumidity />} />
+              <Route path="/시간별 습도" element={<Test />} />
               <Route path="/일별 습도" element={<DailyHumidity />} />
               <Route path="/월별 습도" element={<MonthlyHumidity />} />
 

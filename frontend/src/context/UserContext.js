@@ -31,6 +31,11 @@ export const UserProvider = ({ children }) => {
   const [currentMode, setCurrentMode] = useState("Light");
   // theme 창 켜기
   const [themeSettings, setThemeSettings] = useState(false);
+  // 시간별 전력량 공조기 ID와 날짜
+  const [StartDate, setStartDate] = useState({
+    ahu_id: "A00",
+    runDate: "20210404",
+  });
 
   // 라, 다 모드
   const setMode = (e) => {
@@ -77,6 +82,21 @@ export const UserProvider = ({ children }) => {
     fetchUser();
   }, [token]); // 토큰이 업데이트 될때마다
 
+  // // 시간별 전력량 공조기 ID와 날짜 선택해서 불러오기
+  // const electricHandleSubmit = (e) => {
+  //   e.preventDefault();
+  //   const {
+  //     ahu_id: { value: SelectBox },
+  //     runDate: { value: Hourdate },
+  //   } = e.target;
+  //   console.log(
+  //     JSON.stringify({
+  //       SelectBox,
+  //       Hourdate,
+  //     })
+  //   );
+  // };
+
   // 여기가 메인이고 토큰값을 props로 하위 컴포넌트에 전달하는 듯
   return (
     <UserContext.Provider
@@ -98,6 +118,8 @@ export const UserProvider = ({ children }) => {
         setColor,
         token,
         setToken,
+        StartDate,
+        setStartDate,
       }}
     >
       {children}

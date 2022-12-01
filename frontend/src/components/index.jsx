@@ -10,6 +10,7 @@ export { default as Stacked } from "./Charts/Stacked";
 export { default as GongjoPr } from "./Charts/GongjoPr";
 // 전력량 표
 export { default as DataGrid } from "./Charts/DataGrid";
+export { default as ElectricGrid } from "./Charts/ElectricGrid";
 //전력량 예측
 export { default as ElectricPr } from "./Charts/ElectricPr";
 
