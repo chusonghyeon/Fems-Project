@@ -119,12 +119,15 @@ const Toggleheader = () => {
   return (
     <>
       <div className="mb-2 md:m-10 mt-24 p-1 bg-white dark:bg-secondary-dark-bg rounded-3xl">
-        <div className="flex justify-between items-center rounded-1g shadow-lg shadow-gray-300/50 ml-7 font-bold">
+        <div
+          className="flex h-9  justify-between items-center rounded-1g shadow-lg shadow-gray-300/50 ml-7 font-bold
+        "
+        >
           <SelectBox options={OPTIONS} defaultValue="공조기01"></SelectBox>
           <span className="">클린룸: 1F A존</span>
           <span className="">설치장소: B2F 기계실</span>
           <form onSubmit={handleSubmit} className="flex">
-            <label className="mr-5">조회일자</label>
+            <label className="mr-5 mt-1">조회일자</label>
             {/* <input
               className="border-2 border-slate-400 w-44 h-8 text-lg"
               type="date"

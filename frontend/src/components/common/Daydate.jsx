@@ -13,7 +13,7 @@ const Daydate = () => {
         minDate={new Date()}
         closeOnScroll={true}
         placeholderText="날짜를 선택 해주세요"
-        className="text-xl"
+        className="text-2xl w-44"
         showMonthYearPicker
       />
     </div>
