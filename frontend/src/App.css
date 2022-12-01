@@ -54,8 +54,3 @@
 .e-input-group.e-control-wrapper.e-error:not(.e-float-icon-left) {
   border: none;
 }
-
-body {
-  margin: 0;
-  padding: 0;
-}

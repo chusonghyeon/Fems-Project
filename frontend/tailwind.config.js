@@ -7,6 +7,9 @@ module.exports = {
       body: ["Open Sans", "sans-serif"],
     },
     extend: {
+      blur: {
+        xs: "3px",
+      },
       fontSize: {
         14: "14px",
       },
@@ -23,23 +26,48 @@ module.exports = {
       borderColor: {
         color: "rgba(0, 0, 0, 0.1)",
       },
+      borderRadius: {
+        none: "0",
+        sm: "0.125rem",
+        DEFAULT: "0.25rem",
+        DEFAULT: "4px",
+        md: "0.375rem",
+        lg: "0.5rem",
+        xl: "3.5rem",
+        full: "9999px",
+        large: "12px",
+      },
       width: {
-        400: "400px",
+        450: "450px",
         760: "760px",
-        780: "780px",
+        768: "768px",
         800: "800px",
-        1000: "1000px",
-        1200: "1200px",
+        1024: "1024px",
+        1280: "1280px",
         1400: "1400px",
       },
       height: {
         80: "80px",
+        600: "600px",
+        700: "700px",
       },
       minHeight: {
         590: "590px",
       },
       backgroundImage: {
         "hero-pattern": "url('../src/data/welcome-bg.svg')",
+      },
+      screens: {
+        tablet: "640px",
+        // => @media (min-width: 640px) { ... }
+
+        laptop: "1064px",
+        // => @media (min-width: 1024px) { ... }
+
+        desktop: "1280px",
+        // => @media (min-width: 1280px) { ... }
+        fullscreen: "1600px",
+        // => @media (min-width: 1600px) {...}
       },
     },
   },
