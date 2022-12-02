@@ -143,28 +143,26 @@ const Toggleheader = () => {
   };
 
   return (
-    <>
-      <div className=" flex  md:m-5  custom:m-5 mt-24 p-1 bg-white dark:bg-secondary-dark-bg rounded-3xl">
-        <form
-          onSubmit={electricHandleSubmit}
-          className="flex items-center justify-between rounded-lg w-full ml-2 font-bold"
-        >
-          <SelectBox options={OPTIONS} defaultValue="공조기01"></SelectBox>
-          <span className="">클린룸: 1F A존</span>
-          <span className="">설치장소: B2F 기계실</span>
-          {/* <label className="pl-10">조회일자</label> */}
-          <div className="flex">
-            <Hourdate name="runDate" />
-            <button
-              type="submit"
-              className="pointer w-32 h-auto text-white bg-blue-500 rounded-md"
-            >
-              검색
-            </button>
-          </div>
-        </form>
-      </div>
-    </>
+    <div className=" flex  md:m-5  custom:m-5 mt-24 p-1 bg-white dark:bg-secondary-dark-bg rounded-3xl">
+      <form
+        onSubmit={electricHandleSubmit}
+        className="flex justify-between items-center rounded-1g shadow-lg shadow-gray-300/50 ml-7 font-bold"
+      >
+        <SelectBox options={OPTIONS} defaultValue="공조기01"></SelectBox>
+        <span className="">클린룸: 1F A존</span>
+        <span className="">설치장소: B2F 기계실</span>
+        {/* <label className="pl-10">조회일자</label> */}
+        <div className="flex">
+          <Hourdate name="runDate" />
+          <button
+            type="submit"
+            className="pointer w-32 h-auto text-white bg-blue-500 rounded-md"
+          >
+            검색
+          </button>
+        </div>
+      </form>
+    </div>
   );
 };
 
