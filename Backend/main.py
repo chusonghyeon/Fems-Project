@@ -7,6 +7,7 @@ from FEMS.routers import femsmain
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+import uvicorn
 
 
 app = FastAPI()
@@ -16,7 +17,7 @@ models.Base.metadata.create_all(bind=engine)
 
 # adding cors urls
 origins = [
-    "https://localhost:3000"
+    "*"
 ]
 
 # add middleware
@@ -47,3 +48,7 @@ FEMS
 #  Router에 저장되어 있는 API주소 불러오기
 # 실제 API주소는 Router 안에 있다.
 app.include_router(femsmain.router)
+
+
+if __name__ == "__main__":
+    uvicorn.run('main:app', host="0.0.0.0", port=8000, reload=False)
