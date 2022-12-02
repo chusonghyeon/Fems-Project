@@ -21,10 +21,7 @@ import {
 import { useStateContext } from "../../context/UserContext";
 
 const LineChart = () => {
-  const { currentMode, StartDate } = useStateContext({
-    ahu_id: "A00",
-    runDate: "20220101",
-  });
+  const { currentMode, StartDate } = useStateContext();
 
   return (
     <ChartComponent

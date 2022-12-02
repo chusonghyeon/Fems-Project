@@ -79,7 +79,7 @@ const Login = () => {
             <div className="login__inputs grid gap-y-3 mb-2">
               {/* ID 박스 */}
               <div>
-                <label for="" className="block text-black font-bold mb-2">
+                <label forhtml="" className="block text-black font-bold mb-2">
                   ID
                 </label>
                 <input
@@ -94,7 +94,7 @@ const Login = () => {
               </div>
               {/* 패스워드박스 */}
               <div>
-                <label for="" className="block text-black font-bold mb-2 ">
+                <label forhtml="" className="block text-black font-bold mb-2 ">
                   PassWord
                 </label>
                 <div className="login__box relative mb-7 ">

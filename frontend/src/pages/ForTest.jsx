@@ -1,22 +1,22 @@
-import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { useStateContext } from "../context/UserContext";
+import React, { useState } from "react";
 import { Toggleheader } from "../components";
+import { useStateContext } from "../context/UserContext";
 
-const Test = () => {
+const ForTest = () => {
+  const SERVER_URL = "/Get_AHU_temp_Hourly_Data";
+  // 받아온 값
+  const [tempDt, setTempDt] = useState([]);
+  // 검색 (공조기 ID, 날짜)
   const { StartDate } = useStateContext();
 
-  const [tempDt, setTempDt] = useState([]);
-
-  const SERVER_URL = "/Get_AHU_temp_Hourly_Data";
-
-  useEffect(() => {
-    fetchData();
-  }, []);
-
-  const fetchData = async () => {
-    console.log(typeof StartDate.ahu_id);
-    const response = await axios.get(SERVER_URL, {
+  // 클릭 시 데이터 불러오기
+  const onSubmitHandler = async (e) => {
+    e.preventDefault();
+    // 데이터 불러오기
+    const response = await axios({
+      url: SERVER_URL,
+      method: "GET",
       params: {
         ahu_id: `${StartDate.ahu_id}`,
         runDate: `${StartDate.runDate}`,
@@ -24,26 +24,11 @@ const Test = () => {
     });
     setTempDt(response.data);
   };
-
-  const onSubmitHandler = async (e) => {
-    e.preventDefault();
-    const inv_id = e.target.inv_id.value;
-    const runDate = e.target.runDate.value;
-    const response = await axios({
-      url: SERVER_URL,
-      method: "GET",
-      params: {
-        inv_id,
-        runDate,
-      },
-    });
-    setTempDt(response.data);
-  };
-
-  //   fetchData();
   return (
-    <div className="Test">
+    <div>
       <Toggleheader />
+
+      <h1>ToDo LIST</h1>
       <form onSubmit={onSubmitHandler}>
         <input name="inv_id" />
         <br />
@@ -75,4 +60,5 @@ const Test = () => {
     </div>
   );
 };
-export default Test;
+
+export default ForTest;
