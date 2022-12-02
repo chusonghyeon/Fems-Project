@@ -935,6 +935,7 @@
 2022-12-02 12:35:28,979 | FemsService | INFO | error to do 'Get_AHU_temp_Hourly_Data('A00','20210404')'
 2022-12-02 12:35:34,880 | FemsService | INFO | error to do 'Get_AHU_temp_Hourly_Data('A00','20210404')'
 >>>>>>> fcf65fa67f7bf91b9b94937aeffc1a1867aef47c
+<<<<<<< HEAD
 2022-12-02 15:57:24,331 | FemsService | INFO | error to do 'Get_AHU_temp_Hourly_Data('undefined','undefined')'
 2022-12-02 15:57:25,254 | FemsService | INFO | error to do 'Get_AHU_temp_Hourly_Data('undefined','undefined')'
 2022-12-02 15:57:27,014 | FemsService | INFO | error to do 'Get_AHU_temp_Hourly_Data('A00','20220901')'
@@ -944,3 +945,17 @@
 2022-12-02 15:58:04,932 | FemsService | INFO | error to do 'Get_AHU_temp_Hourly_Data('undefined','undefined')'
 2022-12-02 15:59:36,261 | FemsService | INFO | error to do 'Get_AHU_temp_Hourly_Data('undefined','undefined')'
 2022-12-02 15:59:41,393 | FemsService | INFO | error to do 'Get_AHU_temp_Hourly_Data('undefined','undefined')'
+=======
+2022-12-02 15:31:15,452 | FemsService | INFO | succeed to do 'Get_AHU_temp_Hourly_Data('undefined','undefined')'
+2022-12-02 15:31:37,350 | FemsService | INFO | succeed to do 'Get_AHU_temp_Hourly_Data('undefined','undefined')'
+2022-12-02 15:31:39,688 | FemsService | INFO | succeed to do 'Get_AHU_temp_Hourly_Data('undefined','undefined')'
+2022-12-02 15:48:10,423 | FemsService | INFO | succeed to do 'Get_AHU_temp_Hourly_Data('undefined','undefined')'
+2022-12-02 15:53:16,617 | FemsService | INFO | succeed to do 'Get_AHU_temp_Hourly_Data('undefined','undefined')'
+2022-12-02 15:54:27,292 | FemsService | INFO | succeed to do 'Get_AHU_temp_Hourly_Data('undefined','undefined')'
+2022-12-02 15:54:28,598 | FemsService | INFO | succeed to do 'Get_AHU_temp_Hourly_Data('undefined','undefined')'
+2022-12-02 16:21:28,288 | FemsService | INFO | succeed to do 'Get_AHU_temp_Hourly_Data('undefined','undefined')'
+2022-12-02 16:21:35,048 | FemsService | INFO | succeed to do 'Get_AHU_temp_Hourly_Data('undefined','undefined')'
+2022-12-02 16:22:08,499 | FemsService | INFO | succeed to do 'Get_AHU_temp_Hourly_Data('undefined','undefined')'
+2022-12-02 16:22:34,195 | FemsService | INFO | succeed to do 'Get_AHU_temp_Hourly_Data('undefined','undefined')'
+2022-12-02 16:22:35,095 | FemsService | INFO | succeed to do 'Get_AHU_temp_Hourly_Data('A00','20220901')'
+>>>>>>> fca67340c929b071f585e9e83d0f4a7b6c746163

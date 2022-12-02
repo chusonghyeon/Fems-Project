@@ -129,7 +129,7 @@ const SelectBox = (props) => {
 const Toggleheader = () => {
   // 시간별 전력량 공조기 ID와 날짜 (삭제 예정)
   const [startDate, setStartDate] = useState({});
-  const { tempDt, setTempDt } = useStateContext();
+  const { setTempDt } = useStateContext();
 
   // 클릭시 공조기 ID와 시간정보 출력
   const electricHandleSubmit = async (e) => {
