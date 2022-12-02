@@ -1,11 +1,11 @@
 import React from "react";
-import { Dayheader, LineChart, TempGrid } from "../../components";
+import { LineChart, TempGrid, Dayheader } from "../../components";
 import Header from "../../components/common/Header";
-
+import { useStateContext } from "../../context/UserContext";
 const HourlyTemperature = () => {
   return (
     <>
-      <div className="m-4 md:m-2 mt-24 p-5 bg-white dark:bg-secondary-dark-bg rounded-3xl h-60">
+      <div className="m-4 md:m-2 mt-24 p-5 w-auto bg-white dark:bg-secondary-dark-bg rounded-3xl h-40">
         <Header category="온도" title="일별 온도현황" />
         <Dayheader />
       </div>

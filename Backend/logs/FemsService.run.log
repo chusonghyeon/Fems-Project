@@ -587,6 +587,11 @@
 2022-12-01 20:51:52,003 | FemsService | INFO | succeed to do 'Get_AHU_temp_Hourly_Data('undefined','undefined')'
 2022-12-01 20:58:42,325 | FemsService | INFO | succeed to do 'Get_AHU_temp_Hourly_Data('undefined','undefined')'
 2022-12-01 20:58:49,027 | FemsService | INFO | succeed to do 'Get_AHU_temp_Hourly_Data('undefined','undefined')'
+<<<<<<< HEAD
+2022-12-01 21:22:10,294 | FemsService | INFO | error to do 'Get_AHU_temp_Hourly_Data('A00','20210404')'
+2022-12-01 21:22:15,557 | FemsService | INFO | error to do 'Get_AHU_temp_Hourly_Data('A00','20210404')'
+2022-12-02 08:46:07,115 | FemsService | INFO | error to do 'Get_AHU_temp_Hourly_Data('A00','20210404')'
+=======
 2022-12-01 21:07:03,896 | FemsService | INFO | succeed to do 'Get_AHU_temp_Hourly_Data('A00','20210404')'
 2022-12-01 21:07:04,852 | FemsService | INFO | succeed to do 'Get_AHU_temp_Hourly_Data('A00','20210404')'
 2022-12-01 21:07:06,141 | FemsService | INFO | succeed to do 'Get_AHU_temp_Hourly_Data('A00','20210404')'
@@ -607,6 +612,7 @@
 2022-12-02 09:13:38,843 | FemsService | INFO | succeed to do 'Get_AHU_temp_Hourly_Data('undefined','undefined')'
 2022-12-02 09:14:11,873 | FemsService | INFO | succeed to do 'Get_AHU_temp_Hourly_Data('A00','20210404')'
 2022-12-02 09:14:27,958 | FemsService | INFO | succeed to do 'Get_AHU_temp_Hourly_Data('A00','20210404')'
+<<<<<<< HEAD
 2022-12-02 10:00:16,767 | FemsService | INFO | succeed to do 'Get_AHU_temp_Hourly_Data('A00','20210404')'
 2022-12-02 10:09:28,417 | FemsService | INFO | succeed to do 'Get_AHU_temp_Hourly_Data('A00','20210404')'
 2022-12-02 10:09:45,251 | FemsService | INFO | succeed to do 'Get_AHU_temp_Hourly_Data('undefined','undefined')'
@@ -924,3 +930,8 @@
 2022-12-02 15:00:29,522 | FemsService | INFO | succeed to do 'Get_AHU_temp_Hourly_Data('A02','20220901')'
 2022-12-02 15:04:44,258 | FemsService | INFO | succeed to do 'Get_AHU_temp_Hourly_Data('undefined','undefined')'
 2022-12-02 15:04:55,137 | FemsService | INFO | succeed to do 'Get_AHU_temp_Hourly_Data('A09','20220101')'
+=======
+>>>>>>> fbfc9c401429b7a16b6d41e46f53b8394432b83a
+2022-12-02 12:35:28,979 | FemsService | INFO | error to do 'Get_AHU_temp_Hourly_Data('A00','20210404')'
+2022-12-02 12:35:34,880 | FemsService | INFO | error to do 'Get_AHU_temp_Hourly_Data('A00','20210404')'
+>>>>>>> fcf65fa67f7bf91b9b94937aeffc1a1867aef47c

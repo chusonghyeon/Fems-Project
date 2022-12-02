@@ -5,7 +5,8 @@ const Monthdate = () => {
   const [startDate, setStartDate] = useState(new Date());
 
   return (
-    <div>
+    <div className="flex items-center">
+      <span className="ml-10 w-28">조회일자</span>
       <DatePicker
         dateFormat="yyyy"
         selected={startDate}
@@ -13,7 +14,7 @@ const Monthdate = () => {
         minDate={new Date()}
         closeOnScroll={true}
         placeholderText="날짜를 선택 해주세요"
-        className="text-2xl w-44"
+        className="text-xl w-44 border-2 rounded-md border-solid px-5 border-slate-300"
         showYearPicker
       />
     </div>

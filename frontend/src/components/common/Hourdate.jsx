@@ -18,7 +18,8 @@ const Hourdate = () => {
   // Thu Dec 01 2022 15:54:41 GMT+0900 (한국 표준시) 형태
 
   return (
-    <div>
+    <div className="flex items-center">
+      <span className="ml-10 w-28">조회일자</span>
       <DatePicker
         name="runDate"
         dateFormat="yyyy/MM/dd"
@@ -28,7 +29,7 @@ const Hourdate = () => {
         maxDate={new Date(2022, 9, 25)}
         closeOnScroll={true}
         placeholderText="날짜를 선택 해주세요"
-        className="text-2xl w-44"
+        className="text-xl w-44 border-2 rounded-md border-solid px-5 border-slate-300"
       />
     </div>
   );
