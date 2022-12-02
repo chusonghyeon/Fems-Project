@@ -1,9 +1,15 @@
-import { React, useState } from "react";
+import axios from "axios";
+import { React, useState, useEffect } from "react";
 import styled from "styled-components"; //install => npm i styled-components
 import { useStateContext } from "../../context/UserContext";
+import { TempData } from "../../data/dummy";
 import Hourdate from "./Hourdate";
 // basic template https://github.com/toy-crane/make-select-box/blob/master/src/App.js
 
+// api 주소
+const SERVER_URL = "/Get_AHU_temp_Hourly_Data";
+
+// 셀렉트 박스 데이터 (공조기 번호)
 const OPTIONS = [
   {
     value: "A00",
@@ -50,6 +56,7 @@ const OPTIONS = [
     name: "공조기10",
   },
 ];
+// 셀렉트 박스
 const SelectBoxWrapper = styled.div`
   display: flex;
 `;
@@ -117,30 +124,54 @@ const SelectBox = (props) => {
     </SelectBoxWrapper>
   );
 };
-// const handleSubmit = (e) => {
-//   e.preventDefault();
-//   let Datesub = e.target.value;
-// };
 
+// 시간별 온도 차트
 const Toggleheader = () => {
-  const { StartDate, setStartDate } = useStateContext();
+  // 시간별 전력량 공조기 ID와 날짜 (삭제 예정)
+  const [startDate, setStartDate] = useState({});
+  const { tempDt, setTempDt } = useStateContext();
 
-  const electricHandleSubmit = (e) => {
+  // 클릭시 공조기 ID와 시간정보 출력
+  const electricHandleSubmit = async (e) => {
     e.preventDefault();
     const {
       ahu_id: { value: SelectBox },
       runDate: { value: Hourdate },
     } = e.target;
+
     const ParseHourDate = Hourdate.replaceAll("/", "");
 
-    setStartDate(
-      JSON.stringify({
-        ahu_id: SelectBox,
-        runDate: ParseHourDate,
-      })
-    );
-    console.log(StartDate, ParseHourDate);
+    await setStartDate({
+      ahu_id: SelectBox,
+      runDate: ParseHourDate,
+    });
+    // 첫번째 {} -> {ahu_id: 'A00', runDate: '20220901'}
+    console.log(startDate);
   };
+
+  // set 부분을 useEffect로
+  useEffect(() => {
+    const fetchData = async (idDate) => {
+      // 2번째 {} -> {ahu_id: 'A00', runDate: '20220901'}
+      console.log(idDate);
+
+      // 3번째 undefined -> A00
+      console.log(idDate.ahu_id);
+      const response = await axios.get(SERVER_URL, {
+        params: {
+          ahu_id: `${idDate.ahu_id}`,
+          runDate: `${idDate.runDate}`,
+        },
+      });
+      setTempDt(response.data);
+      // [] -> 받아와짐
+      console.log(response.data);
+    };
+
+    fetchData(startDate);
+  }, [startDate, setTempDt]);
+
+  // 검색으로 생긴 데이터로 api 호출
 
   return (
     <div className=" flex  md:m-5  custom:m-5 mt-24 p-1 bg-white dark:bg-secondary-dark-bg rounded-3xl">
