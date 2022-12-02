@@ -9,13 +9,13 @@ import {
   Page,
   Sort,
 } from "@syncfusion/ej2-react-grids";
-import { PowerData } from "../../data/dummy";
+import { HourPowerData } from "../../data/dummy";
 
 const HumidityGrid = () => {
   const pageSettings = { pageSize: 10 };
   return (
     <GridComponent
-      dataSource={PowerData}
+      dataSource={HourPowerData}
       pageSettings={pageSettings}
       allowPaging
     >

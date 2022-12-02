@@ -11,7 +11,7 @@ import {
   Resize,
 } from "@syncfusion/ej2-react-grids";
 import { getValue } from "@syncfusion/ej2-base";
-import { PowerData } from "../../data/dummy";
+import { HourPowerData } from "../../data/dummy";
 
 const DataGrid = () => {
   function currencyFormatter(field, data) {
@@ -39,7 +39,7 @@ const DataGrid = () => {
   const pageSettings = { pageSize: 10 };
   return (
     <GridComponent
-      dataSource={PowerData}
+      dataSource={HourPowerData}
       pageSettings={pageSettings}
       allowPaging
     >

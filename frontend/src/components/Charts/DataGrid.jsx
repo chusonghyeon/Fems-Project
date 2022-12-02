@@ -10,13 +10,13 @@ import {
   Sort,
   Resize,
 } from "@syncfusion/ej2-react-grids";
-import { PowerData } from "../../data/dummy";
+import { HourPowerData } from "../../data/dummy";
 
 const DataGrid = () => {
   const pageSettings = { pageSize: 10 };
   return (
     <GridComponent
-      dataSource={PowerData}
+      dataSource={HourPowerData}
       pageSettings={pageSettings}
       allowPaging
     >
