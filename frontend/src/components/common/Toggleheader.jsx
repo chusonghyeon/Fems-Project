@@ -144,10 +144,17 @@ const Toggleheader = () => {
 
   return (
     <>
+<<<<<<< HEAD
       <div className="flex mb-2 custom:m-10 mt-24 p-1 bg-white dark:bg-secondary-dark-bg rounded-3xl">
         <form
           onSubmit={electricHandleSubmit}
           className="flex justify-between rounded-lg shadow-lg w-full shadow-gray-300/50 ml-7 font-bold"
+=======
+      <div className="mb-2 md:m-10 mt-24 p-1 bg-white dark:bg-secondary-dark-bg rounded-3xl">
+        <form
+          onSubmit={electricHandleSubmit}
+          className="flex justify-between items-center rounded-1g shadow-lg shadow-gray-300/50 ml-7 font-bold"
+>>>>>>> fbfc9c401429b7a16b6d41e46f53b8394432b83a
         >
           <SelectBox options={OPTIONS} defaultValue="공조기01"></SelectBox>
           <span className="">클린룸: 1F A존</span>
