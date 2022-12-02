@@ -5,7 +5,7 @@ import { useStateContext } from "../../context/UserContext";
 const HourlyTemperature = () => {
   return (
     <>
-      <div className="m-4 md:m-2 mt-24 p-5 w-auto bg-white dark:bg-secondary-dark-bg rounded-3xl h-60">
+      <div className="m-4 md:m-2 mt-24 p-5 w-auto bg-white dark:bg-secondary-dark-bg rounded-3xl h-40">
         <Header category="온도" title="시간별 온도현황" />
         <Toggleheader />
       </div>
