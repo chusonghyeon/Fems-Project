@@ -587,3 +587,6 @@
 2022-12-01 20:51:52,003 | FemsService | INFO | succeed to do 'Get_AHU_temp_Hourly_Data('undefined','undefined')'
 2022-12-01 20:58:42,325 | FemsService | INFO | succeed to do 'Get_AHU_temp_Hourly_Data('undefined','undefined')'
 2022-12-01 20:58:49,027 | FemsService | INFO | succeed to do 'Get_AHU_temp_Hourly_Data('undefined','undefined')'
+2022-12-01 21:22:10,294 | FemsService | INFO | error to do 'Get_AHU_temp_Hourly_Data('A00','20210404')'
+2022-12-01 21:22:15,557 | FemsService | INFO | error to do 'Get_AHU_temp_Hourly_Data('A00','20210404')'
+2022-12-02 08:46:07,115 | FemsService | INFO | error to do 'Get_AHU_temp_Hourly_Data('A00','20210404')'

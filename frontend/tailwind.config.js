@@ -66,8 +66,8 @@ module.exports = {
 
         desktop: "1280px",
         // => @media (min-width: 1280px) { ... }
-        custom: "1400px",
-        // => @media (min-width: 1400px) { ... }
+        custom: "1320px",
+        // => @media (min-width: 1320px) { ... }
         fullscreen: "1600px",
         // => @media (min-width: 1600px) {...}
       },
