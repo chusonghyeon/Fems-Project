@@ -613,3 +613,5 @@
 2022-12-02 09:14:11,873 | FemsService | INFO | succeed to do 'Get_AHU_temp_Hourly_Data('A00','20210404')'
 2022-12-02 09:14:27,958 | FemsService | INFO | succeed to do 'Get_AHU_temp_Hourly_Data('A00','20210404')'
 >>>>>>> fbfc9c401429b7a16b6d41e46f53b8394432b83a
+2022-12-02 12:35:28,979 | FemsService | INFO | error to do 'Get_AHU_temp_Hourly_Data('A00','20210404')'
+2022-12-02 12:35:34,880 | FemsService | INFO | error to do 'Get_AHU_temp_Hourly_Data('A00','20210404')'

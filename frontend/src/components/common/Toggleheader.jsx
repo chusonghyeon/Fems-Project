@@ -146,7 +146,7 @@ const Toggleheader = () => {
     <div className=" flex  md:m-5  custom:m-5 mt-24 p-1 bg-white dark:bg-secondary-dark-bg rounded-3xl">
       <form
         onSubmit={electricHandleSubmit}
-        className="flex justify-between items-center rounded-1g shadow-lg shadow-gray-300/50 ml-7 font-bold"
+        className="flex items-center justify-between rounded-lg w-full ml-2 font-bold"
       >
         <SelectBox options={OPTIONS} defaultValue="공조기01"></SelectBox>
         <span className="">클린룸: 1F A존</span>
