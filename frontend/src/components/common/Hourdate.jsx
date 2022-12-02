@@ -28,8 +28,8 @@ const Hourdate = () => {
         min="2021-01-01"
         max="2022-10-31"
         closeOnScroll={true}
-        // placeholderText="날짜를 선택 해주세요"
-        className="text-xl"
+        placeholderText="날짜를 선택 해주세요"
+        className="text-2xl w-44"
       />
     </div>
   );

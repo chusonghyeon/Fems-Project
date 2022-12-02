@@ -3,6 +3,7 @@ import bgimg from "../../img/bg-login.png";
 import React, { useState } from "react";
 import ErrorMessage from "../common/ErrorMessage";
 import { useStateContext } from "../../context/UserContext";
+import LoadingSpinner from "./LoadingSpinner";
 
 const Login = () => {
   const [id, setId] = useState("");
@@ -11,6 +12,7 @@ const Login = () => {
     type: "password",
     visible: false,
   });
+  const [isLoading, setIsLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const { setToken } = useStateContext();
 
@@ -24,6 +26,7 @@ const Login = () => {
   };
   // 로그인 정보 백으로 보내고 토큰 받아오기
   const submitLogin = async () => {
+    setIsLoading(true);
     const requestOptions = {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
@@ -36,8 +39,10 @@ const Login = () => {
 
     // 백에서 받아온 에러 메세지
     if (!response.ok) {
+      setIsLoading(false);
       setErrorMessage(data.detail);
     } else {
+      setIsLoading(false);
       setToken(data.access_token);
     }
   };
@@ -49,6 +54,7 @@ const Login = () => {
   };
   return (
     <div className="container laptop:h-screen laptop:grid laptop:place-items-center ">
+      {isLoading && <LoadingSpinner asOverlay />}
       <div
         className="login__content grid relative w-screen h-screen items-center laptop:w-1024 laptop:h-600
       desktop:h-700"
