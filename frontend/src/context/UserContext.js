@@ -31,11 +31,9 @@ export const UserProvider = ({ children }) => {
   const [currentMode, setCurrentMode] = useState("Light");
   // theme 창 켜기
   const [themeSettings, setThemeSettings] = useState(false);
-  // 시간별 전력량 공조기 ID와 날짜
-  const [StartDate, setStartDate] = useState({
-    ahu_id: "A00",
-    runDate: "20210404",
-  });
+
+  // 시간별 온도 데이터
+  const [tempDt, setTempDt] = useState([]);
 
   // 라, 다 모드
   const setMode = (e) => {
@@ -118,8 +116,9 @@ export const UserProvider = ({ children }) => {
         setColor,
         token,
         setToken,
-        StartDate,
-        setStartDate,
+
+        tempDt,
+        setTempDt,
       }}
     >
       {children}
