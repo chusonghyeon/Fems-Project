@@ -45,13 +45,15 @@ const DataGrid = () => {
     >
       <ColumnsDirective>
         <ColumnDirective
-          field="일자"
+          headerText="일자"
+          field="rundate" //시간별전력량 backend Api name
           width="100"
           textAlign="Center"
           valueAccessor={StringToDateFormatter}
         />
         <ColumnDirective
-          field="전력량"
+          headerText="전력소비량"
+          field="inv_kWh"
           width="100"
           textAlign="Center"
           valueAccessor={currencyFormatter}

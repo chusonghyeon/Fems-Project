@@ -1175,7 +1175,68 @@ export let electricprdata2 = [
 ];
 
 // 전력량 데이터용
-export let PowerData = [
+export let HourPowerData = [
+  {
+    inv_kWh: 10248,
+    rundate: "202101050101",
+  },
+  {
+    inv_kWh: 10249,
+    rundate: "20210106",
+  },
+  {
+    inv_kWh: 10250,
+    rundate: "202101",
+  },
+  {
+    inv_kWh: 10251,
+    rundate: "20210107",
+    // OrderDate: new Date(8367642e5),
+  },
+];
+
+export let DailyPowerData = [
+  {
+    inv_kWh: 10252,
+    rundate: "202101050101",
+  },
+  {
+    inv_kWh: 10253,
+    rundate: "20210106",
+  },
+  {
+    inv_kWh: 10254,
+    rundate: "202101",
+  },
+  {
+    inv_kWh: 10255,
+    rundate: "20210107",
+    // OrderDate: new Date(8367642e5),
+  },
+];
+
+export let MonthPowerData = [
+  {
+    inv_kWh: 10256,
+    rundate: "202101050101",
+  },
+  {
+    inv_kWh: 10257,
+    rundate: "20210106",
+  },
+  {
+    inv_kWh: 10258,
+    rundate: "202101",
+  },
+  {
+    inv_kWh: 10259,
+    rundate: "20210107",
+    // OrderDate: new Date(8367642e5),
+  },
+];
+
+// 온도 데이터용
+export let TempData = [
   {
     전력량: 10248,
     일자: "202101050101",
@@ -1195,8 +1256,8 @@ export let PowerData = [
   },
 ];
 
-// 전력량 데이터용
-export let TempData = [
+//온도
+export let Temp2Data = [
   {
     전력량: 10248,
     일자: "202101050101",
