@@ -1,10 +1,8 @@
 from FEMS.repository import FemsServices
 
-from fastapi import APIRouter, Depends
+from fastapi import APIRouter
 
-from fastapi import FastAPI, Response
-from fastapi.middleware.cors import CORSMiddleware
-
+from fastapi import Response
 
 # 경로지정, 태그로 구분
 router = APIRouter(
@@ -17,9 +15,6 @@ router = APIRouter(
 #                    메인 페이지
 
 ############################################################
-
-# ML 예측
-
 
 # 설비 정보(공조기 이름, 위치, 사용하는 곳 표시)
 @router.get("/Get_AHU_Info")

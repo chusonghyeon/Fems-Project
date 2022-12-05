@@ -14,19 +14,6 @@ _logger = Logger("FemsService")
 
 #################################################################################################################################################
 
-# ML 전력량 예측
-
-
-
-
-
-
-
-
-
-
-
-
 # 설비 정보(공조기 이름, 위치, 사용하는 곳 표시)
 async def Get_AHU_Info(FAC_NAME: str):
     try:       
@@ -49,7 +36,7 @@ async def Get_AHU_Info(FAC_NAME: str):
     except Exception as ex:
         _logger.Info(f"error to do 'Get_AHU_Info('{FAC_NAME}')")
         
-# 일별로 공조기 전력량 데이터 추출
+# 일별로 공장 전력량 데이터 추출
 async def Get_LpData_glance_Daily(startDate: str, endDate: str):
     try:
         # 내꺼 로컬 DB 
@@ -78,7 +65,7 @@ async def Get_LpData_glance_Daily(startDate: str, endDate: str):
         _logger.Info(f"error to do 'Get_LpData_glance_Daily('{startDate}',{endDate})'")
         
 
-# 월별로 공조기 전력량 데이터 추출
+# 월별로 공장 전력량 데이터 추출
 async def Get_LpData_monthly_Daily(startDate: str, endDate: str):
     try:
               
@@ -108,7 +95,7 @@ async def Get_LpData_monthly_Daily(startDate: str, endDate: str):
         _logger.Info(f"error to do 'Get_LpData_monthly_Daily('{startDate}',{endDate})'")
 
 
-# 연별로 공조기 전력량 데이터 추출
+# 연별로 공장 전력량 데이터 추출
 async def Get_LpData_by_year(startDate: str, endDate: str):
     try:
               
