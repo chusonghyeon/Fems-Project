@@ -422,12 +422,24 @@ export const LinePrimaryXAxis = {
 export const LinePrimaryYAxis = {
   labelFormat: "{value}°C",
   rangePadding: "None",
-  minimum: 10,
-  maximum: 30,
+  minimum: 0,
+  maximum: 35,
   interval: 5,
   lineStyle: { width: 0 },
   majorTickLines: { width: 0 },
   minorTickLines: { width: 0 },
+};
+
+//Temp Montly X 값
+export const MonthLinePrimaryXAxis = {
+  valueType: "DateTime",
+  labelFormat: "MM월",
+  intervalType: "Months",
+  edgeLabelPlacement: "Shift",
+
+  interval: 1,
+  majorGridLines: { width: 0 },
+  background: "white",
 };
 
 export const customersGrid = [

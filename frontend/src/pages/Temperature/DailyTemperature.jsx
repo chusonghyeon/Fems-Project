@@ -1,5 +1,6 @@
 import React from "react";
-import { LineChart, TempGrid, Dayheader } from "../../components";
+import { TempGrid, Dayheader } from "../../components";
+import DayLineChart from "../../components/Charts/DayLineChart";
 import Header from "../../components/common/Header";
 import { useStateContext } from "../../context/UserContext";
 const HourlyTemperature = () => {
@@ -10,7 +11,7 @@ const HourlyTemperature = () => {
         <Dayheader />
       </div>
       <div className="m-4 md:m-2 mt-24 p-5 bg-white rounded-3xl dark:bg-secondary-dark-bg">
-        <LineChart />
+        <DayLineChart />
         <TempGrid />
       </div>
     </>

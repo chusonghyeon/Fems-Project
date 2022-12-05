@@ -6,6 +6,8 @@ export { default as Login } from "./auth/Login";
 export { default as SparkLine } from "./Charts/SparkLine";
 export { default as LineChart } from "./Charts/LineChart";
 export { default as Stacked } from "./Charts/Stacked";
+export { default as MonthLineChart } from "./Charts/MonthLineChart";
+export { default as DayLineChart } from "./Charts/DayLineChart";
 // 공조기별 전년 대비 전력량표
 export { default as GongjoPr } from "./Charts/GongjoPr";
 // 전력량 표
