@@ -412,8 +412,7 @@ export const LinePrimaryXAxis = {
   labelFormat: "HH시 mm분",
   intervalType: "Hours",
   edgeLabelPlacement: "Shift",
-  minimum: moment("00", "HH"),
-  maximum: moment("24", "HH"),
+
   interval: 1,
   majorGridLines: { width: 0 },
   background: "white",

@@ -46,7 +46,7 @@ const LineChart = () => {
   tempArray = [];
   tempDt.forEach((item) => {
     let year = item.rundate.slice(0, 4) * 1;
-    let month = item.rundate.slice(4, 6).replace("0", "") * 1;
+    let month = item.rundate.slice(4, 6).replace("0", "") * 1 - 1;
     let day = item.rundate.slice(6, 8).replace("0", "") * 1;
     let hour = item.rundate.slice(8, 10).replace("0", "") * 1;
     let minute = item.rundate.slice(10, 12).replace("0", "") * 1;
@@ -62,7 +62,7 @@ const LineChart = () => {
   tempArray = [];
   tempDt.forEach((item) => {
     let year = item.rundate.slice(0, 4) * 1;
-    let month = item.rundate.slice(4, 6).replace("0", "") * 1;
+    let month = item.rundate.slice(4, 6).replace("0", "") * 1 - 1;
     let day = item.rundate.slice(6, 8).replace("0", "") * 1;
     let hour = item.rundate.slice(8, 10).replace("0", "") * 1;
     let minute = item.rundate.slice(10, 12).replace("0", "") * 1;
@@ -78,7 +78,7 @@ const LineChart = () => {
   tempArray = [];
   tempDt.forEach((item) => {
     let year = item.rundate.slice(0, 4) * 1;
-    let month = item.rundate.slice(4, 6).replace("0", "") * 1;
+    let month = item.rundate.slice(4, 6).replace("0", "") * 1 - 1;
     let day = item.rundate.slice(6, 8).replace("0", "") * 1;
     let hour = item.rundate.slice(8, 10).replace("0", "") * 1;
     let minute = item.rundate.slice(10, 12).replace("0", "") * 1;
@@ -156,7 +156,7 @@ const LineChart = () => {
     >
       <Inject services={[LineSeries, DateTime, Tooltip, Crosshair, Resize]} />
       <SeriesCollectionDirective>
-        {lineCustomSeries.map((item, index) => (
+        {LineTempData.map((item, index) => (
           <SeriesDirective key={index} {...item} />
         ))}
       </SeriesCollectionDirective>

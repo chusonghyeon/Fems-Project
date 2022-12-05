@@ -25,14 +25,10 @@ const Electricamount = () => {
     <div className="m-4 md:m-2 mt-24 p-5 bg-white dark:bg-secondary-dark-bg rounded-3xl">
       <Header category="전력량" title="일별 전력량" />
       <form>
-<<<<<<< HEAD
-        <div className="flex mb-10">
-=======
         <div
           className="flex mb-10
         "
         >
->>>>>>> fca67340c929b071f585e9e83d0f4a7b6c746163
           <Daydate />
           <button
             type="submit"
