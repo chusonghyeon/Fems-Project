@@ -409,7 +409,7 @@ export const MultiChartData2 = [
 // Temp X 값
 export const LinePrimaryXAxis = {
   valueType: "DateTime",
-  labelFormat: "HH시 mm분",
+  labelFormat: "HH시",
   intervalType: "Hours",
   edgeLabelPlacement: "Shift",
 
@@ -1178,6 +1178,7 @@ export const financialChartData = [
     volume: 1221746066,
   },
 ];
+
 // 전력량 예측 데이터
 export let electricprdata1 = [
   { x: "Jan", y: 100 },

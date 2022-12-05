@@ -30,11 +30,11 @@ const LineChart = () => {
   // 설정온도
   let tempArray = [];
   tempDt.forEach((item) => {
-    let year = item.rundate.slice(0, 4) * 1;
-    let month = item.rundate.slice(4, 6).replace("0", "") * 1 - 1;
-    let day = item.rundate.slice(6, 8).replace("0", "") * 1;
-    let hour = item.rundate.slice(8, 10).replace("0", "") * 1;
-    let minute = item.rundate.slice(10, 12).replace("0", "") * 1;
+    let year = item.rundate.slice(0, 4);
+    let month = item.rundate.slice(4, 6);
+    let day = item.rundate.slice(6, 8);
+    let hour = item.rundate.slice(8, 10);
+    let minute = item.rundate.slice(10, 12);
     tempArray.push({
       x: new Date(year, month, day, hour, minute),
       y: item.ahu_set_temp * 1,
@@ -45,11 +45,11 @@ const LineChart = () => {
   // 리턴온도
   tempArray = [];
   tempDt.forEach((item) => {
-    let year = item.rundate.slice(0, 4) * 1;
-    let month = item.rundate.slice(4, 6).replace("0", "") * 1 - 1;
-    let day = item.rundate.slice(6, 8).replace("0", "") * 1;
-    let hour = item.rundate.slice(8, 10).replace("0", "") * 1;
-    let minute = item.rundate.slice(10, 12).replace("0", "") * 1;
+    let year = item.rundate.slice(0, 4);
+    let month = item.rundate.slice(4, 6);
+    let day = item.rundate.slice(6, 8);
+    let hour = item.rundate.slice(8, 10);
+    let minute = item.rundate.slice(10, 12);
 
     tempArray.push({
       x: new Date(year, month, day, hour, minute),
@@ -61,11 +61,11 @@ const LineChart = () => {
   // 공급온도
   tempArray = [];
   tempDt.forEach((item) => {
-    let year = item.rundate.slice(0, 4) * 1;
-    let month = item.rundate.slice(4, 6).replace("0", "") * 1 - 1;
-    let day = item.rundate.slice(6, 8).replace("0", "") * 1;
-    let hour = item.rundate.slice(8, 10).replace("0", "") * 1;
-    let minute = item.rundate.slice(10, 12).replace("0", "") * 1;
+    let year = item.rundate.slice(0, 4);
+    let month = item.rundate.slice(4, 6);
+    let day = item.rundate.slice(6, 8);
+    let hour = item.rundate.slice(8, 10);
+    let minute = item.rundate.slice(10, 12);
 
     tempArray.push({
       x: new Date(year, month, day, hour, minute),
@@ -77,11 +77,11 @@ const LineChart = () => {
   // 외부온도
   tempArray = [];
   tempDt.forEach((item) => {
-    let year = item.rundate.slice(0, 4) * 1;
-    let month = item.rundate.slice(4, 6).replace("0", "") * 1 - 1;
-    let day = item.rundate.slice(6, 8).replace("0", "") * 1;
-    let hour = item.rundate.slice(8, 10).replace("0", "") * 1;
-    let minute = item.rundate.slice(10, 12).replace("0", "") * 1;
+    let year = item.rundate.slice(0, 4);
+    let month = item.rundate.slice(4, 6);
+    let day = item.rundate.slice(6, 8);
+    let hour = item.rundate.slice(8, 10);
+    let minute = item.rundate.slice(10, 12);
 
     tempArray.push({
       x: new Date(year, month, day, hour, minute),
@@ -89,8 +89,6 @@ const LineChart = () => {
     });
   });
   TempDataSource.push([...tempArray]);
-
-  console.log(TempDataSource);
 
   const LineTempData = [
     {
@@ -140,7 +138,8 @@ const LineChart = () => {
   return (
     <ChartComponent
       id="line-chart"
-      height="420px"
+      height="480px"
+      width="auto"
       primaryXAxis={LinePrimaryXAxis}
       primaryYAxis={LinePrimaryYAxis}
       chartArea={{ border: { width: 0 } }}

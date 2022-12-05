@@ -41,37 +41,33 @@ const TempGrid = () => {
         <ColumnDirective
           headerText="실행시간"
           field="rundate"
-          width="100"
+          width="10"
           textAlign="Right"
           valueAccessor={StringToDateFormatter}
         />
         <ColumnDirective
           headerText="설정온도"
           field="ahu_set_temp"
-          width="100"
+          width="10"
           textAlign="Center"
-          format="C2"
         />
         <ColumnDirective
           headerText="리턴온도"
           field="ahu_ret_temp"
-          width="100"
+          width="10"
           textAlign="Center"
-          format="C2"
         />
         <ColumnDirective
           headerText="공급온도"
           field="ahu_sup_temp"
-          width="100"
+          width="10"
           textAlign="Center"
-          format="C2"
         />
         <ColumnDirective
           headerText="설비 외부온도"
           field="ahu_out_temp"
-          width="100"
+          width="10"
           textAlign="Center"
-          format="C2"
         />
       </ColumnsDirective>
       <Inject services={[Page, Sort, Filter, Group]} />
