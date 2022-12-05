@@ -17,7 +17,6 @@ const TempGrid = () => {
 
   function StringToDateFormatter(field, data) {
     let date = getValue(field, data);
-
     let year = date.slice(0, 4);
     let month = date.slice(4, 6);
     let day = date.slice(6, 8);

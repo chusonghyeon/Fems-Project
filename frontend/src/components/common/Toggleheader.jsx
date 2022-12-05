@@ -2,7 +2,6 @@ import axios from "axios";
 import { React, useState, useEffect } from "react";
 import styled from "styled-components"; //install => npm i styled-components
 import { useStateContext } from "../../context/UserContext";
-import { TempData } from "../../data/dummy";
 import Hourdate from "./Hourdate";
 // basic template https://github.com/toy-crane/make-select-box/blob/master/src/App.js
 
@@ -138,6 +137,8 @@ const Toggleheader = () => {
       ahu_id: { value: SelectBox },
       runDate: { value: Hourdate },
     } = e.target;
+
+    console.log(e.target);
 
     const ParseHourDate = Hourdate.replaceAll("/", "");
 

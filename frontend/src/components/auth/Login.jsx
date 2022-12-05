@@ -1,5 +1,5 @@
 import "remixicon/fonts/remixicon.css";
-import bgimg from "../../img/bg-login.png";
+import bgimg from "../../img/bg-login.jpg";
 import React, { useState } from "react";
 import ErrorMessage from "../common/ErrorMessage";
 import { useStateContext } from "../../context/UserContext";
