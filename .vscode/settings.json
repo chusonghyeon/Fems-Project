@@ -6,9 +6,11 @@
     "Hourdate",
     "Linearea",
     "mainpage",
+    "rundate",
     "Shopware",
     "Sparkline",
     "syncfusion",
-    "Toggleheader"
+    "Toggleheader",
+    "TRANSDATE"
   ]
 }

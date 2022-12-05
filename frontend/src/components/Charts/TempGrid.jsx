@@ -9,25 +9,30 @@ import {
   Page,
   Sort,
 } from "@syncfusion/ej2-react-grids";
+import { getValue } from "@syncfusion/ej2-base";
 import { useStateContext } from "../../context/UserContext";
-// import { TempData } from "../../data/dummy";
-
-// const TempData = [
-//   {
-//     ahu_id: {},
-//     rundate: {},
-//     ahu_set_temp: {},
-//     ahu_ret_temp: {},
-//     ahu_sup_temp: {},
-//     ahu_out_temp: {},
-//   },
-// ];
 
 const TempGrid = () => {
   const { tempDt } = useStateContext();
-  console.log(tempDt);
 
-  // 값 받아오기 map
+  function StringToDateFormatter(field, data) {
+    let date = getValue(field, data);
+
+    let year = date.slice(0, 4);
+    let month = date.slice(4, 6);
+    let day = date.slice(6, 8);
+    let hour = date.slice(8, 10);
+    let minute = date.slice(10, 12);
+
+    // return typeof hour;
+    if (hour !== "") {
+      return `${year}-${month}-${day} ${hour}:${minute}`;
+    }
+    if (day !== "") {
+      return `${year}-${month}-${day}`;
+    }
+    return `${year}-${month}`;
+  }
 
   const pageSettings = { pageSize: 10 };
   return (
@@ -38,6 +43,7 @@ const TempGrid = () => {
           field="rundate"
           width="100"
           textAlign="Right"
+          valueAccessor={StringToDateFormatter}
         />
         <ColumnDirective
           headerText="설정온도"

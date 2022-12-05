@@ -1,4 +1,5 @@
 import React from "react";
+import moment from "moment";
 import {} from "react-icons/ai";
 import {
   FiBarChart,
@@ -243,17 +244,6 @@ export const barCustomSeries = [
   },
 ];
 
-export const LinePrimaryXAxis = {
-  valueType: "DateTime",
-  labelFormat: "y",
-  intervalType: "Years",
-  edgeLabelPlacement: "Shift",
-  majorGridLines: { width: 0 },
-  background: "white",
-  crosshairTooltip: {
-    enable: true,
-  },
-};
 // Grid Data : 안쓰는것같음 곧 삭제 예정
 export let gridData = [
   {
@@ -416,12 +406,25 @@ export const MultiChartData2 = [
   },
 ];
 
+// Temp X 값
+export const LinePrimaryXAxis = {
+  valueType: "DateTime",
+  labelFormat: "HH시 mm분",
+  intervalType: "Hours",
+  edgeLabelPlacement: "Shift",
+
+  interval: 1,
+  majorGridLines: { width: 0 },
+  background: "white",
+};
+
+// Temp Y 값
 export const LinePrimaryYAxis = {
-  labelFormat: "{value}%",
+  labelFormat: "{value}°C",
   rangePadding: "None",
-  minimum: 0,
-  maximum: 100,
-  interval: 20,
+  minimum: 10,
+  maximum: 30,
+  interval: 5,
   lineStyle: { width: 0 },
   majorTickLines: { width: 0 },
   minorTickLines: { width: 0 },
@@ -923,36 +926,94 @@ export const ordersData = [
   },
 ];
 
+// Sat Dec 03 2022 08:10:00 GMT+0900
+// Temp 테스트, 시간단위
 export const lineChartData = [
   [
-    { x: new Date(2005, 0, 1), y: 21 },
-    { x: new Date(2006, 0, 1), y: 24 },
-    { x: new Date(2007, 0, 1), y: 36 },
-    { x: new Date(2008, 0, 1), y: 38 },
-    { x: new Date(2009, 0, 1), y: 54 },
-    { x: new Date(2010, 0, 1), y: 57 },
-    { x: new Date(2011, 0, 1), y: 70 },
+    { x: new Date(2022, 11, 3, 7, 10), y: 24.13 },
+    { x: new Date(2022, 11, 3, 8, 10), y: 21.23 },
+    { x: new Date(2022, 11, 3, 9, 10), y: 26.4 },
+    { x: new Date(2022, 11, 3, 10, 10), y: 26.15 },
   ],
   [
-    { x: new Date(2005, 0, 1), y: 28 },
-    { x: new Date(2006, 0, 1), y: 44 },
-    { x: new Date(2007, 0, 1), y: 48 },
-    { x: new Date(2008, 0, 1), y: 50 },
-    { x: new Date(2009, 0, 1), y: 66 },
-    { x: new Date(2010, 0, 1), y: 78 },
-    { x: new Date(2011, 0, 1), y: 84 },
+    { x: new Date(2022, 11, 3, 7, 10), y: 24.44 },
+    { x: new Date(2022, 11, 3, 8, 10), y: 18.21 },
+    { x: new Date(2022, 11, 3, 9, 10), y: 20.21 },
+    { x: new Date(2022, 11, 3, 10, 10), y: 20.2 },
   ],
 
   [
-    { x: new Date(2005, 0, 1), y: 10 },
-    { x: new Date(2006, 0, 1), y: 20 },
-    { x: new Date(2007, 0, 1), y: 30 },
-    { x: new Date(2008, 0, 1), y: 39 },
-    { x: new Date(2009, 0, 1), y: 50 },
-    { x: new Date(2010, 0, 1), y: 70 },
-    { x: new Date(2011, 0, 1), y: 100 },
+    { x: new Date(2022, 11, 3, 7, 10), y: 20.2 },
+    { x: new Date(2022, 11, 3, 8, 10), y: 20.2 },
+    { x: new Date(2022, 11, 3, 9, 10), y: 30.1 },
+    { x: new Date(2022, 11, 3, 10, 10), y: 30.21 },
+  ],
+  [
+    { x: new Date(2022, 11, 3, 7, 10), y: 14.11 },
+    { x: new Date(2022, 11, 3, 8, 10), y: 13.31 },
+    { x: new Date(2022, 11, 3, 9, 10), y: 20.312 },
+    { x: new Date(2022, 11, 3, 10, 10), y: 20.32 },
   ],
 ];
+
+// 202201011009 : 22년 1월 1일 10시 9분
+// -> 2022, 1, 1, 1
+// const TempGrid = () => {
+//   const { tempDt } = useStateContext();
+
+//   function StringToDateFormatter(field, data) {
+
+//     let year = item.rundate.slice(0, 4);
+//     let month = item.rundate.slice(4, 6).replace('0',"");
+//     let day = item.rundate.slice(6, 8).replace('0',"");
+//     let hour = item.rundate.slice(8, 10).replace('0',"");
+//     let minute = item.rundate.slice(10, 12).replace('0',"");
+
+//     const RUNDATE = `${year},${month},${day},${hour},${minute}`;
+//   }
+
+// lineChart 데이터 ,,, Temp 테스트, 시간단위
+export const lineCustomSeries = [
+  {
+    dataSource: lineChartData[0],
+    xName: "x",
+    yName: "y",
+    name: "설정온도",
+    width: "2",
+    marker: { visible: false, width: 10, height: 10 },
+    type: "Line",
+  },
+
+  {
+    dataSource: lineChartData[1],
+    xName: "x",
+    yName: "y",
+    name: "공급온도",
+    width: "2",
+    marker: { visible: false, width: 10, height: 10 },
+    type: "Line",
+  },
+
+  {
+    dataSource: lineChartData[2],
+    xName: "x",
+    yName: "y",
+    name: "리턴온도",
+    width: "2",
+    marker: { visible: false, width: 10, height: 10 },
+    type: "Line",
+  },
+  {
+    dataSource: lineChartData[3],
+    xName: "x",
+    yName: "y",
+    name: "외부온도",
+    width: "2",
+    marker: { visible: false, width: 10, height: 10 },
+    type: "Line",
+  },
+];
+
 export const dropdownData = [
   {
     Id: "1",
@@ -965,38 +1026,6 @@ export const dropdownData = [
   {
     Id: "3",
     Time: "May 2021",
-  },
-];
-
-export const lineCustomSeries = [
-  {
-    dataSource: lineChartData[0],
-    xName: "x",
-    yName: "y",
-    name: "Germany",
-    width: "2",
-    marker: { visible: true, width: 10, height: 10 },
-    type: "Line",
-  },
-
-  {
-    dataSource: lineChartData[1],
-    xName: "x",
-    yName: "y",
-    name: "England",
-    width: "2",
-    marker: { visible: true, width: 10, height: 10 },
-    type: "Line",
-  },
-
-  {
-    dataSource: lineChartData[2],
-    xName: "x",
-    yName: "y",
-    name: "India",
-    width: "2",
-    marker: { visible: true, width: 10, height: 10 },
-    type: "Line",
   },
 ];
 
