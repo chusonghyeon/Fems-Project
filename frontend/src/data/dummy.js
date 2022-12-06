@@ -127,11 +127,7 @@ export const MultiChartData2 = [
 export const LinePrimaryYAxis = {
   labelFormat: "{value}°C",
   rangePadding: "None",
-<<<<<<< HEAD
   minimum: 5,
-=======
-  minimum: 0,
->>>>>>> 0fa275e6f942ef68236c5adfcc8f1707b4e626a9
   maximum: 35,
   interval: 5,
   lineStyle: { width: 0 },
@@ -139,27 +135,16 @@ export const LinePrimaryYAxis = {
   minorTickLines: { width: 0 },
 };
 
-<<<<<<< HEAD
 // HourTemp X 값
 export const LinePrimaryXAxis = {
   valueType: "DateTime",
   labelFormat: "HH시",
   intervalType: "Hours",
-=======
-//Temp Montly X 값
-export const MonthLinePrimaryXAxis = {
-  valueType: "DateTime",
-  labelFormat: "MM월",
-  intervalType: "Months",
-  edgeLabelPlacement: "Shift",
->>>>>>> 0fa275e6f942ef68236c5adfcc8f1707b4e626a9
-
   interval: 1,
   majorGridLines: { width: 0 },
   background: "white",
 };
 
-<<<<<<< HEAD
 // DayTemp X 값
 export const DayLinePrimaryXAxis = {
   valueType: "DateTime",
@@ -171,9 +156,17 @@ export const DayLinePrimaryXAxis = {
   background: "white",
 };
 
+// DayTemp X 값
+export const MonthLinePrimaryXAxis = {
+  valueType: "DateTime",
+  labelFormat: "MM월",
+  intervalType: "Months",
+  interval: 1,
+  majorGridLines: { width: 0 },
+  background: "white",
+};
+
 // 공조기 정보 Grid용 데이터(임시)
-=======
->>>>>>> 0fa275e6f942ef68236c5adfcc8f1707b4e626a9
 export const customersGrid = [
   {
     field: "CustomerName",

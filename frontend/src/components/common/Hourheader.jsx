@@ -8,7 +8,7 @@ import { OPTIONS } from "../../data/dummy";
 // basic template https://github.com/toy-crane/make-select-box/blob/master/src/App.js
 
 // api 주소
-const SERVER_URL = "/Get_AHU_hum_Hourly_Data";
+const SERVER_URL = "/Get_AHU_temp_Hourly_Data";
 
 // 셀렉트 박스
 const SelectBoxWrapper = styled.div`
@@ -107,20 +107,20 @@ const Hourheader = () => {
 
   // set 부분을 useEffect로
 
-  const fetchData = async (idDate) => {
-    const response = await axios.get(SERVER_URL, {
-      params: {
-        ahu_id: `${idDate.ahu_id}`,
-        runDate: `${idDate.runDate}`,
-      },
-    });
-    setTempDt(response.data);
-  };
-
   const notInitialRender = useRef(false);
 
   useEffect(() => {
     if (notInitialRender.current) {
+      const fetchData = async (idDate) => {
+        const response = await axios.get(SERVER_URL, {
+          params: {
+            ahu_id: `${idDate.ahu_id}`,
+            runDate: `${idDate.runDate}`,
+          },
+        });
+        setTempDt(response.data);
+      };
+
       fetchData(startDate);
     } else {
       notInitialRender.current = true;

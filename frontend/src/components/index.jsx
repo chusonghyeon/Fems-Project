@@ -2,20 +2,11 @@
 // auth
 export { default as Login } from "./auth/Login";
 
-<<<<<<< HEAD
-=======
-// Chart
-export { default as SparkLine } from "./Charts/SparkLine";
-export { default as LineChart } from "./Charts/LineChart";
-export { default as Stacked } from "./Charts/Stacked";
-export { default as MonthLineChart } from "./Charts/MonthLineChart";
-export { default as DayLineChart } from "./Charts/DayLineChart";
->>>>>>> 0fa275e6f942ef68236c5adfcc8f1707b4e626a9
 // 공조기별 전년 대비 전력량표
 export { default as GongjoPr } from "./Charts/GongjoPr";
 // 전력량 표
-export { default as DataGrid } from "./Charts/DataGrid";
-export { default as ElectricGrid } from "./Charts/ElectricGrid";
+export { default as DataGrid } from "./Grid/DataGrid";
+export { default as ElectricGrid } from "./Grid/ElectricGrid";
 //전력량 예측
 export { default as ElectricPr } from "./Charts/ElectricPr";
 
@@ -23,11 +14,12 @@ export { default as ElectricPr } from "./Charts/ElectricPr";
 export { default as GongjoInfoData } from "./Charts/GongjoInfoData";
 
 // 온도 표
-export { default as TempGrid } from "./Charts/TempGrid";
+export { default as TempGrid } from "./Grid/TempGrid";
 export { default as HourTempChart } from "./Charts/HourTempChart";
 export { default as DayLineChart } from "./Charts/DayLineChart";
+export { default as MonthLineChart } from "./Charts/MonthLineChart";
 // 습도 표
-export { default as HumidityGrid } from "./Charts/HumidityGrid";
+export { default as HumidityGrid } from "./Grid/HumidityGrid";
 //common
 export { default as Button } from "./common/Button";
 // 라이트 다크모드

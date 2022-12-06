@@ -2,66 +2,14 @@ import axios from "axios";
 import { React, useState, useEffect } from "react";
 import styled from "styled-components"; //install => npm i styled-components
 import { useStateContext } from "../../context/UserContext";
-import Daydate from "./Daydate";
 import Monthdate from "./Monthdate";
 import { OPTIONS } from "../../data/dummy";
 
 // basic template https://github.com/toy-crane/make-select-box/blob/master/src/App.js
 
-<<<<<<< HEAD
-=======
 // api 주소
 const SERVER_URL = "/Get_AHU_temp_monthly_Data";
 
-// 셀렉트 박스 데이터 (공조기 번호)
-const OPTIONS = [
-  {
-    value: "A00",
-    name: "공조기00",
-  },
-  {
-    value: "A01",
-    name: "공조기01",
-  },
-  {
-    value: "A02",
-    name: "공조기02",
-  },
-  {
-    value: "A03",
-    name: "공조기03",
-  },
-  {
-    value: "A04",
-    name: "공조기04",
-  },
-  {
-    value: "A05",
-    name: "공조기05",
-  },
-  {
-    value: "A06",
-    name: "공조기06",
-  },
-  {
-    value: "A07",
-    name: "공조기07",
-  },
-  {
-    value: "A08",
-    name: "공조기08",
-  },
-  {
-    value: "A09",
-    name: "공조기09",
-  },
-  {
-    value: "A10",
-    name: "공조기10",
-  },
-];
-// 셀렉트 박스
->>>>>>> 0fa275e6f942ef68236c5adfcc8f1707b4e626a9
 const SelectBoxWrapper = styled.div`
   display: flex;
 `;
