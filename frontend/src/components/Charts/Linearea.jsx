@@ -1,8 +1,6 @@
 import React from "react";
 import {
   ChartComponent,
-  ILoadedEventArgs,
-  ChartTheme,
   SeriesCollectionDirective,
   SeriesDirective,
   Tooltip,

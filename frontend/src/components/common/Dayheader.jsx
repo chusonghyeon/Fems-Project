@@ -3,58 +3,14 @@ import { React, useState, useEffect } from "react";
 import styled from "styled-components"; //install => npm i styled-components
 import { useStateContext } from "../../context/UserContext";
 import Daydate from "./Daydate";
+import { OPTIONS } from "../../data/dummy";
 // basic template https://github.com/toy-crane/make-select-box/blob/master/src/App.js
 
 // api 주소
 const SERVER_URL = "/Get_AHU_temp_glance_Data";
 
 // 셀렉트 박스 데이터 (공조기 번호)
-const OPTIONS = [
-  {
-    value: "A00",
-    name: "공조기00",
-  },
-  {
-    value: "A01",
-    name: "공조기01",
-  },
-  {
-    value: "A02",
-    name: "공조기02",
-  },
-  {
-    value: "A03",
-    name: "공조기03",
-  },
-  {
-    value: "A04",
-    name: "공조기04",
-  },
-  {
-    value: "A05",
-    name: "공조기05",
-  },
-  {
-    value: "A06",
-    name: "공조기06",
-  },
-  {
-    value: "A07",
-    name: "공조기07",
-  },
-  {
-    value: "A08",
-    name: "공조기08",
-  },
-  {
-    value: "A09",
-    name: "공조기09",
-  },
-  {
-    value: "A10",
-    name: "공조기10",
-  },
-];
+
 // 셀렉트 박스
 const SelectBoxWrapper = styled.div`
   display: flex;
@@ -88,14 +44,9 @@ const IconSVG = styled.svg`
 `;
 
 const SelectBox = (props) => {
-  const handleChange = (e) => {
-    // event handler
-    console.log(e.target.value);
-  };
-
   return (
     <SelectBoxWrapper>
-      <Select onChange={handleChange} name="ahu_id">
+      <Select name="ahu_id">
         {props.options.map((option) => (
           <option
             key={option.value}
@@ -126,9 +77,9 @@ const SelectBox = (props) => {
 
 // 시간별 온도 차트
 const Toggleheader = () => {
-  // 시간별 전력량 공조기 ID와 날짜 (삭제 예정)
   const [startDate, setStartDate] = useState({});
-  const { setTempDt } = useStateContext();
+  // const { setTempDt } = useStateContext();
+  const [tempDt, setTempDt] = useState([]);
 
   // 클릭시 공조기 ID와 시간정보 출력
   const electricHandleSubmit = async (e) => {
@@ -179,6 +130,7 @@ const Toggleheader = () => {
       <form
         onSubmit={electricHandleSubmit}
         className="flex items-center justify-between rounded-lg w-full ml-2 font-bold"
+        autoComplete="off"
       >
         <SelectBox options={OPTIONS} defaultValue="공조기01"></SelectBox>
         <span className="">클린룸: 1F A존</span>

@@ -1,60 +1,15 @@
 import axios from "axios";
-import { React, useState, useEffect } from "react";
+import { React, useState, useEffect, useRef } from "react";
 import styled from "styled-components"; //install => npm i styled-components
 import { useStateContext } from "../../context/UserContext";
 import Hourdate from "./Hourdate";
+import { OPTIONS } from "../../data/dummy";
+
 // basic template https://github.com/toy-crane/make-select-box/blob/master/src/App.js
 
 // api 주소
 const SERVER_URL = "/Get_AHU_temp_Hourly_Data";
 
-// 셀렉트 박스 데이터 (공조기 번호)
-const OPTIONS = [
-  {
-    value: "A00",
-    name: "공조기00",
-  },
-  {
-    value: "A01",
-    name: "공조기01",
-  },
-  {
-    value: "A02",
-    name: "공조기02",
-  },
-  {
-    value: "A03",
-    name: "공조기03",
-  },
-  {
-    value: "A04",
-    name: "공조기04",
-  },
-  {
-    value: "A05",
-    name: "공조기05",
-  },
-  {
-    value: "A06",
-    name: "공조기06",
-  },
-  {
-    value: "A07",
-    name: "공조기07",
-  },
-  {
-    value: "A08",
-    name: "공조기08",
-  },
-  {
-    value: "A09",
-    name: "공조기09",
-  },
-  {
-    value: "A10",
-    name: "공조기10",
-  },
-];
 // 셀렉트 박스
 const SelectBoxWrapper = styled.div`
   display: flex;
@@ -125,7 +80,7 @@ const SelectBox = (props) => {
 };
 
 // 시간별 온도 차트
-const Toggleheader = () => {
+const Hourheader = () => {
   // 시간별 전력량 공조기 ID와 날짜 (삭제 예정)
   const [startDate, setStartDate] = useState({});
   const { setTempDt } = useStateContext();
@@ -151,25 +106,25 @@ const Toggleheader = () => {
   };
 
   // set 부분을 useEffect로
+
+  const fetchData = async (idDate) => {
+    const response = await axios.get(SERVER_URL, {
+      params: {
+        ahu_id: `${idDate.ahu_id}`,
+        runDate: `${idDate.runDate}`,
+      },
+    });
+    setTempDt(response.data);
+  };
+
+  const notInitialRender = useRef(false);
+
   useEffect(() => {
-    const fetchData = async (idDate) => {
-      // 2번째 {} -> {ahu_id: 'A00', runDate: '20220901'}
-      console.log(idDate);
-
-      // 3번째 undefined -> A00
-      console.log(idDate.ahu_id);
-      const response = await axios.get(SERVER_URL, {
-        params: {
-          ahu_id: `${idDate.ahu_id}`,
-          runDate: `${idDate.runDate}`,
-        },
-      });
-      setTempDt(response.data);
-      // [] -> 받아와짐
-      console.log(response.data);
-    };
-
-    fetchData(startDate);
+    if (notInitialRender.current) {
+      fetchData(startDate);
+    } else {
+      notInitialRender.current = true;
+    }
   }, [startDate, setTempDt]);
 
   // 검색으로 생긴 데이터로 api 호출
@@ -183,7 +138,6 @@ const Toggleheader = () => {
         <SelectBox options={OPTIONS} defaultValue="공조기01"></SelectBox>
         <span className="">클린룸: 1F A존</span>
         <span className="">설치장소: B2F 기계실</span>
-        {/* <label className="pl-10">조회일자</label> */}
         <div className="flex">
           <Hourdate name="runDate" />
           <button
@@ -198,4 +152,4 @@ const Toggleheader = () => {
   );
 };
 
-export default Toggleheader;
+export default Hourheader;

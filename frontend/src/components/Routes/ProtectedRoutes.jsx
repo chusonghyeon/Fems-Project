@@ -86,7 +86,7 @@ const ProtectedRoutes = () => {
               <Route path="/일별 온도" element={<DailyTemperature />} />
               <Route path="/월별 온도" element={<MonthlyTemperature />} />
               {/* 습도 */}
-              <Route path="/시간별 습도" element={<Test />} />
+              <Route path="/시간별 습도" element={<HourlyHumidity />} />
               <Route path="/일별 습도" element={<DailyHumidity />} />
               <Route path="/월별 습도" element={<MonthlyHumidity />} />
 

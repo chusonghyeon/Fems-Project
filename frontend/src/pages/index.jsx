@@ -1,10 +1,3 @@
-// 임시
-export { default as Orders } from "./Charts/Orders";
-export { default as Area } from "./Charts/Area";
-export { default as Bar } from "./Charts/Bar";
-export { default as Dashboard } from "./Charts/Dashboard";
-export { default as Employees } from "./Charts/Employees";
-
 // 메인페이지
 export { default as MainPage } from "./Mainpage/MainPage";
 export { default as GongjoInfo } from "./Mainpage/GongjoInfo";

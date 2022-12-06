@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useStateContext } from "../context/UserContext";
-import { Toggleheader } from "../components";
+import { Hourheader } from "../components";
 
 const Test = () => {
   const { tempDt } = useStateContext();
@@ -37,7 +37,7 @@ const Test = () => {
 
   return (
     <div className="Test">
-      <Toggleheader />
+      <Hourheader />
       {current}
     </div>
   );

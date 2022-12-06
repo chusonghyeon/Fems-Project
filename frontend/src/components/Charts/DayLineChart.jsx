@@ -12,14 +12,14 @@ import {
 } from "@syncfusion/ej2-react-charts";
 import { Resize } from "@syncfusion/ej2-react-grids";
 import {
+  DayLinePrimaryXAxis,
   lineCustomSeries,
-  LinePrimaryXAxis,
   LinePrimaryYAxis,
 } from "../../data/dummy";
 
 import { useStateContext } from "../../context/UserContext";
 
-const LineChart = () => {
+const DayLineChart = () => {
   const { currentMode, tempDt } = useStateContext();
 
   // console.log(tempDt);
@@ -140,7 +140,7 @@ const LineChart = () => {
       id="line-chart"
       height="480px"
       width="auto"
-      primaryXAxis={LinePrimaryXAxis}
+      primaryXAxis={DayLinePrimaryXAxis}
       primaryYAxis={LinePrimaryYAxis}
       chartArea={{ border: { width: 0 } }}
       tooltip={{
@@ -151,7 +151,6 @@ const LineChart = () => {
       }}
       crosshair={{ enable: true, lineType: "Vertical" }}
       background={currentMode === "Dark" ? "#33373E" : "#fff"}
-      width="auto"
     >
       <Inject services={[LineSeries, DateTime, Tooltip, Crosshair, Resize]} />
       <SeriesCollectionDirective>
@@ -163,4 +162,4 @@ const LineChart = () => {
   );
 };
 
-export default LineChart;
+export default DayLineChart;
