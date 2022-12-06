@@ -23,9 +23,9 @@ async def Get_AHU_Info(FAC_NAME: str):
     return Response(content=result, media_type="application/json")
 
 # 공조기 전력량 - 일별 데이터
-@router.get("/Get_LpData_glance_Daily")
-async def Get_LpData_glance_Daily(startDate: str, endDate: str):
-    result = await FemsServices.Get_LpData_glance_Daily(startDate, endDate)
+@router.get("/Get_LpData_Daily")
+async def Get_LpData_Daily(startDate: str, endDate: str):
+    result = await FemsServices.Get_LpData_Daily(startDate, endDate)
     return Response(content=result, media_type="application/json")
 
 # 공조기 전력량 - 월별 데이터
@@ -59,9 +59,9 @@ async def Get_AHU_KWh_Hourly_Data(inv_id: str, runDate: str):
     return Response(content=result, media_type="application/json")
 
 # 전력량 일별
-@router.get("/Get_AHU_KWh_glance_Data")
-async def Get_AHU_KWh_glance_Data(inv_id: str, runDate: str):
-    result = await FemsServices.Get_AHU_KWh_glance_Data(inv_id, runDate)
+@router.get("/Get_AHU_KWh_Daily")
+async def Get_AHU_KWh_Daily(inv_id: str, runDate: str):
+    result = await FemsServices.Get_AHU_KWh_Daily(inv_id, runDate)
     return Response(content=result, media_type="application/json")
 
 # 전력량 월별
@@ -84,9 +84,9 @@ async def Get_AHU_temp_Hourly_Data(ahu_id: str, runDate: str):
 
 
 # 온도 일별
-@router.get("/Get_AHU_temp_glance_Data")
-async def Get_AHU_temp_glance_Data(ahu_id : str, runDate: str):
-    result = await FemsServices.Get_AHU_temp_glance_Data(ahu_id, runDate)
+@router.get("/Get_AHU_temp_Daily")
+async def Get_AHU_temp_Daily(ahu_id : str, runDate: str):
+    result = await FemsServices.Get_AHU_temp_Daily(ahu_id, runDate)
     return Response(content=result, media_type="application/json")
 
 # 온도 월별
@@ -109,9 +109,9 @@ async def Get_AHU_hum_Hourly_Data(ahu_id : str, runDate: str):
     return Response(content=result, media_type="application/json")
 
 # 습도 일별
-@router.get("/Get_AHU_hum_glance_Data")
-async def Get_AHU_hum_glance_Data(ahu_id : str, runDate: str):
-    result = await FemsServices.Get_AHU_hum_glance_Data(ahu_id, runDate)
+@router.get("/Get_AHU_hum_Daily")
+async def Get_AHU_hum_Daily(ahu_id : str, runDate: str):
+    result = await FemsServices.Get_AHU_hum_Daily(ahu_id, runDate)
     return Response(content=result, media_type="application/json")
 
 

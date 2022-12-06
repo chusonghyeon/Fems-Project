@@ -20,6 +20,7 @@ export { default as DayLineChart } from "./Charts/DayLineChart";
 export { default as MonthLineChart } from "./Charts/MonthLineChart";
 // 습도 표
 export { default as HumidityGrid } from "./Grid/HumidityGrid";
+export { default as HourHumidityChart } from "./Charts/HourHumidityChart";
 //common
 export { default as Button } from "./common/Button";
 // 라이트 다크모드
@@ -38,6 +39,7 @@ export { default as Header } from "./common/Header";
 export { default as Hourheader } from "./common/Hourheader";
 export { default as Dayheader } from "./common/Dayheader";
 export { default as Monthheader } from "./common/Monthheader";
+export { default as HumidityHourheader } from "./common/Humidityheader/HumidityHourheader";
 //Routes
 export { default as ProtectedRoutes } from "./Routes/ProtectedRoutes";
 export { default as UnProtectedRoutes } from "./Routes/UnProtectedRoutes";

@@ -17,10 +17,12 @@ _logger = Logger("FemsService")
 # 설비 정보(공조기 이름, 위치, 사용하는 곳 표시)
 async def Get_AHU_Info(FAC_NAME: str):
     try:       
-        # 내꺼 로컬 DB
+        # # DB서버
+        # connection = pymysql.connect(host= 'database-fems.cenfcmvt9ni5.ap-northeast-2.rds.amazonaws.com', port=3306, user='project', password='project26**',
+        #                              db='fems', charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)
+        # 프론트 로컬 DB
         connection = pymysql.connect(host='localhost', port=3306, user='root', password='1234',
                                      db='FEMS', charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)
-        
         
         with connection.cursor() as cursor:
             query = "select FAC_ID, FAC_NAME, FAC_LOC, FAC_USE, " + \
@@ -37,9 +39,12 @@ async def Get_AHU_Info(FAC_NAME: str):
         _logger.Info(f"error to do 'Get_AHU_Info('{FAC_NAME}')")
         
 # 일별로 공장 전력량 데이터 추출
-async def Get_LpData_glance_Daily(startDate: str, endDate: str):
+async def Get_LpData_Daily(startDate: str, endDate: str):
     try:
-        # 내꺼 로컬 DB 
+        # DB서버
+        # connection = pymysql.connect(host= 'database-fems.cenfcmvt9ni5.ap-northeast-2.rds.amazonaws.com', port=3306, user='project', password='project26**',
+        #                              db='FEMS', charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)
+                                             # 프론트 로컬 DB
         connection = pymysql.connect(host='localhost', port=3306, user='root', password='1234',
                                      db='FEMS', charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)
         
@@ -69,7 +74,10 @@ async def Get_LpData_glance_Daily(startDate: str, endDate: str):
 async def Get_LpData_monthly_Daily(startDate: str, endDate: str):
     try:
               
-        # 내꺼 로컬 DB 연결
+        # DB서버
+        # connection = pymysql.connect(host= 'database-fems.cenfcmvt9ni5.ap-northeast-2.rds.amazonaws.com', port=3306, user='project', password='project26**',
+        #                              db='FEMS', charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)
+                                             # 프론트 로컬 DB
         connection = pymysql.connect(host='localhost', port=3306, user='root', password='1234',
                                      db='FEMS', charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)
         
@@ -99,7 +107,10 @@ async def Get_LpData_monthly_Daily(startDate: str, endDate: str):
 async def Get_LpData_by_year(startDate: str, endDate: str):
     try:
               
-        # 내꺼 로컬 DB 연결
+        # DB서버
+        # connection = pymysql.connect(host= 'database-fems.cenfcmvt9ni5.ap-northeast-2.rds.amazonaws.com', port=3306, user='project', password='project26**',
+        #                              db='FEMS', charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)
+                # 프론트 로컬 DB
         connection = pymysql.connect(host='localhost', port=3306, user='root', password='1234',
                                      db='FEMS', charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)
         
@@ -130,16 +141,14 @@ async def Get_LpData_by_year(startDate: str, endDate: str):
 #############################################################################################################################################
 
 
-# async def Get_AHU_KWh_Hourly_Data(inv_id: str, startDate: str, endDate: str):
-# f"where inv_id = '{inv_id}' and left(run_datetime, 8) between '{startDate}' and '{endDate}'" +\
-# f"succeed to do 'Get_AHU_KWh_Hourly_Data('{inv_id}','{startDate}','{endDate}')'")
-# f"error to do 'Get_AHU_KWh_Hourly_Data('{inv_id}','{startDate}','{endDate}')'")
-
 # 공조기 시간별 전력량
 async def Get_AHU_KWh_Hourly_Data(inv_id: str, runDate: str):
     try:   
            
-        # 내꺼 로컬 DB
+        # DB서버
+        # connection = pymysql.connect(host= 'database-fems.cenfcmvt9ni5.ap-northeast-2.rds.amazonaws.com', port=3306, user='project', password='project26**',
+        #                              db='FEMS', charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)
+                                             # 프론트 로컬 DB
         connection = pymysql.connect(host='localhost', port=3306, user='root', password='1234',
                                      db='FEMS', charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)
         
@@ -163,10 +172,13 @@ async def Get_AHU_KWh_Hourly_Data(inv_id: str, runDate: str):
             f"error to do 'Get_AHU_KWh_Hourly_Data('{inv_id}','{runDate}')'")
         
 # 공조기 일별 전력량
-async def Get_AHU_KWh_glance_Data(inv_id: str, runDate: str):
+async def Get_AHU_KWh_Daily(inv_id: str, runDate: str):
     try:   
            
-        # 내꺼 로컬 DB
+        # DB서버
+        # connection = pymysql.connect(host= 'database-fems.cenfcmvt9ni5.ap-northeast-2.rds.amazonaws.com', port=3306, user='project', password='project26**',
+        #                              db='FEMS', charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)
+                # 프론트 로컬 DB
         connection = pymysql.connect(host='localhost', port=3306, user='root', password='1234',
                                      db='FEMS', charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)
         
@@ -193,7 +205,10 @@ async def Get_AHU_KWh_glance_Data(inv_id: str, runDate: str):
 async def Get_AHU_KWh_monthly_Data(inv_id: str, runDate: str):
     try:   
            
-        # 내꺼 로컬 DB
+        # DB서버
+        # connection = pymysql.connect(host= 'database-fems.cenfcmvt9ni5.ap-northeast-2.rds.amazonaws.com', port=3306, user='project', password='project26**',
+        #                              db='FEMS', charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)
+                # 프론트 로컬 DB
         connection = pymysql.connect(host='localhost', port=3306, user='root', password='1234',
                                      db='FEMS', charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)
         
@@ -226,7 +241,10 @@ async def Get_AHU_KWh_monthly_Data(inv_id: str, runDate: str):
 async def Get_AHU_temp_Hourly_Data(ahu_id: str, runDate: str):
     try:   
            
-        # 내꺼 로컬 DB
+        # DB서버
+        # connection = pymysql.connect(host= 'database-fems.cenfcmvt9ni5.ap-northeast-2.rds.amazonaws.com', port=3306, user='project', password='project26**',
+        #                              db='FEMS', charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)
+                # 프론트 로컬 DB
         connection = pymysql.connect(host='localhost', port=3306, user='root', password='1234',
                                      db='FEMS', charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)
         
@@ -254,10 +272,13 @@ async def Get_AHU_temp_Hourly_Data(ahu_id: str, runDate: str):
 
 
 # 공조기 일별 온도
-async def Get_AHU_temp_glance_Data(ahu_id: str, runDate: str):
+async def Get_AHU_temp_Daily(ahu_id: str, runDate: str):
     try:   
            
-        # 내꺼 로컬 DB
+        # DB서버
+        # connection = pymysql.connect(host= 'database-fems.cenfcmvt9ni5.ap-northeast-2.rds.amazonaws.com', port=3306, user='project', password='project26**',
+        #                              db='FEMS', charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)
+                # 프론트 로컬 DB
         connection = pymysql.connect(host='localhost', port=3306, user='root', password='1234',
                                      db='FEMS', charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)
         
@@ -287,7 +308,10 @@ async def Get_AHU_temp_glance_Data(ahu_id: str, runDate: str):
 async def Get_AHU_temp_monthly_Data(ahu_id: str, runDate: str):
     try:   
            
-        # 내꺼 로컬 DB
+        # DB서버
+        # connection = pymysql.connect(host= 'database-fems.cenfcmvt9ni5.ap-northeast-2.rds.amazonaws.com', port=3306, user='project', password='project26**',
+        #                              db='FEMS', charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)
+                # 프론트 로컬 DB
         connection = pymysql.connect(host='localhost', port=3306, user='root', password='1234',
                                      db='FEMS', charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)
         
@@ -323,7 +347,10 @@ async def Get_AHU_temp_monthly_Data(ahu_id: str, runDate: str):
 async def Get_AHU_hum_Hourly_Data(ahu_id: str, runDate: str):
     try:   
            
-        # 내꺼 로컬 DB
+        # DB서버
+        # connection = pymysql.connect(host= 'database-fems.cenfcmvt9ni5.ap-northeast-2.rds.amazonaws.com', port=3306, user='project', password='project26**',
+        #                              db='FEMS', charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)
+                # 프론트 로컬 DB
         connection = pymysql.connect(host='localhost', port=3306, user='root', password='1234',
                                      db='FEMS', charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)
         
@@ -350,10 +377,13 @@ async def Get_AHU_hum_Hourly_Data(ahu_id: str, runDate: str):
             f"error to do 'Get_AHU_hum_Hourly_Data('{ahu_id}','{runDate}')'")
 
 # 공조기 일별 습도
-async def Get_AHU_hum_glance_Data(ahu_id: str, runDate: str):
+async def Get_AHU_hum_Daily(ahu_id: str, runDate: str):
     try:   
            
-        # 내꺼 로컬 DB
+        # DB서버
+        # connection = pymysql.connect(host= 'database-fems.cenfcmvt9ni5.ap-northeast-2.rds.amazonaws.com', port=3306, user='project', password='project26**',
+        #                              db='FEMS', charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)
+                # 프론트 로컬 DB
         connection = pymysql.connect(host='localhost', port=3306, user='root', password='1234',
                                      db='FEMS', charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)
         
@@ -383,7 +413,10 @@ async def Get_AHU_hum_glance_Data(ahu_id: str, runDate: str):
 async def Get_AHU_hum_monthly_Data(ahu_id: str, runDate: str):
     try:   
            
-        # 내꺼 로컬 DB
+        # DB서버
+        # connection = pymysql.connect(host= 'database-fems.cenfcmvt9ni5.ap-northeast-2.rds.amazonaws.com', port=3306, user='project', password='project26**',
+        #                              db='FEMS', charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)
+                # 프론트 로컬 DB
         connection = pymysql.connect(host='localhost', port=3306, user='root', password='1234',
                                      db='FEMS', charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)
         
