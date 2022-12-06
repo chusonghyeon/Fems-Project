@@ -35,6 +35,9 @@ export const UserProvider = ({ children }) => {
   // 시간별 온도 데이터
   const [tempDt, setTempDt] = useState([]);
 
+  // 시간별 온도 데이터
+  const [humiDt, setHumiDt] = useState([]);
+
   // 라, 다 모드
   const setMode = (e) => {
     setCurrentMode(e.target.value);
@@ -116,9 +119,10 @@ export const UserProvider = ({ children }) => {
         setColor,
         token,
         setToken,
-
         tempDt,
         setTempDt,
+        humiDt,
+        setHumiDt,
       }}
     >
       {children}

@@ -14,6 +14,7 @@ import { useStateContext } from "../../context/UserContext";
 
 const HumidityGrid = () => {
   const { tempDt } = useStateContext();
+  // const [humiDt, setHumiDt] = useState();
 
   function StringToDateFormatter(field, data) {
     let date = getValue(field, data);
