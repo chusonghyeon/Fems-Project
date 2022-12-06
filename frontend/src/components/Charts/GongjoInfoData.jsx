@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import {
   GridComponent,
   ColumnsDirective,
@@ -12,26 +12,8 @@ import {
 } from "@syncfusion/ej2-react-grids";
 
 import { customersData, customersGrid } from "../../data/dummy";
-import axios from "axios";
 
 const Customers = () => {
-  const [info, setInfo] = useState("");
-  const SERVER_URL = "Get_AHU_Info";
-
-  useEffect(() => {
-    const fetchData = async (idDate) => {
-      console.log(idDate);
-
-      const response = await axios.get(SERVER_URL, {
-        params: {
-          FAC_NAME: `${idDate.ahu_id}`,
-        },
-      });
-      setInfo(response.data);
-      fetchData("여기에AHU-01 부터 10인가 까지 돌려넣기");
-    };
-  }, [setInfo]);
-
   const pageSettings = { pageSize: 10 };
   return (
     <GridComponent

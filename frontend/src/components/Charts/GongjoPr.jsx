@@ -13,11 +13,10 @@ import { MultiChartData, MultiChartData2 } from "../../data/dummy";
 const GongjoPr = () => {
   return (
     <div className="w-full text-center m-5">
-      {/* Add minimum:15, maximum:21, in primary x-axis property to set a custum range */}
       <ChartComponent
         width="auto"
         legendSettings={{ visible: true }}
-        title="공조기 월별 전력소모량"
+        title="월별 전력소모량"
         useGroupingSeparator={true}
         primaryXAxis={{
           valueType: "Double",
@@ -34,14 +33,14 @@ const GongjoPr = () => {
         <SeriesCollectionDirective>
           <SeriesDirective
             type="Column"
-            name="2015"
+            name="2021"
             dataSource={MultiChartData}
             xName="month"
             yName="electricPower"
           ></SeriesDirective>
           <SeriesDirective
             type="Column"
-            name="2016 "
+            name="2022"
             dataSource={MultiChartData2}
             xName="month"
             yName="electricPower"
