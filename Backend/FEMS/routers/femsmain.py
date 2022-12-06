@@ -26,8 +26,8 @@ async def Get_AHU_Info(FAC_NAME: str):
 
 # 전년도 대비 전력량 추출
 @router.get("/Get_LpData_monthly_Daily")
-async def Get_LpData_monthly_Daily():
-    result = await FemsServices.Get_LpData_monthly_Daily()
+async def Get_LpData_monthly_Daily_Data():
+    result = await FemsServices.Get_LpData_monthly_Daily_Data()
     return Response(content=result, media_type="application/json")
 
 
@@ -52,7 +52,7 @@ async def Get_AHU_KWh_Hourly_Data(runDate: str):
 
 # 전력량 일별
 @router.get("/Get_AHU_KWh_Daily")
-async def Get_AHU_KWh_Daily(runDate: str):
+async def Get_AHU_KWh_Daily_Data(runDate: str):
     result = await FemsServices.Get_AHU_KWh_Daily(runDate)
     return Response(content=result, media_type="application/json")
 
@@ -77,8 +77,8 @@ async def Get_AHU_temp_Hourly_Data(ahu_id: str, runDate: str):
 
 # 온도 일별
 @router.get("/Get_AHU_temp_Daily")
-async def Get_AHU_temp_Daily(ahu_id : str, runDate: str):
-    result = await FemsServices.Get_AHU_temp_Daily(ahu_id, runDate)
+async def Get_AHU_temp_Daily_Data(ahu_id : str, runDate: str):
+    result = await FemsServices.Get_AHU_temp_Daily_Data(ahu_id, runDate)
     return Response(content=result, media_type="application/json")
 
 # 온도 월별
@@ -102,8 +102,8 @@ async def Get_AHU_hum_Hourly_Data(ahu_id : str, runDate: str):
 
 # 습도 일별
 @router.get("/Get_AHU_hum_Daily")
-async def Get_AHU_hum_Daily(ahu_id : str, runDate: str):
-    result = await FemsServices.Get_AHU_hum_Daily(ahu_id, runDate)
+async def Get_AHU_hum_Daily_Data(ahu_id : str, runDate: str):
+    result = await FemsServices.Get_AHU_hum_Daily_Data(ahu_id, runDate)
     return Response(content=result, media_type="application/json")
 
 
