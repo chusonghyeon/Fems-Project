@@ -1804,6 +1804,7 @@
 2022-12-06 12:02:37,461 | FemsService | INFO | succeed to do 'Get_AHU_temp_monthly_Data('undefined','undefined')'
 2022-12-06 12:02:43,725 | FemsService | INFO | succeed to do 'Get_AHU_temp_Hourly_Data('A00','20220901')'
 <<<<<<< HEAD
+<<<<<<< HEAD
 2022-12-06 12:09:40,402 | FemsService | INFO | succeed to do 'Get_AHU_temp_glance_Data('undefined','undefined')'
 2022-12-06 12:09:42,114 | FemsService | INFO | succeed to do 'Get_AHU_temp_monthly_Data('undefined','undefined')'
 2022-12-06 12:10:22,755 | FemsService | INFO | succeed to do 'Get_AHU_temp_glance_Data('undefined','undefined')'
@@ -1890,3 +1891,9 @@
 2022-12-06 16:16:44,607 | FemsService | INFO | succeed to do 'Get_AHU_temp_glance_Data('A02','202209')'
 2022-12-06 16:28:46,810 | FemsService | INFO | succeed to do 'Get_AHU_temp_glance_Data('undefined','undefined')'
 2022-12-06 16:28:48,882 | FemsService | INFO | succeed to do 'Get_AHU_temp_glance_Data('A00','202209')'
+=======
+2022-12-06 15:51:01,746 | FemsService | INFO | succeed to do 'Get_LpData_monthly_Daily
+2022-12-06 15:51:15,636 | FemsService | INFO | succeed to do 'Get_AHU_KWh_Hourly_Data('20210501')'
+2022-12-06 15:51:23,410 | FemsService | INFO | succeed to do 'Get_AHU_KWh_Daily('202105')'
+2022-12-06 15:51:37,902 | FemsService | INFO | succeed to do 'Get_AHU_KWh_monthly_Data('2021')'
+>>>>>>> 14c53f0499414be2c388836fe42fa9805429c913
