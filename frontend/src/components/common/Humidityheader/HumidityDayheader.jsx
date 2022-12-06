@@ -1,15 +1,14 @@
 import axios from "axios";
-import { React, useState, useEffect } from "react";
+import { React, useState, useEffect, useRef } from "react";
 import styled from "styled-components"; //install => npm i styled-components
-import { useStateContext } from "../../context/UserContext";
-import Daydate from "./Daydate";
-import { OPTIONS } from "../../data/dummy";
+import { useStateContext } from "../../../context/UserContext";
+import Daydate from "../Daydate";
+import { OPTIONS } from "../../../data/dummy";
+
 // basic template https://github.com/toy-crane/make-select-box/blob/master/src/App.js
 
 // api 주소
-const SERVER_URL = "/Get_AHU_temp_Daily";
-
-// 셀렉트 박스 데이터 (공조기 번호)
+const SERVER_URL = "/Get_AHU_hum_Daily";
 
 // 셀렉트 박스
 const SelectBoxWrapper = styled.div`
@@ -44,9 +43,14 @@ const IconSVG = styled.svg`
 `;
 
 const SelectBox = (props) => {
+  const handleChange = (e) => {
+    // event handler
+    console.log(e.target.value);
+  };
+
   return (
     <SelectBoxWrapper>
-      <Select name="ahu_id">
+      <Select onChange={handleChange} name="ahu_id">
         {props.options.map((option) => (
           <option
             key={option.value}
@@ -76,52 +80,49 @@ const SelectBox = (props) => {
 };
 
 // 시간별 온도 차트
-const Dayheader = () => {
+const HumidityDayheader = () => {
   // 시간별 전력량 공조기 ID와 날짜 (삭제 예정)
   const [startDate, setStartDate] = useState({});
-  // const { setTempDt } = useStateContext();
-  const [tempDt, setTempDt] = useState([]);
+  const { setTempDt } = useStateContext();
 
   // 클릭시 공조기 ID와 시간정보 출력
   const electricHandleSubmit = async (e) => {
     e.preventDefault();
     const {
       ahu_id: { value: SelectBox },
-      runDate: { value: Daydate },
+      runDate: { value: Hourdate },
     } = e.target;
 
-    console.log(e.target);
-
-    const ParseDayDate = Daydate.replaceAll("/", "");
+    const ParseHourDate = Hourdate.replaceAll("/", "");
 
     await setStartDate({
       ahu_id: SelectBox,
-      runDate: ParseDayDate,
+      runDate: ParseHourDate,
     });
     // 첫번째 {} -> {ahu_id: 'A00', runDate: '20220901'}
     console.log(startDate);
   };
 
   // set 부분을 useEffect로
+
+  const notInitialRender = useRef(false);
+
   useEffect(() => {
-    const fetchData = async (idDate) => {
-      // 2번째 {} -> {ahu_id: 'A00', runDate: '20220901'}
-      console.log(idDate);
+    if (notInitialRender.current) {
+      const fetchData = async (idDate) => {
+        const response = await axios.get(SERVER_URL, {
+          params: {
+            ahu_id: `${idDate.ahu_id}`,
+            runDate: `${idDate.runDate}`,
+          },
+        });
+        setTempDt(response.data);
+      };
 
-      // 3번째 undefined -> A00
-      console.log(idDate.ahu_id);
-      const response = await axios.get(SERVER_URL, {
-        params: {
-          ahu_id: `${idDate.ahu_id}`,
-          runDate: `${idDate.runDate}`,
-        },
-      });
-      setTempDt(response.data);
-      // [] -> 받아와짐
-      console.log(response.data);
-    };
-
-    fetchData(startDate);
+      fetchData(startDate);
+    } else {
+      notInitialRender.current = true;
+    }
   }, [startDate, setTempDt]);
 
   // 검색으로 생긴 데이터로 api 호출
@@ -130,13 +131,12 @@ const Dayheader = () => {
     <div className=" flex  md:m-5  custom:m-5 mt-24 p-1 bg-white dark:bg-secondary-dark-bg rounded-3xl">
       <form
         onSubmit={electricHandleSubmit}
-        className="flex items-center justify-between rounded-lg w-full ml-2 font-bold"
         autoComplete="off"
+        className="flex items-center justify-between rounded-lg w-full ml-2 font-bold"
       >
         <SelectBox options={OPTIONS} defaultValue="공조기01"></SelectBox>
         <span className="">클린룸: 1F A존</span>
         <span className="">설치장소: B2F 기계실</span>
-        {/* <label className="pl-10">조회일자</label> */}
         <div className="flex">
           <Daydate name="runDate" />
           <button
@@ -151,4 +151,4 @@ const Dayheader = () => {
   );
 };
 
-export default Dayheader;
+export default HumidityDayheader;

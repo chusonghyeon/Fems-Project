@@ -131,6 +131,7 @@ const HumidityHourheader = () => {
     <div className=" flex  md:m-5  custom:m-5 mt-24 p-1 bg-white dark:bg-secondary-dark-bg rounded-3xl">
       <form
         onSubmit={electricHandleSubmit}
+        autoComplete="off"
         className="flex items-center justify-between rounded-lg w-full ml-2 font-bold"
       >
         <SelectBox options={OPTIONS} defaultValue="공조기01"></SelectBox>
