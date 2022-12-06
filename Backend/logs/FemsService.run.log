@@ -1869,3 +1869,7 @@
 2022-12-06 15:37:09,591 | FemsService | INFO | succeed to do 'Get_AHU_temp_Hourly_Data('A00','20220901')'
 2022-12-06 15:40:28,935 | FemsService | INFO | succeed to do 'Get_AHU_hum_Hourly_Data('A00','20220901')'
 2022-12-06 15:41:36,344 | FemsService | INFO | succeed to do 'Get_AHU_temp_Hourly_Data('A00','20220901')'
+2022-12-06 16:14:17,005 | FemsService | INFO | succeed to do 'Get_AHU_hum_Hourly_Data('A00','20220901')'
+2022-12-06 16:15:33,097 | FemsService | INFO | succeed to do 'Get_AHU_temp_glance_Data('A02','202209')'
+2022-12-06 16:15:37,722 | FemsService | INFO | succeed to do 'Get_AHU_temp_glance_Data('A01','202209')'
+2022-12-06 16:15:43,991 | FemsService | INFO | succeed to do 'Get_AHU_temp_glance_Data('A01','202209')'
