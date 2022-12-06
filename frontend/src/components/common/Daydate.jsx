@@ -5,6 +5,15 @@ const Daydate = () => {
   const [startDate, setStartDate] = useState(new Date(2022, 8));
 
   const SelectDate = (date) => {
+<<<<<<< HEAD
+=======
+    // const year = date.getFullYear();
+    // const month = date.getMonth();
+    // // const stringDate = `${year}${month >= 10 ? month : "0" + month}${
+    // //   day >= 10 ? day : "0" + day
+    // // }`;
+    // console.log(year, month);
+>>>>>>> 0fa275e6f942ef68236c5adfcc8f1707b4e626a9
     setStartDate(date);
     console.log(date);
   };

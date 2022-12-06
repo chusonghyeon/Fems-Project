@@ -12,19 +12,14 @@ import {
 } from "@syncfusion/ej2-react-charts";
 import { Resize } from "@syncfusion/ej2-react-grids";
 import {
-<<<<<<< HEAD
-  DayLinePrimaryXAxis,
   lineCustomSeries,
-=======
-  lineCustomSeries,
-  LinePrimaryXAxis,
->>>>>>> 0fa275e6f942ef68236c5adfcc8f1707b4e626a9
+  MonthLinePrimaryXAxis,
   LinePrimaryYAxis,
 } from "../../data/dummy";
 
 import { useStateContext } from "../../context/UserContext";
 
-const DayLineChart = () => {
+const MonthLineChart = () => {
   const { currentMode, tempDt } = useStateContext();
 
   // console.log(tempDt);
@@ -39,15 +34,9 @@ const DayLineChart = () => {
     let month = item.rundate.slice(4, 6);
     let day = item.rundate.slice(6, 8);
     let hour = item.rundate.slice(8, 10);
-<<<<<<< HEAD
-    let minute = item.rundate.slice(10, 12);
-    tempArray.push({
-      x: new Date(year, month, day, hour, minute),
-=======
     // let minute = item.rundate.slice(10, 12);/
     tempArray.push({
       x: new Date(year, month, day, hour),
->>>>>>> 0fa275e6f942ef68236c5adfcc8f1707b4e626a9
       y: item.ahu_set_temp * 1,
     });
   });
@@ -151,11 +140,7 @@ const DayLineChart = () => {
       id="line-chart"
       height="480px"
       width="auto"
-<<<<<<< HEAD
-      primaryXAxis={DayLinePrimaryXAxis}
-=======
-      primaryXAxis={LinePrimaryXAxis}
->>>>>>> 0fa275e6f942ef68236c5adfcc8f1707b4e626a9
+      primaryXAxis={MonthLinePrimaryXAxis} //MonthLinePrimaryXAxis 를 사용해야함
       primaryYAxis={LinePrimaryYAxis}
       chartArea={{ border: { width: 0 } }}
       tooltip={{
@@ -177,4 +162,4 @@ const DayLineChart = () => {
   );
 };
 
-export default DayLineChart;
+export default MonthLineChart;

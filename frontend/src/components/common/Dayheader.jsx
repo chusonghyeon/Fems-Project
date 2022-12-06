@@ -76,7 +76,12 @@ const SelectBox = (props) => {
 };
 
 // 시간별 온도 차트
+<<<<<<< HEAD
 const Toggleheader = () => {
+=======
+const Dayheader = () => {
+  // 시간별 전력량 공조기 ID와 날짜 (삭제 예정)
+>>>>>>> 0fa275e6f942ef68236c5adfcc8f1707b4e626a9
   const [startDate, setStartDate] = useState({});
   // const { setTempDt } = useStateContext();
   const [tempDt, setTempDt] = useState([]);
@@ -150,4 +155,4 @@ const Toggleheader = () => {
   );
 };
 
-export default Toggleheader;
+export default Dayheader;
