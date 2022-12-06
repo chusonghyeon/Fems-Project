@@ -19,7 +19,7 @@ const HourHumidityChart = () => {
   const { currentMode, tempDt } = useStateContext();
   const TempDataSource = [];
 
-  // 설정온도
+  // 설정습도
   let tempArray = [];
   tempDt.forEach((item) => {
     let year = item.rundate.slice(0, 4);
@@ -34,7 +34,7 @@ const HourHumidityChart = () => {
   });
   TempDataSource.push([...tempArray]);
 
-  // 리턴온도
+  // 리턴습도
   tempArray = [];
   tempDt.forEach((item) => {
     let year = item.rundate.slice(0, 4);
@@ -50,7 +50,7 @@ const HourHumidityChart = () => {
   });
   TempDataSource.push([...tempArray]);
 
-  // 공급온도
+  // 공급습도
   tempArray = [];
   tempDt.forEach((item) => {
     let year = item.rundate.slice(0, 4);
@@ -66,7 +66,7 @@ const HourHumidityChart = () => {
   });
   TempDataSource.push([...tempArray]);
 
-  // 외부온도
+  // 외부습도
   tempArray = [];
   tempDt.forEach((item) => {
     let year = item.rundate.slice(0, 4);
