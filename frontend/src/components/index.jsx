@@ -23,7 +23,6 @@ export { default as GongjoInfoData } from "./Charts/GongjoInfoData";
 export { default as TempGrid } from "./Charts/TempGrid";
 // 습도 표
 export { default as HumidityGrid } from "./Charts/HumidityGrid";
-
 //common
 export { default as Button } from "./common/Button";
 // 라이트 다크모드

@@ -1,5 +1,5 @@
 import React from "react";
-import { LineChart, TempGrid, Toggleheader } from "../../components";
+import { LineChart, HumidityGrid, Toggleheader } from "../../components";
 import Header from "../../components/common/Header";
 import { useStateContext } from "../../context/UserContext";
 const HourlyHumidity = () => {
@@ -11,7 +11,7 @@ const HourlyHumidity = () => {
       </div>
       <div className="m-4 md:m-2 mt-24 p-5 bg-white rounded-3xl dark:bg-secondary-dark-bg">
         <LineChart />
-        <TempGrid />
+        <HumidityGrid />
       </div>
     </>
   );

@@ -6,7 +6,7 @@ import Hourdate from "./Hourdate";
 // basic template https://github.com/toy-crane/make-select-box/blob/master/src/App.js
 
 // api 주소
-const SERVER_URL = "/Get_AHU_temp_Hourly_Data";
+const SERVER_URL = "/Get_AHU_hum_Hourly_Data";
 
 // 셀렉트 박스 데이터 (공조기 번호)
 const OPTIONS = [
