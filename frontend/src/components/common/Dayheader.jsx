@@ -7,7 +7,7 @@ import { OPTIONS } from "../../data/dummy";
 // basic template https://github.com/toy-crane/make-select-box/blob/master/src/App.js
 
 // api 주소
-const SERVER_URL = "/Get_AHU_temp_glance_Data";
+const SERVER_URL = "/Get_AHU_temp_Daily";
 
 // 셀렉트 박스 데이터 (공조기 번호)
 
@@ -79,8 +79,7 @@ const SelectBox = (props) => {
 const Dayheader = () => {
   // 시간별 전력량 공조기 ID와 날짜 (삭제 예정)
   const [startDate, setStartDate] = useState({});
-  // const { setTempDt } = useStateContext();
-  const [tempDt, setTempDt] = useState([]);
+  const { setTempDt } = useStateContext();
 
   // 클릭시 공조기 ID와 시간정보 출력
   const electricHandleSubmit = async (e) => {
