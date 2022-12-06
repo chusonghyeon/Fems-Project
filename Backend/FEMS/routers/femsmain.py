@@ -22,23 +22,15 @@ async def Get_AHU_Info(FAC_NAME: str):
     result = await FemsServices.Get_AHU_Info(FAC_NAME)
     return Response(content=result, media_type="application/json")
 
-# 공조기 전력량 - 일별 데이터
-@router.get("/Get_LpData_Daily")
-async def Get_LpData_Daily(startDate: str, endDate: str):
-    result = await FemsServices.Get_LpData_Daily(startDate, endDate)
-    return Response(content=result, media_type="application/json")
 
-# 공조기 전력량 - 월별 데이터
+
+# 전년도 대비 전력량 추출
 @router.get("/Get_LpData_monthly_Daily")
-async def Get_LpData_monthly_Daily(startDate: str, endDate: str):
-    result = await FemsServices.Get_LpData_monthly_Daily(startDate, endDate)
+async def Get_LpData_monthly_Daily():
+    result = await FemsServices.Get_LpData_monthly_Daily()
     return Response(content=result, media_type="application/json")
 
-# 공조기 전력량 - 연별 데이터
-@router.get("/Get_LpData_by_year")
-async def Get_LpData_by_year(startDate: str, endDate: str):
-    result = await FemsServices.Get_LpData_by_year(startDate, endDate)
-    return Response(content=result, media_type="application/json")
+
 
 ####################################################################################
 
@@ -54,20 +46,20 @@ async def Get_LpData_by_year(startDate: str, endDate: str):
 
 # 전력량 시간별
 @router.get("/Get_AHU_KWh_Hourly_Data")
-async def Get_AHU_KWh_Hourly_Data(inv_id: str, runDate: str):
-    result = await FemsServices.Get_AHU_KWh_Hourly_Data(inv_id, runDate)
+async def Get_AHU_KWh_Hourly_Data(runDate: str):
+    result = await FemsServices.Get_AHU_KWh_Hourly_Data(runDate)
     return Response(content=result, media_type="application/json")
 
 # 전력량 일별
 @router.get("/Get_AHU_KWh_Daily")
-async def Get_AHU_KWh_Daily(inv_id: str, runDate: str):
-    result = await FemsServices.Get_AHU_KWh_Daily(inv_id, runDate)
+async def Get_AHU_KWh_Daily(runDate: str):
+    result = await FemsServices.Get_AHU_KWh_Daily(runDate)
     return Response(content=result, media_type="application/json")
 
 # 전력량 월별
 @router.get("/Get_AHU_KWh_monthly_Data")
-async def Get_AHU_KWh_monthly_Data(inv_id: str, runDate: str):
-    result = await FemsServices.Get_AHU_KWh_monthly_Data(inv_id, runDate)
+async def Get_AHU_KWh_monthly_Data(runDate: str):
+    result = await FemsServices.Get_AHU_KWh_monthly_Data(runDate)
     return Response(content=result, media_type="application/json")
 
 ####################################################################################
