@@ -18,8 +18,8 @@ _logger = Logger("FemsService")
 async def Get_AHU_Info(FAC_NAME: str):
     try:       
         # DB서버
-        connection = pymysql.connect(host= 'database-fems.cenfcmvt9ni5.ap-northeast-2.rds.amazonaws.com', port=3306, user='project', password='project26**',
-                                     db='fems', charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)
+        connection = pymysql.connect(host='localhost', port=3306, user='root', password='1234',
+                                     db='FEMS', charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)
         
         
         with connection.cursor() as cursor:
