@@ -11,9 +11,12 @@ import {
   Resize,
 } from "@syncfusion/ej2-react-grids";
 import { getValue } from "@syncfusion/ej2-base";
-import { HourPowerData } from "../../data/dummy";
 
+import { HourPowerData } from "../../data/dummy";
+import { useStateContext } from "../../context/UserContext";
 const DataGrid = () => {
+  const { elecDt } = useStateContext();
+
   function currencyFormatter(field, data) {
     return getValue(field, data) + " kWh";
   }
@@ -38,11 +41,7 @@ const DataGrid = () => {
 
   const pageSettings = { pageSize: 10 };
   return (
-    <GridComponent
-      dataSource={HourPowerData}
-      pageSettings={pageSettings}
-      allowPaging
-    >
+    <GridComponent dataSource={elecDt} pageSettings={pageSettings} allowPaging>
       <ColumnsDirective>
         <ColumnDirective
           headerText="일자"
@@ -53,7 +52,7 @@ const DataGrid = () => {
         />
         <ColumnDirective
           headerText="전력소비량"
-          field="inv_kWh"
+          field="LpData"
           width="100"
           textAlign="Center"
           valueAccessor={currencyFormatter}

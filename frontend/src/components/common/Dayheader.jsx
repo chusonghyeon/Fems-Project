@@ -8,8 +8,11 @@ import { OPTIONS } from "../../data/dummy";
 
 // api 주소
 const SERVER_URL = "/Get_AHU_temp_Daily_Data";
+<<<<<<< HEAD
 
 // 셀렉트 박스 데이터 (공조기 번호)
+=======
+>>>>>>> ef40793535c857d4eab8a303519e36214b67c9e1
 
 // 셀렉트 박스
 const SelectBoxWrapper = styled.div`

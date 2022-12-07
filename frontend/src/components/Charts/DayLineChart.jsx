@@ -94,7 +94,7 @@ const DayLineChart = () => {
       name: "설정온도",
       width: "2",
       marker: { visible: false, width: 10, height: 10 },
-      type: "Line",
+      type: "StepArea",
     },
 
     {

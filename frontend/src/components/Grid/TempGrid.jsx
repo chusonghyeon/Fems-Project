@@ -23,7 +23,6 @@ const TempGrid = () => {
     let hour = date.slice(8, 10);
     let minute = date.slice(10, 12);
 
-    // return typeof hour;
     if (hour !== "") {
       return `${year}-${month}-${day} ${hour}:${minute}`;
     }
