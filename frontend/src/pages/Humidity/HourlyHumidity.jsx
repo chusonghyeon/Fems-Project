@@ -1,9 +1,9 @@
 import React from "react";
 import {
-  HumidityGrid,
   HourHumidityChart,
   Header,
   HumidityHourheader,
+  HourHumGrid,
 } from "../../components";
 
 import { useStateContext } from "../../context/UserContext";
@@ -16,7 +16,7 @@ const HourlyHumidity = () => {
       </div>
       <div className="m-4 md:m-2 mt-24 p-5 bg-white rounded-3xl dark:bg-secondary-dark-bg">
         <HourHumidityChart />
-        <HumidityGrid />
+        <HourHumGrid />
       </div>
     </>
   );

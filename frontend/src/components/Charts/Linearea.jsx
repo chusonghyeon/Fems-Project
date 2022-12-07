@@ -13,12 +13,12 @@ import { Resize } from "@syncfusion/ej2-react-grids";
 import { useStateContext } from "../../context/UserContext";
 import { electricdata } from "../../data/dummy";
 const Linearea = () => {
-  const { elecDt } = useStateContext();
+  const { hElecDt } = useStateContext();
   const ElecDataSource = [];
 
   // 전력량 차트에
   let elecArray = [];
-  elecDt.forEach((item) => {
+  hElecDt.forEach((item) => {
     let year = item.rundate.slice(0, 4);
     let month = item.rundate.slice(4, 6);
     let day = item.rundate.slice(6, 8);

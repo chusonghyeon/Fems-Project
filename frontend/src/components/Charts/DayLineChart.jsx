@@ -20,12 +20,12 @@ import {
 import { useStateContext } from "../../context/UserContext";
 
 const DayLineChart = () => {
-  const { currentMode, tempDt } = useStateContext();
+  const { currentMode, dTempDt } = useStateContext();
   const TempDataSource = [];
 
   // 설정온도
   let tempArray = [];
-  tempDt.forEach((item) => {
+  dTempDt.forEach((item) => {
     let year = item.rundate.slice(0, 4);
     let month = item.rundate.slice(4, 6);
     let day = item.rundate.slice(6, 8);
@@ -40,7 +40,7 @@ const DayLineChart = () => {
 
   // 리턴온도
   tempArray = [];
-  tempDt.forEach((item) => {
+  dTempDt.forEach((item) => {
     let year = item.rundate.slice(0, 4);
     let month = item.rundate.slice(4, 6);
     let day = item.rundate.slice(6, 8);
@@ -56,7 +56,7 @@ const DayLineChart = () => {
 
   // 공급온도
   tempArray = [];
-  tempDt.forEach((item) => {
+  dTempDt.forEach((item) => {
     let year = item.rundate.slice(0, 4);
     let month = item.rundate.slice(4, 6);
     let day = item.rundate.slice(6, 8);
@@ -72,7 +72,7 @@ const DayLineChart = () => {
 
   // 외부온도
   tempArray = [];
-  tempDt.forEach((item) => {
+  dTempDt.forEach((item) => {
     let year = item.rundate.slice(0, 4);
     let month = item.rundate.slice(4, 6);
     let day = item.rundate.slice(6, 8);
@@ -94,7 +94,7 @@ const DayLineChart = () => {
       name: "설정온도",
       width: "2",
       marker: { visible: false, width: 10, height: 10 },
-      type: "StepArea",
+      type: "Line",
     },
 
     {

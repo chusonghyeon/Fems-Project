@@ -15,11 +15,17 @@ export { default as GongjoInfoData } from "./Charts/GongjoInfoData";
 
 // 온도 표
 export { default as TempGrid } from "./Grid/TempGrid";
+export { default as HourTempGrid } from "./Grid/HourTempGrid";
+export { default as DayTempGrid } from "./Grid/DayTempGrid";
+export { default as MonthTempGrid } from "./Grid/MonthTempGrid";
 export { default as HourTempChart } from "./Charts/HourTempChart";
 export { default as DayLineChart } from "./Charts/DayLineChart";
 export { default as MonthLineChart } from "./Charts/MonthLineChart";
 // 습도 표
 export { default as HumidityGrid } from "./Grid/HumidityGrid";
+export { default as HourHumGrid } from "./Grid/HourHumGrid";
+export { default as DayHumGrid } from "./Grid/DayHumGrid";
+export { default as MonthHumGrid } from "./Grid/MonthHumGrid";
 export { default as HourHumidityChart } from "./Charts/HourHumidityChart";
 export { default as DayHumidityChart } from "./Charts/DayHumidityChart";
 export { default as MonthHumidityChart } from "./Charts/MonthHumidityChart";

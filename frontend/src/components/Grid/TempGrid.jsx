@@ -13,7 +13,7 @@ import { getValue } from "@syncfusion/ej2-base";
 import { useStateContext } from "../../context/UserContext";
 
 const TempGrid = () => {
-  const { tempDt } = useStateContext();
+  const { hTempDt } = useStateContext();
 
   function StringToDateFormatter(field, data) {
     let date = getValue(field, data);
@@ -34,7 +34,7 @@ const TempGrid = () => {
 
   const pageSettings = { pageSize: 10 };
   return (
-    <GridComponent dataSource={tempDt} pageSettings={pageSettings} allowPaging>
+    <GridComponent dataSource={hTempDt} pageSettings={pageSettings} allowPaging>
       <ColumnsDirective>
         <ColumnDirective
           headerText="실행시간"

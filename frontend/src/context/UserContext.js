@@ -32,14 +32,28 @@ export const UserProvider = ({ children }) => {
   // theme 창 켜기
   const [themeSettings, setThemeSettings] = useState(false);
 
-  // 시간별 온도 데이터
+  //공통 온도 데이터
   const [tempDt, setTempDt] = useState([]);
+  // 시간별 온도 데이터
+  const [hTempDt, setHTempDt] = useState([]);
+  // 일별 온도 데이터
+  const [dTempDt, setDTempDt] = useState([]);
+  // 월별 온도 데이터
+  const [mTempDt, setMTempDt] = useState([]);
 
   // 시간별 습도 데이터
-  const [humiDt, setHumiDt] = useState([]);
+  const [hHumiDt, setHHumiDt] = useState([]);
+  //일별 습도 데이터
+  const [dHumidity, setDHumidity] = useState([]);
+  // 월별 습도 데이터
+  const [mHumiDt, setMHumiDt] = useState([]);
 
   // 시간별 전력량 데이터
-  const [elecDt, setElecDt] = useState([]);
+  const [hElecDt, setHElecDt] = useState([]);
+  // 일별 전력량 데이터
+  const [dElecDt, setDElecDt] = useState([]);
+  // 월별 전력량 데이터
+  const [mElecDt, setMElecDt] = useState([]);
 
   // 라, 다 모드
   const setMode = (e) => {
@@ -124,10 +138,24 @@ export const UserProvider = ({ children }) => {
         setToken,
         tempDt,
         setTempDt,
-        humiDt,
-        setHumiDt,
-        elecDt,
-        setElecDt,
+        hTempDt,
+        setHTempDt,
+        dTempDt,
+        setDTempDt,
+        mTempDt,
+        setMTempDt,
+        hHumiDt,
+        setHHumiDt,
+        dHumidity,
+        setDHumidity,
+        mHumiDt,
+        setMHumiDt,
+        hElecDt,
+        setHElecDt,
+        dElecDt,
+        setDElecDt,
+        mElecDt,
+        setMElecDt,
       }}
     >
       {children}

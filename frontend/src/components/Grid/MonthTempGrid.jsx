@@ -12,9 +12,8 @@ import {
 import { getValue } from "@syncfusion/ej2-base";
 import { useStateContext } from "../../context/UserContext";
 
-const HumidityGrid = () => {
-  const { humiDt } = useStateContext();
-  // const [humiDt, setHumiDt] = useState();
+const MonthTempGrid = () => {
+  const { mTempDt } = useStateContext();
 
   function StringToDateFormatter(field, data) {
     let date = getValue(field, data);
@@ -24,7 +23,6 @@ const HumidityGrid = () => {
     let hour = date.slice(8, 10);
     let minute = date.slice(10, 12);
 
-    // return typeof hour;
     if (hour !== "") {
       return `${year}-${month}-${day} ${hour}:${minute}`;
     }
@@ -36,7 +34,7 @@ const HumidityGrid = () => {
 
   const pageSettings = { pageSize: 10 };
   return (
-    <GridComponent dataSource={humiDt} pageSettings={pageSettings} allowPaging>
+    <GridComponent dataSource={mTempDt} pageSettings={pageSettings} allowPaging>
       <ColumnsDirective>
         <ColumnDirective
           headerText="실행시간"
@@ -46,26 +44,26 @@ const HumidityGrid = () => {
           valueAccessor={StringToDateFormatter}
         />
         <ColumnDirective
-          headerText="설정습도"
-          field="ahu_set_hum"
+          headerText="설정온도"
+          field="ahu_set_temp"
           width="10"
           textAlign="Center"
         />
         <ColumnDirective
-          headerText="리턴습도"
-          field="ahu_ret_hum"
+          headerText="리턴온도"
+          field="ahu_ret_temp"
           width="10"
           textAlign="Center"
         />
         <ColumnDirective
-          headerText="공급습도"
-          field="ahu_sup_hum"
+          headerText="공급온도"
+          field="ahu_sup_temp"
           width="10"
           textAlign="Center"
         />
         <ColumnDirective
-          headerText="설비 외부습도"
-          field="ahu_out_hum"
+          headerText="설비 외부온도"
+          field="ahu_out_temp"
           width="10"
           textAlign="Center"
         />
@@ -75,4 +73,4 @@ const HumidityGrid = () => {
   );
 };
 
-export default HumidityGrid;
+export default MonthTempGrid;
