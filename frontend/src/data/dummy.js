@@ -231,6 +231,41 @@ export const MonthLinePrimaryXAxis = {
   background: "white",
 };
 
+// Elec Y값
+export const ElecLinePrimaryYAxis = {
+  labelFormat: "{value}KWh",
+  minimum: 0,
+  maximum: 500,
+  interval: 100,
+  lineStyle: { width: 0 },
+  majorTickLines: { width: 0 },
+  minorTickLines: { width: 0 },
+};
+export const HElecPrimaryXAxis = {
+  valueType: "DateTime",
+  labelFormat: "HH시",
+  majorGridLines: { width: 0 },
+  intervalType: "Hours",
+  interval: 1,
+  edgeLabelPlacement: "Shift",
+};
+
+// DayElec X 값
+export const DElecPrimaryXAxis = {
+  labelFormat: "{value}일",
+  interval: 1,
+  majorGridLines: { width: 0 },
+  edgeLabelPlacement: "Shift",
+};
+
+// DayElec X 값
+export const MElecLinePrimaryXAxis = {
+  labelFormat: "{value}월",
+  interval: 1,
+  majorGridLines: { width: 0 },
+  edgeLabelPlacement: "Shift",
+};
+
 // 공조기 정보 Grid용 데이터(임시)
 export const customersGrid = [
   {
@@ -540,18 +575,18 @@ export const lineCustomSeries = [
 
 // 전력량 라인영역차트 (임시)
 export let electricdata = [
-  { x: 2001, y: 490 },
-  { x: 2002, y: 470 },
-  { x: 2003, y: 500 },
-  { x: 2004, y: 449 },
-  { x: 2005, y: 470 },
-  { x: 2006, y: 437 },
-  { x: 2007, y: 458 },
-  { x: 2008, y: 500 },
-  { x: 2009, y: 473 },
-  { x: 2010, y: 520 },
-  { x: 2011, y: 520 },
-  { x: 2012, y: 416 },
+  { x: "2001", y: 490 },
+  { x: "2002", y: 470 },
+  { x: "2003", y: 500 },
+  { x: "2004", y: 449 },
+  { x: "2005", y: 470 },
+  { x: "2006", y: 437 },
+  { x: "2007", y: 458 },
+  { x: "2008", y: 500 },
+  { x: "2009", y: 473 },
+  { x: "2010", y: 520 },
+  { x: "2011", y: 520 },
+  { x: "2012", y: 416 },
 ];
 
 // 전력량 예측 데이터 (삭제 예정)

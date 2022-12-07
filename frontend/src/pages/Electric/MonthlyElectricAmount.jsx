@@ -1,7 +1,7 @@
 import React from "react";
 import { ElectricGrid, Monthdate } from "../../components";
 import Header from "../../components/common/Header";
-import Linearea from "../../components/Charts/Linearea";
+import Linearea from "../../components/Charts/HourElecarea";
 const Electricamount = () => {
   return (
     <div className="m-4 md:m-2 mt-24 p-5 bg-white dark:bg-secondary-dark-bg rounded-3xl">

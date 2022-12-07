@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { ElectricGrid, Hourdate } from "../../components";
 import Header from "../../components/common/Header";
-import Linearea from "../../components/Charts/Linearea";
+import Linearea from "../../components/Charts/HourElecarea";
 import axios from "axios";
 import { useStateContext } from "../../context/UserContext";
 const Electricamount = () => {

@@ -6,15 +6,18 @@ import {
   Tooltip,
   Inject,
   Legend,
-  StepAreaSeries,
+  SplineAreaSeries,
   Highlight,
+  Crosshair,
+  DateTime,
 } from "@syncfusion/ej2-react-charts";
-import { Resize } from "@syncfusion/ej2-react-grids";
 import { useStateContext } from "../../context/UserContext";
-import { electricdata } from "../../data/dummy";
+import { ElecLinePrimaryYAxis, HElecPrimaryXAxis } from "../../data/dummy";
 const Linearea = () => {
   const { elecDt } = useStateContext();
   const ElecDataSource = [];
+
+  console.log(new Date(2002, 0, 1, 1, 1));
 
   // 전력량 차트에
   let elecArray = [];
@@ -31,68 +34,52 @@ const Linearea = () => {
   });
   ElecDataSource.push([...elecArray]);
 
-  console.log(ElecDataSource);
+  console.log(elecArray);
 
   // 전력량
   const AreaElecData = [
     {
-      dataSource: ElecDataSource,
+      dataSource: ElecDataSource[0],
       xName: "x",
       yName: "y",
       name: "전력량",
       width: "2",
       marker: { visible: false, width: 10, height: 10 },
-      type: "StepArea",
+      type: "SplineArea",
       opacity: 0.6,
       border: { width: 2 },
     },
   ];
-  console.log(AreaElecData);
+  const palette = ["#ffe1a5"];
 
   return (
     <div className="w-full test">
       <ChartComponent
         id="charts"
         style={{ textAlign: "center" }}
-        primaryXAxis={{
-          valueType: "Double",
-          // labelFormat: "HH시",
-          // intervalType: "Hours",
-          interval: 1,
-          majorGridLines: { width: 0 },
-          edgeLabelPlacement: "Shift",
-        }}
-        // load={this.load.bind(this)}
-        primaryYAxis={{
-          valueType: "Double",
-          labelFormat: "{value}KWh",
-          lineStyle: { width: 0 },
-          majorTickLines: { width: 0 },
-          minorTickLines: { width: 0 },
-        }}
-        chartArea={{ border: { width: 0 } }}
+        primaryXAxis={HElecPrimaryXAxis}
+        primaryYAxis={ElecLinePrimaryYAxis}
         legendSettings={{ enableHighlight: true }}
-        tooltip={{ enable: true }}
+        chartArea={{ border: { width: 0 } }}
         title="시간별 전력량"
-        width="auto"
+        tooltip={{ enable: true, shared: true }}
+        crosshair={{ enable: true, lineType: "Vertical" }}
+        palettes={palette}
       >
         <Inject
-          services={[StepAreaSeries, Tooltip, Legend, Highlight, Resize]}
+          services={[
+            SplineAreaSeries,
+            DateTime,
+            Tooltip,
+            Legend,
+            Highlight,
+            Crosshair,
+          ]}
         />
         <SeriesCollectionDirective>
-          {/* {AreaElecData.map((item, index) => (
+          {AreaElecData.map((item, index) => (
             <SeriesDirective key={index} {...item} />
-          ))} */}
-          <SeriesDirective
-            dataSource={electricdata}
-            xName="x"
-            yName="y"
-            name="Renewable"
-            width={2}
-            type="StepArea"
-            opacity={0.6}
-            border={{ width: 2 }}
-          ></SeriesDirective>
+          ))}
         </SeriesCollectionDirective>
       </ChartComponent>
     </div>

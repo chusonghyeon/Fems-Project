@@ -1,5 +1,5 @@
 import "remixicon/fonts/remixicon.css";
-import bgimg from "../../img/bg-login.jpg";
+import bgimg from "../../img/bg-login6.jpg";
 import React, { useState } from "react";
 import ErrorMessage from "../common/ErrorMessage";
 import { useStateContext } from "../../context/UserContext";
@@ -56,26 +56,26 @@ const Login = () => {
     <div className="container laptop:h-screen laptop:grid laptop:place-items-center ">
       {isLoading && <LoadingSpinner asOverlay />}
       <div
-        className="login__content grid relative w-screen h-screen items-center laptop:w-1024 laptop:h-600
+        className="login__content grid relative w-screen h-screen items-center laptop:w-1280 laptop:h-600
       desktop:h-700"
       >
         <img
-          className="absolute w-full h-full object-cover object-center blur-xs rounded-3xl
+          className="absolute w-full h-full object-cover object-center  rounded-3xl
           shadow-xl"
           src={bgimg}
           alt="login-img"
         />
         {/* 로그인 박스 상위항목 */}
         <form
-          className="login__form grid relative bg-slate-200 opacity-90 border-2 border-solid m-auto p-6
-        rounded-2xl md:w-450 md:justify-self-center justify-self-end mr-16
+          className="login__form grid relative bg-slate-50 border-2 border-solid m-auto p-6
+        rounded-2xl md:w-96 md:justify-self-center justify-self-end mr-16
         desktop:p-12 desktop:rounded-3xl desktop:border-2 desktop:border-solid
         "
           onSubmit={handleSubmit}
         >
           <div>
             <h1 className="login__title text-black-800 text-xl font-bold mb-2">
-              <span className="text-indigo-700">Welcome</span> Fems Service
+              <span className="text-blue-700">Welcome</span> Fems Service
             </h1>
             <p className="login__description text-base mb-3 ">
               Fems 서비스에 로그인하세요
@@ -129,7 +129,7 @@ const Login = () => {
           <div>
             <div className="login__buttons flex gap-x-3">
               <button
-                className="login__button w-full py-3 px-8 rounded-md bg-indigo-600 
+                className="login__button w-full py-3 px-8 rounded-md bg-blue-500 
               text-lg text-white shadow-indigo-600/50 cursor-pointer font-medium"
                 type="submit"
               >
@@ -139,6 +139,7 @@ const Login = () => {
           </div>
         </form>
       </div>
+      <span className="text-xs opacity-60">Designed by Jcomp / Freepik</span>
     </div>
   );
 };

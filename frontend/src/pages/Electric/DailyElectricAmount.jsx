@@ -1,7 +1,7 @@
 import React from "react";
 import { ElectricGrid, Daydate } from "../../components";
 import Header from "../../components/common/Header";
-import Linearea from "../../components/Charts/Linearea";
+import Linearea from "../../components/Charts/HourElecarea";
 const Electricamount = () => {
   // 클릭시 공조기 ID와 시간정보 출력
   // const electricHandleSubmit = async (e) => {
