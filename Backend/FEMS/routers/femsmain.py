@@ -18,8 +18,8 @@ router = APIRouter(
 
 # 설비 정보(공조기 이름, 위치, 사용하는 곳 표시)
 @router.get("/Get_AHU_Info")
-async def Get_AHU_Info(FAC_NAME: str):
-    result = await FemsServices.Get_AHU_Info(FAC_NAME)
+async def Get_AHU_Info():
+    result = await FemsServices.Get_AHU_Info()
     return Response(content=result, media_type="application/json")
 
 
