@@ -1,4 +1,4 @@
-import React from "react";
+import { React, useEffect, useState } from "react";
 import {
   ChartComponent,
   SeriesCollectionDirective,
@@ -10,7 +10,28 @@ import {
 } from "@syncfusion/ej2-react-charts";
 import { Resize } from "@syncfusion/ej2-react-grids";
 import { MultiChartData, MultiChartData2 } from "../../data/dummy";
+import axios from "axios";
+
+//api 주소
+const SERVER_URL = "/Get_LpData_monthly_Daily_Data";
 const GongjoPr = () => {
+  const [compareData, setCompareData] = useState([]);
+  const elecDataSource = [];
+  useEffect(() => {
+    fetchData();
+    console.log(compareData);
+    compareData.forEach((item) => {
+      console.log(item);
+    });
+  }, []);
+
+  const fetchData = async () => {
+    const response = await axios.get(SERVER_URL);
+    setCompareData(response.data);
+  };
+
+  //2021년도 연도 가져오기
+
   return (
     <div className="w-full text-center m-5">
       <ChartComponent
