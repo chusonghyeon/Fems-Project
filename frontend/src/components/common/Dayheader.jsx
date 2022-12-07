@@ -9,8 +9,6 @@ import { OPTIONS } from "../../data/dummy";
 // api 주소
 const SERVER_URL = "/Get_AHU_temp_Daily_Data";
 
-// 셀렉트 박스 데이터 (공조기 번호)
-
 // 셀렉트 박스
 const SelectBoxWrapper = styled.div`
   display: flex;
@@ -90,6 +88,7 @@ const Dayheader = () => {
     } = e.target;
 
     console.log(e.target);
+    console.log(Daydate);
 
     const ParseDayDate = Daydate.replaceAll("/", "");
 

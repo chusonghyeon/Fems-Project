@@ -2,7 +2,6 @@ import os
 import json
 import pymysql
 from FEMS.Logger import Logger
-
 _logger = Logger("MLService")
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -39,9 +38,5 @@ def GET_ML_data():
             _logger.Info(f"succed to do 'Get_ML_Data'")
             
             return json_data
-    
     except Exception as ex:
         _logger.Info(f"error to do 'Get_ML_Data'")
-    
-
-

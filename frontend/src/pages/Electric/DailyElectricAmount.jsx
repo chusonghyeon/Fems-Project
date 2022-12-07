@@ -1,30 +1,48 @@
-import React from "react";
-import { ElectricGrid, Daydate } from "../../components";
+import axios from "axios";
+import React, { useState, useEffect } from "react";
+import { Daydate, DayElectricGrid, DayElecBar } from "../../components";
 import Header from "../../components/common/Header";
-import Linearea from "../../components/Charts/Linearea";
+import { useStateContext } from "../../context/UserContext";
 const Electricamount = () => {
+  const [startDate, setStartDate] = useState({});
+  const { setDElecDt } = useStateContext();
+
+  const SERVER_URL = "Get_AHU_KWh_Daily_Data";
+
   // 클릭시 공조기 ID와 시간정보 출력
-  // const electricHandleSubmit = async (e) => {
-  //   e.preventDefault();
-  //   const {
-  //     ahu_id: { value: SelectBox },
-  //     runDate: { value: Hourdate },
-  //   } = e.target;
+  const electricHandleSubmit = async (e) => {
+    e.preventDefault();
+    const {
+      runDate: { value: Daydate },
+    } = e.target;
 
-  //   const ParseHourDate = Hourdate.replaceAll("/", "");
+    console.log(e.target);
 
-  //   await setStartDate({
-  //     ahu_id: SelectBox,
-  //     runDate: ParseHourDate,
-  //   });
-  //   // 첫번째 {} -> {ahu_id: 'A00', runDate: '20220901'}
-  //   console.log(startDate);
-  // };
+    const ParseDayDate = Daydate.replaceAll("/", "");
+
+    await setStartDate({
+      runDate: ParseDayDate,
+    });
+  };
+
+  // set 부분을 useEffect로
+  useEffect(() => {
+    const fetchData = async (idDate) => {
+      const response = await axios.get(SERVER_URL, {
+        params: {
+          runDate: `${idDate.runDate}`,
+        },
+      });
+      setDElecDt(response.data);
+    };
+
+    fetchData(startDate);
+  }, [startDate, setDElecDt]);
 
   return (
     <div className="m-4 md:m-2 mt-24 p-5 bg-white dark:bg-secondary-dark-bg rounded-3xl">
       <Header category="전력량" title="일별 전력량" />
-      <form>
+      <form onSubmit={electricHandleSubmit}>
         <div
           className="flex mb-10
         "
@@ -38,8 +56,8 @@ const Electricamount = () => {
           </button>
         </div>
       </form>
-      <Linearea />
-      <ElectricGrid />
+      <DayElecBar />
+      <DayElectricGrid />
     </div>
   );
 };
