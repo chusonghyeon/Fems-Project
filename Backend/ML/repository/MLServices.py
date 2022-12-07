@@ -11,9 +11,12 @@ def GET_ML_data():
                                      db='FEMS', charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)
         with connection.cursor() as cursor:
             query = " select " +\
-                    " left(run_datetime,8) as rundate, cast(round(yhat, 2) as char) as Y_pred " +\
-                    "from yhata \n" +\
-                    "order by left(run_datetime, 8);"
+                    " left(run_datetime,8) as rundate, " +\
+                    " cast(round(sum(y),2) as char) as Y_real_Data, " +\
+                    " cast(round(sum(yhat),2) as char) as Y_pred_Data " +\
+                    " from yhat123 \n" +\
+                    " group by left(run_datetime, 8) " +\
+                    " order by left(run_datetime, 8);"
             cursor.execute(query)
             rv = cursor.fetchall()
             json_data = json.dumps(rv, indent=4)

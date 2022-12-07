@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { ElectricGrid, Hourdate } from "../../components";
+import { ElectricGrid, Hourdate, HourElecArea } from "../../components";
 import Header from "../../components/common/Header";
-import Linearea from "../../components/Charts/Linearea";
 import axios from "axios";
 import { useStateContext } from "../../context/UserContext";
 const Electricamount = () => {
@@ -25,27 +24,17 @@ const Electricamount = () => {
     await setStartDate({
       runDate: ParseDayDate,
     });
-    // 첫번째 {} -> {ahu_id: 'A00', runDate: '20220901'}
-    console.log(startDate);
   };
 
   // set 부분을 useEffect로
   useEffect(() => {
     const fetchData = async (idDate) => {
-      // 2번째 {} -> {ahu_id: 'A00', runDate: '20220901'}
-      console.log(idDate);
-
-      // 3번째 undefined -> A00
-      console.log(idDate.ahu_id);
       const response = await axios.get(SERVER_URL, {
         params: {
-          ahu_id: `${idDate.ahu_id}`,
           runDate: `${idDate.runDate}`,
         },
       });
       setHElecDt(response.data);
-      // [] -> 받아와짐 이건 확인용이라 맨 마지막에 지워
-      console.log(response.data);
     };
 
     fetchData(startDate);
@@ -65,7 +54,7 @@ const Electricamount = () => {
           </button>
         </div>
       </form>
-      <Linearea />
+      <HourElecArea />
       <ElectricGrid />
     </div>
   );

@@ -13,8 +13,8 @@ import {
 import { getValue } from "@syncfusion/ej2-base";
 
 import { useStateContext } from "../../context/UserContext";
-const DataGrid = () => {
-  const { hElecDt } = useStateContext();
+const DayElectricGrid = () => {
+  const { dElecDt } = useStateContext();
 
   function currencyFormatter(field, data) {
     return getValue(field, data) + " kWh";
@@ -40,7 +40,7 @@ const DataGrid = () => {
 
   const pageSettings = { pageSize: 10 };
   return (
-    <GridComponent dataSource={hElecDt} pageSettings={pageSettings} allowPaging>
+    <GridComponent dataSource={dElecDt} pageSettings={pageSettings} allowPaging>
       <ColumnsDirective>
         <ColumnDirective
           headerText="일자"
@@ -62,4 +62,4 @@ const DataGrid = () => {
   );
 };
 
-export default DataGrid;
+export default DayElectricGrid;

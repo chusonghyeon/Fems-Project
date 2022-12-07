@@ -4,14 +4,7 @@ import "react-datepicker/dist/react-datepicker.css";
 const Monthdate = () => {
   const [startDate, setStartDate] = useState(new Date());
   const SelectDate = (date) => {
-    // const year = date.getFullYear();
-    // const month = date.getMonth();
-    // // const stringDate = `${year}${month >= 10 ? month : "0" + month}${
-    // //   day >= 10 ? day : "0" + day
-    // // }`;
-    // console.log(year, month);
     setStartDate(date);
-    // console.log(stringDate);
   };
   return (
     <div className="flex items-center">
