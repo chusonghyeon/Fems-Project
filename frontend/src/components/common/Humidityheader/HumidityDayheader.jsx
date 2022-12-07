@@ -2,13 +2,13 @@ import axios from "axios";
 import { React, useState, useEffect, useRef } from "react";
 import styled from "styled-components"; //install => npm i styled-components
 import { useStateContext } from "../../../context/UserContext";
-import Hourdate from "../Hourdate";
+import Daydate from "../Daydate";
 import { OPTIONS } from "../../../data/dummy";
 
 // basic template https://github.com/toy-crane/make-select-box/blob/master/src/App.js
 
 // api 주소
-const SERVER_URL = "/Get_AHU_hum_Hourly_Data";
+const SERVER_URL = "/Get_AHU_hum_Daily";
 
 // 셀렉트 박스
 const SelectBoxWrapper = styled.div`
@@ -80,7 +80,7 @@ const SelectBox = (props) => {
 };
 
 // 시간별 온도 차트
-const HumidityHourheader = () => {
+const HumidityDayheader = () => {
   // 시간별 전력량 공조기 ID와 날짜 (삭제 예정)
   const [startDate, setStartDate] = useState({});
   const { setTempDt } = useStateContext();
@@ -138,7 +138,7 @@ const HumidityHourheader = () => {
         <span className="">클린룸: 1F A존</span>
         <span className="">설치장소: B2F 기계실</span>
         <div className="flex">
-          <Hourdate name="runDate" />
+          <Daydate name="runDate" />
           <button
             type="submit"
             className="pointer w-32 h-auto text-white bg-blue-500 rounded-md"
@@ -151,4 +151,4 @@ const HumidityHourheader = () => {
   );
 };
 
-export default HumidityHourheader;
+export default HumidityDayheader;

@@ -1,5 +1,8 @@
-import json     
-import pymysql  
+#! /usr/bin/python3
+
+import datetime
+import json     # json
+import pymysql  # mariadb
 from FEMS.Logger import Logger
 
 _logger = Logger("FemsService")
@@ -52,6 +55,7 @@ async def Get_LpData_monthly_Daily_Data():
                     "( " + \
                     "   select LpDate, LpData " + \
                     "   from Raw_KepcoDayLpData " + \
+                    "   where left(LpDate,6) between " + "'" + startDate + "'" + " and " + "'" + endDate + "'" + \
                     ") a " +\
                     "group by left(a.LpDate, 6) " + \
                     "order by left(LpDate,6) ; "
@@ -60,14 +64,43 @@ async def Get_LpData_monthly_Daily_Data():
             rv = cursor.fetchall()
             json_data = json.dumps(rv, indent=4)
             _logger.Info(
-                f"succeed to do 'Get_LpData_monthly_Daily")
+                f"succeed to do 'Get_LpData_monthly_Daily('{startDate}',{endDate})'")
             return json_data
 
     except Exception as ex:
-        _logger.Info(f"error to do 'Get_LpData_monthly_Daily")
+        _logger.Info(f"error to do 'Get_LpData_monthly_Daily('{startDate}',{endDate})'")
 
 
+# 연별로 공장 전력량 데이터 추출
+async def Get_LpData_by_year(startDate: str, endDate: str):
+    try:
+              
+        # DB서버
+        # connection = pymysql.connect(host= 'database-fems.cenfcmvt9ni5.ap-northeast-2.rds.amazonaws.com', port=3306, user='project', password='project26**',
+        #                              db='FEMS', charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)
+                # 프론트 로컬 DB
+        connection = pymysql.connect(host='localhost', port=3306, user='root', password='1234',
+                                     db='FEMS', charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)
+        
+        with connection.cursor() as cursor:
+            query = "select left(a.LpDate,4) as runDate, cast(round(sum(a.LpData),2) as char) as sumData " + \
+                    "from " + \
+                    "( " + \
+                    "   select LpDate, LpData " + \
+                    "   from Raw_KepcoDayLpData " + \
+                    "   where left(LpDate,4) between " + "'" + startDate + "'" + " and " + "'" + endDate + "'" + \
+                    ") a " +\
+                    "group by left(a.LpDate, 4) " + \
+                    "order by left(LpDate,4) ; "
+            cursor.execute(query)
+            rv = cursor.fetchall()
+            json_data = json.dumps(rv, indent=4)
+            _logger.Info(
+                f"succeed to do 'Get_LpData_by_year('{startDate}',{endDate})'")
+            return json_data
 
+    except Exception as ex:
+        _logger.Info(f"error to do 'Get_LpData_by_year('{startDate}',{endDate})'")
 
 #############################################################################################################################################
 
@@ -77,7 +110,7 @@ async def Get_LpData_monthly_Daily_Data():
 
 
 # 공조기 시간별 전력량
-async def Get_AHU_KWh_Hourly_Data(runDate :str):
+async def Get_AHU_KWh_Hourly_Data(inv_id: str, runDate: str):
     try:   
            
         # DB서버
@@ -89,22 +122,22 @@ async def Get_AHU_KWh_Hourly_Data(runDate :str):
         
         with connection.cursor() as cursor:
             query = " select " +\
-                " left(LpDate,12) as rundate, " +\
-                " cast(round(LpData, 2) as char) as LpData " +\
-                "from raw_kepcodaylpdata \n" +\
-                f"where left(LpDate, 8) = " + "'" + runDate + "'" +\
-                "group by left(LpDate, 12) " + \
-                "order by left(LpDate, 12);"
+                " inv_id, left(run_datetime,12) as rundate," +\
+                " cast(round(inv_kWh, 2) as char) as inv_kWh " +\
+                "from raw_wminvdata_addkWh \n" +\
+                f"where inv_id = '{inv_id}' and left(run_datetime, 8) = " + "'" + runDate + "'" +\
+                "group by left(run_datetime, 12) " + \
+                "order by left(run_datetime, 12);"
             cursor.execute(query)
             rv = cursor.fetchall()
             json_data = json.dumps(rv, indent=4)
             _logger.Info(
-                f"succeed to do 'Get_AHU_KWh_Hourly_Data('{runDate}')'")
+                f"succeed to do 'Get_AHU_KWh_Hourly_Data('{inv_id}','{runDate}')'")
             return json_data
 
     except Exception as ex:
         _logger.Info(
-            f"error to do 'Get_AHU_KWh_Hourly_Data('{runDate}')'")
+            f"error to do 'Get_AHU_KWh_Hourly_Data('{inv_id}','{runDate}')'")
         
 # 공조기 일별 전력량
 async def Get_AHU_KWh_Daily_Data(runDate: str):
@@ -119,25 +152,25 @@ async def Get_AHU_KWh_Daily_Data(runDate: str):
         
         with connection.cursor() as cursor:
             query = " select " +\
-                " left(LpDate,8) as rundate, " +\
-                " cast(round(sum(LpData), 2) as char) as LpData " +\
-                "from raw_kepcodaylpdata \n" +\
-                f"where left(LpDate, 6) = " + "'" + runDate + "'" +\
-                "group by left(LpDate, 8) " + \
-                "order by left(LpDate, 8);"
+                " inv_id, left(run_datetime,8) as rundate," +\
+                " cast(round(sum(inv_kWh),2) as char) as inv_kWh " +\
+                "from raw_wminvdata_addkWh \n" +\
+                f"where inv_id = '{inv_id}' and left(run_datetime, 6) = " + "'" + runDate + "'" +\
+                "group by left(run_datetime, 8) " + \
+                "order by left(run_datetime, 8);"
             cursor.execute(query)
             rv = cursor.fetchall()
             json_data = json.dumps(rv, indent=4)
             _logger.Info(
-                f"succeed to do 'Get_AHU_KWh_Daily('{runDate}')'")
+                f"succeed to do 'Get_AHU_KWh_glance_Data('{inv_id}','{runDate}')'")
             return json_data
 
     except Exception as ex:
         _logger.Info(
-            f"error to do 'Get_AHU_KWh_Daily('{runDate}')'")
+            f"error to do 'Get_AHU_KWh_glance_Data('{inv_id}','{runDate}')'")
 
 # 공조기 월별 전력량
-async def Get_AHU_KWh_monthly_Data(runDate: str):
+async def Get_AHU_KWh_monthly_Data(inv_id: str, runDate: str):
     try:   
            
         # DB서버
@@ -149,22 +182,22 @@ async def Get_AHU_KWh_monthly_Data(runDate: str):
         
         with connection.cursor() as cursor:
             query = " select " +\
-                " left(LpDate,6) as rundate, " +\
-                " cast(round(sum(LpData), 2) as char) as LpData " +\
-                "from raw_kepcodaylpdata \n" +\
-                f"where left(LpDate, 4) = " + "'" + runDate + "'" +\
-                "group by left(LpDate, 6) " + \
-                "order by left(LpDate, 6);"
+                " inv_id, left(run_datetime,6) as rundate," +\
+                " cast(round(sum(inv_kWh),2) as char) as inv_kWh " +\
+                "from raw_wminvdata_addkWh \n" +\
+                f"where inv_id = '{inv_id}' and left(run_datetime, 4) = " + "'" + runDate + "'" +\
+                "group by left(run_datetime, 6) " + \
+                "order by left(run_datetime, 6);"
             cursor.execute(query)
             rv = cursor.fetchall()
             json_data = json.dumps(rv, indent=4)
             _logger.Info(
-                f"succeed to do 'Get_AHU_KWh_monthly_Data('{runDate}')'")
+                f"succeed to do 'Get_AHU_KWh_monthly_Data('{inv_id}','{runDate}')'")
             return json_data
 
     except Exception as ex:
         _logger.Info(
-            f"error to do 'Get_AHU_KWh_monthly_Data('{runDate}')'")
+            f"error to do 'Get_AHU_KWh_monthly_Data('{inv_id}','{runDate}')'")
 
 #############################################################################################################################################
 

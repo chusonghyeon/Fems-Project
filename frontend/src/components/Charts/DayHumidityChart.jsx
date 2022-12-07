@@ -12,13 +12,13 @@ import {
 } from "@syncfusion/ej2-react-charts";
 import { Resize } from "@syncfusion/ej2-react-grids";
 import {
-  HumidityHourLinePrimaryXAxis,
-  HumidityHourLinePrimaryYAxis,
+  HumidityDayLinePrimaryXAxis,
+  HumidityDayLinePrimaryYAxis,
 } from "../../data/dummy";
 
 import { useStateContext } from "../../context/UserContext";
 
-const HourHumidityChart = () => {
+const DayHumidityChart = () => {
   const { currentMode, tempDt } = useStateContext();
   const TempDataSource = [];
 
@@ -133,8 +133,8 @@ const HourHumidityChart = () => {
       id="line-chart"
       height="480px"
       width="auto"
-      primaryXAxis={HumidityHourLinePrimaryXAxis}
-      primaryYAxis={HumidityHourLinePrimaryYAxis}
+      primaryXAxis={HumidityDayLinePrimaryXAxis}
+      primaryYAxis={HumidityDayLinePrimaryYAxis}
       chartArea={{ border: { width: 0 } }}
       tooltip={{
         enable: true,
@@ -153,4 +153,4 @@ const HourHumidityChart = () => {
   );
 };
 
-export default HourHumidityChart;
+export default DayHumidityChart;

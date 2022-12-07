@@ -135,6 +135,72 @@ export const LinePrimaryYAxis = {
   minorTickLines: { width: 0 },
 };
 
+// Hour hUMIDITY X 값
+export const HumidityHourLinePrimaryXAxis = {
+  valueType: "DateTime",
+  labelFormat: "HH시",
+  intervalType: "Hours",
+  interval: 1,
+  majorGridLines: { width: 0 },
+  background: "white",
+};
+
+// Hour Humidity Y 값(공용)
+export const HumidityHourLinePrimaryYAxis = {
+  labelFormat: "{value}%",
+  rangePadding: "None",
+  minimum: 0,
+  maximum: 100,
+  interval: 10,
+  lineStyle: { width: 0 },
+  majorTickLines: { width: 0 },
+  minorTickLines: { width: 0 },
+};
+
+// DAY hUMIDITY X 값
+export const HumidityDayLinePrimaryXAxis = {
+  valueType: "DateTime",
+  labelFormat: "dd일",
+  intervalType: "Days",
+  interval: 1,
+  majorGridLines: { width: 0 },
+  background: "white",
+};
+
+//DAY HUMIDITY Y 값
+export const HumidityDayLinePrimaryYAxis = {
+  labelFormat: "{value}%",
+  rangePadding: "None",
+  minimum: 0,
+  maximum: 100,
+  interval: 10,
+  lineStyle: { width: 0 },
+  majorTickLines: { width: 0 },
+  minorTickLines: { width: 0 },
+};
+
+// Month hUMIDITY X 값
+export const HumidityMonthLinePrimaryXAxis = {
+  valueType: "DateTime",
+  labelFormat: "MM월",
+  intervalType: "Months",
+  interval: 1,
+  majorGridLines: { width: 0 },
+  background: "white",
+};
+
+//Month HUMIDITY Y 값
+export const HumidityMonthLinePrimaryYAxis = {
+  labelFormat: "{value}%",
+  rangePadding: "None",
+  minimum: 0,
+  maximum: 100,
+  interval: 10,
+  lineStyle: { width: 0 },
+  majorTickLines: { width: 0 },
+  minorTickLines: { width: 0 },
+};
+
 // HourTemp X 값
 export const LinePrimaryXAxis = {
   valueType: "DateTime",
@@ -150,7 +216,6 @@ export const DayLinePrimaryXAxis = {
   valueType: "DateTime",
   labelFormat: "dd일",
   intervalType: "Days",
-
   interval: 1,
   majorGridLines: { width: 0 },
   background: "white",
