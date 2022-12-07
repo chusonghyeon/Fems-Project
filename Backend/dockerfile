@@ -1,17 +1,18 @@
 # 파이썬 버전 
 FROM python:3.10-slim-bullseye
 
-# 실행할 디렉토리
-WORKDIR /Fems-Project
+RUN  mkdir /Backend
 
-# 패키지 복사하기
-COPY requirements.txt /Fems-Project/Backend/requirements.txt
+# 실행할 디렉토리
+WORKDIR /Fems-Project/Backend
+
+COPY ./requirements.txt .
 
 # 패키지 다운로드
-RUN pip install --no-cache-dir --upgrade -r /Fems-Project/Backend/requirements.txt
+RUN pip install --no-cache-dir --upgrade -r ./requirements.txt
 
-# Backend파일
-COPY . /Fems-Project
+EXPOSE 8000
 
-# 배포할때 사용
-CMD [ "uvicorn", "main:app", "--host", "0.0.0.0", "--port" , "8000"]
+COPY . .
+
+CMD [ "uvicorn", "main:app", "--host=0.0.0.0"]

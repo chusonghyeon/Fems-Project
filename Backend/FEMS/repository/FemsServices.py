@@ -190,7 +190,7 @@ async def Get_AHU_temp_Hourly_Data(ahu_id: str, runDate: str):
                 " cast(round(avg(ahu_ret_temp),2) as char) as ahu_ret_temp, " +\
                 " cast(round(avg(ahu_sup_temp),2) as char) as ahu_sup_temp, " +\
                 " cast(round(avg(ahu_out_temp),2) as char) as ahu_out_temp  " +\
-                "from raw_wmahudata_temp \n" +\
+                "from raw_wmahudata_temp_fix \n" +\
                 f"where ahu_id = '{ahu_id}' and left(run_datetime, 8) = " + "'" + runDate + "'" +\
                 "group by left(run_datetime, 12) " + \
                 "order by left(run_datetime, 12);"
@@ -224,7 +224,7 @@ async def Get_AHU_temp_Daily_Data(ahu_id: str, runDate: str):
                 " cast(round(avg(ahu_ret_temp),2) as char) as ahu_ret_temp, " +\
                 " cast(round(avg(ahu_sup_temp),2) as char) as ahu_sup_temp, " +\
                 " cast(round(avg(ahu_out_temp),2) as char) as ahu_out_temp  " +\
-                "from raw_wmahudata_temp \n" +\
+                "from raw_wmahudata_temp_fix \n" +\
                 f"where ahu_id = '{ahu_id}' and left(run_datetime, 6) = " + "'" + runDate + "'" +\
                 "group by left(run_datetime, 8) " + \
                 "order by left(run_datetime, 8);"
@@ -257,7 +257,7 @@ async def Get_AHU_temp_monthly_Data(ahu_id: str, runDate: str):
                 " cast(round(avg(ahu_ret_temp),2) as char) as ahu_ret_temp, " +\
                 " cast(round(avg(ahu_sup_temp),2) as char) as ahu_sup_temp, " +\
                 " cast(round(avg(ahu_out_temp),2) as char) as ahu_out_temp  " +\
-                "from raw_wmahudata_temp \n" +\
+                "from raw_wmahudata_temp_fix \n" +\
                 f"where ahu_id = '{ahu_id}' and left(run_datetime, 4) = " + "'" + runDate + "'" +\
                 "group by left(run_datetime, 6) " + \
                 "order by left(run_datetime, 6);"
