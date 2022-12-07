@@ -15,6 +15,7 @@ def GET_ML_data():
                     " cast(round(sum(y),2) as char) as Y_real_Data, " +\
                     " cast(round(sum(yhat),2) as char) as Y_pred_Data " +\
                     " from yhat123 \n" +\
+                    " where left(run_datetime,4) ='2022' " +\
                     " group by left(run_datetime, 8) " +\
                     " order by left(run_datetime, 8);"
             cursor.execute(query)

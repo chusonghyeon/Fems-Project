@@ -11,11 +11,7 @@ import {
   Crosshair,
 } from "@syncfusion/ej2-react-charts";
 import { Resize } from "@syncfusion/ej2-react-grids";
-import {
-  lineCustomSeries,
-  MonthLinePrimaryXAxis,
-  LinePrimaryYAxis,
-} from "../../data/dummy";
+import { MonthLinePrimaryXAxis, LinePrimaryYAxis } from "../../data/dummy";
 
 import { useStateContext } from "../../context/UserContext";
 
@@ -130,10 +126,6 @@ const MonthLineChart = () => {
       type: "Line",
     },
   ];
-
-  // console.log(lineChartData[0]);
-  console.log(lineCustomSeries);
-  console.log(LineTempData);
 
   return (
     <ChartComponent
