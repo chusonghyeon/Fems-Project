@@ -3,30 +3,27 @@ import {
   ChartComponent,
   SeriesCollectionDirective,
   SeriesDirective,
-  Tooltip,
   Inject,
   Legend,
-  SplineAreaSeries,
+  Tooltip,
+  ColumnSeries,
   Highlight,
-  Crosshair,
   DateTime,
+  Crosshair,
 } from "@syncfusion/ej2-react-charts";
 import { useStateContext } from "../../context/UserContext";
-import { ElecLinePrimaryYAxis, HElecPrimaryXAxis } from "../../data/dummy";
-const HourElecArea = () => {
-  const { hElecDt } = useStateContext();
+import { MElecLinePrimaryXAxis, MonthElecPrimaryYAxis } from "../../data/dummy";
+const MonthElecBar = () => {
+  const { mElecDt } = useStateContext();
   const ElecDataSource = [];
-
-  console.log(new Date(2002, 0, 1, 1, 1));
 
   // 전력량 차트에
   let elecArray = [];
-  hElecDt.forEach((item) => {
+  mElecDt.forEach((item) => {
     let year = item.rundate.slice(0, 4);
     let month = item.rundate.slice(4, 6);
-    let day = item.rundate.slice(6, 8);
     elecArray.push({
-      x: new Date(year, month, day),
+      x: new Date(year, month),
       y: item.LpData * 1,
     });
   });
@@ -38,39 +35,41 @@ const HourElecArea = () => {
   const AreaElecData = [
     {
       dataSource: ElecDataSource[0],
+      // dataSource: data1,
+      tooltipMappingName: "r",
       xName: "x",
+      columnSpacing: 0.1,
       yName: "y",
-      name: "전력량",
-      width: "2",
-      marker: { visible: false, width: 10, height: 10 },
-      type: "SplineArea",
-      opacity: 0.6,
-      border: { width: 2 },
+      name: "일별 전력량",
+      type: "Column",
     },
   ];
-  // const palette = ["#ffe1a5"];
 
   return (
     <div className="w-full test">
       <ChartComponent
         id="charts"
         style={{ textAlign: "center" }}
-        primaryXAxis={HElecPrimaryXAxis}
-        primaryYAxis={ElecLinePrimaryYAxis}
         legendSettings={{ enableHighlight: true }}
+        primaryXAxis={MElecLinePrimaryXAxis}
+        primaryYAxis={MonthElecPrimaryYAxis}
         chartArea={{ border: { width: 0 } }}
-        title="시간별 전력량"
-        tooltip={{ enable: true, shared: true }}
-        crosshair={{ enable: true, lineType: "Vertical" }}
-        // palettes={palette}
+        tooltip={{
+          enable: true,
+          shared: true,
+        }}
+        crosshair={{
+          enable: true,
+          lineType: "Vertical",
+        }}
       >
         <Inject
           services={[
-            SplineAreaSeries,
-            DateTime,
-            Tooltip,
+            ColumnSeries,
             Legend,
+            Tooltip,
             Highlight,
+            DateTime,
             Crosshair,
           ]}
         />
@@ -84,4 +83,4 @@ const HourElecArea = () => {
   );
 };
 
-export default HourElecArea;
+export default MonthElecBar;

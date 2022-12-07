@@ -11,8 +11,15 @@ export { default as ElectricPr } from "./Charts/ElectricPr";
 export { default as GongjoInfoData } from "./Charts/GongjoInfoData";
 
 // 전력량 표
+export { default as HourElecArea } from "./Charts/HourElecArea";
+export { default as DayElecBar } from "./Charts/DayElecBar";
+export { default as MonthElecBar } from "./Charts/MonthElecBar";
+
 export { default as DataGrid } from "./Grid/DataGrid";
+
 export { default as ElectricGrid } from "./Grid/ElectricGrid";
+export { default as DayElectricGrid } from "./Grid/DayElectricGrid";
+export { default as MonthElectricGrid } from "./Grid/MonthElectricGrid";
 
 // 온도 표
 export { default as TempGrid } from "./Grid/TempGrid";
