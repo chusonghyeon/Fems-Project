@@ -1,5 +1,5 @@
 import React from "react";
-import { TempGrid, Monthheader, MonthLineChart } from "../../components";
+import { Monthheader, MonthLineChart, MonthTempGrid } from "../../components";
 import Header from "../../components/common/Header";
 const HourlyTemperature = () => {
   return (
@@ -10,7 +10,7 @@ const HourlyTemperature = () => {
       </div>
       <div className="m-4 md:m-2 mt-24 p-5 bg-white rounded-3xl dark:bg-secondary-dark-bg">
         <MonthLineChart />
-        <TempGrid />
+        <MonthTempGrid />
       </div>
     </>
   );

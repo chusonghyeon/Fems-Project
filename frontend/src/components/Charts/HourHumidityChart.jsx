@@ -19,77 +19,77 @@ import {
 import { useStateContext } from "../../context/UserContext";
 
 const HourHumidityChart = () => {
-  const { currentMode, tempDt } = useStateContext();
-  const TempDataSource = [];
+  const { currentMode, hHumiDt } = useStateContext();
+  const HumiDataSource = [];
 
   // 설정습도
-  let tempArray = [];
-  tempDt.forEach((item) => {
+  let humiArray = [];
+  hHumiDt.forEach((item) => {
     let year = item.rundate.slice(0, 4);
     let month = item.rundate.slice(4, 6);
     let day = item.rundate.slice(6, 8);
     let hour = item.rundate.slice(8, 10);
     let minute = item.rundate.slice(10, 12);
-    tempArray.push({
+    humiArray.push({
       x: new Date(year, month, day, hour, minute),
       y: item.ahu_set_hum,
     });
   });
-  TempDataSource.push([...tempArray]);
+  HumiDataSource.push([...humiArray]);
 
   // 리턴습도
-  tempArray = [];
-  tempDt.forEach((item) => {
+  humiArray = [];
+  hHumiDt.forEach((item) => {
     let year = item.rundate.slice(0, 4);
     let month = item.rundate.slice(4, 6);
     let day = item.rundate.slice(6, 8);
     let hour = item.rundate.slice(8, 10);
     let minute = item.rundate.slice(10, 12);
 
-    tempArray.push({
+    humiArray.push({
       x: new Date(year, month, day, hour, minute),
       y: item.ahu_ret_hum,
     });
   });
-  TempDataSource.push([...tempArray]);
+  HumiDataSource.push([...humiArray]);
 
   // 공급습도
-  tempArray = [];
-  tempDt.forEach((item) => {
+  humiArray = [];
+  hHumiDt.forEach((item) => {
     let year = item.rundate.slice(0, 4);
     let month = item.rundate.slice(4, 6);
     let day = item.rundate.slice(6, 8);
     let hour = item.rundate.slice(8, 10);
     let minute = item.rundate.slice(10, 12);
 
-    tempArray.push({
+    humiArray.push({
       x: new Date(year, month, day, hour, minute),
       y: item.ahu_sup_hum,
     });
   });
-  TempDataSource.push([...tempArray]);
+  HumiDataSource.push([...humiArray]);
 
   // 외부습도
-  tempArray = [];
-  tempDt.forEach((item) => {
+  humiArray = [];
+  hHumiDt.forEach((item) => {
     let year = item.rundate.slice(0, 4);
     let month = item.rundate.slice(4, 6);
     let day = item.rundate.slice(6, 8);
     let hour = item.rundate.slice(8, 10);
     let minute = item.rundate.slice(10, 12);
 
-    tempArray.push({
+    humiArray.push({
       x: new Date(year, month, day, hour, minute),
       y: item.ahu_out_hum,
     });
   });
-  TempDataSource.push([...tempArray]);
+  HumiDataSource.push([...humiArray]);
 
-  console.log(TempDataSource);
+  console.log(HumiDataSource);
 
   const LineTempData = [
     {
-      dataSource: TempDataSource[0],
+      dataSource: HumiDataSource[0],
       xName: "x",
       yName: "y",
       name: "설정습도",
@@ -99,7 +99,7 @@ const HourHumidityChart = () => {
     },
 
     {
-      dataSource: TempDataSource[1],
+      dataSource: HumiDataSource[1],
       xName: "x",
       yName: "y",
       name: "리턴습도",
@@ -109,7 +109,7 @@ const HourHumidityChart = () => {
     },
 
     {
-      dataSource: TempDataSource[2],
+      dataSource: HumiDataSource[2],
       xName: "x",
       yName: "y",
       name: "공급습도",
@@ -118,7 +118,7 @@ const HourHumidityChart = () => {
       type: "Line",
     },
     {
-      dataSource: TempDataSource[3],
+      dataSource: HumiDataSource[3],
       xName: "x",
       yName: "y",
       name: "설비 외부습도",

@@ -20,7 +20,7 @@ import {
 import { useStateContext } from "../../context/UserContext";
 
 const MonthLineChart = () => {
-  const { currentMode, tempDt } = useStateContext();
+  const { currentMode, mTempDt } = useStateContext();
 
   // console.log(tempDt);
 
@@ -29,7 +29,7 @@ const MonthLineChart = () => {
 
   // 설정온도
   let tempArray = [];
-  tempDt.forEach((item) => {
+  mTempDt.forEach((item) => {
     let year = item.rundate.slice(0, 4);
     let month = item.rundate.slice(4, 6);
     let day = item.rundate.slice(6, 8);
@@ -44,7 +44,7 @@ const MonthLineChart = () => {
 
   // 리턴온도
   tempArray = [];
-  tempDt.forEach((item) => {
+  mTempDt.forEach((item) => {
     let year = item.rundate.slice(0, 4);
     let month = item.rundate.slice(4, 6);
     let day = item.rundate.slice(6, 8);
@@ -60,7 +60,7 @@ const MonthLineChart = () => {
 
   // 공급온도
   tempArray = [];
-  tempDt.forEach((item) => {
+  mTempDt.forEach((item) => {
     let year = item.rundate.slice(0, 4);
     let month = item.rundate.slice(4, 6);
     let day = item.rundate.slice(6, 8);
@@ -76,7 +76,7 @@ const MonthLineChart = () => {
 
   // 외부온도
   tempArray = [];
-  tempDt.forEach((item) => {
+  mTempDt.forEach((item) => {
     let year = item.rundate.slice(0, 4);
     let month = item.rundate.slice(4, 6);
     let day = item.rundate.slice(6, 8);

@@ -1,7 +1,7 @@
 import React from "react";
 import {
-  HumidityGrid,
   HumidityMonthheader,
+  MonthHumGrid,
   MonthHumidityChart,
 } from "../../components";
 import Header from "../../components/common/Header";
@@ -15,7 +15,7 @@ const MonthHumidity = () => {
       </div>
       <div className="m-4 md:m-2 mt-24 p-5 bg-white rounded-3xl dark:bg-secondary-dark-bg">
         <MonthHumidityChart />
-        <HumidityGrid />
+        <MonthHumGrid />
       </div>
     </>
   );
