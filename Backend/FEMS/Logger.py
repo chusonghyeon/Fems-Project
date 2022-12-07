@@ -21,7 +21,7 @@ class Logger(object):
         logger_dir = "./logs"
 
         # Monitoring용 log file
-        logger_run_file_name = f"{appName}.run.log"
+        logger_run_file_name = f"{appName}.log"
 
         now = datetime.datetime.now().strftime('%Y-%m-%d')
         # Logging용 Log 파일
