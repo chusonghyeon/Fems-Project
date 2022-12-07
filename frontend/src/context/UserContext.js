@@ -35,8 +35,11 @@ export const UserProvider = ({ children }) => {
   // 시간별 온도 데이터
   const [tempDt, setTempDt] = useState([]);
 
-  // 시간별 온도 데이터
+  // 시간별 습도 데이터
   const [humiDt, setHumiDt] = useState([]);
+
+  // 시간별 전력량 데이터
+  const [elecDt, setElecDt] = useState([]);
 
   // 라, 다 모드
   const setMode = (e) => {
@@ -123,6 +126,8 @@ export const UserProvider = ({ children }) => {
         setTempDt,
         humiDt,
         setHumiDt,
+        elecDt,
+        setElecDt,
       }}
     >
       {children}

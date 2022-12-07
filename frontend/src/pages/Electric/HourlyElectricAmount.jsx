@@ -1,60 +1,60 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { ElectricGrid, Hourdate } from "../../components";
 import Header from "../../components/common/Header";
 import Linearea from "../../components/Charts/Linearea";
+import axios from "axios";
+import { useStateContext } from "../../context/UserContext";
 const Electricamount = () => {
   // // 시간별 전력량 공조기 ID와 날짜 (삭제 예정)
-  // const [startDate, setStartDate] = useState({});
-  // // const { setTempDt } = useStateContext();
-  // const [tempDt, setTempDt] = useState([]);
+  const [startDate, setStartDate] = useState({});
+  const { setElecDt } = useStateContext();
 
-  // // 클릭시 공조기 ID와 시간정보 출력
-  // const electricHandleSubmit = async (e) => {
-  //   e.preventDefault();
-  //   const {
-  //     ahu_id: { value: SelectBox },
-  //     runDate: { value: Daydate },
-  //   } = e.target;
+  const SERVER_URL = "Get_AHU_KWh_Hourly_Data";
 
-  //   console.log(e.target);
+  // 클릭시 공조기 ID와 시간정보 출력
+  const electricHandleSubmit = async (e) => {
+    e.preventDefault();
+    const {
+      runDate: { value: Daydate },
+    } = e.target;
 
-  //   const ParseDayDate = Daydate.replaceAll("/", "");
+    console.log(e.target);
 
-  //   await setStartDate({
-  //     ahu_id: SelectBox,
-  //     runDate: ParseDayDate,
-  //   });
-  //   // 첫번째 {} -> {ahu_id: 'A00', runDate: '20220901'}
-  //   console.log(startDate);
-  // };
+    const ParseDayDate = Daydate.replaceAll("/", "");
 
-  // // set 부분을 useEffect로
-  // useEffect(() => {
-  //   const fetchData = async (idDate) => {
-  //     // 2번째 {} -> {ahu_id: 'A00', runDate: '20220901'}
-  //     console.log(idDate);
+    await setStartDate({
+      runDate: ParseDayDate,
+    });
+    // 첫번째 {} -> {ahu_id: 'A00', runDate: '20220901'}
+    console.log(startDate);
+  };
 
-  //     // 3번째 undefined -> A00
-  //     console.log(idDate.ahu_id);
-  //     const response = await axios.get(SERVER_URL, {
-  //       params: {
-  //         ahu_id: `${idDate.ahu_id}`,
-  //         runDate: `${idDate.runDate}`,
-  //       },
-  //     });
-  //     setTempDt(response.data);
-  //     // [] -> 받아와짐
-  //     console.log(response.data);
-  //   };
+  // set 부분을 useEffect로
+  useEffect(() => {
+    const fetchData = async (idDate) => {
+      // 2번째 {} -> {ahu_id: 'A00', runDate: '20220901'}
+      console.log(idDate);
 
-  //   fetchData(startDate);
-  // }, [startDate, setTempDt]);
+      // 3번째 undefined -> A00
+      console.log(idDate.ahu_id);
+      const response = await axios.get(SERVER_URL, {
+        params: {
+          ahu_id: `${idDate.ahu_id}`,
+          runDate: `${idDate.runDate}`,
+        },
+      });
+      setElecDt(response.data);
+      // [] -> 받아와짐 이건 확인용이라 맨 마지막에 지워
+      console.log(response.data);
+    };
+
+    fetchData(startDate);
+  }, [startDate, setElecDt]);
 
   return (
     <div className="m-4 md:m-2 mt-24 p-5 bg-white dark:bg-secondary-dark-bg rounded-3xl">
       <Header category="전력량" title="시간별 전력량" />
-      <form>
-        {/* <form onSubmit={electricHandleSubmit}> */}
+      <form onSubmit={electricHandleSubmit}>
         <div className="flex mb-10">
           <Hourdate />
           <button
