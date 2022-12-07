@@ -19,7 +19,7 @@ import { Browser } from "@syncfusion/ej2-base";
 let ActContent = "<div>Actual</div>";
 let FrcContent = "<div>Forecast</div>";
 
-const SAMPLE_CSS = `
+const Predict_CSS = `
      .control-fluid {
          padding: 0px !important;
      }
@@ -61,7 +61,7 @@ const SAMPLE_CSS = `
 const electricPr = () => {
   return (
     <div className="control-pane">
-      <style>{SAMPLE_CSS}</style>
+      <style>{Predict_CSS}</style>
       <div className="control-section">
         <ChartComponent
           id="charts"
@@ -76,7 +76,7 @@ const electricPr = () => {
             rangePadding: "None",
             lineStyle: { width: 0 },
             minimum: 0,
-            maximum: 300,
+            maximum: 350,
             interval: 50,
             majorTickLines: { width: 0 },
             minorTickLines: { width: 0 },

@@ -24,94 +24,94 @@ const customerGridStatus = (props) => (
 export const MultiChartData = [
   {
     month: 1,
-    electricPower: 50,
+    electricPower: 15555,
   },
   {
     month: 2,
-    electricPower: 200,
+    electricPower: 468378,
   },
   {
     month: 3,
-    electricPower: 300,
+    electricPower: 510252,
   },
   {
     month: 4,
-    electricPower: 250,
+    electricPower: 495540,
   },
   {
     month: 5,
-    electricPower: 150,
+    electricPower: 523391,
   },
   {
     month: 6,
-    electricPower: 100,
+    electricPower: 614258,
   },
   {
     month: 7,
-    electricPower: 300,
+    electricPower: 345110,
   },
   {
     month: 8,
-    electricPower: 300,
+    electricPower: 171626,
   },
   {
     month: 9,
-    electricPower: 100,
+    electricPower: 20861,
   },
   {
     month: 10,
-    electricPower: 150,
+    electricPower: 0,
   },
   {
     month: 11,
-    electricPower: 100,
+    electricPower: 545154,
   },
   {
     month: 12,
-    electricPower: 50,
+    electricPower: 91249,
   },
 ];
 // 예측 데이터2(임시)
 export const MultiChartData2 = [
   {
     month: 1,
-    electricPower: 50,
+    electricPower: 555967,
   },
   {
     month: 2,
-    electricPower: 150,
+    electricPower: 531552,
   },
   {
     month: 3,
-    electricPower: 300,
+    electricPower: 554705,
   },
   {
     month: 4,
-    electricPower: 200,
+    electricPower: 538705,
   },
   {
     month: 5,
-    electricPower: 100,
+    electricPower: 562809,
   },
   {
     month: 6,
-    electricPower: 100,
+    electricPower: 643697,
   },
   {
     month: 7,
-    electricPower: 300,
+    electricPower: 37114,
   },
   {
     month: 8,
-    electricPower: 120,
+    electricPower: 702184,
   },
   {
     month: 9,
-    electricPower: 100,
+    electricPower: 596134,
   },
   {
     month: 10,
-    electricPower: 50,
+    electricPower: 442745,
   },
   {
     month: 11,
@@ -556,28 +556,33 @@ export let electricdata = [
 
 // 전력량 예측 데이터 (삭제 예정)
 export let electricprdata1 = [
-  { x: "Jan", y: 100 },
-  { x: "Feb", y: 110 },
-  { x: "Mar", y: 125 },
-  { x: "Apr", y: 150 },
-  { x: "May", y: 140 },
-  { x: "Jun", y: 160 },
-  { x: "Jul", y: 190 },
-  { x: "Aug", y: 210 },
-  { x: "Sep", y: 300 },
-  { x: "Oct", y: 240 },
-  { x: "Nov", y: 230 },
-  { x: "Dec", y: 270 },
+  { x: "1월", y: 100 },
+  { x: "2월", y: 110 },
+  { x: "3월", y: 125 },
+  { x: "4월", y: 150 },
+  { x: "5월", y: 140 },
+  { x: "6월", y: 160 },
+  { x: "7월", y: 190 },
+  { x: "8월", y: 210 },
+  { x: "9월", y: 300 },
+  { x: "10월", y: 240 },
+  { x: "11월", y: 230 },
+  { x: "12월", y: 270 },
 ];
 // 전력량 예측 데이터 (삭제 예정)
 export let electricprdata2 = [
-  { x: "Jun", y: 160 },
-  { x: "Jul", y: 170 },
-  { x: "Aug", y: 180 },
-  { x: "Sep", y: 190 },
-  { x: "Oct", y: 200 },
-  { x: "Nov", y: 230 },
-  { x: "Dec", y: 270 },
+  { x: "1월", y: 110 },
+  { x: "2월", y: 120 },
+  { x: "3월", y: 130 },
+  { x: "4월", y: 150 },
+  { x: "5월", y: 120 },
+  { x: "6월", y: 160 },
+  { x: "7월", y: 200 },
+  { x: "8월", y: 200 },
+  { x: "9월", y: 310 },
+  { x: "10월", y: 240 },
+  { x: "11월", y: 220 },
+  { x: "12월", y: 270 },
 ];
 
 // 시간별 전력량 데이터용 (삭제 예정)
