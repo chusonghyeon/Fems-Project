@@ -7,7 +7,7 @@ import { useStateContext } from "../../context/UserContext";
 const Electricamount = () => {
   // // 시간별 전력량 공조기 ID와 날짜 (삭제 예정)
   const [startDate, setStartDate] = useState({});
-  const { setElecDt } = useStateContext();
+  const { setHElecDt } = useStateContext();
 
   const SERVER_URL = "Get_AHU_KWh_Hourly_Data";
 
@@ -43,13 +43,13 @@ const Electricamount = () => {
           runDate: `${idDate.runDate}`,
         },
       });
-      setElecDt(response.data);
+      setHElecDt(response.data);
       // [] -> 받아와짐 이건 확인용이라 맨 마지막에 지워
       console.log(response.data);
     };
 
     fetchData(startDate);
-  }, [startDate, setElecDt]);
+  }, [startDate, setHElecDt]);
 
   return (
     <div className="m-4 md:m-2 mt-24 p-5 bg-white dark:bg-secondary-dark-bg rounded-3xl">

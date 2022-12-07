@@ -19,12 +19,12 @@ import {
 import { useStateContext } from "../../context/UserContext";
 
 const MonthHumidityChart = () => {
-  const { currentMode, tempDt } = useStateContext();
+  const { currentMode, mHumiDt } = useStateContext();
   const TempDataSource = [];
 
   // 설정습도
   let tempArray = [];
-  tempDt.forEach((item) => {
+  mHumiDt.forEach((item) => {
     let year = item.rundate.slice(0, 4);
     let month = item.rundate.slice(4, 6);
     let day = item.rundate.slice(6, 8);
@@ -39,7 +39,7 @@ const MonthHumidityChart = () => {
 
   // 리턴습도
   tempArray = [];
-  tempDt.forEach((item) => {
+  mHumiDt.forEach((item) => {
     let year = item.rundate.slice(0, 4);
     let month = item.rundate.slice(4, 6);
     let day = item.rundate.slice(6, 8);
@@ -55,7 +55,7 @@ const MonthHumidityChart = () => {
 
   // 공급습도
   tempArray = [];
-  tempDt.forEach((item) => {
+  mHumiDt.forEach((item) => {
     let year = item.rundate.slice(0, 4);
     let month = item.rundate.slice(4, 6);
     let day = item.rundate.slice(6, 8);
@@ -71,7 +71,7 @@ const MonthHumidityChart = () => {
 
   // 외부습도
   tempArray = [];
-  tempDt.forEach((item) => {
+  mHumiDt.forEach((item) => {
     let year = item.rundate.slice(0, 4);
     let month = item.rundate.slice(4, 6);
     let day = item.rundate.slice(6, 8);

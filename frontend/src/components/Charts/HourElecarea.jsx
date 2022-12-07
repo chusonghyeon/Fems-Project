@@ -14,14 +14,14 @@ import {
 import { useStateContext } from "../../context/UserContext";
 import { ElecLinePrimaryYAxis, HElecPrimaryXAxis } from "../../data/dummy";
 const Linearea = () => {
-  const { elecDt } = useStateContext();
+  const { hElecDt } = useStateContext();
   const ElecDataSource = [];
 
   console.log(new Date(2002, 0, 1, 1, 1));
 
   // 전력량 차트에
   let elecArray = [];
-  elecDt.forEach((item) => {
+  hElecDt.forEach((item) => {
     let year = item.rundate.slice(0, 4);
     let month = item.rundate.slice(4, 6);
     let day = item.rundate.slice(6, 8);

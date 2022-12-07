@@ -83,7 +83,7 @@ const SelectBox = (props) => {
 const HumidityDayheader = () => {
   // 시간별 전력량 공조기 ID와 날짜 (삭제 예정)
   const [startDate, setStartDate] = useState({});
-  const { setTempDt } = useStateContext();
+  const { setDHumidity } = useStateContext();
 
   // 클릭시 공조기 ID와 시간정보 출력
   const electricHandleSubmit = async (e) => {
@@ -100,7 +100,6 @@ const HumidityDayheader = () => {
       runDate: ParseHourDate,
     });
     // 첫번째 {} -> {ahu_id: 'A00', runDate: '20220901'}
-    console.log(startDate);
   };
 
   // set 부분을 useEffect로
@@ -116,14 +115,14 @@ const HumidityDayheader = () => {
             runDate: `${idDate.runDate}`,
           },
         });
-        setTempDt(response.data);
+        setDHumidity(response.data);
       };
 
       fetchData(startDate);
     } else {
       notInitialRender.current = true;
     }
-  }, [startDate, setTempDt]);
+  }, [startDate, setDHumidity]);
 
   // 검색으로 생긴 데이터로 api 호출
 

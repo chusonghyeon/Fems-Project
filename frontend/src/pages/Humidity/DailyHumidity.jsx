@@ -1,8 +1,8 @@
 import React from "react";
 import {
+  DayHumGrid,
   DayHumidityChart,
   HumidityDayheader,
-  HumidityGrid,
 } from "../../components";
 import Header from "../../components/common/Header";
 import { useStateContext } from "../../context/UserContext";
@@ -15,7 +15,7 @@ const DailiyHumidity = () => {
       </div>
       <div className="m-4 md:m-2 mt-24 p-5 bg-white rounded-3xl dark:bg-secondary-dark-bg">
         <DayHumidityChart />
-        <HumidityGrid />
+        <DayHumGrid />
       </div>
     </>
   );

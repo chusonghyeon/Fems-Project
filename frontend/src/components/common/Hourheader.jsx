@@ -83,7 +83,7 @@ const SelectBox = (props) => {
 const Hourheader = () => {
   // 시간별 전력량 공조기 ID와 날짜 (삭제 예정)
   const [startDate, setStartDate] = useState({});
-  const { setTempDt } = useStateContext();
+  const { setHTempDt } = useStateContext();
 
   // 클릭시 공조기 ID와 시간정보 출력
   const electricHandleSubmit = async (e) => {
@@ -118,14 +118,14 @@ const Hourheader = () => {
             runDate: `${idDate.runDate}`,
           },
         });
-        setTempDt(response.data);
+        setHTempDt(response.data);
       };
 
       fetchData(startDate);
     } else {
       notInitialRender.current = true;
     }
-  }, [startDate, setTempDt]);
+  }, [startDate, setHTempDt]);
 
   // 검색으로 생긴 데이터로 api 호출
 

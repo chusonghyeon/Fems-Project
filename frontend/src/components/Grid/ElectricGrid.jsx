@@ -15,7 +15,7 @@ import { getValue } from "@syncfusion/ej2-base";
 import { HourPowerData } from "../../data/dummy";
 import { useStateContext } from "../../context/UserContext";
 const DataGrid = () => {
-  const { elecDt } = useStateContext();
+  const { hElecDt } = useStateContext();
 
   function currencyFormatter(field, data) {
     return getValue(field, data) + " kWh";
@@ -41,7 +41,7 @@ const DataGrid = () => {
 
   const pageSettings = { pageSize: 10 };
   return (
-    <GridComponent dataSource={elecDt} pageSettings={pageSettings} allowPaging>
+    <GridComponent dataSource={hElecDt} pageSettings={pageSettings} allowPaging>
       <ColumnsDirective>
         <ColumnDirective
           headerText="일자"

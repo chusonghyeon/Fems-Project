@@ -16,12 +16,12 @@ import { LinePrimaryXAxis, LinePrimaryYAxis } from "../../data/dummy";
 import { useStateContext } from "../../context/UserContext";
 
 const HourTempChart = () => {
-  const { currentMode, tempDt } = useStateContext();
+  const { currentMode, hTempDt } = useStateContext();
   const TempDataSource = [];
 
   // 설정온도
   let tempArray = [];
-  tempDt.forEach((item) => {
+  hTempDt.forEach((item) => {
     let year = item.rundate.slice(0, 4);
     let month = item.rundate.slice(4, 6);
     let day = item.rundate.slice(6, 8);
@@ -36,7 +36,7 @@ const HourTempChart = () => {
 
   // 리턴온도
   tempArray = [];
-  tempDt.forEach((item) => {
+  hTempDt.forEach((item) => {
     let year = item.rundate.slice(0, 4);
     let month = item.rundate.slice(4, 6);
     let day = item.rundate.slice(6, 8);
@@ -52,7 +52,7 @@ const HourTempChart = () => {
 
   // 공급온도
   tempArray = [];
-  tempDt.forEach((item) => {
+  hTempDt.forEach((item) => {
     let year = item.rundate.slice(0, 4);
     let month = item.rundate.slice(4, 6);
     let day = item.rundate.slice(6, 8);
@@ -68,7 +68,7 @@ const HourTempChart = () => {
 
   // 외부온도
   tempArray = [];
-  tempDt.forEach((item) => {
+  hTempDt.forEach((item) => {
     let year = item.rundate.slice(0, 4);
     let month = item.rundate.slice(4, 6);
     let day = item.rundate.slice(6, 8);

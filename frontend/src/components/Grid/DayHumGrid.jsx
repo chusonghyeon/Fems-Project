@@ -12,8 +12,8 @@ import {
 import { getValue } from "@syncfusion/ej2-base";
 import { useStateContext } from "../../context/UserContext";
 
-const HumidityGrid = () => {
-  const { humiDt } = useStateContext();
+const DayHumGrid = () => {
+  const { dHumidity } = useStateContext();
   // const [humiDt, setHumiDt] = useState();
 
   function StringToDateFormatter(field, data) {
@@ -36,7 +36,11 @@ const HumidityGrid = () => {
 
   const pageSettings = { pageSize: 10 };
   return (
-    <GridComponent dataSource={humiDt} pageSettings={pageSettings} allowPaging>
+    <GridComponent
+      dataSource={dHumidity}
+      pageSettings={pageSettings}
+      allowPaging
+    >
       <ColumnsDirective>
         <ColumnDirective
           headerText="실행시간"
@@ -75,4 +79,4 @@ const HumidityGrid = () => {
   );
 };
 
-export default HumidityGrid;
+export default DayHumGrid;
