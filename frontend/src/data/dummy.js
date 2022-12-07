@@ -294,41 +294,62 @@ export const MElecLinePrimaryXAxis = {
   edgeLabelPlacement: "Shift",
 };
 
-// 공조기 정보 Grid용 데이터(임시)
+// 예측 X값
+export const MlPrimaryXAxis = {
+  valueType: "DateTime",
+  labelFormat: "MM월",
+  interval: 1,
+  edgeLabelPlacement: "Shift",
+  majorGridLines: { width: 0 },
+};
+
+// 예측 Y값
+export const MlPrimaryYAxis = {
+  labelFormat: "{value}kwh",
+  rangePadding: "None",
+  lineStyle: { width: 0 },
+  minimum: 0,
+  maximum: 30000,
+  interval: 5000,
+  majorTickLines: { width: 0 },
+  minorTickLines: { width: 0 },
+};
+
+// 공조기 정보 Grid용 데이터
 export const customersGrid = [
   {
-    field: "공조기ID",
+    field: "FAC_NAME",
     headerText: " 공조기 번호",
     width: "150",
     textAlign: "Center",
   },
   {
-    field: "설치장소",
+    field: "FAC_LOC",
     headerText: " 공조기 설치 장소",
     width: "150",
     textAlign: "Center",
   },
   {
-    field: "클린룸",
+    field: "FAC_USE",
     headerText: " 클린룸",
     width: "150",
     textAlign: "Center",
   },
   {
-    field: "볼트",
-    headerText: " V",
+    field: "FAC_VOLTAGE",
+    headerText: "전압(V)",
     width: "100",
     textAlign: "Center",
   },
   {
-    field: "전력",
-    headerText: " KW",
+    field: "FAC_KW",
+    headerText: "전력(kW)",
     width: "100",
     textAlign: "Center",
   },
 
   {
-    field: "인버터",
+    field: "FAC_INV_CNT",
     headerText: "인버터 갯수",
     width: "100",
     textAlign: "Center",
@@ -345,7 +366,7 @@ export const links = [
         icon: <AiOutlineLineChart />,
       },
       {
-        name: "공조기 정보",
+        name: "설비 정보",
         icon: <GiComputerFan />,
       },
     ],
@@ -437,258 +458,7 @@ export const themeColors = [
   },
 ];
 
-//공조기 정보 데이터 (임시)
-export const customersData = [
-  {
-    공조기ID: "AHU-01",
-    설치장소: "B2F 기계실",
-    클린룸: "1F A존(1000)",
-    볼트: "380V",
-    전력: "15,000KW",
-    인버터: "1",
-  },
-  {
-    공조기ID: "AHU-02",
-    설치장소: "B1F 기계실",
-    클린룸: "1F B존(100)",
-    볼트: "380V",
-    전력: "3,700KW",
-    인버터: "1",
-  },
-  {
-    공조기ID: "AHU-03",
-    설치장소: "B1F 기계실",
-    클린룸: "B1도금",
-    볼트: "380V",
-    전력: "5,500KW",
-    인버터: "1",
-  },
-  {
-    공조기ID: "AHU-04A",
-    설치장소: "1F C/R D-1",
-    클린룸: "1F D존",
-    볼트: "380V",
-    전력: "5,500KW",
-    인버터: "1",
-  },
-  {
-    공조기ID: "AHU-04B",
-    설치장소: "1F C/R D-1",
-    클린룸: "1F C존",
-    볼트: "380V",
-    전력: "5,500KW",
-    인버터: "1",
-  },
-  {
-    공조기ID: "AHU-05",
-    설치장소: "1F B존",
-    클린룸: "1F B존",
-    볼트: "380V",
-    전력: "7,500KW",
-    인버터: "1",
-  },
-  {
-    공조기ID: "AHU-06",
-    설치장소: "2F",
-    클린룸: "2F(1000)",
-    볼트: "380V",
-    전력: "11,000KW",
-    인버터: "1",
-  },
-  {
-    공조기ID: "AHU-07",
-    설치장소: "B1F",
-    클린룸: "B1도금(1000)",
-    볼트: "380V",
-    전력: "1,120KW",
-    인버터: "1",
-  },
-  {
-    공조기ID: "AHU-08",
-    설치장소: "2F 공조실",
-    클린룸: "1F A존(100)",
-    볼트: "380V",
-    전력: "3,750KW",
-    인버터: "2",
-  },
-  {
-    공조기ID: "AHU-09",
-    설치장소: "1F 공조실",
-    클린룸: "1F E존",
-    볼트: "380V",
-    전력: "18,500KW",
-    인버터: "1",
-  },
-  {
-    공조기ID: "AHU-10",
-    설치장소: "2F 공조실",
-    클린룸: "2F E존",
-    볼트: "380V",
-    전력: "3,000KW",
-    인버터: "2",
-  },
-];
-
 // Sat Dec 03 2022 08:10:00 GMT+0900
-// Temp 테스트, 시간단위 (삭제예정)
-export const lineChartData = [
-  [
-    { x: new Date(2022, 11, 3, 7, 10), y: 24.13 },
-    { x: new Date(2022, 11, 3, 8, 10), y: 21.23 },
-    { x: new Date(2022, 11, 3, 9, 10), y: 26.4 },
-    { x: new Date(2022, 11, 3, 10, 10), y: 26.15 },
-  ],
-  [
-    { x: new Date(2022, 11, 3, 7, 10), y: 24.44 },
-    { x: new Date(2022, 11, 3, 8, 10), y: 18.21 },
-    { x: new Date(2022, 11, 3, 9, 10), y: 20.21 },
-    { x: new Date(2022, 11, 3, 10, 10), y: 20.2 },
-  ],
-
-  [
-    { x: new Date(2022, 11, 3, 7, 10), y: 20.2 },
-    { x: new Date(2022, 11, 3, 8, 10), y: 20.2 },
-    { x: new Date(2022, 11, 3, 9, 10), y: 30.1 },
-    { x: new Date(2022, 11, 3, 10, 10), y: 30.21 },
-  ],
-  [
-    { x: new Date(2022, 11, 3, 7, 10), y: 14.11 },
-    { x: new Date(2022, 11, 3, 8, 10), y: 13.31 },
-    { x: new Date(2022, 11, 3, 9, 10), y: 20.312 },
-    { x: new Date(2022, 11, 3, 10, 10), y: 20.32 },
-  ],
-];
-
-// Temp 차트에 보여줄 데이터 형식
-export const lineCustomSeries = [
-  {
-    dataSource: lineChartData[0],
-    xName: "x",
-    yName: "y",
-    name: "설정온도",
-    width: "2",
-    marker: { visible: false, width: 10, height: 10 },
-    type: "Line",
-  },
-
-  {
-    dataSource: lineChartData[1],
-    xName: "x",
-    yName: "y",
-    name: "공급온도",
-    width: "2",
-    marker: { visible: false, width: 10, height: 10 },
-    type: "Line",
-  },
-
-  {
-    dataSource: lineChartData[2],
-    xName: "x",
-    yName: "y",
-    name: "리턴온도",
-    width: "2",
-    marker: { visible: false, width: 10, height: 10 },
-    type: "Line",
-  },
-  {
-    dataSource: lineChartData[3],
-    xName: "x",
-    yName: "y",
-    name: "외부온도",
-    width: "2",
-    marker: { visible: false, width: 10, height: 10 },
-    type: "Line",
-  },
-];
-
-// 전력량 예측 데이터 (삭제 예정)
-export let electricprdata1 = [
-  { x: "Jan", y: 100 },
-  { x: "Feb", y: 110 },
-  { x: "Mar", y: 125 },
-  { x: "Apr", y: 150 },
-  { x: "May", y: 140 },
-  { x: "Jun", y: 160 },
-  { x: "Jul", y: 190 },
-  { x: "Aug", y: 210 },
-  { x: "Sep", y: 300 },
-  { x: "Oct", y: 240 },
-  { x: "Nov", y: 230 },
-  { x: "Dec", y: 270 },
-];
-// 전력량 예측 데이터 (삭제 예정)
-export let electricprdata2 = [
-  { x: "Jun", y: 160 },
-  { x: "Jul", y: 170 },
-  { x: "Aug", y: 180 },
-  { x: "Sep", y: 190 },
-  { x: "Oct", y: 200 },
-  { x: "Nov", y: 230 },
-  { x: "Dec", y: 270 },
-];
-
-// 시간별 전력량 데이터용 (삭제 예정)
-export let HourPowerData = [
-  {
-    inv_kWh: 10248,
-    rundate: "202101050101",
-  },
-  {
-    inv_kWh: 10249,
-    rundate: "20210106",
-  },
-  {
-    inv_kWh: 10250,
-    rundate: "202101",
-  },
-  {
-    inv_kWh: 10251,
-    rundate: "20210107",
-    // OrderDate: new Date(8367642e5),
-  },
-];
-
-// 일별 전력량 데이터용 (삭제 예정)
-export let DailyPowerData = [
-  {
-    inv_kWh: 10252,
-    rundate: "202101050101",
-  },
-  {
-    inv_kWh: 10253,
-    rundate: "20210106",
-  },
-  {
-    inv_kWh: 10254,
-    rundate: "202101",
-  },
-  {
-    inv_kWh: 10255,
-    rundate: "20210107",
-    // OrderDate: new Date(8367642e5),
-  },
-];
-
-// 월별 전력량 데이터용 (삭제 예정)
-export let MonthPowerData = [
-  {
-    inv_kWh: 10256,
-    rundate: "202101050101",
-  },
-  {
-    inv_kWh: 10257,
-    rundate: "20210106",
-  },
-  {
-    inv_kWh: 10258,
-    rundate: "202101",
-  },
-  {
-    inv_kWh: 10259,
-    rundate: "20210107",
-    // OrderDate: new Date(8367642e5),
-  },
-];
 
 // 셀렉트 박스 데이터 (공조기 번호)
 export const OPTIONS = [

@@ -75,7 +75,7 @@ const ProtectedRoutes = () => {
               {/* 전력량 예측 , 메인페이지 */}
               <Route path="/전력 예측" element={<MainPage />} />
               {/* 공조기 정보 및 사용자정보(후순위) , 1~2개남겨둘 예정*/}
-              <Route path="/공조기 정보" element={<GongjoInfo />} />
+              <Route path="/설비 정보" element={<GongjoInfo />} />
               {/* 공조기별 데이터 */}
               {/* 전력량 */}
               <Route path="/시간별 전력량" element={<HourlyElectricAmount />} />

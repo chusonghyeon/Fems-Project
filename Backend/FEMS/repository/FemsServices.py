@@ -12,7 +12,7 @@ _logger = Logger("FemsService")
 #################################################################################################################################################
 
 # 설비 정보(공조기 이름, 위치, 사용하는 곳 표시)
-async def Get_AHU_Info(FAC_NAME: str):
+async def Get_AHU_Info():
     try:       
         # DB서버
         # connection = pymysql.connect(host= 'database-fems.cenfcmvt9ni5.ap-northeast-2.rds.amazonaws.com', port=3306, user='project', password='project26**',
@@ -22,18 +22,18 @@ async def Get_AHU_Info(FAC_NAME: str):
                                      db='FEMS', charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)
         
         with connection.cursor() as cursor:
-            query = "select FAC_ID, FAC_NAME, FAC_LOC, FAC_USE, " + \
-                "cast(FAC_VOLTAGE as char) as FAC_VOLTAGE, cast(FAC_KW as char) as FAC_KW, cast(FAC_INV_CNT as char) as FAC_INV_CNT " +\
-                "from INFO_FACILITY	" + \
-                "where FAC_NAME = " + "'" + FAC_NAME + "' ;"
+            query = " select FAC_ID, FAC_NAME, FAC_LOC, FAC_USE, " + \
+                " cast(FAC_VOLTAGE as char) as FAC_VOLTAGE, cast(FAC_KW as char) as FAC_KW, " +\
+                " cast(FAC_INV_CNT as char) as FAC_INV_CNT " +\
+                "from INFO_FACILITY;"
             cursor.execute(query)
             rv = cursor.fetchall()
             json_data = json.dumps(rv, indent=4)
-            _logger.Info(f"succeed to do 'Get_AHU_Info('{FAC_NAME}')'")
+            _logger.Info(f"succeed to do 'Get_AHU_Info")
             return json_data
 
     except Exception as ex:
-        _logger.Info(f"error to do 'Get_AHU_Info('{FAC_NAME}')")
+        _logger.Info(f"error to do 'Get_AHU_Info")
         
 # 전년도 대비 전력량 추출
 async def Get_LpData_monthly_Daily_Data():
