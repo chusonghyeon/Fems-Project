@@ -17,16 +17,16 @@ const HourElecArea = () => {
   const { hElecDt } = useStateContext();
   const ElecDataSource = [];
 
-  console.log(new Date(2002, 0, 1, 1, 1));
-
   // 전력량 차트에
   let elecArray = [];
   hElecDt.forEach((item) => {
     let year = item.rundate.slice(0, 4);
     let month = item.rundate.slice(4, 6);
     let day = item.rundate.slice(6, 8);
-    let hour = item.rundate.slice(8,10);
-    let minute = item.rundate.slice(10,12); 
+    let hour = item.rundate.slice(8, 10);
+    let minute = item.rundate.slice(10, 12);
+
+
     elecArray.push({
       x: new Date(year, month, day, hour, minute),
       y: item.LpData * 1,
@@ -34,7 +34,7 @@ const HourElecArea = () => {
   });
   ElecDataSource.push([...elecArray]);
 
-  console.log(elecArray);
+  console.log(ElecDataSource);
 
   // 전력량
   const AreaElecData = [
@@ -50,7 +50,6 @@ const HourElecArea = () => {
       border: { width: 2 },
     },
   ];
-  // const palette = ["#ffe1a5"];
 
   return (
     <div className="w-full test">

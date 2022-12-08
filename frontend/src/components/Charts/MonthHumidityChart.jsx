@@ -9,6 +9,7 @@ import {
   LineSeries,
   Tooltip,
   Crosshair,
+  DateTimeCategory,
 } from "@syncfusion/ej2-react-charts";
 import { Resize } from "@syncfusion/ej2-react-grids";
 import {
@@ -143,7 +144,9 @@ const MonthHumidityChart = () => {
       crosshair={{ enable: true, lineType: "Vertical" }}
       background={currentMode === "Dark" ? "#33373E" : "#fff"}
     >
-      <Inject services={[LineSeries, DateTime, Tooltip, Crosshair, Resize]} />
+      <Inject
+        services={[LineSeries, DateTimeCategory, Tooltip, Crosshair, Resize]}
+      />
       <SeriesCollectionDirective>
         {LineTempData.map((item, index) => (
           <SeriesDirective key={index} {...item} />

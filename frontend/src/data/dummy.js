@@ -23,103 +23,103 @@ const customerGridStatus = (props) => (
 // 예측 데이터(임시)
 export const MultiChartData = [
   {
-    month: 1,
-    electricPower: 15555,
+    x: 1,
+    y: 15555,
   },
   {
-    month: 2,
-    electricPower: 468378,
+    x: 2,
+    y: 468378,
   },
   {
-    month: 3,
-    electricPower: 510252,
+    x: 3,
+    y: 510252,
   },
   {
-    month: 4,
-    electricPower: 495540,
+    x: 4,
+    y: 495540,
   },
   {
-    month: 5,
-    electricPower: 523391,
+    x: 5,
+    y: 523391,
   },
   {
-    month: 6,
-    electricPower: 614258,
+    x: 6,
+    y: 614258,
   },
   {
-    month: 7,
-    electricPower: 345110,
+    x: 7,
+    y: 345110,
   },
   {
-    month: 8,
-    electricPower: 171626,
+    x: 8,
+    y: 171626,
   },
   {
-    month: 9,
-    electricPower: 20861,
+    x: 9,
+    y: 20861,
   },
   {
-    month: 10,
-    electricPower: 0,
+    x: 10,
+    y: 0,
   },
   {
-    month: 11,
-    electricPower: 545154,
+    x: 11,
+    y: 545154,
   },
   {
-    month: 12,
-    electricPower: 91249,
+    x: 12,
+    y: 91249,
   },
 ];
 // 예측 데이터2(임시)
 export const MultiChartData2 = [
   {
-    month: 1,
-    electricPower: 555967,
+    x: 1,
+    y: 555967,
   },
   {
-    month: 2,
-    electricPower: 531552,
+    x: 2,
+    y: 531552,
   },
   {
-    month: 3,
-    electricPower: 554705,
+    x: 3,
+    y: 554705,
   },
   {
-    month: 4,
-    electricPower: 538705,
+    x: 4,
+    y: 538705,
   },
   {
-    month: 5,
-    electricPower: 562809,
+    x: 5,
+    y: 562809,
   },
   {
-    month: 6,
-    electricPower: 643697,
+    x: 6,
+    y: 643697,
   },
   {
-    month: 7,
-    electricPower: 37114,
+    x: 7,
+    y: 37114,
   },
   {
-    month: 8,
-    electricPower: 702184,
+    x: 8,
+    y: 702184,
   },
   {
-    month: 9,
-    electricPower: 596134,
+    x: 9,
+    y: 596134,
   },
   {
-    month: 10,
-    electricPower: 442745,
+    x: 10,
+    y: 442745,
   },
   {
-    month: 11,
-    electricPower: 100,
+    x: 11,
+    y: 100,
   },
   {
-    month: 12,
-    electricPower: 250,
+    x: 12,
+    y: 250,
   },
 ];
 
@@ -181,9 +181,8 @@ export const HumidityDayLinePrimaryYAxis = {
 
 // Month hUMIDITY X 값
 export const HumidityMonthLinePrimaryXAxis = {
-  valueType: "DateTime",
+  valueType: "DateTimeCategory",
   labelFormat: "MM월",
-  intervalType: "Months",
   interval: 1,
   majorGridLines: { width: 0 },
   background: "white",
@@ -223,9 +222,8 @@ export const DayLinePrimaryXAxis = {
 
 // DayTemp X 값
 export const MonthLinePrimaryXAxis = {
-  valueType: "DateTime",
+  valueType: "DateTimeCategory",
   labelFormat: "MM월",
-  intervalType: "Months",
   interval: 1,
   majorGridLines: { width: 0 },
   background: "white",
@@ -286,10 +284,9 @@ export const DElecPrimaryXAxis = {
 
 // DayElec X 값
 export const MElecLinePrimaryXAxis = {
-  valueType: "DateTime",
+  valueType: "DateTimeCategory",
   labelFormat: "MM월",
   majorGridLines: { width: 0 },
-  intervalType: "Months",
   interval: 1,
   edgeLabelPlacement: "Shift",
 };
@@ -298,7 +295,6 @@ export const MElecLinePrimaryXAxis = {
 export const MlPrimaryXAxis = {
   valueType: "DateTime",
   labelFormat: "MM월",
-  interval: 1,
   edgeLabelPlacement: "Shift",
   majorGridLines: { width: 0 },
 };
@@ -311,6 +307,30 @@ export const MlPrimaryYAxis = {
   minimum: 0,
   maximum: 30000,
   interval: 5000,
+  majorTickLines: { width: 0 },
+  minorTickLines: { width: 0 },
+};
+
+//전년도 전력대비 데이터 확인  X 값
+export const GongjoPrimaryXAxis = {
+  valueType: "DateTime",
+  title: "공조기 데이터",
+  labelFormat: "MM월",
+  intervalType: "Months",
+  interval: 1,
+  rangePadding: "None",
+  edgeLabelPlacement: "Shift",
+  majorGridLines: { width: 0 },
+};
+
+// 전년도 전력대비 데이터 확인  X 값
+export const GongjoPrimaryYAxis = {
+  labelFormat: "{value}KWh",
+  rangePadding: "None",
+  lineStyle: { width: 0 },
+  minimum: 10000,
+  maximum: 700000,
+  interval: 100000,
   majorTickLines: { width: 0 },
   minorTickLines: { width: 0 },
 };

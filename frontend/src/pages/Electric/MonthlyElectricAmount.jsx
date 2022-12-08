@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Monthdate, MonthElecBar, MonthElectricGrid } from "../../components";
 import Header from "../../components/common/Header";
-import HourElecArea from "../../components/Charts/HourElecArea";
 import axios from "axios";
 import { useStateContext } from "../../context/UserContext";
 const Electricamount = () => {
