@@ -11,8 +11,12 @@ import {
 } from "@syncfusion/ej2-react-charts";
 import { Resize } from "@syncfusion/ej2-react-grids";
 import axios from "axios";
-import { GongjoPrimaryXAxis, GongjoPrimaryYAxis } from "../../data/dummy";
-import { GiConsoleController } from "react-icons/gi";
+import {
+  GongjoPrimaryXAxis,
+  GongjoPrimaryYAxis,
+  MultiChartData,
+  MultiChartData2,
+} from "../../data/dummy";
 
 //api 주소
 const SERVER_URL = "/Get_LpData_monthly_Daily_Data";
@@ -21,50 +25,55 @@ const GongjoPr = () => {
   const [compareData, setCompareData] = useState([]);
   const CompareChartData = [];
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const res = await axios.get(SERVER_URL);
-      setCompareData(res.data);
-    };
+  // API 요청
+  const fetchData = async () => {
+    const res = await axios.get(SERVER_URL);
+    setCompareData(res.data);
+  };
 
+  // 실행시 API 요청
+  useEffect(() => {
     fetchData();
   }, [setCompareData]);
 
-  //21
-  let PowerArray = [];
-  const runDate = compareData.slice(0, 11);
-  console.log(runDate);
-  console.log(typeof runDate);
-  runDate.forEach((item) => {
-    let year = item.runDate.slice(0, 4);
-    console.log(year);
-    let month = item.runDate.slice(4, 6);
-    PowerArray.push({
-      x: new Date(year, month),
-      y: item.sumData * 1,
-    });
-  });
-  CompareChartData.push([...PowerArray]);
+  console.log(compareData);
 
-  //22
-  PowerArray = [];
-  const runDate2 = compareData.slice(11, 23);
-  console.log(runDate2);
-  console.log(typeof runDate2);
-  runDate2.forEach((item) => {
-    let year = item.runDate.slice(0, 4);
-    let month = item.runDate.slice(4, 6);
-    PowerArray.push({
-      x: new Date(year, month),
-      y: item.sumData * 1,
-    });
-  });
-  CompareChartData.push([...PowerArray]);
-  console.log(CompareChartData);
-  // 비교차트 2021전력량
+  // //21
+  // let PowerArray = [];
+  // const runDate = compareData.slice(0, 11);
+  // console.log(runDate);
+  // console.log(typeof runDate);
+  // runDate.forEach((item) => {
+  //   let year = item.runDate.slice(0, 4);
+  //   console.log(year);
+  //   let month = item.runDate.slice(4, 6);
+  //   PowerArray.push({
+  //     x: new Date(year, month),
+  //     y: item.sumData * 1,
+  //   });
+  // });
+  // CompareChartData.push([...PowerArray]);
+
+  // //22
+  // PowerArray = [];
+  // const runDate2 = compareData.slice(11, 23);
+  // console.log(runDate2);
+  // console.log(typeof runDate2);
+  // runDate2.forEach((item) => {
+  //   let year = item.runDate.slice(0, 4);
+  //   let month = item.runDate.slice(4, 6);
+  //   PowerArray.push({
+  //     x: new Date(year, month),
+  //     y: item.sumData * 1,
+  //   });
+  // });
+  // CompareChartData.push([...PowerArray]);
+  // console.log(CompareChartData);
+
+  // // 비교차트 2021전력량
   const CompareYearData1 = [
     {
-      dataSource: CompareChartData[0],
+      dataSource: MultiChartData[0],
       tooltipMappingName: "r",
       type: "Column",
       name: "2021",
@@ -75,7 +84,7 @@ const GongjoPr = () => {
   // 비교차트 2022전력량
   const CompareYearData2 = [
     {
-      dataSource: CompareChartData[1],
+      dataSource: MultiChartData2[0],
       tooltipMappingName: "r",
       type: "Column",
       name: "2022",
@@ -90,7 +99,7 @@ const GongjoPr = () => {
         width="auto"
         legendSettings={{ visible: true }}
         title="월별 전력소모량"
-        useGroupingSeparator={true}
+        // useGroupingSeparator={true}
         primaryXAxis={{
           GongjoPrimaryXAxis,
         }}
