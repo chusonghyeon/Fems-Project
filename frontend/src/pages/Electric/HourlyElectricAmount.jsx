@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { ElectricGrid, Hourdate, HourElecArea } from "../../components";
+import { ElectricGrid, Hourdate, HourElecarea } from "../../components";
 import Header from "../../components/common/Header";
 import axios from "axios";
 import { useStateContext } from "../../context/UserContext";
@@ -54,7 +54,7 @@ const Electricamount = () => {
           </button>
         </div>
       </form>
-      <HourElecArea />
+      <HourElecarea />
       <ElectricGrid />
     </div>
   );

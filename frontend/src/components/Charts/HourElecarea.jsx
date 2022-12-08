@@ -13,7 +13,7 @@ import {
 } from "@syncfusion/ej2-react-charts";
 import { useStateContext } from "../../context/UserContext";
 import { ElecLinePrimaryYAxis, HElecPrimaryXAxis } from "../../data/dummy";
-const HourElecArea = () => {
+const HourElecarea = () => {
   const { hElecDt } = useStateContext();
   const ElecDataSource = [];
 
@@ -25,7 +25,6 @@ const HourElecArea = () => {
     let day = item.rundate.slice(6, 8);
     let hour = item.rundate.slice(8, 10);
     let minute = item.rundate.slice(10, 12);
-
 
     elecArray.push({
       x: new Date(year, month, day, hour, minute),
@@ -85,4 +84,4 @@ const HourElecArea = () => {
   );
 };
 
-export default HourElecArea;
+export default HourElecarea;

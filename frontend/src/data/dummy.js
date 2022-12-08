@@ -313,23 +313,18 @@ export const MlPrimaryYAxis = {
 
 //전년도 전력대비 데이터 확인  X 값
 export const GongjoPrimaryXAxis = {
-  valueType: "Column",
-  title: "공조기 데이터",
-  // labelFormat: "MM월",
-  interval: 1,
-  // rangePadding: "None",
+  valueType: "DateTimeCategory",
+  labelFormat: "MM월",
   edgeLabelPlacement: "Shift",
-  majorGridLines: { width: 0 },
 };
 
-// 전년도 전력대비 데이터 확인  X 값
+// 전년도 전력대비 데이터 확인  Y 값
 export const GongjoPrimaryYAxis = {
   labelFormat: "{value}KWh",
-  // rangePadding: "None",
-  // lineStyle: { width: 0 },
-  // minimum: 10000,
-  // maximum: 700000,
-  // interval: 100000,
+  minimum: 0,
+  maximum: 800000,
+  interval: 100000,
+  lineStyle: { width: 0 },
   majorTickLines: { width: 0 },
   minorTickLines: { width: 0 },
 };
