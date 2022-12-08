@@ -181,9 +181,8 @@ export const HumidityDayLinePrimaryYAxis = {
 
 // Month hUMIDITY X 값
 export const HumidityMonthLinePrimaryXAxis = {
-  valueType: "DateTime",
+  valueType: "DateTimeCategory",
   labelFormat: "MM월",
-  intervalType: "Months",
   interval: 1,
   majorGridLines: { width: 0 },
   background: "white",
@@ -223,9 +222,8 @@ export const DayLinePrimaryXAxis = {
 
 // DayTemp X 값
 export const MonthLinePrimaryXAxis = {
-  valueType: "DateTime",
+  valueType: "DateTimeCategory",
   labelFormat: "MM월",
-  intervalType: "Months",
   interval: 1,
   majorGridLines: { width: 0 },
   background: "white",
@@ -286,10 +284,9 @@ export const DElecPrimaryXAxis = {
 
 // DayElec X 값
 export const MElecLinePrimaryXAxis = {
-  valueType: "DateTime",
+  valueType: "DateTimeCategory",
   labelFormat: "MM월",
   majorGridLines: { width: 0 },
-  intervalType: "Months",
   interval: 1,
   edgeLabelPlacement: "Shift",
 };
@@ -298,7 +295,6 @@ export const MElecLinePrimaryXAxis = {
 export const MlPrimaryXAxis = {
   valueType: "DateTime",
   labelFormat: "MM월",
-  interval: 1,
   edgeLabelPlacement: "Shift",
   majorGridLines: { width: 0 },
 };
@@ -459,173 +455,6 @@ export const themeColors = [
 ];
 
 // Sat Dec 03 2022 08:10:00 GMT+0900
-<<<<<<< HEAD
-=======
-// Temp 테스트, 시간단위 (삭제예정)
-export const lineChartData = [
-  [
-    { x: new Date(2022, 11, 3, 7, 10), y: 24.13 },
-    { x: new Date(2022, 11, 3, 8, 10), y: 21.23 },
-    { x: new Date(2022, 11, 3, 9, 10), y: 26.4 },
-    { x: new Date(2022, 11, 3, 10, 10), y: 26.15 },
-  ],
-  [
-    { x: new Date(2022, 11, 3, 7, 10), y: 24.44 },
-    { x: new Date(2022, 11, 3, 8, 10), y: 18.21 },
-    { x: new Date(2022, 11, 3, 9, 10), y: 20.21 },
-    { x: new Date(2022, 11, 3, 10, 10), y: 20.2 },
-  ],
-
-  [
-    { x: new Date(2022, 11, 3, 7, 10), y: 20.2 },
-    { x: new Date(2022, 11, 3, 8, 10), y: 20.2 },
-    { x: new Date(2022, 11, 3, 9, 10), y: 30.1 },
-    { x: new Date(2022, 11, 3, 10, 10), y: 30.21 },
-  ],
-  [
-    { x: new Date(2022, 11, 3, 7, 10), y: 14.11 },
-    { x: new Date(2022, 11, 3, 8, 10), y: 13.31 },
-    { x: new Date(2022, 11, 3, 9, 10), y: 20.312 },
-    { x: new Date(2022, 11, 3, 10, 10), y: 20.32 },
-  ],
-];
-
-// Temp 차트에 보여줄 데이터 형식
-export const lineCustomSeries = [
-  {
-    dataSource: lineChartData[0],
-    xName: "x",
-    yName: "y",
-    name: "설정온도",
-    width: "2",
-    marker: { visible: false, width: 10, height: 10 },
-    type: "Line",
-  },
-
-  {
-    dataSource: lineChartData[1],
-    xName: "x",
-    yName: "y",
-    name: "공급온도",
-    width: "2",
-    marker: { visible: false, width: 10, height: 10 },
-    type: "Line",
-  },
-
-  {
-    dataSource: lineChartData[2],
-    xName: "x",
-    yName: "y",
-    name: "리턴온도",
-    width: "2",
-    marker: { visible: false, width: 10, height: 10 },
-    type: "Line",
-  },
-  {
-    dataSource: lineChartData[3],
-    xName: "x",
-    yName: "y",
-    name: "외부온도",
-    width: "2",
-    marker: { visible: false, width: 10, height: 10 },
-    type: "Line",
-  },
-];
-
-// 전력량 예측 데이터 (삭제 예정)
-export let electricprdata1 = [
-  { x: "1월", y: 100 },
-  { x: "2월", y: 110 },
-  { x: "3월", y: 125 },
-  { x: "4월", y: 150 },
-  { x: "5월", y: 140 },
-  { x: "6월", y: 160 },
-  { x: "7월", y: 190 },
-  { x: "8월", y: 210 },
-  { x: "9월", y: 300 },
-  { x: "10월", y: 240 },
-  { x: "11월", y: 230 },
-  { x: "12월", y: 270 },
-];
-// 전력량 예측 데이터 (삭제 예정)
-export let electricprdata2 = [
-  { x: "1월", y: 110 },
-  { x: "2월", y: 120 },
-  { x: "3월", y: 130 },
-  { x: "4월", y: 150 },
-  { x: "5월", y: 120 },
-  { x: "6월", y: 160 },
-  { x: "7월", y: 200 },
-  { x: "8월", y: 200 },
-  { x: "9월", y: 310 },
-  { x: "10월", y: 240 },
-  { x: "11월", y: 220 },
-  { x: "12월", y: 270 },
-];
-
-// 시간별 전력량 데이터용 (삭제 예정)
-export let HourPowerData = [
-  {
-    inv_kWh: 10248,
-    rundate: "202101050101",
-  },
-  {
-    inv_kWh: 10249,
-    rundate: "20210106",
-  },
-  {
-    inv_kWh: 10250,
-    rundate: "202101",
-  },
-  {
-    inv_kWh: 10251,
-    rundate: "20210107",
-    // OrderDate: new Date(8367642e5),
-  },
-];
-
-// 일별 전력량 데이터용 (삭제 예정)
-export let DailyPowerData = [
-  {
-    inv_kWh: 10252,
-    rundate: "202101050101",
-  },
-  {
-    inv_kWh: 10253,
-    rundate: "20210106",
-  },
-  {
-    inv_kWh: 10254,
-    rundate: "202101",
-  },
-  {
-    inv_kWh: 10255,
-    rundate: "20210107",
-    // OrderDate: new Date(8367642e5),
-  },
-];
-
-// 월별 전력량 데이터용 (삭제 예정)
-export let MonthPowerData = [
-  {
-    inv_kWh: 10256,
-    rundate: "202101050101",
-  },
-  {
-    inv_kWh: 10257,
-    rundate: "20210106",
-  },
-  {
-    inv_kWh: 10258,
-    rundate: "202101",
-  },
-  {
-    inv_kWh: 10259,
-    rundate: "20210107",
-    // OrderDate: new Date(8367642e5),
-  },
-];
->>>>>>> 7307dae4ef57b2f7d6bb1e1ec94925dd16e8d577
 
 // 셀렉트 박스 데이터 (공조기 번호)
 export const OPTIONS = [

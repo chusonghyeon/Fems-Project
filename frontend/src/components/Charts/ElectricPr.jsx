@@ -106,7 +106,7 @@ const ElectricMl = () => {
       dataSource: MlDataSource[0],
       xName: "x",
       yName: "y",
-      name: "예측값",
+      name: "실제값",
       width: "2",
       marker: { visible: false, width: 7, height: 7 },
       type: "Line",
@@ -118,7 +118,7 @@ const ElectricMl = () => {
       dataSource: MlDataSource[1],
       xName: "x",
       yName: "y",
-      name: "실제값",
+      name: "예측값",
       width: "2",
       marker: { visible: false, width: 7, height: 7 },
       type: "Line",
@@ -132,26 +132,8 @@ const ElectricMl = () => {
         <ChartComponent
           id="charts"
           style={{ textAlign: "center" }}
-<<<<<<< HEAD
           primaryXAxis={MlPrimaryXAxis}
           primaryYAxis={MlPrimaryYAxis}
-=======
-          primaryXAxis={{
-            valueType: "Category",
-            edgeLabelPlacement: "Shift",
-            majorGridLines: { width: 0 },
-          }}
-          primaryYAxis={{
-            labelFormat: "{value}kwh",
-            rangePadding: "None",
-            lineStyle: { width: 0 },
-            minimum: 0,
-            maximum: 350,
-            interval: 50,
-            majorTickLines: { width: 0 },
-            minorTickLines: { width: 0 },
-          }}
->>>>>>> 7307dae4ef57b2f7d6bb1e1ec94925dd16e8d577
           chartArea={{ border: { width: 0 } }}
           tooltip={{
             enable: true,

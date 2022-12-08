@@ -9,6 +9,7 @@ import {
   ColumnSeries,
   Highlight,
   DateTime,
+  DateTimeCategory,
   Crosshair,
 } from "@syncfusion/ej2-react-charts";
 import { useStateContext } from "../../context/UserContext";
@@ -21,7 +22,7 @@ const MonthElecBar = () => {
   let elecArray = [];
   mElecDt.forEach((item) => {
     let year = item.rundate.slice(0, 4);
-    let month = item.rundate.slice(4, 6);
+    let month = item.rundate.slice(4, 6) - 1;
     elecArray.push({
       x: new Date(year, month),
       y: item.LpData * 1,
@@ -35,10 +36,7 @@ const MonthElecBar = () => {
   const AreaElecData = [
     {
       dataSource: ElecDataSource[0],
-      // dataSource: data1,
-      tooltipMappingName: "r",
       xName: "x",
-      columnSpacing: 0.1,
       yName: "y",
       name: "일별 전력량",
       type: "Column",
@@ -71,6 +69,7 @@ const MonthElecBar = () => {
             Highlight,
             DateTime,
             Crosshair,
+            DateTimeCategory,
           ]}
         />
         <SeriesCollectionDirective>
