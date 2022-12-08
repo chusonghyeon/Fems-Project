@@ -33,7 +33,7 @@ async def Get_AHU_Info():
             query = " select FAC_ID, FAC_NAME, FAC_LOC, FAC_USE, " + \
                 " cast(FAC_VOLTAGE as char) as FAC_VOLTAGE, cast(FAC_KW as char) as FAC_KW, " +\
                 " cast(FAC_INV_CNT as char) as FAC_INV_CNT " +\
-                "from INFO_FACILITY;"
+                " from info_facility; "
             cursor.execute(query)
             rv = cursor.fetchall()
             json_data = json.dumps(rv, indent=4)
@@ -56,7 +56,7 @@ async def Get_LpData_monthly_Daily_Data():
                     "from " + \
                     "( " + \
                     "   select LpDate, LpData " + \
-                    "   from Raw_KepcoDayLpData " + \
+                    "   from raw_kepcodaylpdata " + \
                     ") a " +\
                     "group by left(a.LpDate, 6) " + \
                     "order by left(LpDate,6) ; "
@@ -94,10 +94,10 @@ async def Get_AHU_KWh_Hourly_Data(runDate :str):
             query = " select " +\
                 " left(LpDate,12) as rundate, " +\
                 " cast(round(LpData, 2) as char) as LpData " +\
-                "from raw_kepcodaylpdata \n" +\
-                f"where left(LpDate, 8) = " + "'" + runDate + "'" +\
-                "group by left(LpDate, 12) " + \
-                "order by left(LpDate, 12);"
+                " from raw_kepcodaylpdata \n" +\
+                f" where left(LpDate, 8) = " + "'" + runDate + "'" +\
+                " group by left(LpDate, 12) " + \
+                " order by left(LpDate, 12);"
             cursor.execute(query)
             rv = cursor.fetchall()
             json_data = json.dumps(rv, indent=4)

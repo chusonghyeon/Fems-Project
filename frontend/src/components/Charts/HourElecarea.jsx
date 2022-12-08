@@ -25,8 +25,10 @@ const HourElecArea = () => {
     let year = item.rundate.slice(0, 4);
     let month = item.rundate.slice(4, 6);
     let day = item.rundate.slice(6, 8);
+    let hour = item.rundate.slice(8,10);
+    let minute = item.rundate.slice(10,12); 
     elecArray.push({
-      x: new Date(year, month, day),
+      x: new Date(year, month, day, hour, minute),
       y: item.LpData * 1,
     });
   });

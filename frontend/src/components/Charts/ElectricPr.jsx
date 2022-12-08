@@ -14,7 +14,7 @@ import {
   DateTime,
   Legend,
 } from "@syncfusion/ej2-react-charts";
-import { Resize } from "@syncfusion/ej2-react-grids";
+import { colGroup, Resize } from "@syncfusion/ej2-react-grids";
 import { Browser } from "@syncfusion/ej2-base";
 import axios from "axios";
 import { useState } from "react";
@@ -124,7 +124,7 @@ const ElectricMl = () => {
       type: "Line",
     },
   ];
-
+  console.log(MlDataSource);
   return (
     <div className="control-pane">
       <style>{Predict_CSS}</style>
