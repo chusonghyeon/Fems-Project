@@ -181,9 +181,8 @@ export const HumidityDayLinePrimaryYAxis = {
 
 // Month hUMIDITY X 값
 export const HumidityMonthLinePrimaryXAxis = {
-  valueType: "DateTime",
+  valueType: "DateTimeCategory",
   labelFormat: "MM월",
-  intervalType: "Months",
   interval: 1,
   majorGridLines: { width: 0 },
   background: "white",
@@ -223,9 +222,8 @@ export const DayLinePrimaryXAxis = {
 
 // DayTemp X 값
 export const MonthLinePrimaryXAxis = {
-  valueType: "DateTime",
+  valueType: "DateTimeCategory",
   labelFormat: "MM월",
-  intervalType: "Months",
   interval: 1,
   majorGridLines: { width: 0 },
   background: "white",
@@ -286,10 +284,9 @@ export const DElecPrimaryXAxis = {
 
 // DayElec X 값
 export const MElecLinePrimaryXAxis = {
-  valueType: "DateTime",
+  valueType: "DateTimeCategory",
   labelFormat: "MM월",
   majorGridLines: { width: 0 },
-  intervalType: "Months",
   interval: 1,
   edgeLabelPlacement: "Shift",
 };
@@ -298,7 +295,6 @@ export const MElecLinePrimaryXAxis = {
 export const MlPrimaryXAxis = {
   valueType: "DateTime",
   labelFormat: "MM월",
-  interval: 1,
   edgeLabelPlacement: "Shift",
   majorGridLines: { width: 0 },
 };
