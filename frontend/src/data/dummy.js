@@ -140,7 +140,6 @@ export const HumidityHourLinePrimaryXAxis = {
   valueType: "DateTime",
   labelFormat: "HH시",
   intervalType: "Hours",
-  interval: 1,
   majorGridLines: { width: 0 },
   background: "white",
 };
@@ -162,7 +161,6 @@ export const HumidityDayLinePrimaryXAxis = {
   valueType: "DateTime",
   labelFormat: "dd일",
   intervalType: "Days",
-  interval: 1,
   majorGridLines: { width: 0 },
   background: "white",
 };
@@ -183,7 +181,6 @@ export const HumidityDayLinePrimaryYAxis = {
 export const HumidityMonthLinePrimaryXAxis = {
   valueType: "DateTimeCategory",
   labelFormat: "MM월",
-  interval: 1,
   majorGridLines: { width: 0 },
   background: "white",
 };
@@ -205,7 +202,6 @@ export const LinePrimaryXAxis = {
   valueType: "DateTime",
   labelFormat: "HH시",
   intervalType: "Hours",
-  interval: 1,
   majorGridLines: { width: 0 },
   background: "white",
 };
@@ -215,16 +211,14 @@ export const DayLinePrimaryXAxis = {
   valueType: "DateTime",
   labelFormat: "dd일",
   intervalType: "Days",
-  interval: 1,
   majorGridLines: { width: 0 },
   background: "white",
 };
 
-// DayTemp X 값
+// MonthTemp X 값
 export const MonthLinePrimaryXAxis = {
   valueType: "DateTimeCategory",
   labelFormat: "MM월",
-  interval: 1,
   majorGridLines: { width: 0 },
   background: "white",
 };
@@ -268,7 +262,6 @@ export const HElecPrimaryXAxis = {
   labelFormat: "HH시",
   majorGridLines: { width: 0 },
   intervalType: "Hours",
-  interval: 1,
   edgeLabelPlacement: "Shift",
 };
 
@@ -278,7 +271,6 @@ export const DElecPrimaryXAxis = {
   labelFormat: "dd일",
   majorGridLines: { width: 0 },
   intervalType: "Days",
-  interval: 1,
   edgeLabelPlacement: "Shift",
 };
 
@@ -287,7 +279,6 @@ export const MElecLinePrimaryXAxis = {
   valueType: "DateTimeCategory",
   labelFormat: "MM월",
   majorGridLines: { width: 0 },
-  interval: 1,
   edgeLabelPlacement: "Shift",
 };
 
