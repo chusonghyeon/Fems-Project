@@ -181,6 +181,7 @@ export const HumidityDayLinePrimaryYAxis = {
 export const HumidityMonthLinePrimaryXAxis = {
   valueType: "DateTimeCategory",
   labelFormat: "MM월",
+  interval: 1,
   majorGridLines: { width: 0 },
   background: "white",
 };
@@ -473,46 +474,68 @@ export const themeColors = [
 export const OPTIONS = [
   {
     value: "A00",
-    name: "공조기00",
+    name: "공조기01",
+    room: "1F A존",
+    place: "B2F 기계실",
   },
   {
     value: "A01",
-    name: "공조기01",
+    name: "공조기02",
+    room: "1F B존",
+    place: "B1F 기계실",
   },
   {
     value: "A02",
-    name: "공조기02",
+    name: "공조기03",
+    room: "B1 도금",
+    place: "B1F 기계실",
   },
   {
     value: "A03",
-    name: "공조기03",
+    name: "공조기04A",
+    room: "1F D존",
+    place: "1F C/R D-1",
   },
   {
     value: "A04",
-    name: "공조기04",
+    name: "공조기04B",
+    room: "1F C존",
+    place: "1F c/R D-1",
   },
   {
     value: "A05",
     name: "공조기05",
+    room: "1F B존",
+    place: "1F B존",
   },
   {
     value: "A06",
     name: "공조기06",
+    room: "2F",
+    place: "2F",
   },
   {
     value: "A07",
     name: "공조기07",
+    room: "B1도금",
+    place: "B1F",
   },
   {
     value: "A08",
     name: "공조기08",
+    room: "1F A존",
+    place: "2F 공조실",
   },
   {
     value: "A09",
     name: "공조기09",
+    room: "1F E존",
+    place: "1F 공조실",
   },
   {
     value: "A10",
     name: "공조기10",
+    room: "2F E존",
+    place: "2F 공조실",
   },
 ];

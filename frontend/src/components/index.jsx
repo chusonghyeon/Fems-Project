@@ -11,7 +11,7 @@ export { default as ElectricPr } from "./Charts/ElectricPr";
 export { default as GongjoInfoData } from "./Charts/GongjoInfoData";
 
 // 전력량 표
-export { default as HourElecArea } from "./Charts/HourElecArea";
+export { default as HourElecarea } from "./Charts/HourElecarea";
 export { default as DayElecBar } from "./Charts/DayElecBar";
 export { default as MonthElecBar } from "./Charts/MonthElecBar";
 export { default as ElectricGrid } from "./Grid/ElectricGrid";
