@@ -1,5 +1,5 @@
 import React from "react";
-import { ElectricPr, GongjoPr } from "../../components";
+import { ElectricPr, GongjoCompare } from "../../components";
 import { Header } from "../../components";
 const MainPage = () => {
   return (
@@ -13,7 +13,7 @@ const MainPage = () => {
       <div className="w-11/12 m-4 md:m-10 mt-24 p-10 bg-white dark:bg-secondary-dark-bg rounded-3xl">
         <Header category="MainPage" title="전년도 대비 전력량" />
         <div className="w-full dark:bg-secondary-dark-bg">
-          <GongjoPr />
+          <GongjoCompare />
         </div>
       </div>
     </div>

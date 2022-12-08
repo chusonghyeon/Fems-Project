@@ -275,7 +275,7 @@ export const DElecPrimaryXAxis = {
   edgeLabelPlacement: "Shift",
 };
 
-// DayElec X 값
+// MonthElec X 값
 export const MElecLinePrimaryXAxis = {
   valueType: "DateTimeCategory",
   labelFormat: "MM월",
@@ -305,24 +305,18 @@ export const MlPrimaryYAxis = {
 
 //전년도 전력대비 데이터 확인  X 값
 export const GongjoPrimaryXAxis = {
-  valueType: "DateTime",
-  title: "공조기 데이터",
+  valueType: "DateTimeCategory",
   labelFormat: "MM월",
-  intervalType: "Months",
-  interval: 1,
-  rangePadding: "None",
   edgeLabelPlacement: "Shift",
-  majorGridLines: { width: 0 },
 };
 
-// 전년도 전력대비 데이터 확인  X 값
+// 전년도 전력대비 데이터 확인  Y 값
 export const GongjoPrimaryYAxis = {
   labelFormat: "{value}KWh",
-  rangePadding: "None",
-  lineStyle: { width: 0 },
-  minimum: 10000,
-  maximum: 700000,
+  minimum: 0,
+  maximum: 800000,
   interval: 100000,
+  lineStyle: { width: 0 },
   majorTickLines: { width: 0 },
   minorTickLines: { width: 0 },
 };

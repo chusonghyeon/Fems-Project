@@ -13,7 +13,6 @@ import {
 } from "@syncfusion/ej2-react-charts";
 import { useStateContext } from "../../context/UserContext";
 import { ElecLinePrimaryYAxis, HElecPrimaryXAxis } from "../../data/dummy";
-
 const HourElecarea = () => {
   const { hElecDt } = useStateContext();
   const ElecDataSource = [];
