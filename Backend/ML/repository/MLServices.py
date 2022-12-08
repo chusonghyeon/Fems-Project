@@ -39,4 +39,5 @@ def GET_ML_data():
             
             return json_data
     except Exception as ex:
+        print(query)
         _logger.Info(f"error to do 'Get_ML_Data'")

@@ -8,8 +8,6 @@ ENV PYTHONDONTWRITEBYTECODE 1
 
 ENV PYTHONBUFFERED 1
 
-RUN apk update
-
 COPY ./requirements.txt .
 
 # 패키지 다운로드
