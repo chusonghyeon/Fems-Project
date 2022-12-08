@@ -3,7 +3,7 @@
 export { default as Login } from "./auth/Login";
 
 // 공조기별 전년 대비 전력량표
-export { default as GongjoPr } from "./Charts/GongjoPr";
+export { default as GongjoCompare } from "./Charts/GongjoCompare";
 //전력량 예측
 export { default as ElectricPr } from "./Charts/ElectricPr";
 
@@ -11,7 +11,7 @@ export { default as ElectricPr } from "./Charts/ElectricPr";
 export { default as GongjoInfoData } from "./Charts/GongjoInfoData";
 
 // 전력량 표
-export { default as HourElecArea } from "./Charts/HourElecArea";
+export { default as HourElecarea } from "./Charts/HourElecarea";
 export { default as DayElecBar } from "./Charts/DayElecBar";
 export { default as MonthElecBar } from "./Charts/MonthElecBar";
 export { default as ElectricGrid } from "./Grid/ElectricGrid";

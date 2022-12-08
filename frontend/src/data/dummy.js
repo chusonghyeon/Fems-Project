@@ -140,7 +140,6 @@ export const HumidityHourLinePrimaryXAxis = {
   valueType: "DateTime",
   labelFormat: "HH시",
   intervalType: "Hours",
-  interval: 1,
   majorGridLines: { width: 0 },
   background: "white",
 };
@@ -162,7 +161,6 @@ export const HumidityDayLinePrimaryXAxis = {
   valueType: "DateTime",
   labelFormat: "dd일",
   intervalType: "Days",
-  interval: 1,
   majorGridLines: { width: 0 },
   background: "white",
 };
@@ -205,7 +203,6 @@ export const LinePrimaryXAxis = {
   valueType: "DateTime",
   labelFormat: "HH시",
   intervalType: "Hours",
-  interval: 1,
   majorGridLines: { width: 0 },
   background: "white",
 };
@@ -215,16 +212,14 @@ export const DayLinePrimaryXAxis = {
   valueType: "DateTime",
   labelFormat: "dd일",
   intervalType: "Days",
-  interval: 1,
   majorGridLines: { width: 0 },
   background: "white",
 };
 
-// DayTemp X 값
+// MonthTemp X 값
 export const MonthLinePrimaryXAxis = {
   valueType: "DateTimeCategory",
   labelFormat: "MM월",
-  interval: 1,
   majorGridLines: { width: 0 },
   background: "white",
 };
@@ -268,7 +263,6 @@ export const HElecPrimaryXAxis = {
   labelFormat: "HH시",
   majorGridLines: { width: 0 },
   intervalType: "Hours",
-  interval: 1,
   edgeLabelPlacement: "Shift",
 };
 
@@ -278,16 +272,14 @@ export const DElecPrimaryXAxis = {
   labelFormat: "dd일",
   majorGridLines: { width: 0 },
   intervalType: "Days",
-  interval: 1,
   edgeLabelPlacement: "Shift",
 };
 
-// DayElec X 값
+// MonthElec X 값
 export const MElecLinePrimaryXAxis = {
   valueType: "DateTimeCategory",
   labelFormat: "MM월",
   majorGridLines: { width: 0 },
-  interval: 1,
   edgeLabelPlacement: "Shift",
 };
 
@@ -313,24 +305,18 @@ export const MlPrimaryYAxis = {
 
 //전년도 전력대비 데이터 확인  X 값
 export const GongjoPrimaryXAxis = {
-  valueType: "DateTime",
-  title: "공조기 데이터",
+  valueType: "DateTimeCategory",
   labelFormat: "MM월",
-  intervalType: "Months",
-  interval: 1,
-  rangePadding: "None",
   edgeLabelPlacement: "Shift",
-  majorGridLines: { width: 0 },
 };
 
-// 전년도 전력대비 데이터 확인  X 값
+// 전년도 전력대비 데이터 확인  Y 값
 export const GongjoPrimaryYAxis = {
   labelFormat: "{value}KWh",
-  rangePadding: "None",
-  lineStyle: { width: 0 },
-  minimum: 10000,
-  maximum: 700000,
+  minimum: 0,
+  maximum: 800000,
   interval: 100000,
+  lineStyle: { width: 0 },
   majorTickLines: { width: 0 },
   minorTickLines: { width: 0 },
 };
@@ -482,46 +468,68 @@ export const themeColors = [
 export const OPTIONS = [
   {
     value: "A00",
-    name: "공조기00",
+    name: "공조기01",
+    room: "1F A존",
+    place: "B2F 기계실",
   },
   {
     value: "A01",
-    name: "공조기01",
+    name: "공조기02",
+    room: "1F B존",
+    place: "B1F 기계실",
   },
   {
     value: "A02",
-    name: "공조기02",
+    name: "공조기03",
+    room: "B1 도금",
+    place: "B1F 기계실",
   },
   {
     value: "A03",
-    name: "공조기03",
+    name: "공조기04A",
+    room: "1F D존",
+    place: "1F C/R D-1",
   },
   {
     value: "A04",
-    name: "공조기04",
+    name: "공조기04B",
+    room: "1F C존",
+    place: "1F c/R D-1",
   },
   {
     value: "A05",
     name: "공조기05",
+    room: "1F B존",
+    place: "1F B존",
   },
   {
     value: "A06",
     name: "공조기06",
+    room: "2F",
+    place: "2F",
   },
   {
     value: "A07",
     name: "공조기07",
+    room: "B1도금",
+    place: "B1F",
   },
   {
     value: "A08",
     name: "공조기08",
+    room: "1F A존",
+    place: "2F 공조실",
   },
   {
     value: "A09",
     name: "공조기09",
+    room: "1F E존",
+    place: "1F 공조실",
   },
   {
     value: "A10",
     name: "공조기10",
+    room: "2F E존",
+    place: "2F 공조실",
   },
 ];
