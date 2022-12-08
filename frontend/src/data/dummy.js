@@ -454,8 +454,6 @@ export const themeColors = [
   },
 ];
 
-// Sat Dec 03 2022 08:10:00 GMT+0900
-
 // 셀렉트 박스 데이터 (공조기 번호)
 export const OPTIONS = [
   {

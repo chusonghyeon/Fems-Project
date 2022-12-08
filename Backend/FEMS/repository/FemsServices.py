@@ -1,9 +1,20 @@
-import json     
-import pymysql  
+import os
+import json
+import pymysql
 from FEMS.Logger import Logger
 
 _logger = Logger("FemsService")
 
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+SECRET_FILE = os.path.join(BASE_DIR, 'secrets.json')
+secrets = json.loads(open(SECRET_FILE).read())
+
+DB = secrets['DB']
+USER = DB['user']
+PASSWORD = DB['password']
+HOST = DB['host']
+PORT = DB['port']
+DATABASE = DB['database']
 
 #################################################################################################################################################
 
@@ -14,12 +25,9 @@ _logger = Logger("FemsService")
 # 설비 정보(공조기 이름, 위치, 사용하는 곳 표시)
 async def Get_AHU_Info():
     try:       
-        # DB서버
-        # connection = pymysql.connect(host= 'database-fems.cenfcmvt9ni5.ap-northeast-2.rds.amazonaws.com', port=3306, user='project', password='project26**',
-        #                              db='fems', charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)
-        
-        connection = pymysql.connect(host= 'localhost', port=3306, user='root', password='1234',
-                                     db='FEMS', charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)
+        # DB서버      
+        connection = pymysql.connect(host= DB['host'], port= 3306, user= DB['user'], password= DB['password'],
+                                     db= DB['database'], charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)
         
         with connection.cursor() as cursor:
             query = " select FAC_ID, FAC_NAME, FAC_LOC, FAC_USE, " + \
@@ -39,12 +47,9 @@ async def Get_AHU_Info():
 async def Get_LpData_monthly_Daily_Data():
     try:
               
-        # DB서버
-        # connection = pymysql.connect(host= 'database-fems.cenfcmvt9ni5.ap-northeast-2.rds.amazonaws.com', port=3306, user='project', password='project26**',
-        #                              db='FEMS', charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)
-        
-        connection = pymysql.connect(host= 'localhost', port=3306, user='root', password='1234',
-                                     db='FEMS', charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)
+        # DB서버        
+        connection = pymysql.connect(host= DB['host'], port= 3306, user= DB['user'], password= DB['password'],
+                                     db= DB['database'], charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)
         
         with connection.cursor() as cursor:
             query = "select left(a.LpDate,6) as runDate, cast(round(sum(a.LpData),2) as char) as sumData " + \
@@ -80,12 +85,10 @@ async def Get_LpData_monthly_Daily_Data():
 async def Get_AHU_KWh_Hourly_Data(runDate :str):
     try:   
            
-        # DB서버
-        # connection = pymysql.connect(host= 'database-fems.cenfcmvt9ni5.ap-northeast-2.rds.amazonaws.com', port=3306, user='project', password='project26**',
-        #                              db='FEMS', charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)
+        # DB서버        
+        connection = pymysql.connect(host= DB['host'], port= 3306, user= DB['user'], password= DB['password'],
+                                     db= DB['database'], charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)
         
-        connection = pymysql.connect(host= 'localhost', port=3306, user='root', password='1234',
-                                     db='FEMS', charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)
         
         with connection.cursor() as cursor:
             query = " select " +\
@@ -110,12 +113,9 @@ async def Get_AHU_KWh_Hourly_Data(runDate :str):
 async def Get_AHU_KWh_Daily_Data(runDate: str):
     try:   
            
-        # DB서버
-        # connection = pymysql.connect(host= 'database-fems.cenfcmvt9ni5.ap-northeast-2.rds.amazonaws.com', port=3306, user='project', password='project26**',
-        #                              db='FEMS', charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)
-        
-        connection = pymysql.connect(host= 'localhost', port=3306, user='root', password='1234',
-                                     db='FEMS', charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)
+        # DB서버      
+        connection = pymysql.connect(host= DB['host'], port= 3306, user= DB['user'], password= DB['password'],
+                                     db= DB['database'], charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)
         
         with connection.cursor() as cursor:
             query = " select " +\
@@ -140,12 +140,9 @@ async def Get_AHU_KWh_Daily_Data(runDate: str):
 async def Get_AHU_KWh_monthly_Data(runDate: str):
     try:   
            
-        # DB서버
-        # connection = pymysql.connect(host= 'database-fems.cenfcmvt9ni5.ap-northeast-2.rds.amazonaws.com', port=3306, user='project', password='project26**',
-        #                              db='FEMS', charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)
-        
-        connection = pymysql.connect(host= 'localhost', port=3306, user='root', password='1234',
-                                     db='FEMS', charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)      
+        # DB서버        
+        connection = pymysql.connect(host= DB['host'], port= 3306, user= DB['user'], password= DB['password'],
+                                     db= DB['database'], charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)
         
         with connection.cursor() as cursor:
             query = " select " +\
@@ -176,12 +173,9 @@ async def Get_AHU_KWh_monthly_Data(runDate: str):
 async def Get_AHU_temp_Hourly_Data(ahu_id: str, runDate: str):
     try:   
            
-        # DB서버
-        # connection = pymysql.connect(host= 'database-fems.cenfcmvt9ni5.ap-northeast-2.rds.amazonaws.com', port=3306, user='project', password='project26**',
-        #                              db='FEMS', charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)
-        
-        connection = pymysql.connect(host= 'localhost', port=3306, user='root', password='1234',
-                                     db='FEMS', charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)      
+        # DB서버        
+        connection = pymysql.connect(host= DB['host'], port= 3306, user= DB['user'], password= DB['password'],
+                                     db= DB['database'], charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)      
         
         with connection.cursor() as cursor:
             query = " select " +\
@@ -210,12 +204,9 @@ async def Get_AHU_temp_Hourly_Data(ahu_id: str, runDate: str):
 async def Get_AHU_temp_Daily_Data(ahu_id: str, runDate: str):
     try:   
            
-        # DB서버
-        # connection = pymysql.connect(host= 'database-fems.cenfcmvt9ni5.ap-northeast-2.rds.amazonaws.com', port=3306, user='project', password='project26**',
-        #                              db='FEMS', charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)
-        
-        connection = pymysql.connect(host= 'localhost', port=3306, user='root', password='1234',
-                                     db='FEMS', charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)      
+        # DB서버        
+        connection = pymysql.connect(host= DB['host'], port= 3306, user= DB['user'], password= DB['password'],
+                                     db= DB['database'], charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)      
         
         with connection.cursor() as cursor:
             query = " select " +\
@@ -244,12 +235,9 @@ async def Get_AHU_temp_monthly_Data(ahu_id: str, runDate: str):
     try:   
            
         # DB서버
-        # connection = pymysql.connect(host= 'database-fems.cenfcmvt9ni5.ap-northeast-2.rds.amazonaws.com', port=3306, user='project', password='project26**',
-        #                              db='FEMS', charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)
-        
-        connection = pymysql.connect(host= 'localhost', port=3306, user='root', password='1234',
-                                     db='FEMS', charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)      
-        
+        connection = pymysql.connect(host= DB['host'], port= 3306, user= DB['user'], password= DB['password'],
+                                     db= DB['database'], charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)
+                
         with connection.cursor() as cursor:
             query = " select " +\
                 " ahu_id, left(run_datetime,6) as rundate," +\
@@ -282,12 +270,9 @@ async def Get_AHU_temp_monthly_Data(ahu_id: str, runDate: str):
 async def Get_AHU_hum_Hourly_Data(ahu_id: str, runDate: str):
     try:   
            
-        # DB서버
-        # connection = pymysql.connect(host= 'database-fems.cenfcmvt9ni5.ap-northeast-2.rds.amazonaws.com', port=3306, user='project', password='project26**',
-        #                              db='FEMS', charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)
-        
-        connection = pymysql.connect(host= 'localhost', port=3306, user='root', password='1234',
-                                     db='FEMS', charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)      
+        # DB서버        
+        connection = pymysql.connect(host= DB['host'], port= 3306, user= DB['user'], password= DB['password'],
+                                     db= DB['database'], charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)      
         
         with connection.cursor() as cursor:
             query = " select " +\
@@ -315,12 +300,9 @@ async def Get_AHU_hum_Hourly_Data(ahu_id: str, runDate: str):
 async def Get_AHU_hum_Daily_Data(ahu_id: str, runDate: str):
     try:   
            
-        # DB서버
-        # connection = pymysql.connect(host= 'database-fems.cenfcmvt9ni5.ap-northeast-2.rds.amazonaws.com', port=3306, user='project', password='project26**',
-        #                              db='FEMS', charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)
-        
-        connection = pymysql.connect(host= 'localhost', port=3306, user='root', password='1234',
-                                     db='FEMS', charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)      
+        # DB서버        
+        connection = pymysql.connect(host= DB['host'], port= 3306, user= DB['user'], password= DB['password'],
+                                     db= DB['database'], charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)      
         
         with connection.cursor() as cursor:
             query = " select " +\
@@ -348,12 +330,9 @@ async def Get_AHU_hum_Daily_Data(ahu_id: str, runDate: str):
 async def Get_AHU_hum_monthly_Data(ahu_id: str, runDate: str):
     try:   
            
-        # DB서버
-        # connection = pymysql.connect(host= 'database-fems.cenfcmvt9ni5.ap-northeast-2.rds.amazonaws.com', port=3306, user='project', password='project26**',
-        #                              db='FEMS', charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)
-        
-        connection = pymysql.connect(host= 'localhost', port=3306, user='root', password='1234',
-                                     db='FEMS', charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)      
+        # DB서버        
+        connection = pymysql.connect(host= DB['host'], port= 3306, user= DB['user'], password= DB['password'],
+                                     db= DB['database'], charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)
         
         with connection.cursor() as cursor:
             query = " select " +\
