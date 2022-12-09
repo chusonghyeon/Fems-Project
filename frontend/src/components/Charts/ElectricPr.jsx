@@ -75,35 +75,58 @@ const ElectricMl = () => {
     fetchData();
   }, [setMl]);
 
-  // 예측값
-  let mlArray = [];
-  ml.forEach((item) => {
-    let year = item.rundate.slice(0, 4);
-    let month = item.rundate.slice(4, 6) - 1;
-    let day = item.rundate.slice(6, 8);
-    mlArray.push({
-      x: new Date(year, month, day),
-      y: item.Y_real_Data * 1,
-    });
-  });
-  MlDataSource.push([...mlArray]);
-
-  // 실제값
-  mlArray = [];
-  ml.forEach((item) => {
-    let year = item.rundate.slice(0, 4);
-    let month = item.rundate.slice(4, 6) - 1;
-    let day = item.rundate.slice(6, 8);
-    mlArray.push({
-      x: new Date(year, month, day),
+  const mlArray = [
+    ml.map((item) => ({
+      x: new Date(
+        item.rundate.slice(0, 4),
+        item.rundate.slice(4, 6),
+        item.rundate.slice(6, 8)
+      ),
       y: item.Y_pred_Data * 1,
-    });
-  });
-  MlDataSource.push([...mlArray]);
+    })),
+  ];
+
+  const mlArray2 = [
+    ml.map((item) => ({
+      x: new Date(
+        item.rundate.slice(0, 4),
+        item.rundate.slice(4, 6),
+        item.rundate.slice(6, 8)
+      ),
+      y: item.Y_real_Data * 1,
+    })),
+  ];
+
+  // // 예측값
+  // let mlArray = [];
+  // ml.forEach((item) => {
+  //   let year = item.rundate.slice(0, 4);
+  //   let month = item.rundate.slice(4, 6) - 1;
+  //   let day = item.rundate.slice(6, 8);
+  //   mlArray.push({
+  //     x: new Date(year, month, day),
+  //     y: item.Y_real_Data * 1,
+  //   });
+  // });
+  // MlDataSource.push([...mlArray]);
+
+  // // 실제값
+
+  // mlArray = [];
+  // ml.forEach((item) => {
+  //   let year = item.rundate.slice(0, 4);
+  //   let month = item.rundate.slice(4, 6) - 1;
+  //   let day = item.rundate.slice(6, 8);
+  //   mlArray.push({
+  //     x: new Date(year, month, day),
+  //     y: item.Y_pred_Data * 1,
+  //   });
+  // });
+  // MlDataSource.push([...mlArray]);
 
   const MlPrData = [
     {
-      dataSource: MlDataSource[0],
+      dataSource: mlArray2[0],
       xName: "x",
       yName: "y",
       name: "실제값",
@@ -115,7 +138,7 @@ const ElectricMl = () => {
 
   const MlRealData = [
     {
-      dataSource: MlDataSource[1],
+      dataSource: mlArray[0],
       xName: "x",
       yName: "y",
       name: "예측값",
@@ -124,6 +147,7 @@ const ElectricMl = () => {
       type: "Line",
     },
   ];
+
   console.log(MlDataSource);
   return (
     <div className="control-pane">
@@ -149,6 +173,7 @@ const ElectricMl = () => {
             lineType: "Vertical",
           }}
           width="auto"
+          height="auto"
           title="2022년 전력 소비량 예측"
         >
           <Inject

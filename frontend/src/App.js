@@ -10,6 +10,7 @@ const App = () => {
   // 첫 실행 시 화면 = 토큰 없으면 ? 로그인 페이지 : 있으면 .. 서비스 페이지
   useEffect(() => {
     const currentRoutes =
+      // <UnProtectedRoutes />;
       token === null ? <UnProtectedRoutes /> : <ProtectedRoutes />;
     setCurrentRoute(currentRoutes);
   }, [token]);

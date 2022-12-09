@@ -90,13 +90,14 @@ const GongjoCompare = () => {
   return (
     <div className="w-full text-center m-5">
       <ChartComponent
-        width="auto"
         legendSettings={{ visible: true }}
         title="공조기 월별 전력소모량"
         useGroupingSeparator={true}
         primaryXAxis={GongjoPrimaryXAxis}
         primaryYAxis={GongjoPrimaryYAxis}
         tooltip={{ enable: true }}
+        width="auto"
+        height="300px"
       >
         <Inject
           services={[ColumnSeries, Legend, Tooltip, Resize, DateTimeCategory]}
