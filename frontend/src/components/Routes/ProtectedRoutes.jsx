@@ -55,7 +55,7 @@ const ProtectedRoutes = () => {
         </div>
         {/*====================== */}
         {activeMenu ? (
-          <div className="w-72 fixed dark:bg-secondary-dark-bg bg-gray-300 sidebar">
+          <div className="w-72 fixed dark:bg-secondary-dark-bg bg-white placeholder-opacity-90 sidebar">
             <Sidebar />
           </div>
         ) : (
@@ -64,11 +64,11 @@ const ProtectedRoutes = () => {
           </div>
         )}
         <div
-          className={`dark:bg-main-dark-bg  bg-sky-100 min-h-screen w-full ${
+          className={`dark:bg-main-dark-bg min-h-screen bg-sky-50 w-full ${
             activeMenu ? "md:ml-72" : "flex-2"
           }`}
         >
-          <div className="md:static bg-gray-100/70 dark:bg-main-dark-bg navbar w-full bg-fixed">
+          <div className="md:static bg-white dark:bg-main-dark-bg navbar w-full bg-fixed">
             <Navbar />
           </div>
           <div className="m-5">

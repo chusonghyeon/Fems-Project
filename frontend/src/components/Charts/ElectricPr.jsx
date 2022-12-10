@@ -19,7 +19,7 @@ import { Browser } from "@syncfusion/ej2-base";
 import axios from "axios";
 import { useState } from "react";
 import { MlPrimaryXAxis, MlPrimaryYAxis } from "../../data/dummy";
-
+import "../../css/Custom.css";
 const Predict_CSS = `
      .control-fluid {
          padding: 0px !important;
@@ -147,15 +147,15 @@ const ElectricMl = () => {
       type: "Line",
     },
   ];
-
-  console.log(MlDataSource);
   return (
     <div className="control-pane">
       <style>{Predict_CSS}</style>
       <div className="control-section">
         <ChartComponent
           id="charts"
-          style={{ textAlign: "center" }}
+          style={{
+            textAlign: "center",
+          }}
           primaryXAxis={MlPrimaryXAxis}
           primaryYAxis={MlPrimaryYAxis}
           chartArea={{ border: { width: 0 } }}
