@@ -77,10 +77,11 @@ const ElectricMl = () => {
 
   // 예측값
   let mlArray = [];
-  ml.forEach((item) => {
-    let year = item.rundate.slice(0, 4);
-    let month = item.rundate.slice(4, 6) - 1;
-    let day = item.rundate.slice(6, 8);
+  [].forEach.call(ml, (item) => {
+    const yyyy = "" + item.rundate;
+    let year = yyyy.slice(0, 4);
+    let month = yyyy.slice(4, 6) - 1;
+    let day = yyyy.slice(6, 8);
     mlArray.push({
       x: new Date(year, month, day),
       y: item.Y_real_Data * 1,
@@ -90,10 +91,11 @@ const ElectricMl = () => {
 
   // 실제값
   mlArray = [];
-  ml.forEach((item) => {
-    let year = item.rundate.slice(0, 4);
-    let month = item.rundate.slice(4, 6) - 1;
-    let day = item.rundate.slice(6, 8);
+  [].forEach.call(ml, (item) => {
+    const yyyy = "" + item.rundate;
+    let year = yyyy.slice(0, 4);
+    let month = yyyy.slice(4, 6) - 1;
+    let day = yyyy.slice(6, 8);
     mlArray.push({
       x: new Date(year, month, day),
       y: item.Y_pred_Data * 1,
