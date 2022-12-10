@@ -29,7 +29,7 @@ const DayLineChart = () => {
     let minute = item.rundate.slice(10, 12);
     tempArray.push({
       x: new Date(year, month, day, hour, minute),
-      y: item.ahu_set_temp * 1,
+      y: item.ahu_set_temp,
     });
   });
   TempDataSource.push([...tempArray]);
@@ -45,7 +45,7 @@ const DayLineChart = () => {
 
     tempArray.push({
       x: new Date(year, month, day, hour, minute),
-      y: item.ahu_ret_temp * 1,
+      y: item.ahu_ret_temp,
     });
   });
   TempDataSource.push([...tempArray]);
@@ -61,7 +61,7 @@ const DayLineChart = () => {
 
     tempArray.push({
       x: new Date(year, month, day, hour, minute),
-      y: item.ahu_sup_temp * 1,
+      y: item.ahu_sup_temp,
     });
   });
   TempDataSource.push([...tempArray]);
@@ -77,7 +77,7 @@ const DayLineChart = () => {
 
     tempArray.push({
       x: new Date(year, month, day, hour, minute),
-      y: item.ahu_out_temp * 1,
+      y: item.ahu_out_temp,
     });
   });
   TempDataSource.push([...tempArray]);

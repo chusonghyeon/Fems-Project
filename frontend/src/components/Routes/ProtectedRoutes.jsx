@@ -76,7 +76,7 @@ const ProtectedRoutes = () => {
 
             <Routes>
               {/* 웰컴페이지 */}
-              <Route path="/" element={<Welcompage />} />
+              <Route path="/welcome" element={<Welcompage />} />
               {/* 전력량 예측 , 메인페이지 */}
               <Route path="/전력 예측" element={<MainPage />} />
               {/* 공조기 정보 및 사용자정보(후순위) , 1~2개남겨둘 예정*/}
@@ -95,7 +95,7 @@ const ProtectedRoutes = () => {
               <Route path="/일별 습도" element={<DailyHumidity />} />
               <Route path="/월별 습도" element={<MonthlyHumidity />} />
 
-              <Route path="*" element={<Navigate replace to="/" />} />
+              <Route path="*" element={<Navigate replace to="/welcome" />} />
             </Routes>
           </div>
         </div>

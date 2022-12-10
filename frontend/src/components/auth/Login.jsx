@@ -14,7 +14,7 @@ const Login = () => {
   });
   const [isLoading, setIsLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
-  const { setToken } = useStateContext();
+  const { setToken, setLogin } = useStateContext();
 
   const handlePasswordType = (e) => {
     setHiddenPass(() => {
@@ -27,6 +27,9 @@ const Login = () => {
   // 로그인 정보 백으로 보내고 토큰 받아오기
   const submitLogin = async () => {
     setIsLoading(true);
+
+    setLogin(true);
+
     const requestOptions = {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },

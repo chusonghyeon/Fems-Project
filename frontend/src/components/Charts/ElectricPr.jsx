@@ -73,60 +73,60 @@ const ElectricMl = () => {
     };
 
     fetchData();
-  }, [setMl]);
+  }, []);
 
-  const mlArray = [
-    ml.map((item) => ({
-      x: new Date(
-        item.rundate.slice(0, 4),
-        item.rundate.slice(4, 6),
-        item.rundate.slice(6, 8)
-      ),
-      y: item.Y_pred_Data * 1,
-    })),
-  ];
-
-  const mlArray2 = [
-    ml.map((item) => ({
-      x: new Date(
-        item.rundate.slice(0, 4),
-        item.rundate.slice(4, 6),
-        item.rundate.slice(6, 8)
-      ),
-      y: item.Y_real_Data * 1,
-    })),
-  ];
-
-  // // 예측값
-  // let mlArray = [];
-  // ml.forEach((item) => {
-  //   let year = item.rundate.slice(0, 4);
-  //   let month = item.rundate.slice(4, 6) - 1;
-  //   let day = item.rundate.slice(6, 8);
-  //   mlArray.push({
-  //     x: new Date(year, month, day),
-  //     y: item.Y_real_Data * 1,
-  //   });
-  // });
-  // MlDataSource.push([...mlArray]);
-
-  // // 실제값
-
-  // mlArray = [];
-  // ml.forEach((item) => {
-  //   let year = item.rundate.slice(0, 4);
-  //   let month = item.rundate.slice(4, 6) - 1;
-  //   let day = item.rundate.slice(6, 8);
-  //   mlArray.push({
-  //     x: new Date(year, month, day),
+  // const mlArray = [
+  //   ml.map((item) => ({
+  //     x: new Date(
+  //       item.rundate.slice(0, 4),
+  //       item.rundate.slice(4, 6),
+  //       item.rundate.slice(6, 8)
+  //     ),
   //     y: item.Y_pred_Data * 1,
-  //   });
-  // });
-  // MlDataSource.push([...mlArray]);
+  //   })),
+  // ];
+
+  // const mlArray2 = [
+  //   ml.map((item) => ({
+  //     x: new Date(
+  //       item.rundate.slice(0, 4),
+  //       item.rundate.slice(4, 6),
+  //       item.rundate.slice(6, 8)
+  //     ),
+  //     y: item.Y_real_Data * 1,
+  //   })),
+  // ];
+
+  // 예측값
+  let mlArray = [];
+  ml.forEach((item) => {
+    let year = item.rundate.slice(0, 4);
+    let month = item.rundate.slice(4, 6) - 1;
+    let day = item.rundate.slice(6, 8);
+    mlArray.push({
+      x: new Date(year, month, day),
+      y: item.Y_real_Data * 1,
+    });
+  });
+  MlDataSource.push([...mlArray]);
+
+  // 실제값
+
+  mlArray = [];
+  ml.forEach((item) => {
+    let year = item.rundate.slice(0, 4);
+    let month = item.rundate.slice(4, 6) - 1;
+    let day = item.rundate.slice(6, 8);
+    mlArray.push({
+      x: new Date(year, month, day),
+      y: item.Y_pred_Data * 1,
+    });
+  });
+  MlDataSource.push([...mlArray]);
 
   const MlPrData = [
     {
-      dataSource: mlArray2[0],
+      dataSource: MlDataSource[0],
       xName: "x",
       yName: "y",
       name: "실제값",
@@ -138,7 +138,7 @@ const ElectricMl = () => {
 
   const MlRealData = [
     {
-      dataSource: mlArray[0],
+      dataSource: MlDataSource[1],
       xName: "x",
       yName: "y",
       name: "예측값",
