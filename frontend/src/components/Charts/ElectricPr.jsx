@@ -19,7 +19,7 @@ import { Browser } from "@syncfusion/ej2-base";
 import axios from "axios";
 import { useState } from "react";
 import { MlPrimaryXAxis, MlPrimaryYAxis } from "../../data/dummy";
-
+import "../../css/Custom.css";
 const Predict_CSS = `
      .control-fluid {
          padding: 0px !important;
@@ -75,37 +75,58 @@ const ElectricMl = () => {
     fetchData();
   }, [setMl]);
 
-  // 예측값
-  let mlArray = [];
-  [].forEach.call(ml, (item) => {
-    const yyyy = "" + item.rundate;
-    let year = yyyy.slice(0, 4);
-    let month = yyyy.slice(4, 6) - 1;
-    let day = yyyy.slice(6, 8);
-    mlArray.push({
-      x: new Date(year, month, day),
-      y: item.Y_real_Data * 1,
-    });
-  });
-  MlDataSource.push([...mlArray]);
-
-  // 실제값
-  mlArray = [];
-  [].forEach.call(ml, (item) => {
-    const yyyy = "" + item.rundate;
-    let year = yyyy.slice(0, 4);
-    let month = yyyy.slice(4, 6) - 1;
-    let day = yyyy.slice(6, 8);
-    mlArray.push({
-      x: new Date(year, month, day),
+  const mlArray = [
+    ml.map((item) => ({
+      x: new Date(
+        item.rundate.slice(0, 4),
+        item.rundate.slice(4, 6),
+        item.rundate.slice(6, 8)
+      ),
       y: item.Y_pred_Data * 1,
-    });
-  });
-  MlDataSource.push([...mlArray]);
+    })),
+  ];
+
+  const mlArray2 = [
+    ml.map((item) => ({
+      x: new Date(
+        item.rundate.slice(0, 4),
+        item.rundate.slice(4, 6),
+        item.rundate.slice(6, 8)
+      ),
+      y: item.Y_real_Data * 1,
+    })),
+  ];
+
+  // // 예측값
+  // let mlArray = [];
+  // ml.forEach((item) => {
+  //   let year = item.rundate.slice(0, 4);
+  //   let month = item.rundate.slice(4, 6) - 1;
+  //   let day = item.rundate.slice(6, 8);
+  //   mlArray.push({
+  //     x: new Date(year, month, day),
+  //     y: item.Y_real_Data * 1,
+  //   });
+  // });
+  // MlDataSource.push([...mlArray]);
+
+  // // 실제값
+
+  // mlArray = [];
+  // ml.forEach((item) => {
+  //   let year = item.rundate.slice(0, 4);
+  //   let month = item.rundate.slice(4, 6) - 1;
+  //   let day = item.rundate.slice(6, 8);
+  //   mlArray.push({
+  //     x: new Date(year, month, day),
+  //     y: item.Y_pred_Data * 1,
+  //   });
+  // });
+  // MlDataSource.push([...mlArray]);
 
   const MlPrData = [
     {
-      dataSource: MlDataSource[0],
+      dataSource: mlArray2[0],
       xName: "x",
       yName: "y",
       name: "실제값",
@@ -117,7 +138,7 @@ const ElectricMl = () => {
 
   const MlRealData = [
     {
-      dataSource: MlDataSource[1],
+      dataSource: mlArray[0],
       xName: "x",
       yName: "y",
       name: "예측값",
@@ -126,14 +147,15 @@ const ElectricMl = () => {
       type: "Line",
     },
   ];
-  console.log(MlDataSource);
   return (
     <div className="control-pane">
       <style>{Predict_CSS}</style>
       <div className="control-section">
         <ChartComponent
           id="charts"
-          style={{ textAlign: "center" }}
+          style={{
+            textAlign: "center",
+          }}
           primaryXAxis={MlPrimaryXAxis}
           primaryYAxis={MlPrimaryYAxis}
           chartArea={{ border: { width: 0 } }}
@@ -151,6 +173,7 @@ const ElectricMl = () => {
             lineType: "Vertical",
           }}
           width="auto"
+          height="auto"
           title="2022년 전력 소비량 예측"
         >
           <Inject

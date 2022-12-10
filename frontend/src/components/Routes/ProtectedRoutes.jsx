@@ -8,7 +8,6 @@ import { FiSettings } from "react-icons/fi";
 import { useStateContext } from "../../context/UserContext";
 import {
   HourlyElectricAmount,
-  Employees,
   DailyTemperature,
   MainPage,
   MonthlyTemperature,
@@ -19,7 +18,7 @@ import {
   GongjoInfo,
   MonthlyElectricAmount,
   DailyElectricAmount,
-  Test,
+  Welcompage,
 } from "../../pages";
 
 const ProtectedRoutes = () => {
@@ -44,7 +43,11 @@ const ProtectedRoutes = () => {
               type="button"
               className="text-3xl p-3 hover:drop-shadow-xl hover:bg-light-gray text-white"
               onClick={() => setThemeSettings(true)}
-              style={{ background: currentColor, borderRadius: "50%" }}
+              style={{
+                background: currentColor,
+                borderRadius: "50%",
+                height: "60px",
+              }}
             >
               <FiSettings />
             </button>
@@ -52,7 +55,7 @@ const ProtectedRoutes = () => {
         </div>
         {/*====================== */}
         {activeMenu ? (
-          <div className="w-72 fixed dark:bg-secondary-dark-bg bg-gray-300 sidebar">
+          <div className="w-72 fixed dark:bg-secondary-dark-bg bg-white placeholder-opacity-90 sidebar">
             <Sidebar />
           </div>
         ) : (
@@ -61,17 +64,19 @@ const ProtectedRoutes = () => {
           </div>
         )}
         <div
-          className={`dark:bg-main-dark-bg  bg-sky-100 min-h-screen w-full ${
+          className={`dark:bg-main-dark-bg min-h-screen bg-sky-50 w-full ${
             activeMenu ? "md:ml-72" : "flex-2"
           }`}
         >
-          <div className="md:static bg-gray-100/70 dark:bg-main-dark-bg navbar w-full bg-fixed">
+          <div className="md:static bg-white dark:bg-main-dark-bg navbar w-full bg-fixed">
             <Navbar />
           </div>
           <div className="m-5">
             {themeSettings && <ThemeSettings />}
 
             <Routes>
+              {/* 웰컴페이지 */}
+              <Route path="/" element={<Welcompage />} />
               {/* 전력량 예측 , 메인페이지 */}
               <Route path="/전력 예측" element={<MainPage />} />
               {/* 공조기 정보 및 사용자정보(후순위) , 1~2개남겨둘 예정*/}
@@ -90,7 +95,7 @@ const ProtectedRoutes = () => {
               <Route path="/일별 습도" element={<DailyHumidity />} />
               <Route path="/월별 습도" element={<MonthlyHumidity />} />
 
-              <Route path="*" element={<Navigate replace to="/전력 예측" />} />
+              <Route path="*" element={<Navigate replace to="/" />} />
             </Routes>
           </div>
         </div>
