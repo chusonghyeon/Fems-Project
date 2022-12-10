@@ -28,7 +28,7 @@ def GET_ML_data():
                     " left(run_datetime,8) as rundate, " +\
                     " cast(round(sum(y),2) as char) as Y_real_Data, " +\
                     " cast(round(sum(yhat),2) as char) as Y_pred_Data " +\
-                    " from yhat123 \n" +\
+                    " from tp \n" +\
                     " where left(run_datetime,4) ='2022' " +\
                     " group by left(run_datetime, 8) " +\
                     " order by left(run_datetime, 8);"
