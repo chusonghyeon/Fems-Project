@@ -75,33 +75,14 @@ const ElectricMl = () => {
     fetchData();
   }, []);
 
-  // const mlArray = [
-  //   ml.map((item) => ({
-  //     x: new Date(
-  //       item.rundate.slice(0, 4),
-  //       item.rundate.slice(4, 6),
-  //       item.rundate.slice(6, 8)
-  //     ),
-  //     y: item.Y_pred_Data * 1,
-  //   })),
-  // ];
-
-  // const mlArray2 = [
-  //   ml.map((item) => ({
-  //     x: new Date(
-  //       item.rundate.slice(0, 4),
-  //       item.rundate.slice(4, 6),
-  //       item.rundate.slice(6, 8)
-  //     ),
-  //     y: item.Y_real_Data * 1,
-  //   })),
-  // ];
-
+  //2022년 10 ~ 12월 데이터는 삭제해주고 나머지 데이터는 남겨주세요 .
   // 예측값
   let mlArray = [];
   ml.forEach((item) => {
     let year = item.rundate.slice(0, 4);
     let month = item.rundate.slice(4, 6) - 1;
+    console.log(month);
+    console.log(typeof month);
     let day = item.rundate.slice(6, 8);
     mlArray.push({
       x: new Date(year, month, day),
@@ -147,6 +128,9 @@ const ElectricMl = () => {
       type: "Line",
     },
   ];
+
+  console.log(MlDataSource[1]);
+
   return (
     <div className="control-pane">
       <style>{Predict_CSS}</style>

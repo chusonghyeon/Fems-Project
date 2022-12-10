@@ -9,11 +9,7 @@ const App = () => {
 
   // 첫 실행 시 화면 = 토큰 없으면 ? 로그인 페이지 : 있으면 .. 서비스 페이지
   useLayoutEffect(() => {
-    const currentRoutes = !token ? (
-      <UnProtectedRoutes />
-    ) : (
-      login && <ProtectedRoutes />
-    );
+    const currentRoutes = !token ? <UnProtectedRoutes /> : <ProtectedRoutes />;
     setCurrentRoute(currentRoutes);
   }, [token]);
 

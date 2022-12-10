@@ -297,11 +297,7 @@ export const MlPrimaryYAxis = {
   rangePadding: "None",
   lineStyle: { width: 0 },
   minimum: 0,
-<<<<<<< HEAD
   maximum: 60000,
-=======
-  maximum: 35000,
->>>>>>> 0a91b211a9b4e3b546613d46bc7f5c801f508cde
   interval: 5000,
   majorTickLines: { width: 0 },
   minorTickLines: { width: 0 },
