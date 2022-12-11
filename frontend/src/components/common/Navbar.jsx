@@ -76,7 +76,7 @@ const Navbar = () => {
             FEMS
             {token && (
               <button
-                className="rounded-md border-2 border-solid border-gray-300 ml-3 p-1"
+                className="rounded-md border-2 border-solid border-gray-300 ml-3 p-1 hover:bg-blue-500 duration-150 ease-in-out"
                 onClick={handleLogout}
               >
                 Logout
