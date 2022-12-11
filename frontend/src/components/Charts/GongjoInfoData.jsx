@@ -11,6 +11,7 @@ import {
   Filter,
 } from "@syncfusion/ej2-react-grids";
 
+import "./Gongjoinfo.css";
 import { customersGrid } from "../../data/dummy";
 import { useState } from "react";
 import { useEffect } from "react";

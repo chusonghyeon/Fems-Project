@@ -14,7 +14,7 @@ import {
   DateTime,
   Legend,
 } from "@syncfusion/ej2-react-charts";
-import { colGroup, Resize } from "@syncfusion/ej2-react-grids";
+import { Resize } from "@syncfusion/ej2-react-grids";
 import { Browser } from "@syncfusion/ej2-base";
 import axios from "axios";
 import { useState } from "react";
@@ -152,7 +152,6 @@ const ElectricMl = () => {
             enable: false,
             line: {
               color: "rgba(204,214,235,0.25)",
-              width: Browser.isDevice ? 50 : 20,
             },
             lineType: "Vertical",
           }}
