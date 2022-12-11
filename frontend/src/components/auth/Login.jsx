@@ -59,7 +59,7 @@ const Login = () => {
     <div className="container laptop:h-screen laptop:grid laptop:place-items-center ">
       {isLoading && <LoadingSpinner asOverlay />}
       <div
-        className="login__content grid relative w-screen h-screen items-center laptop:w-1280 laptop:h-600
+        className="login__content grid relative w-screen h-screen place-items-center laptop:w-1280 laptop:h-600
       desktop:h-700"
       >
         <img
@@ -96,7 +96,7 @@ const Login = () => {
                   type="text"
                   value={id}
                   className="w-full px-3 py-4 rounded-md border-2 border-solid text-14 text-bold delay-500
-                  placeholder:text-slate-600 focus:border-indigo-700 valid:border-indigo-700"
+                  placeholder:text-slate-400 focus:border-indigo-700 valid:border-indigo-700 placeholder:italic"
                   placeholder="input your ID"
                   required
                   onChange={(e) => setId(e.target.value)}
@@ -104,14 +104,14 @@ const Login = () => {
               </div>
               {/* 패스워드박스 */}
               <div>
-                <label forhtml="" className="block text-black font-bold mb-2 ">
+                <label className="block text-black font-bold mb-2 ">
                   PassWord
                 </label>
                 <div className="login__box relative mb-7 ">
                   <input
                     type={hiddenPass.type}
                     className="w-full px-3 py-4 rounded-md border-2 border-solid text-14 text-bold delay-50
-                  placeholder:text-slate-600 focus:border-indigo-700 valid:border-indigo-700"
+                  placeholder:text-slate-400 focus:border-indigo-700 valid:border-indigo-700 placeholder:italic"
                     placeholder="input your password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
@@ -134,7 +134,8 @@ const Login = () => {
             <div className="login__buttons flex gap-x-3">
               <button
                 className="login__button w-full py-3 px-8 rounded-md bg-blue-500 
-              text-lg text-white shadow-indigo-600/50 cursor-pointer font-medium"
+              text-lg text-white shadow-indigo-600/50 cursor-pointer font-semibold font-body
+              hover:bg-blue-600 focus:scale-95 transition duration-150 ease-in-out"
                 type="submit"
               >
                 Log IN

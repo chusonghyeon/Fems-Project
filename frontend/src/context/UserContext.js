@@ -97,7 +97,7 @@ export const UserProvider = ({ children }) => {
       if (!response.ok) {
         setToken(null);
       }
-      sessionStorage.setItem("awesomeToken", token);
+      localStorage.setItem("awesomeToken", token);
     };
     fetchUser();
   }, [token]); // 토큰이 업데이트 될때마다
