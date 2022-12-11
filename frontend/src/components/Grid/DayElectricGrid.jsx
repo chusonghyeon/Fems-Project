@@ -6,9 +6,9 @@ import {
   GridComponent,
   Group,
   Inject,
-  Page,
   Sort,
   Resize,
+  InfiniteScroll,
 } from "@syncfusion/ej2-react-grids";
 import { getValue } from "@syncfusion/ej2-base";
 
@@ -38,9 +38,8 @@ const DayElectricGrid = () => {
     }
   }
 
-  const pageSettings = { pageSize: 10 };
   return (
-    <GridComponent dataSource={dElecDt} pageSettings={pageSettings} allowPaging>
+    <GridComponent dataSource={dElecDt} enableInfiniteScrolling height={300}>
       <ColumnsDirective>
         <ColumnDirective
           headerText="일자"
@@ -57,7 +56,7 @@ const DayElectricGrid = () => {
           valueAccessor={currencyFormatter}
         />
       </ColumnsDirective>
-      <Inject services={[Page, Sort, Filter, Group, Resize]} />
+      <Inject services={[InfiniteScroll, Sort, Filter, Group, Resize]} />
     </GridComponent>
   );
 };

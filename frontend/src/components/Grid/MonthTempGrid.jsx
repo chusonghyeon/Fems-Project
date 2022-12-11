@@ -5,8 +5,8 @@ import {
   Filter,
   GridComponent,
   Group,
+  InfiniteScroll,
   Inject,
-  Page,
   Sort,
 } from "@syncfusion/ej2-react-grids";
 import { getValue } from "@syncfusion/ej2-base";
@@ -32,9 +32,8 @@ const MonthTempGrid = () => {
     return `${year}-${month}`;
   }
 
-  const pageSettings = { pageSize: 10 };
   return (
-    <GridComponent dataSource={mTempDt} pageSettings={pageSettings} allowPaging>
+    <GridComponent dataSource={mTempDt} enableInfiniteScrolling height={300}>
       <ColumnsDirective>
         <ColumnDirective
           headerText="실행시간"
@@ -68,7 +67,7 @@ const MonthTempGrid = () => {
           textAlign="Center"
         />
       </ColumnsDirective>
-      <Inject services={[Page, Sort, Filter, Group]} />
+      <Inject services={[InfiniteScroll, Sort, Filter, Group]} />
     </GridComponent>
   );
 };
