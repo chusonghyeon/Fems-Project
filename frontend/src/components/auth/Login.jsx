@@ -67,6 +67,7 @@ const Login = () => {
           shadow-xl"
           src={bgimg}
           alt="login-img"
+          priority="true"
         />
         {/* 로그인 박스 상위항목 */}
         <form

@@ -34,10 +34,10 @@ overflow 의 값을 auto 로 설정할 경우 부모요소의 범위를 넘어�
             <Link
               to="/"
               onClick={handleCloseSideBar} // useStateContext 사용하고
-              className="items-center gap-3 ml-3 mt-4 flex text-xl tracking-tight dark:text-white text-white"
+              className="items-center gap-3 ml-3 mt-4 flex text-xl tracking-tight dark:text-white text-slate-700"
             >
               <img className="w-10 h-10" src={logo} alt="logo-img" />
-              <span> AMS</span>
+              <span>AMS</span>
             </Link>
             <TooltipComponent content="Menu" position="BottomCenter">
               <button
