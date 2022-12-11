@@ -51,7 +51,7 @@ const Electricamount = () => {
           <Monthdate />
           <button
             type="submit"
-            className="pointer w-32 h-auto text-white bg-blue-500 rounded-md"
+            className="pointer w-32 h-auto text-white bg-blue-500 hover:bg-blue-600 focus:ring-4 focus:outline-none focus:ring-blue-300 transition focus:ease-in-out rounded-md"
           >
             검색
           </button>

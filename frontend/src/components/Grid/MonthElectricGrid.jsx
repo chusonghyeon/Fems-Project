@@ -9,6 +9,7 @@ import {
   Page,
   Sort,
   Resize,
+  InfiniteScroll,
 } from "@syncfusion/ej2-react-grids";
 import { getValue } from "@syncfusion/ej2-base";
 
@@ -30,7 +31,12 @@ const MonthElectricGrid = () => {
 
   const pageSettings = { pageSize: 10 };
   return (
-    <GridComponent dataSource={mElecDt} pageSettings={pageSettings} allowPaging>
+    <GridComponent
+      dataSource={mElecDt}
+      pageSettings={pageSettings}
+      enableInfiniteScrolling
+      height={300}
+    >
       <ColumnsDirective>
         <ColumnDirective
           headerText="일자"
@@ -47,7 +53,7 @@ const MonthElectricGrid = () => {
           valueAccessor={currencyFormatter}
         />
       </ColumnsDirective>
-      <Inject services={[Page, Sort, Filter, Group, Resize]} />
+      <Inject services={[InfiniteScroll, Sort, Filter, Group, Resize]} />
     </GridComponent>
   );
 };

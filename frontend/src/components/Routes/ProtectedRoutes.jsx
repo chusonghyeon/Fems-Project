@@ -46,10 +46,9 @@ const ProtectedRoutes = () => {
               style={{
                 background: currentColor,
                 borderRadius: "50%",
-                height: "60px",
               }}
             >
-              <FiSettings />
+              <FiSettings className="h-6 w-6" />
             </button>
           </TooltipComponent>
         </div>

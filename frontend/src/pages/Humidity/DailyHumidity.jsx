@@ -5,8 +5,7 @@ import {
   HumidityDayheader,
 } from "../../components";
 import Header from "../../components/common/Header";
-import { useStateContext } from "../../context/UserContext";
-const DailiyHumidity = () => {
+const DailyHumidity = () => {
   return (
     <>
       <div className="m-4 md:m-2 mt-24 p-5 w-auto bg-white dark:bg-secondary-dark-bg rounded-3xl h-40">
@@ -21,4 +20,4 @@ const DailiyHumidity = () => {
   );
 };
 
-export default DailiyHumidity;
+export default DailyHumidity;
