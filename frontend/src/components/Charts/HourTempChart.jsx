@@ -19,7 +19,7 @@ const HourTempChart = () => {
   const { currentMode, hTempDt } = useStateContext();
   const TempDataSource = [];
 
-  console.log(hTempDt);
+  // console.log(hTempDt);
 
   // 설정온도
   let tempArray = [];
@@ -36,7 +36,7 @@ const HourTempChart = () => {
   });
   TempDataSource.push([...tempArray]);
 
-  console.log(TempDataSource);
+  // console.log(TempDataSource);
 
   // 리턴온도
   tempArray = [];

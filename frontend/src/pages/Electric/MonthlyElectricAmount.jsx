@@ -28,7 +28,7 @@ const Electricamount = () => {
   // set 부분을 useEffect로
   useEffect(() => {
     const fetchData = async (idDate) => {
-      console.log(idDate.ahu_id);
+      // console.log(idDate.ahu_id);
       const response = await axios.get(SERVER_URL, {
         params: {
           runDate: `${idDate.runDate}`,
@@ -43,7 +43,7 @@ const Electricamount = () => {
   return (
     <div className="m-4 md:m-2 mt-24 p-5 bg-white dark:bg-secondary-dark-bg rounded-3xl">
       <Header category="전력량" title="월별 전력량" />
-      <form onSubmit={electricHandleSubmit}>
+      <form onSubmit={electricHandleSubmit} autoComplete="off">
         <div
           className="flex mb-10
       "

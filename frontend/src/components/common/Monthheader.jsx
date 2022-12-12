@@ -44,7 +44,7 @@ const IconSVG = styled.svg`
 const SelectBox = (props) => {
   const handleChange = (e) => {
     // event handler
-    console.log(e.target.value);
+    // console.log(e.target.value);
   };
 
   return (

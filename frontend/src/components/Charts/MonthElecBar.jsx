@@ -31,7 +31,7 @@ const MonthElecBar = () => {
   });
   ElecDataSource.push([...elecArray]);
 
-  console.log(elecArray);
+  // console.log(elecArray);
 
   // 전력량
   const AreaElecData = [

@@ -124,7 +124,7 @@ const DayLineChart = () => {
   ];
 
   // console.log(lineChartData[0]);
-  console.log(LineTempData);
+  // console.log(LineTempData);
 
   return (
     <ChartComponent

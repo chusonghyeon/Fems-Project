@@ -239,8 +239,8 @@ export const ElecLinePrimaryYAxis = {
 export const DayElecPrimaryYAxis = {
   labelFormat: "{value}KWh",
   minimum: 0,
-  maximum: 30000,
-  interval: 5000,
+  maximum: 50000,
+  interval: 10000,
   lineStyle: { width: 0 },
   majorTickLines: { width: 0 },
   minorTickLines: { width: 0 },
@@ -250,8 +250,8 @@ export const DayElecPrimaryYAxis = {
 export const MonthElecPrimaryYAxis = {
   labelFormat: "{value}KWh",
   minimum: 0,
-  maximum: 750000,
-  interval: 150000,
+  maximum: 1600000,
+  interval: 300000,
   lineStyle: { width: 0 },
   majorTickLines: { width: 0 },
   minorTickLines: { width: 0 },
@@ -314,8 +314,8 @@ export const GongjoPrimaryXAxis = {
 export const GongjoPrimaryYAxis = {
   labelFormat: "{value}KWh",
   minimum: 0,
-  maximum: 800000,
-  interval: 100000,
+  maximum: 1500000,
+  interval: 300000,
   lineStyle: { width: 0 },
   majorTickLines: { width: 0 },
   minorTickLines: { width: 0 },
