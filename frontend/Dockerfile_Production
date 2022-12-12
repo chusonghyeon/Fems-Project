@@ -1,0 +1,15 @@
+FROM node:alpine as builder
+
+WORKDIR /Fems-project/frontend
+
+COPY package*.json ./
+
+RUN npm install
+
+COPY . .
+
+RUN npm run build
+
+FROM nginx:alpine
+
+COPY --from=builder /Fems-project/frontend/build /usr/share/nginx/html
