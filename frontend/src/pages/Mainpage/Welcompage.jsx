@@ -1,7 +1,5 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import welcomebg from "../../img/bg-welcome.jpg";
-import BIG from "../../img/LOGO.png";
 
 const Welcompage = () => {
   return (
@@ -21,7 +19,7 @@ const Welcompage = () => {
             <NavLink to={"/전력 예측"} key={"welcome"}>
               <img
                 className="transition-all bg-wh rounded-xl invert brightness-0"
-                src={BIG}
+                src={`${process.env.PUBLIC_URL}/public_assets/LOGO.png`}
                 priority="true"
                 alt="로고"
               />
@@ -57,9 +55,9 @@ const Welcompage = () => {
         </div>
       </div>
       <img
-        className="absolute w-full h-88vh -z-20 rounded-3xl"
-        src={welcomebg}
+        className="BG-IMG absolute w-full h-88vh -z-20 rounded-3xl"
         alt="배경화면"
+        src={`${process.env.PUBLIC_URL}/public_assets/bg-welcome.jpg`}
       />
     </div>
   );

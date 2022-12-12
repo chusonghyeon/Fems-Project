@@ -42,13 +42,11 @@ const GongjoCompare = () => {
       PowerArray.push({
         // x: new Date(year, month),
         x: month,
-        y: item.sumData ,
+        y: item.sumData,
       });
     }
   });
   CompareChartData.push([...PowerArray]);
-
-
 
   // 22년도 월 전력량
   PowerArray = [];
@@ -59,7 +57,7 @@ const GongjoCompare = () => {
       PowerArray.push({
         // x: new Date(year, month),
         x: month,
-        y: item.sumData ,
+        y: item.sumData,
       });
     }
     // console.log(typeof month);
@@ -88,7 +86,7 @@ const GongjoCompare = () => {
       yName: "y",
     },
   ];
-  const palette = ["#47fc80","#faf170"]
+  const palette = ["#66D7CE", "#453A72"];
 
   return (
     <div className="w-full text-center m-5">

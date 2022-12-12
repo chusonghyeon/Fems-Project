@@ -66,7 +66,6 @@ const ElectricMl = () => {
     const response = await axios.get(REAL_URL);
     setReal(response.data);
     console.log(response.data);
-
   };
   const PredData = async () => {
     const response = await axios.get(PRED_URL);
@@ -74,7 +73,6 @@ const ElectricMl = () => {
     console.log(response.data);
   };
   useEffect(() => {
-
     RealData();
     PredData();
   }, []);
@@ -87,11 +85,10 @@ const ElectricMl = () => {
     let day = item.rundate.slice(6, 8);
     mlArray.push({
       x: new Date(year, month, day),
-      y: item.Y_pred_Data ,
+      y: item.Y_pred_Data,
     });
   });
   MlDataSource.push([...mlArray]);
-
 
   // 실제값
   mlArray = [];
@@ -101,7 +98,7 @@ const ElectricMl = () => {
     let day = item.rundate.slice(6, 8);
     mlArray.push({
       x: new Date(year, month, day),
-      y: item.Y_real_Data_fix ,
+      y: item.Y_real_Data_fix,
     });
   });
   RealDataSource.push([...mlArray]);
@@ -128,6 +125,8 @@ const ElectricMl = () => {
       type: "Line",
     },
   ];
+
+  const palette = ["#66D7CE", "#453A72"];
 
   return (
     <div className="control-pane">
@@ -156,6 +155,7 @@ const ElectricMl = () => {
           width="auto"
           height="auto"
           title="2022년 전력 소비량 예측"
+          palettes={palette}
         >
           <Inject
             services={[
