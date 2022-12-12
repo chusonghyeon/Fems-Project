@@ -1,6 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import { MainLogoImg, MainImg } from "../../assets/images";
+// import { MainLogoImg, MainImg } from "../../assets/images";
 const Welcompage = () => {
   return (
     <div className="welcome relative w-full h-full z-0">
@@ -19,7 +19,7 @@ const Welcompage = () => {
             <NavLink to={"/전력 예측"} key={"welcome"}>
               <img
                 className="transition-all bg-wh rounded-xl invert brightness-0"
-                src={"./images/LOGO.png"}
+                src={"/images/LOGO.png"}
                 priority="true"
                 alt="Mainlogo"
               />

@@ -1,5 +1,5 @@
 import "remixicon/fonts/remixicon.css";
-import { LoginImg } from "../../assets/images";
+// import { LoginImg } from "../../assets/images";
 import React, { useState } from "react";
 import ErrorMessage from "../common/ErrorMessage";
 import { useStateContext } from "../../context/UserContext";
