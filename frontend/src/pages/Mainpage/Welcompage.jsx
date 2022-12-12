@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import { ImageStore } from "../../assets/images";
 
 const Welcompage = () => {
-  const { S3_URL, welcome, leftlogo, Mainlogo } = ImageStore;
+  const { S3_URL, welcome, Mainlogo } = ImageStore;
   return (
     <div className="welcome relative w-full h-full z-0">
       <div className="w-full flex justify-center">
