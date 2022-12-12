@@ -14,7 +14,7 @@ import {
   DateTime,
   Legend,
 } from "@syncfusion/ej2-react-charts";
-import { colGroup, Resize } from "@syncfusion/ej2-react-grids";
+import { Resize } from "@syncfusion/ej2-react-grids";
 import { Browser } from "@syncfusion/ej2-base";
 import axios from "axios";
 import { useState } from "react";
@@ -30,24 +30,20 @@ const Predict_CSS = `
        -webkit-animation: dash 2s linear infinite;
        animation: dash 2s linear infinite;
    }
- 
      #charts_Series_0_Point_3_Symbol {
          -webkit-animation: opac 1s ease-out infinite;
          animation: opac 1s ease-out infinite;
      }
- 
      @-webkit-keyframes dash {
          100% {
              stroke-dashoffset: -20px;
          }
      }
- 
      @keyframes dash {
          100% {
              stroke-dashoffset: -20px;
          }
      }
- 
      @keyframes opac {
          0% {
              stroke-opacity: 1;
@@ -58,75 +54,72 @@ const Predict_CSS = `
              stroke-width: 10px;
          }
      }`;
-
-const SERVER_URL = "/ML";
-
+const REAL_URL = "/Real_ML";
+const PRED_URL = "/Pred_ML";
 const ElectricMl = () => {
   const [ml, setMl] = useState([]);
+  const [real, setReal] = useState([]);
   const MlDataSource = [];
+  const RealDataSource = [];
 
+  const RealData = async () => {
+    const response = await axios.get(REAL_URL);
+    setReal(response.data);
+    console.log(response.data);
+
+  };
+  const PredData = async () => {
+    const response = await axios.get(PRED_URL);
+    setMl(response.data);
+    console.log(response.data);
+  };
   useEffect(() => {
-    const fetchData = async () => {
-      const response = await axios.get(SERVER_URL);
-      setMl(response.data);
-      console.log(response.data);
-    };
 
-    fetchData();
-  }, [setMl]);
+    RealData();
+    PredData();
+  }, []);
+  //2022년 10 ~ 12월 데이터는 삭제해주고 나머지 데이터는 남겨주세요 .
+  // 예측값
+  let mlArray = [];
+  ml.forEach((item) => {
+    let year = item.rundate.slice(0, 4);
+    let month = item.rundate.slice(4, 6) - 1;
+    let day = item.rundate.slice(6, 8);
+    mlArray.push({
+      x: new Date(year, month, day),
+      y: item.Y_pred_Data ,
+    });
+  });
+  MlDataSource.push([...mlArray]);
 
-  const mlArray = [
-    ml.map((item) => ({
-      x: new Date(
-        item.rundate.slice(0, 4),
-        item.rundate.slice(4, 6),
-        item.rundate.slice(6, 8)
-      ),
-      y: item.Y_pred_Data * 1,
-    })),
-  ];
 
-  const mlArray2 = [
-    ml.map((item) => ({
-      x: new Date(
-        item.rundate.slice(0, 4),
-        item.rundate.slice(4, 6),
-        item.rundate.slice(6, 8)
-      ),
-      y: item.Y_real_Data * 1,
-    })),
-  ];
-
-  // // 예측값
-  // let mlArray = [];
-  // ml.forEach((item) => {
-  //   let year = item.rundate.slice(0, 4);
-  //   let month = item.rundate.slice(4, 6) - 1;
-  //   let day = item.rundate.slice(6, 8);
-  //   mlArray.push({
-  //     x: new Date(year, month, day),
-  //     y: item.Y_real_Data * 1,
-  //   });
-  // });
-  // MlDataSource.push([...mlArray]);
-
-  // // 실제값
-
-  // mlArray = [];
-  // ml.forEach((item) => {
-  //   let year = item.rundate.slice(0, 4);
-  //   let month = item.rundate.slice(4, 6) - 1;
-  //   let day = item.rundate.slice(6, 8);
-  //   mlArray.push({
-  //     x: new Date(year, month, day),
-  //     y: item.Y_pred_Data * 1,
-  //   });
-  // });
-  // MlDataSource.push([...mlArray]);
+  // 실제값
+  mlArray = [];
+  real.forEach((item) => {
+    let year = item.rundate.slice(0, 4);
+    let month = item.rundate.slice(4, 6) - 1;
+    let day = item.rundate.slice(6, 8);
+    mlArray.push({
+      x: new Date(year, month, day),
+      y: item.Y_real_Data_fix ,
+    });
+  });
+  RealDataSource.push([...mlArray]);
 
   const MlPrData = [
     {
-      dataSource: mlArray2[0],
+      dataSource: MlDataSource[0],
+      xName: "x",
+      yName: "y",
+      name: "예측값",
+      width: "2",
+      marker: { visible: false, width: 7, height: 7 },
+      type: "Line",
+    },
+  ];
+  const MlRealData = [
+    {
+      dataSource: RealDataSource[0],
       xName: "x",
       yName: "y",
       name: "실제값",
@@ -136,17 +129,6 @@ const ElectricMl = () => {
     },
   ];
 
-  const MlRealData = [
-    {
-      dataSource: mlArray[0],
-      xName: "x",
-      yName: "y",
-      name: "예측값",
-      width: "2",
-      marker: { visible: false, width: 7, height: 7 },
-      type: "Line",
-    },
-  ];
   return (
     <div className="control-pane">
       <style>{Predict_CSS}</style>
@@ -168,7 +150,6 @@ const ElectricMl = () => {
             enable: false,
             line: {
               color: "rgba(204,214,235,0.25)",
-              width: Browser.isDevice ? 50 : 20,
             },
             lineType: "Vertical",
           }}
@@ -201,10 +182,10 @@ const ElectricMl = () => {
             ></AnnotationDirective>
           </AnnotationsDirective>
           <SeriesCollectionDirective>
-            {MlPrData.map((item, index) => (
+            {MlRealData.map((item, index) => (
               <SeriesDirective key={index} {...item} />
             ))}
-            {MlRealData.map((item, index) => (
+            {MlPrData.map((item, index) => (
               <SeriesDirective key={index} {...item} />
             ))}
           </SeriesCollectionDirective>
@@ -213,5 +194,4 @@ const ElectricMl = () => {
     </div>
   );
 };
-
 export default ElectricMl;

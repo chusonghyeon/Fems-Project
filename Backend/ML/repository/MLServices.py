@@ -15,8 +15,8 @@ HOST = DB['host']
 PORT = DB['port']
 DATABASE = DB['database']
 
-# ML예측 값 출력
-def GET_ML_data():
+# ML 실제 값 출력
+def GET_ML_real_data():
     try:
         
         # DB서버        
@@ -25,19 +25,38 @@ def GET_ML_data():
         
         with connection.cursor() as cursor:
             query = " select " +\
-                    " left(run_datetime,8) as rundate, " +\
-                    " cast(round(sum(y),2) as char) as Y_real_Data, " +\
-                    " cast(round(sum(yhat),2) as char) as Y_pred_Data " +\
-                    " from tp \n" +\
-                    " where left(run_datetime,4) ='2022' " +\
-                    " group by left(run_datetime, 8) " +\
-                    " order by left(run_datetime, 8);"
+                    " rundate, " +\
+                    " Y_real_Data_fix " +\
+                    " from tp_fix_null " +\
+                    " WHERE left(rundate,4) = '2022' and  rundate BETWEEN '20220103' and '20221024';"
             cursor.execute(query)
             rv = cursor.fetchall()
             json_data = json.dumps(rv, indent=4)
-            _logger.Info(f"succed to do 'Get_ML_Data'")
+            _logger.Info(f"succed to do 'GET_ML_real_data'")
             
             return json_data
     except Exception as ex:
-        print(query)
-        _logger.Info(f"error to do 'Get_ML_Data'")
+        _logger.Info(f"error to do 'GET_ML_real_data'")
+        
+# ML 예측 값 출력
+def GET_ML_pred_data():
+    try:
+        
+        # DB서버        
+        connection = pymysql.connect(host= DB['host'], port= 3306, user= DB['user'], password= DB['password'],
+                                     db= DB['database'], charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)
+        
+        with connection.cursor() as cursor:
+            query = " select " +\
+                    " rundate, " +\
+                    " Y_pred_Data " +\
+                    " from tp_fix_null" +\
+                    " WHERE left(rundate,4) = '2022';"
+            cursor.execute(query)
+            rv = cursor.fetchall()
+            json_data = json.dumps(rv, indent=4)
+            _logger.Info(f"succed to do 'GET_ML_pred_data'")
+            
+            return json_data
+    except Exception as ex:
+        _logger.Info(f"error to do 'GET_ML_pred_data'")

@@ -8,8 +8,14 @@ router = APIRouter(
 )
 
 
-# ML 예측
-@router.get("/ML")
-def Get_ML():
-    result = MLServices.GET_ML_data()
+# ML 실제값 
+@router.get("/Real_ML")
+def Get_real_ML():
+    result = MLServices.GET_ML_real_data()
+    return Response(content=result, media_type="application/json")
+
+# ML 예측값
+@router.get("/Pred_ML")
+def Get_pred_ML():
+    result = MLServices.GET_ML_pred_data()
     return Response(content=result, media_type="application/json")

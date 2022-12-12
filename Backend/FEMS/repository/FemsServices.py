@@ -52,15 +52,11 @@ async def Get_LpData_monthly_Daily_Data():
                                      db= DB['database'], charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)
         
         with connection.cursor() as cursor:
-            query = "select left(a.LpDate,6) as runDate, cast(round(sum(a.LpData),2) as char) as sumData " + \
-                    "from " + \
-                    "( " + \
-                    "   select LpDate, LpData " + \
-                    "   from raw_kepcodaylpdata " + \
-                    ") a " +\
-                    "group by left(a.LpDate, 6) " + \
-                    "order by left(LpDate,6) ; "
-
+            query = " select runDate," + \
+                    " sumData " +\
+                    " from month_lpdata \n " +\
+                    " group by runDate" +\
+                    " order by runDate;"
             cursor.execute(query)
             rv = cursor.fetchall()
             json_data = json.dumps(rv, indent=4)
