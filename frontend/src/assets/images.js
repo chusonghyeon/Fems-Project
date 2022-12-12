@@ -1,17 +1,7 @@
-export const LoginImg = {
-  //절대경로를 찾아우는 경우 로그인jpg
-  login: "./images/bg-login6.jpg",
-};
-
-export const leftLogoImg = {
-  //로고 이미지 가져오는 경우
-  leftlogo: "./images/LONGLOGO.png",
-};
-
-export const MainLogoImg = {
-  Mainlogo: "./images/LOGO.png",
-};
-
-export const MainImg = {
-  Mainimg: "./images/bg-welcome2.png",
+export const ImageStore = {
+  S3_URL: "https://useimg-fems.s3.ap-northeast-2.amazonaws.com/",
+  login: "bg-login6.jpg",
+  welcome: "bg-welcome2.png",
+  leftlogo: "LONGLOGO.png",
+  Mainlogo: "LOGO.png",
 };

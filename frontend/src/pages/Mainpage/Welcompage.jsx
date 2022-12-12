@@ -1,7 +1,9 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-// import { MainLogoImg, MainImg } from "../../assets/images";
+import { ImageStore } from "../../assets/images";
+
 const Welcompage = () => {
+  const { S3_URL, welcome, leftlogo, Mainlogo } = ImageStore;
   return (
     <div className="welcome relative w-full h-full z-0">
       <div className="w-full flex justify-center">
@@ -19,7 +21,7 @@ const Welcompage = () => {
             <NavLink to={"/전력 예측"} key={"welcome"}>
               <img
                 className="transition-all bg-wh rounded-xl invert brightness-0"
-                src={"/images/LOGO.png"}
+                src={`${S3_URL}${Mainlogo}`}
                 priority="true"
                 alt="Mainlogo"
               />
@@ -57,7 +59,7 @@ const Welcompage = () => {
       <img
         className="BG-IMG absolute w-full h-88vh -z-20 rounded-3xl"
         alt="Mainimg"
-        src={"./images/bg-welcome2.png"}
+        src={`${S3_URL}${welcome}`}
       />
     </div>
   );

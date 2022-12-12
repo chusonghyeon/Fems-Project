@@ -1,9 +1,9 @@
 import "remixicon/fonts/remixicon.css";
-// import { LoginImg } from "../../assets/images";
 import React, { useState } from "react";
 import ErrorMessage from "../common/ErrorMessage";
 import { useStateContext } from "../../context/UserContext";
 import LoadingSpinner from "./LoadingSpinner";
+import { ImageStore } from "../../assets/images";
 
 const Login = () => {
   const [id, setId] = useState("");
@@ -55,6 +55,8 @@ const Login = () => {
     e.preventDefault();
     submitLogin();
   };
+
+  const { S3_URL, login } = ImageStore;
   return (
     <div className="container laptop:h-screen laptop:grid laptop:place-items-center ">
       {isLoading && <LoadingSpinner asOverlay />}
@@ -65,7 +67,7 @@ const Login = () => {
         <img
           className="absolute w-full h-full object-cover object-center  rounded-3xl
           shadow-xl"
-          src={"/images/bg-login6.jpg"}
+          src={`${S3_URL}${login}`}
           alt="login-img"
           priority="true"
         />
