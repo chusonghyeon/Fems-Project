@@ -9,6 +9,7 @@ import {
   Page,
   Sort,
   Resize,
+  InfiniteScroll,
 } from "@syncfusion/ej2-react-grids";
 import { getValue } from "@syncfusion/ej2-base";
 
@@ -38,9 +39,14 @@ const DataGrid = () => {
     }
   }
 
-  const pageSettings = { pageSize: 10 };
+  const pageSettings = { pageSize: 30 };
   return (
-    <GridComponent dataSource={hElecDt} pageSettings={pageSettings} allowPaging>
+    <GridComponent
+      dataSource={hElecDt}
+      pageSettings={pageSettings}
+      enableInfiniteScrolling
+      height={300}
+    >
       <ColumnsDirective>
         <ColumnDirective
           headerText="일자"
@@ -57,7 +63,7 @@ const DataGrid = () => {
           valueAccessor={currencyFormatter}
         />
       </ColumnsDirective>
-      <Inject services={[Page, Sort, Filter, Group, Resize]} />
+      <Inject services={[InfiniteScroll, Sort, Filter, Group, Resize]} />
     </GridComponent>
   );
 };

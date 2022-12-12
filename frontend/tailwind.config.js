@@ -13,12 +13,16 @@ module.exports = {
       fontSize: {
         14: "14px",
       },
+      color: {
+        mint: "#47C6C5",
+      },
       backgroundColor: {
         "main-bg": "#FAFBFB",
         "main-dark-bg": "#20232A",
         "secondary-dark-bg": "#33373E",
         "light-gray": "#F7F7F7",
         "half-transparent": "rgba(0, 0, 0, 0.5)",
+        mint: "#47C6C5",
       },
       borderWidth: {
         1: "1px",
@@ -30,7 +34,6 @@ module.exports = {
         none: "0",
         sm: "0.125rem",
         DEFAULT: "0.25rem",
-        DEFAULT: "4px",
         md: "0.375rem",
         lg: "0.5rem",
         xl: "3.5rem",

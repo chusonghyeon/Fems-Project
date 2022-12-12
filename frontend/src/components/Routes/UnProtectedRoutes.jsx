@@ -5,8 +5,8 @@ import { Login } from "../";
 const UnProtectedRoutes = () => {
   return (
     <Routes>
-      <Route path="/Login" element={<Login />} />
-      <Route path="*" element={<Navigate replace to="/Login" />} />
+      <Route path="/" element={<Login />} />
+      <Route path="*" element={<Navigate replace to="/" />} />
     </Routes>
   );
 };

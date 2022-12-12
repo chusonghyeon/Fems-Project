@@ -5,8 +5,8 @@ import {
   Filter,
   GridComponent,
   Group,
+  InfiniteScroll,
   Inject,
-  Page,
   Sort,
 } from "@syncfusion/ej2-react-grids";
 import { getValue } from "@syncfusion/ej2-base";
@@ -14,7 +14,6 @@ import { useStateContext } from "../../context/UserContext";
 
 const HumidityGrid = () => {
   const { hHumiDt } = useStateContext();
-  // const [humiDt, setHumiDt] = useState();
 
   function StringToDateFormatter(field, data) {
     let date = getValue(field, data);
@@ -34,9 +33,8 @@ const HumidityGrid = () => {
     return `${year}-${month}`;
   }
 
-  const pageSettings = { pageSize: 10 };
   return (
-    <GridComponent dataSource={hHumiDt} pageSettings={pageSettings} allowPaging>
+    <GridComponent dataSource={hHumiDt} enableInfiniteScrolling height={300}>
       <ColumnsDirective>
         <ColumnDirective
           headerText="실행시간"
@@ -44,6 +42,7 @@ const HumidityGrid = () => {
           width="10"
           textAlign="Right"
           valueAccessor={StringToDateFormatter}
+          v
         />
         <ColumnDirective
           headerText="설정습도"
@@ -70,7 +69,7 @@ const HumidityGrid = () => {
           textAlign="Center"
         />
       </ColumnsDirective>
-      <Inject services={[Page, Sort, Filter, Group]} />
+      <Inject services={[InfiniteScroll, Sort, Filter, Group]} />
     </GridComponent>
   );
 };

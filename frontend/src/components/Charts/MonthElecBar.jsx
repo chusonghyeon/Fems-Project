@@ -17,6 +17,7 @@ import { MElecLinePrimaryXAxis, MonthElecPrimaryYAxis } from "../../data/dummy";
 const MonthElecBar = () => {
   const { mElecDt } = useStateContext();
   const ElecDataSource = [];
+  let palettes = ["#FBBB04"];
 
   // 전력량 차트에
   let elecArray = [];
@@ -30,7 +31,7 @@ const MonthElecBar = () => {
   });
   ElecDataSource.push([...elecArray]);
 
-  console.log(elecArray);
+  // console.log(elecArray);
 
   // 전력량
   const AreaElecData = [
@@ -60,6 +61,7 @@ const MonthElecBar = () => {
           enable: true,
           lineType: "Vertical",
         }}
+        palettes={palettes}
       >
         <Inject
           services={[

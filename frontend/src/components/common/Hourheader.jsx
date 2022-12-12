@@ -45,7 +45,7 @@ const IconSVG = styled.svg`
 const SelectBox = (props) => {
   const handleChange = (e) => {
     // event handler
-    console.log(e.target.value);
+    // console.log(e.target.value);
   };
 
   return (
@@ -93,7 +93,7 @@ const Hourheader = () => {
       runDate: { value: Hourdate },
     } = e.target;
 
-    console.log(e.target);
+    // console.log(e.target);
 
     const ParseHourDate = Hourdate.replaceAll("/", "");
 
@@ -102,7 +102,7 @@ const Hourheader = () => {
       runDate: ParseHourDate,
     });
     // 첫번째 {} -> {ahu_id: 'A00', runDate: '20220901'}
-    console.log(startDate);
+    // console.log(startDate);
   };
 
   // set 부분을 useEffect로
@@ -142,7 +142,8 @@ const Hourheader = () => {
           <Hourdate name="runDate" />
           <button
             type="submit"
-            className="pointer w-32 h-auto text-white bg-blue-500 rounded-md"
+            S
+            className="pointer w-32 h-auto text-white bg-blue-500 hover:bg-blue-600 focus:ring-4 focus:outline-none focus:ring-blue-300 transition focus:ease-in-out rounded-md"
           >
             검색
           </button>

@@ -1,7 +1,6 @@
 // context hooks , redux 역할 , 전체에 토큰인증?
 
-import React from "react";
-import { useEffect } from "react";
+import React, { useLayoutEffect } from "react";
 import { useState } from "react";
 import { createContext } from "react";
 import { useContext } from "react";
@@ -15,7 +14,10 @@ const initialState = {
 
 // 토큰인증
 export const UserProvider = ({ children }) => {
-  const [token, setToken] = useState(localStorage.getItem("awesomeToken"));
+  // 깜빡임의 원인
+  const [token, setToken] = useState(sessionStorage.getItem("awesomeToken"));
+
+  const [login, setLogin] = useState(false);
 
   // -------------------------------------
 
@@ -79,7 +81,7 @@ export const UserProvider = ({ children }) => {
   // -------------------------------------
 
   // 메인페이지에서 요청할 토큰 정보
-  useEffect(() => {
+  useLayoutEffect(() => {
     const fetchUser = async () => {
       const requestOptions = {
         method: "GET",
@@ -156,6 +158,8 @@ export const UserProvider = ({ children }) => {
         setDElecDt,
         mElecDt,
         setMElecDt,
+        login,
+        setLogin,
       }}
     >
       {children}
