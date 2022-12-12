@@ -5,12 +5,11 @@ import { MdOutlineCancel } from "react-icons/md";
 import { TooltipComponent } from "@syncfusion/ej2-react-popups";
 import { links } from "../../data/dummy";
 import { useStateContext } from "../../context/UserContext";
-import logo from "../../img/LONGLOGO.png";
-
+import { ImageStore } from "../../assets/images";
 const Sidebar = () => {
   const { activeMenu, setActiveMenu, screenSize, currentColor } =
     useStateContext();
-
+  const { S3_URL, leftlogo } = ImageStore;
   // 창 닫기?
   const handleCloseSideBar = () => {
     if (activeMenu && screenSize <= 900) {
@@ -36,7 +35,11 @@ overflow 의 값을 auto 로 설정할 경우 부모요소의 범위를 넘어�
               onClick={handleCloseSideBar} // useStateContext 사용하고
               className="items-center gap-3 ml-3 mt-4 flex text-xl tracking-tight dark:text-white text-slate-700"
             >
-              <img className="w-40 h-20" src={logo} alt="logo-img" />
+              <img
+                className="w-40 h-20"
+                src={`${S3_URL}${leftlogo}`}
+                alt="leftlogo2"
+              />
               {/* <span>AMS</span> */}
             </Link>
             <TooltipComponent content="Menu" position="BottomCenter">
