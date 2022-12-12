@@ -42,11 +42,13 @@ const GongjoCompare = () => {
       PowerArray.push({
         // x: new Date(year, month),
         x: month,
-        y: item.sumData * 1,
+        y: item.sumData ,
       });
     }
   });
   CompareChartData.push([...PowerArray]);
+
+
 
   // 22년도 월 전력량
   PowerArray = [];
@@ -57,7 +59,7 @@ const GongjoCompare = () => {
       PowerArray.push({
         // x: new Date(year, month),
         x: month,
-        y: item.sumData * 1,
+        y: item.sumData ,
       });
     }
     // console.log(typeof month);
@@ -86,6 +88,7 @@ const GongjoCompare = () => {
       yName: "y",
     },
   ];
+  const palette = ["#47fc80","#faf170"]
 
   return (
     <div className="w-full text-center m-5">
@@ -98,15 +101,16 @@ const GongjoCompare = () => {
         tooltip={{ enable: true }}
         width="auto"
         height="300px"
+        palettes={palette}
       >
         <Inject
           services={[ColumnSeries, Legend, Tooltip, Resize, DateTimeCategory]}
         ></Inject>
         <SeriesCollectionDirective>
-          {CompareYearData22.map((item, index) => (
+          {CompareYearData21.map((item, index) => (
             <SeriesDirective key={index} {...item} />
           ))}
-          {CompareYearData21.map((item, index) => (
+          {CompareYearData22.map((item, index) => (
             <SeriesDirective key={index} {...item} />
           ))}
         </SeriesCollectionDirective>
