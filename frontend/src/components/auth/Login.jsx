@@ -1,5 +1,5 @@
 import "remixicon/fonts/remixicon.css";
-import bgimg from "../../img/bg-login6.jpg";
+import { LoginImg } from "../../assets/images";
 import React, { useState } from "react";
 import ErrorMessage from "../common/ErrorMessage";
 import { useStateContext } from "../../context/UserContext";
@@ -65,7 +65,7 @@ const Login = () => {
         <img
           className="absolute w-full h-full object-cover object-center  rounded-3xl
           shadow-xl"
-          src={bgimg}
+          src={"/images/bg-login6.jpg"}
           alt="login-img"
           priority="true"
         />
