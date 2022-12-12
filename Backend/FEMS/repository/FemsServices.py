@@ -115,12 +115,13 @@ async def Get_AHU_KWh_Daily_Data(runDate: str):
         
         with connection.cursor() as cursor:
             query = " select " +\
-                " left(LpDate,8) as rundate, " +\
-                " cast(round(sum(LpData), 2) as char) as LpData " +\
-                "from raw_kepcodaylpdata \n" +\
-                f"where left(LpDate, 6) = " + "'" + runDate + "'" +\
-                "group by left(LpDate, 8) " + \
-                "order by left(LpDate, 8);"
+                    " left(LpDate,8) as rundate, " +\
+                    " cast(round(sum(distinct LpData), 2) as char) as LpData " +\
+                    " from raw_kepcodaylpdata \n " +\
+                    f" where left(LpDate,6) = " + "'" + runDate + "'" +\
+                    " group by left(LpDate,8) " +\
+                    " order by left(LpDate,8); "
+                    
             cursor.execute(query)
             rv = cursor.fetchall()
             json_data = json.dumps(rv, indent=4)
@@ -143,11 +144,11 @@ async def Get_AHU_KWh_monthly_Data(runDate: str):
         with connection.cursor() as cursor:
             query = " select " +\
                 " left(LpDate,6) as rundate, " +\
-                " cast(round(sum(LpData), 2) as char) as LpData " +\
-                "from raw_kepcodaylpdata \n" +\
-                f"where left(LpDate, 4) = " + "'" + runDate + "'" +\
-                "group by left(LpDate, 6) " + \
-                "order by left(LpDate, 6);"
+                " cast(round(sum(distinct LpData), 2) as char) / 4 as LpData " +\
+                " from raw_kepcodaylpdata \n" +\
+                f" where left(LpDate, 4) = " + "'" + runDate + "'" +\
+                " group by left(LpDate, 6) " + \
+                " order by left(LpDate, 6); "
             cursor.execute(query)
             rv = cursor.fetchall()
             json_data = json.dumps(rv, indent=4)
