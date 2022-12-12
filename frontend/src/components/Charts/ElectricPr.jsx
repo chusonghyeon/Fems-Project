@@ -69,7 +69,7 @@ const ElectricMl = () => {
     const fetchData = async () => {
       const response = await axios.get(SERVER_URL);
       setMl(response.data);
-      console.log(response.data);
+      // console.log(response.data);
     };
 
     fetchData();
@@ -81,8 +81,8 @@ const ElectricMl = () => {
   ml.forEach((item) => {
     let year = item.rundate.slice(0, 4);
     let month = item.rundate.slice(4, 6) - 1;
-    console.log(month);
-    console.log(typeof month);
+    // console.log(month);
+    // console.log(typeof month);
     let day = item.rundate.slice(6, 8);
     mlArray.push({
       x: new Date(year, month, day),

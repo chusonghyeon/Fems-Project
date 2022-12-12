@@ -60,11 +60,11 @@ const GongjoCompare = () => {
         y: item.sumData * 1,
       });
     }
-    console.log(typeof month);
+    // console.log(typeof month);
   });
   CompareChartData.push([...PowerArray]);
 
-  console.log(CompareChartData);
+  // console.log(CompareChartData);
 
   // // 비교차트 2021전력량
   const CompareYearData21 = [
