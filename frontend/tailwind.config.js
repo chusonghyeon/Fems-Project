@@ -15,7 +15,9 @@ module.exports = {
       },
       color: {
         mint: "#47C6C5",
+        bluedarkgray: "#453E67",
       },
+
       backgroundColor: {
         "main-bg": "#FAFBFB",
         "main-dark-bg": "#20232A",
@@ -23,18 +25,21 @@ module.exports = {
         "light-gray": "#F7F7F7",
         "half-transparent": "rgba(0, 0, 0, 0.5)",
         mint: "#47C6C5",
+        "light-mint": "#5ed8ed",
       },
       borderWidth: {
         1: "1px",
       },
       borderColor: {
         color: "rgba(0, 0, 0, 0.1)",
+        mint: "#47C6C5",
+        bluedarkgray: "#453E67",
       },
       borderRadius: {
         none: "0",
         sm: "0.125rem",
         DEFAULT: "0.25rem",
-        DEFAULT: "4px",
+        // DEFAULT: "4px",
         md: "0.375rem",
         lg: "0.5rem",
         xl: "3.5rem",
