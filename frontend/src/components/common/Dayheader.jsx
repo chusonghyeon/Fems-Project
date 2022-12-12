@@ -87,8 +87,8 @@ const Dayheader = () => {
       runDate: { value: Daydate },
     } = e.target;
 
-    console.log(e.target);
-    console.log(Daydate);
+    // console.log(e.target);
+    // console.log(Daydate);
 
     const ParseDayDate = Daydate.replaceAll("/", "");
 
@@ -97,17 +97,17 @@ const Dayheader = () => {
       runDate: ParseDayDate,
     });
     // 첫번째 {} -> {ahu_id: 'A00', runDate: '20220901'}
-    console.log(startDate);
+    // console.log(startDate);
   };
 
   // set 부분을 useEffect로
   useEffect(() => {
     const fetchData = async (idDate) => {
       // 2번째 {} -> {ahu_id: 'A00', runDate: '20220901'}
-      console.log(idDate);
+      // console.log(idDate);
 
       // 3번째 undefined -> A00
-      console.log(idDate.ahu_id);
+      // console.log(idDate.ahu_id);
       const response = await axios.get(SERVER_URL, {
         params: {
           ahu_id: `${idDate.ahu_id}`,
@@ -116,7 +116,7 @@ const Dayheader = () => {
       });
       setDTempDt(response.data);
       // [] -> 받아와짐
-      console.log(response.data);
+      // console.log(response.data);
     };
 
     fetchData(startDate);

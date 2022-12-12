@@ -86,7 +86,7 @@ const MonthHumidityChart = () => {
   });
   TempDataSource.push([...tempArray]);
 
-  console.log(TempDataSource);
+  // console.log(TempDataSource);
 
   const LineTempData = [
     {
