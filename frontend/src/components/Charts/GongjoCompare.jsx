@@ -12,11 +12,12 @@ import {
 import { Resize } from "@syncfusion/ej2-react-grids";
 import axios from "axios";
 import { GongjoPrimaryXAxis, GongjoPrimaryYAxis } from "../../data/dummy";
-
+import { useStateContext } from "../../context/UserContext";
 //api 주소
 const SERVER_URL = "/Get_LpData_monthly_Daily_Data";
 
 const GongjoCompare = () => {
+  const { currentMode } = useStateContext();
   const [compareData, setCompareData] = useState([]);
   const CompareChartData = [];
 
@@ -100,6 +101,7 @@ const GongjoCompare = () => {
         width="auto"
         height="300px"
         palettes={palette}
+        background={currentMode === "Dark" ? "#33373E" : "#fff"}
       >
         <Inject
           services={[ColumnSeries, Legend, Tooltip, Resize, DateTimeCategory]}

@@ -4,4 +4,5 @@ export const ImageStore = {
   welcome: "bg-welcome2.png",
   leftlogo: "LONGLOGO.png",
   Mainlogo: "LOGO.png",
+  mainleftlogo: "mainleftgo.png",
 };

@@ -19,6 +19,7 @@ import { Browser } from "@syncfusion/ej2-base";
 import axios from "axios";
 import { useState } from "react";
 import { MlPrimaryXAxis, MlPrimaryYAxis } from "../../data/dummy";
+import { useStateContext } from "../../context/UserContext";
 import "../../css/Custom.css";
 const Predict_CSS = `
      .control-fluid {
@@ -61,6 +62,7 @@ const ElectricMl = () => {
   const [real, setReal] = useState([]);
   const MlDataSource = [];
   const RealDataSource = [];
+  const { currentMode } = useStateContext();
 
   const RealData = async () => {
     const response = await axios.get(REAL_URL);
@@ -156,6 +158,7 @@ const ElectricMl = () => {
           height="auto"
           title="2022년 전력 소비량 예측"
           palettes={palette}
+          background={currentMode === "Dark" ? "#33373E" : "#fff"}
         >
           <Inject
             services={[

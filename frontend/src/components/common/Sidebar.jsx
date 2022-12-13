@@ -9,7 +9,7 @@ import { ImageStore } from "../../assets/images";
 const Sidebar = () => {
   const { activeMenu, setActiveMenu, screenSize, currentColor } =
     useStateContext();
-  const { S3_URL, leftlogo } = ImageStore;
+  const { S3_URL, mainleftlogo } = ImageStore;
   // 창 닫기?
   const handleCloseSideBar = () => {
     if (activeMenu && screenSize <= 900) {
@@ -37,7 +37,7 @@ overflow 의 값을 auto 로 설정할 경우 부모요소의 범위를 넘어�
             >
               <img
                 className="w-40 h-20"
-                src={`${S3_URL}${leftlogo}`}
+                src={`${S3_URL}${mainleftlogo}`}
                 alt="leftlogo2"
               />
               {/* <span>AMS</span> */}
