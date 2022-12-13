@@ -36,9 +36,19 @@
 * 데이터 베이스에 있는 로그인 계정과 
 
 ### 👌 메인 페이지
+
 <p align="center">
-	<img width="700px" height="400px" src="https://user-images.githubusercontent.com/50833458/207267048-dfd275db-a8e7-4449-8889-a4a5b77ba8ae.PNG")
+	<img width="700px" height="400px" src="https://user-images.githubusercontent.com/50833458/207275991-0dd6dcf1-9204-4c24-88bd-7d55f185d823.PNG"/>
 </p>
+
+*
+*
+
+<p align="center">
+	<img width="700px" height="400px" src="https://user-images.githubusercontent.com/50833458/207267048-dfd275db-a8e7-4449-8889-a4a5b77ba8ae.PNG"/>
+</p>
+
+
 
 *
 *
@@ -47,7 +57,7 @@
 #### 🧐 설비정보
 
 <p align="center">
-	<img width="700px" height="400px" src="https://user-images.githubusercontent.com/50833458/207272972-b1d68aa4-a1f7-4b15-9d32-807b334a4d27.PNG")
+	<img width="700px" height="400px" src="https://user-images.githubusercontent.com/50833458/207272972-b1d68aa4-a1f7-4b15-9d32-807b334a4d27.PNG"/>
 </p>
 
 
@@ -56,7 +66,7 @@
 #### 🧐 각 카테고리별 데이터 시각화(전력량, 온도, 습도)
 
 <p align="center">
-	<img width="700px" height="400px" src="https://user-images.githubusercontent.com/50833458/207273309-3f0f9f6b-3b18-4641-a6b2-e98041041e0d.PNG")
+	<img width="700px" height="400px" src="https://user-images.githubusercontent.com/50833458/207273309-3f0f9f6b-3b18-4641-a6b2-e98041041e0d.PNG"/>
 </p>
 
 *
@@ -65,7 +75,7 @@
 
 
 <p align="center">
-	<img width="700px" height="400px" src="https://user-images.githubusercontent.com/50833458/207274185-bf56b225-d8e0-4c9d-96bc-6caf4c3d0dd5.PNG")
+	<img width="700px" height="400px" src="https://user-images.githubusercontent.com/50833458/207274185-bf56b225-d8e0-4c9d-96bc-6caf4c3d0dd5.PNG"/>
 </p>
 
 *
@@ -73,7 +83,7 @@
 *
 
 <p align="center">
-	<img width="700px" height="400px" src="https://user-images.githubusercontent.com/50833458/207274341-fb57b155-1e9c-468e-a4ad-84d7674f45ed.PNG")
+	<img width="700px" height="400px" src="https://user-images.githubusercontent.com/50833458/207274341-fb57b155-1e9c-468e-a4ad-84d7674f45ed.PNG"/>
 </p>
 
 *
@@ -84,7 +94,7 @@
 ## 🌟 배포
 
 <p align="center">
-	<img width="700px" height="400px" src="https://user-images.githubusercontent.com/50833458/207270237-82b00601-0e28-416f-b277-f2649dda90a6.png")
+	<img width="700px" height="400px" src="https://user-images.githubusercontent.com/50833458/207270237-82b00601-0e28-416f-b277-f2649dda90a6.png"/>
 </p>
 
 ## History
