@@ -4,11 +4,11 @@ import {
   ColumnsDirective,
   ColumnDirective,
   Inject,
-  Page,
   Edit,
   Toolbar,
   Sort,
   Filter,
+  InfiniteScroll
 } from "@syncfusion/ej2-react-grids";
 
 import "./Gongjoinfo.css";
@@ -18,7 +18,6 @@ import { useEffect } from "react";
 import axios from "axios";
 
 const Customers = () => {
-  const pageSettings = { pageSize: 10 };
   const SERVER_URL = "Get_AHU_Info";
 
   const [gongjoInfo, setGongjoInfo] = useState([]);
@@ -37,19 +36,18 @@ const Customers = () => {
       id="grid"
       dataSource={gongjoInfo}
       // {/* allowPaging = 페이지 매김 */}
-      allowPaging
-      pageSettings={pageSettings}
       allowSorting
       toolbar={["Search"]}
       editSettings={{ allowEditing: false }}
       width="auto"
-    >
+      enableInfiniteScrolling
+  >
       <ColumnsDirective>
         {customersGrid.map((item, index) => (
           <ColumnDirective key={index} {...item} />
         ))}
       </ColumnsDirective>
-      <Inject services={[Page, Sort, Toolbar, Edit, Filter]} />
+      <Inject services={[ Sort, Toolbar, Edit, Filter,InfiniteScroll]} />
     </GridComponent>
   );
 };

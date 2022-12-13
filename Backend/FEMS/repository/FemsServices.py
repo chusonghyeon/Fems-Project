@@ -144,7 +144,7 @@ async def Get_AHU_KWh_monthly_Data(runDate: str):
         with connection.cursor() as cursor:
             query = " select " +\
                 " left(LpDate,6) as rundate, " +\
-                " cast(round(sum(distinct LpData), 2) as char) / 4 as LpData " +\
+                " cast(round(sum(distinct LpData), 2) as char) as LpData " +\
                 " from raw_kepcodaylpdata \n" +\
                 f" where left(LpDate, 4) = " + "'" + runDate + "'" +\
                 " group by left(LpDate, 6) " + \
