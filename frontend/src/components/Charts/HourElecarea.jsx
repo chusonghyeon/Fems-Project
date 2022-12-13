@@ -14,7 +14,7 @@ import {
 import { useStateContext } from "../../context/UserContext";
 import { ElecLinePrimaryYAxis, HElecPrimaryXAxis } from "../../data/dummy";
 const HourElecarea = () => {
-  const { hElecDt } = useStateContext();
+  const { currentMode, hElecDt } = useStateContext();
   const ElecDataSource = [];
 
   // 전력량 차트에
@@ -62,6 +62,7 @@ const HourElecarea = () => {
         title="시간별 전력량"
         tooltip={{ enable: true, shared: true }}
         crosshair={{ enable: true, lineType: "Vertical" }}
+        background={currentMode === "Dark" ? "#33373E" : "#fff"}
         // palettes={palette}
       >
         <Inject

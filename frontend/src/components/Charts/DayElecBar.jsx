@@ -14,7 +14,7 @@ import {
 import { useStateContext } from "../../context/UserContext";
 import { DayElecPrimaryYAxis, DElecPrimaryXAxis } from "../../data/dummy";
 const DayElecBar = () => {
-  const { dElecDt } = useStateContext();
+  const { currentMode, dElecDt } = useStateContext();
   const ElecDataSource = [];
 
   // 전력량 차트에
@@ -63,6 +63,7 @@ const DayElecBar = () => {
           enable: true,
           lineType: "Vertical",
         }}
+        background={currentMode === "Dark" ? "#33373E" : "#fff"}
       >
         <Inject
           services={[

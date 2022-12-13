@@ -29,6 +29,7 @@ const Navbar = () => {
     currentColor,
     token,
     setToken,
+    currentMode,
   } = useStateContext();
 
   const handleLogout = () => {
@@ -53,7 +54,7 @@ const Navbar = () => {
   }, [screenSize]);
 
   return (
-    <div className="flex justify-between p-2 md:mx-6 relative bg-white">
+    <div className="flex justify-between p-2 md:mx-6 relative bg-white rounded-b-lg dark:bg-secondary-dark-bg">
       <NavButton
         title="Menu"
         customFunc={() => setActiveMenu((prevActiveMenu) => !prevActiveMenu)}

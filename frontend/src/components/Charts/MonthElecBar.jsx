@@ -15,7 +15,7 @@ import {
 import { useStateContext } from "../../context/UserContext";
 import { MElecLinePrimaryXAxis, MonthElecPrimaryYAxis } from "../../data/dummy";
 const MonthElecBar = () => {
-  const { mElecDt } = useStateContext();
+  const { currentMode, mElecDt } = useStateContext();
   const ElecDataSource = [];
   let palettes = ["#FBBB04"];
 
@@ -62,6 +62,7 @@ const MonthElecBar = () => {
           lineType: "Vertical",
         }}
         palettes={palettes}
+        background={currentMode === "Dark" ? "#33373E" : "#fff"}
       >
         <Inject
           services={[

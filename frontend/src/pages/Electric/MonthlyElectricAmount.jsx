@@ -57,7 +57,6 @@ const Electricamount = () => {
           </button>
         </div>
       </form>
-
       <MonthElecBar />
       <MonthElectricGrid />
     </div>

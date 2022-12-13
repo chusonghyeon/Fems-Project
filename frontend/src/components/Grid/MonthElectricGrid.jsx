@@ -15,7 +15,7 @@ import { getValue } from "@syncfusion/ej2-base";
 
 import { useStateContext } from "../../context/UserContext";
 const MonthElectricGrid = () => {
-  const { mElecDt } = useStateContext();
+  const { currentMode, mElecDt } = useStateContext();
 
   function currencyFormatter(field, data) {
     return getValue(field, data) + " kWh";
@@ -36,11 +36,12 @@ const MonthElectricGrid = () => {
       pageSettings={pageSettings}
       enableInfiniteScrolling
       height={300}
+      background={currentMode === "Dark" ? "#33373E" : "#fff"}
     >
       <ColumnsDirective>
         <ColumnDirective
           headerText="일자"
-          field="rundate" //시간별전력량 backend Api name
+          field="rundate" //월별전력량 backend Api name
           width="100"
           textAlign="Center"
           valueAccessor={StringToDateFormatter}

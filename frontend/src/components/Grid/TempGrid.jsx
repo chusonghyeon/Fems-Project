@@ -13,7 +13,7 @@ import { getValue } from "@syncfusion/ej2-base";
 import { useStateContext } from "../../context/UserContext";
 
 const TempGrid = () => {
-  const { hTempDt } = useStateContext();
+  const { currentMode, hTempDt } = useStateContext();
 
   function StringToDateFormatter(field, data) {
     let date = getValue(field, data);
@@ -41,6 +41,7 @@ const TempGrid = () => {
           width="10"
           textAlign="Right"
           valueAccessor={StringToDateFormatter}
+          background={currentMode === "Dark" ? "#33373E" : "#fff"}
         />
         <ColumnDirective
           headerText="설정온도"

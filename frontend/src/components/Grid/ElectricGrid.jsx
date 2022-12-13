@@ -15,7 +15,7 @@ import { getValue } from "@syncfusion/ej2-base";
 
 import { useStateContext } from "../../context/UserContext";
 const DataGrid = () => {
-  const { hElecDt } = useStateContext();
+  const { currentMode, hElecDt } = useStateContext();
 
   function currencyFormatter(field, data) {
     return getValue(field, data) + " kWh";
@@ -46,6 +46,7 @@ const DataGrid = () => {
       pageSettings={pageSettings}
       enableInfiniteScrolling
       height={300}
+      background={currentMode === "Dark" ? "#33373E" : "#fff"}
     >
       <ColumnsDirective>
         <ColumnDirective
