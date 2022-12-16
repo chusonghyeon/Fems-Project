@@ -33,7 +33,7 @@
 </p>
 
 * 백엔드에 있는 jwtToken 인증을 통해 로그인 할 수 있습니다.
-* 데이터 베이스에 있는 로그인 계정과 
+* 데이터 베이스에 있는 로그인 계정과 비밀번호로 메인 페이지 접속할 수 있습니다.
 
 ### 👌 메인 페이지
 
@@ -41,8 +41,8 @@
 	<img width="700px" height="400px" src="https://user-images.githubusercontent.com/50833458/207275991-0dd6dcf1-9204-4c24-88bd-7d55f185d823.PNG"/>
 </p>
 
-*
-*
+* 전반적인 FEMS 서비스를 볼 수 있습니다.
+* 메인에 있는 로고를 클릭하면 
 
 <p align="center">
 	<img width="700px" height="400px" src="https://user-images.githubusercontent.com/50833458/207267048-dfd275db-a8e7-4449-8889-a4a5b77ba8ae.PNG"/>
